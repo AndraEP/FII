@@ -1,0 +1,18 @@
+int f(int n){
+	_asm{
+		mov esi, [ebp+8]	//n
+		mov ecx,1			// counter
+		xor edi, edi	//rezultat final
+		mov eax,1			//factorial
+_while:
+		cmp ecx, esi	
+		jg gata
+		mul ecx //factorial* counter
+		add edi, eax //noul rezultat partial
+		inc ecx
+		jmp _while
+gata:
+		mov eax, edi
+		shl eax,1
+	}
+}
