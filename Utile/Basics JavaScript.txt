@@ -1,0 +1,98 @@
+1. Scriere/print/afisare
+    document.write();
+
+//double quotes sunt necesare pentru a afisa un text
+document.write("Hello World"); //va afisa: Hello World
+
+
+2. Storing values
+    var variable = value;
+    
+STRINGS:
+    var x = "Hello World"; //se memoreaza textul Hello World in variabila x de tip var
+
+BOOLEAN: TRUE or FALSE
+    var JS_sucks = false; //va memora o valoare de tip bool
+
+NUMBER:
+    var age = 22; //memoreaza in variabila age valoarea 22
+    var Age = 21; //memoreaza in variabila Age valoarea 21; CASE SENSITIVE
+    var with_decimal = 21.05; //memoreaza in with_decimal valoarea 21.05
+    var without_decimal = 21; //memoreaza in without_decimal valoarea 21
+    
+TWO VARIABLES:
+    val x = 3;
+    val y = 2;
+    val z = x + y;
+    
+ARRAYS:
+    var array_name=[]; //general; se incepe de la 0 pana la n-1
+    var numere=[1, 2, 3];
+    document.write(numere[1]); //va afisa 2
+    var string=["unu", "doi", "trei"];
+    
+3. Mathematical/logical symbols:
+
+adunare: + (var z = x+y;)
+scadere: - (var z = x-y;)
+inmutire: * (var z = x*y;)
+impartire: / (var z = x/y;)
+modulo: % (var z = x%y;)
+increment: ++ (z++;)
+decrement: -- (z--;)
+&&, ||, >, <, >=, <=, == and != the same as in C/C++ //for expresions
+
+4. Instructions
+
+//testing
+if (condition)                                  if(a>b)
+{                                               {
+    //operatii                                      a=b;
+}                                               }
+else                                            else
+{                                               {
+    //operatii                                      b=a;
+}                                               }
+
+//loop
+for (initial_value; condition; increase/decrease)          for(var i=0; i<n; i++)
+{                                                          {
+    //operatii                                                  document.write(i);
+}                                                          }
+
+
+do                                      do
+{                                       {
+    //operatii                              document.write(i);
+}while(condition);                      }while (i<n);
+
+5. Functions
+
+function nume_functie (list_of_parameters) //define function
+{
+    //reusable code
+}
+nume_functie(); //apelarea functiei
+
+function test (n, a)
+{
+    for (var i=a; i<=n; i++)
+        document.write(i, ": Today I am learning...");
+}
+test (5, 2); 
+
+6. Dialog boxes
+    6.1. Confirm 
+        //show confirmation messages for actions
+        //it has two buttons: OK(true/yes) and CANCEL(false/no)
+            confirm("Do you really want to delete this?"); //va afisa Do you really want to delete this?
+    6.2. Prompt 
+        //when it is wanted the user to input something
+        //raise an error
+        //it has a TEXT BOX and two buttons: OK and CANCEL
+            promt("Your name is:"); //va afisa Your name is:
+    6.3. Alert 
+        //it usually displays/shows messages or warning messages
+        //it has just one OK BUTTON
+            alert("message_you_want_to_send"); //va afisa message_you_want_to_send
+

@@ -1,0 +1,139 @@
+PROGRAME
+
+
+
+nano main.cpp //creez/modific program cpp sau orice fel de program
+
+g++ main.cpp //compilare program
+
+./a.out //rulare program
+
+sudo apt-get update //advanced packaging tool, va instala ce doresc
+
+
+
+
+
+DIRECTORY
+
+
+
+cd /media/andrapaduraru/MEDIA/Facultate/ //change directory
+
+cd / //navighez in main directory
+
+ls //list, afiseaza lista cu ce e in director
+
+ls -a //list, afiseaza lista cu ce e in director inclusiv hidden files
+
+ls -sh //afiseaza lista cu ce e in director si marimea in human readable
+
+rm -r //remove un directory
+
+pwd //afiseaza directorul in care lucrez
+
+
+
+
+
+FOLDERE/FISIERE EDIT
+
+
+
+mkdir nume_folder //creez un nou folder(dir)
+
+touch nume_fisier.extensie //creez fisier de un anume tip
+
+rm nume //remove ceva cu nume nume
+
+cp nume_fisier_initial nume_nou //face o copie la fisierul nume_fisier_initial
+
+mv    ...
+
+
+
+
+
+USER MANUAL
+
+
+
+man command/ info command/ command --help //
+
+
+
+
+
+FOLDERE/FISIERE CAUTARE
+
+
+
+grep ce_caut /etc/passwd //va cauta ceea ce doresc 
+***
+grep -rl "string" /path //va cauta recursive files in care se gaseste ce caut
+
+cat nume_fisier.extensie //arata ce se afla in fisier
+
+
+
+
+
+
+SYSTEM
+
+
+
+sudo poweroff //opreste laptopul din terminal
+
+df -h //afiseaza disk space usage human readable/MB si GB
+
+du nume_director //afiseaza disk space usage pt un anumit director, numele poate lipsi
+
+du -sh nume_director //afiseaza disk space usage summary pt un anumit director, numele poate lipsi
+
+free -m //afiseaza memoria ocupata si cea libera in MB
+
+top //afiseaza procesele care ruleaza si resursele sys, pt exit -> q
+
+uname -a //afiseaza info sys
+
+lsb_release -a //afiseaza info pt versiunea Linux
+
+
+
+
+
+
+https://help.ubuntu.com/community/UsingTheTerminal
+
+
+
+
+
+
+Lucru pe GitHub
+
+
+1. Aleg directorul unde doresc sa am copiile
+
+2. Pentru a initializa un rep nou: git init
+
+3. Fac fisierele cu: echo "# nume_folder" >> nume_fisier, asta va srie in fisier # nume_folder pe prima linie   
+    SAU
+   
+   copiez o clona de pe GitHub la un rep deja existent cu: git clone https://github.com/AndraEP/nume_repository.git
+
+4. Modific fisierele cum doresc (se poate cu nano).
+
+5. Pentru a anunta modificarile: git add .
+
+6. Pentru a preciza ce modificari se vor face se va scrie un scurt mesaj: git commit -m "mesaj"
+
+7. Se incarca pe site: git push -u origin master
+
+
+
+*pentru stergere* git remote rm origin / git remote -v
+
+
+
