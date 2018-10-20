@@ -1,0 +1,16 @@
+
+Resurse necesare: ArgoUML
+
+Problema 1: Creati urmatoarea ierarhie de clase.
+Clasa abstracta Contact care contine numele unei persoane
+Clasa Prieten derivata din clasa Contact care contine si data de nastere, numarul de telefon si adresa
+Clasa Cunoscut derivata din clasa Contact care contine numarul de telefon 
+Clasa Coleg derivata din clasa Contact care contine numarul de telefon, firma la care lucreaza si adresa
+Clasa Agenda care contine mai multe elemente de tipul Contact. Clasa Agenta are urmatoarele functii
+o functie pentru cautarea unui contact dupa nume
+o functie care returneaza o lista de prieteni (contacte de tipul Prieten)
+o functie care sterge un anumit contact dupa nume
+o functie care adauga un anumit contact
+Pentru crearea claselor se vor utiliza tehnici UML.
+Pentru tipul de contact (Prieten,  Cunoscut si Coleg) se va defini o enumerare (folosind tot metode UML) prin care se va descrie acest tip de date.
+Creati si un cod in main.cpp care sa ilustreze cum functioneaza aceste componente.

@@ -1,0 +1,341 @@
+http://www.gnu.org/software/bash/manual/bashref.html 
+1) mkdir so && cd so
+2) scp -r andra.paduraru@fenrir.info.uaic.ro:~/* .  //de pe server pe local
+3) scp -r andra.paduraru@fenrir.info.uaic.ro:~/   //de pe local inapoi pe server
+
+
+Conectare:	ssh andra.paduraru@fenrir.info.uaic.ro
+Documentatie: 	help sau man
+Compilare: g++ nume_fisier.extensie
+		g++ -o file   //in fisier
+		g++ 2> file  //redirectioneaza stderr in fisier
+		g++ 2>&1   //redirectioneaza stderr in stdout
+Rulare: ./nume_fisier.out
+
+
+USERI
+
+users 		//afiseaza numele utilizatorilor conectati
+who 		//in plus numele terminalelor si ora, ip etc
+w 		//afiseaza tot
+whoami 		//numele meu
+who am I 	//furnizeaza si mai multe date
+finger 		//info personale despre utilizatori
+
+
+PROCESE
+
+date 		//afiseaza data
+cal 		//afiseaza calendarul lunii sau al anului specificat
+uptime 		//timpul ultimei porniri al calculatorului
+
+ps //afiseaza info despre procesele existente ale utilizatorului curent
+	-a 	//a tuturor utilizatorilor
+	-g 	//ale unui grup
+	-l 	//modul format lung
+	-aux 	//afiseaza info despre toate procesele de sist ale tuturor utilizatorilor
+	-U utilizator //doar procesele utilizatorului specificat
+	-o 	//va afisa ce ii specific
+
+pid: identificatorul procesului
+tt: terminalul de control al procesului
+time: durata de executie a procesului
+stat: starea procesului
+cmd: linia de comanda prin care a fost lansat procesul
+
+ex: ps -U arg_utilizator -o pid= | wc -l //afiseazanumarul de procese ale utilizatorului specificat
+
+
+DREPTURI DE ACCES SI GRUPURI
+
+chmod cale //schimbarea drepturilor de acces pentru un fisier sau director sau calea curenta
+chown cale //schimbarea proprietarului pentru un fisier sau director sau calea curenta
+chgrp cale //schimbarea grupului proprietarului pentru un fisier sau director sau calea curenta
+-R //va schimba accesul/proprietarul/grupul recursiv
+
+-r (read) 4                      u =user                o =others
+-w (write) 2                   g =group              a =all
+-x (execute) 1
+
+
+ALTELE
+
+echo //afisare
+tar //arhivare
+comanda1 ; comanda2 ;  …  ; comandan //inlantuire de mai multe comenzi care se vor face pe rand
+cp locatie1 locatie2 //copiaza fisiere sau directoare
+	-n =fara sa le suprascrie
+mv loc1 loc2 //muta fisiere sau directoare
+	-n =fara sa le suprascrie
+ln //face linkuri in fisier
+	-s fisier1 fisier2 (symbolic link de la f1 la f2)
+
+
+PENTRU UN FISIER
+
+wc //precizeaza numarul de
+	-l =linii
+	-w =cuvinte
+	-m =caractere
+	-c =bytes
+	-L =lungimea maxima a liniei
+
+cat nume_fisier //afiseaza din fisier
+
+grep //cautare in fisier 
+	 pattern =dupa un anumit pattern
+ 	-c pattern =contorizeaza numarul de aparitii
+	-e pattern =returneaza liniile care includ pattern (andra, andrada)
+	-w pattern =doar cuvintele exacte cu pattern 
+	-v pattern =returneaza liniile care nu includ pattern
+	
+cut //filtru care slecteaza anumite portiuni din linie
+	-b n1-n2 =primele n1-n2 caract de pe linie
+	-f number1,number2 =fieldul cu numarul number1 si number2 al liniei
+	-s =afiseaza doar pe cei cu delimitator
+	-d delimitator_field =delimiteaza afisrea dupa un delimitator din linie
+	--output-delimiter=”delimitator” =inlocuieste -d cu delimiter
+
+sort (-r)//sortarea liniilor ascendent automat (sau descendent)
+	-n 		=numeric crescator
+	-t 'separator'  =separator de field
+	-u 		=in mod unic
+	-k parametru 	=se sorteaza dupa un parametru dat, numarul fieldului
+	-o fisier.extensie sau > fisier.extensie =se scrie in fisier
+
+tr //inlocuieste
+	‘c1’ ‘c2’	=fiecare aparitie a lui c1 cu c2
+	[:lower:] [:upper:]	=fiecare aparitie lower cu o aparitie upper
+	-s ‘c1’ ‘c2’	=fiecare aparitie a lui c1 din linie cu o singura aparitie a lui c2
+	
+head -n//afiseaza primele linii din fisier
+	n =afiseaza primele n linii
+	+n =afiseaza de la inceput pana la linia n
+
+tail -n //afiseaza utlimile linii din fisier
+	n =afiseaza ultimile n linii
+	+n =afiseaza de la linia n pana la final
+
+
+PENTRU MAI MULTE FISIERE
+
+ls //listeaza/parcurge fisierele
+	-R =recursiv(va afisa si ce se afla in foldere)
+	-a =afiseaza tot din director
+	-A =afiseaza tot din director fara .. si .
+	-l =afiseaza permisiunile si dimensiunile
+
+find (.)//cauta fisiere (in calea curenta pentru teste mai jos plus man)
+
+	-maxdepth 1 =nu va merge recursiv si va ramane in calea curenta
+	
+	-perm =afiseaza cele care au o anumita permisiune 
+		xyz =exact match
+		-xyz =u are cel putin x si g are cel putin y si o are cel putin z
+		-xyz =u are cel putin x sau g are cel putin y sau o are cel putin z
+
+	-exec =executa o comanda data
+	      stat //afiseaza statusul fisierelor normale sau de sistem si se fol dupa exec
+		-c =utilizeaza un format specificat (din cele de mai jos) si pune new line dupa
+		%n =numele fisierului
+		%a =acceseaza permisiunile/drepturile de acces in octal (pt hr se pune %A) 
+		%y =spune ora ultimei modificari a datelor in human-readable
+		%s =dimensiunea totala in bytes
+		%z =spune ora ultimei modificari a statusului in human-readable
+		%x =ora ultimei accesari in human-readable
+	       rm //pentru remove
+
+ex: find . -exec stat -c %n:%a {} \; //cauta si parcurge toate fisierele si subdirectoarele din calea curenta si le afiseaza numele si permisiunile; : face legatura dintre o instanta si alta, poate fi si alt caracter
+
+	-printf =afisare cu format
+		%p =numele fisierului
+		%g =numele grupului de unde provine fisierul (%G afiseaza numarul grupului)
+		%m =permisiunile in octal
+		%k =dimensiunea ocupata in kb
+		%s =dimensiunea in bytes
+		%a =timpul ultimei accesari
+		%c =timpul ultimului status schimbat
+		%t =timpul ultimei modificari
+		\n =linie noua
+
+ex: find . -perm /g+rx -printf "%p : %m\n" //cauta si afiseaza toate fis si dir+drepturile asociate din direct specificat in care grupul propriet are drepturi de executie si citire
+
+	-mmin n =afiseaza ce a fost modificat cu n minute in urma
+	-mmin -n =afiseaza ce a fost modificat cu mai putin de n minute in urma
+	-amin n =afiseaza ce a fost accesat cu n minute in urma
+	-mtime n =afiseaza ce a fost modificat cu n*24 ore in urma (similar -atime n)
+	-empty =afiseaza ce e gol (fisier normal sau dir)
+	-executable =afiseaza ce e executabil
+	-name “bucata_de_nume” =afiseaza ceea ce contine “bucata_de_nume”
+	-type f SAU -type d =afiseaza de tipul fisier sau director
+
+
+EXECUTII CU FISIERE DE COMENZI
+
+LANSAREA COMENZILOR SIMPLE
+
+	comanda [optiuni] [argumente] //optiunile sunt precedate de – iar argumentele sunt cel mai adesea nume de fisiere
+
+	bash comanda [optiuni] [argumente] //prin apelul unui anumit shell
+
+	. comanda [optiuni] [argumente] //doar pt comenzi ce sunt scripturi
+
+
+EXECUTIA COMENZILOR SIMPLE
+
+	comanda [parametri] & //parametrii sunt si optiuni si argumente
+
+
+CITIRE/AFISARE/ERORI
+
+	comanda < fisierin          //citeste din fisierin
+	comanda > fisierout        //afiseaza in fisierout de la 0, sterge tot ce era inainte
+	comanda >> fisierout      //afiseaza in fisierout in continuare la ce era
+	comanda 2> fisierr          //similar cu afisarea, sterge tot ce era inainte
+	comanda 2>> fisierr        //similar cu afisarea, adauga in continuare la ce era
+
+
+SPECIFICAREA NUMELOR DE FISIERE
+
+	~user/director/fisier*.extensie         //* inlocuieste orice sir de caractere inclusiv pe cel vid
+	~user/director/fisier?.extensie         //? inlocuieste un singur caracter, oricare ar fi acesta
+	~user/director/fisier[...].extensie     //[…] este o multime de caractere si inlocuieste exact un caracter cu cele enumerate specificate in paranteze
+
+ex: . ~user/director/fisier[1,3,18].extensie SAU ~user/director/fisier[1-3,18-20].extensie SAU ~user/director/fisier[1-3][12-18].extensie
+
+	~user/director/fisier[^...].extensie    //inlocuieste cu orice caracter diferit de ce e specificat
+
+
+PROCEDURI SHELL / SCRIPT-URI
+
+$0 		//numele procesului curent
+$1, $2, … , $9 //parametrii cu care a fost apelat procesul
+$# 		//numarul parametrilor din linia de apel sau comanda
+$*  SAU  $@	//lista param din linia de comanda; primul produce un singur cuvant ce contine toti; 		al doilea cate un cuvant pentru fiecare parametru; doar cand sunt pusi intre ghilimele
+# text 		//comentariu in script
+$$		//pid-ul procesului curent
+$?		//codul returnat de ultima comanda executata
+$!		//pid-ul ultimului proces executat in background
+$-		//optiunile cu care a fost lansat procesul shell (pag 89 manual so)
+${!i}		//va returna i
+
+
+EXECUTIE / APELARE
+
+#!nume_interpretor_comenzi //se scrie pe prima linie a fisierului
+
+	nume_script [parametri] //se creeaza un nou proces shell si apoi apelarea sau executia unui script
+
+	nume_shell nume_script [parametri] //similar ca mai sus + shell-ul este specificat
+
+	source nume_script [parametri] SAU . nume_script [parametri] //nu se mai creaza un nou proces chell, ci shell-ul curent va executa linie cu linie comenzile din fisier
+
+
+LUCRU CU VARIABILE
+
+	$var                         //definirea variabilei; utilizarea valorii lui var
+	var=valoare                  //atribuire
+	read var                     //citire de la tastatura
+	readonly var                 //declarare read only, nu mai pot fi modificate dupa
+	export var1 var2…  SAU   export var1=valoare var2=…      //variabila exportata
+	echo $var                    //afieaza pe ecran valoarea lui var
+	unset var SAU var=           //variabila v este distrusa
+	set                          //afiseaza lista variabilelor definite 
+
+v=123              //variabila v primeste valoarea “123” 
+cat xyv            //se afiseaza continutul fisierului “xyv” 
+cat xy$v           //se afiseaza continutul fisierului “xy123” 
+v=abc${v}xyz       //variabila v primeste valoarea “abc123xyz” 
+dir_curent=$(pwd)  //variabila va primi ca valoare valoarea comenzii pwd
+
+	${var:-}        //returneaza var daca este definita, altfel mesaj de eroare
+	${var:-sir}     //returneaza var daca este definita, altfel sir
+	${var:=sir}     //returneaza var daca este definita, altfel ii atribuie sir si returneaza sir 
+	${var:?sir}     //returneaza var daca e definita, mesajul sir altfel, eroare pentru niciuna 
+	${var:+sir}     //var va lua valoarea sir doar daca este definita
+
+
+LUCRU CU EXPRESII / CONDITII
+
+	let v=expresie		//v ia valoarea expresiei   ex: let v=v+1 
+	v= `expr $v +1`	        //v se incrementeaza
+
+	declare -i n		//n va fi de tip intreg
+	n=5*4			//n ia valoarea 20 doar daca e declarat
+	n=2**3		        //n ia valoarea 2^3 doar daca e declarat
+
+
+test conditie //expresia conditie poate fi: o comparatie între doua siruri de caractere sau intre doua 	valori numerice; conditia poate lipsi.
+
+		test expr_1 = expr_2 
+		test expr_1 != expr_2 
+		test val_1 -eq val_2	// val_1 = val_2
+		test val_1 -gt val_2 	// val_1 >  val_2
+		test val_1 -ge val_2 	// val_1  >= val_2
+		test val_1 -lt val_2 	// val_1  < val_2
+		test val_1 -le val_2	// val_1  <= val_2
+	***pentru documentatie → ghid utilizare linux IV, pag 22***
+
+      Pentru fisiere: test conditie nume_fisier (numele poate lipsi si se va testa doar conditia)
+		-e	//daca exista un fisier de orice tip cu numele nume_fisier
+		-d	//daca exista un director cu numele dat
+		-f	//daca exista un fisier obisnuit cu numele dat
+		-p	//daca e de tip fifo
+		-L	//daca e symbolic link
+		-s	//daca nu e vid, lungime>0
+		-r	//daca e readable
+		-w	//daca e writable
+		-x	//daca e executabil
+	***pentru documentatie → Manual SO, pag 97***
+
+      Pentru conditii logice: 
+		test !conditie			//neaga conditia
+		test cond1 -a cond2		//cond1&&cond2
+		test cond1 -o cond2		//cond1||cond2
+
+
+STRUCTURI DE CONTROL
+
+for (( expresie1; expresie2; expresie3 ))   		for variabila in `text`
+do				                        do
+	lista_comenzi			                   lista_comenzi
+done				                        done
+
+
+while lista_comenzi					until lista_comenzi
+do				             		do
+	lista_comenzi1			    		   lista_comenzi1
+done			           			done
+  
+
+if lista_comenzi 					if lista_comenzi
+then						        then
+	lista_comenzi1				  	   lista1
+else 							elif lista2
+	lista_comenzi2			  	        then 
+fi							   lista3
+			            			...
+				            		else 
+			             			   listan
+			            			fi
+
+
+COMENZI UTILE
+
+	break n		//n=1 daca lipseste; se iese afara din n bucle do-done
+	continue n	//n=1 daca lipseste; se reincepe de n ori bucla do-done
+	exit [cod]	//se incheie script-ul si returneaza cod; daca lipseste se returneaza $?
+	exec comanda 	//se executa comanda
+	basename n1 n2  //se afiseaza val lui n1 dupa ce se inlatura din el sufixul n2
+	wait pid	//se suspenda executia script-ului si se asteapta terminarea pid-ului dat
+
+***pentru documentatie → ghid utilizare linux IV, pag 25***
+***pentru documentatie → Manual SO, pag 99***
+
+
+FUNCTII
+
+function nume_functie			nume_functie ()
+{					{
+	lista_comenzi;				lista_comenzi;
+}				        }

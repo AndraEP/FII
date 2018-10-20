@@ -1,0 +1,11 @@
+Creati o functie de sortare care sa functioneze cu lambda expressions ? Functia va fi definita ca un template.
+
+1. using a pointer to a function:
+template <class T>
+void Sort(std::vector<T> lista, int (*Compare)(T &e1, T &e2));
+
+2. using std::function
+template <class T>
+void Sort(std::vector<T> lista, std::function<int(T &e1, T &e2));
+
+Pentru sortare implementati un quick sort.

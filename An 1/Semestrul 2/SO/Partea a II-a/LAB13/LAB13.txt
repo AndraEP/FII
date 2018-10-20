@@ -1,0 +1,32 @@
+Exerciții de programare C cu semnale :
+
+1. Să se scrie un program C care, rulat în background, afișează în mod periodic (e.g., din 20 în 20 de secunde) conținutul fișierului remember.txt (se va crea un fișier cu acest nume și un conținut oarecare, înainte de a folosi acest program). În plus, ori de câte ori programul va primi semnalul SIGUSR1, va executa comanda finger -p, iar la primirea semnalului SIGINT programul își va încheia execuția și va afișa un text cu un mesaj de terminare. 
+(Indicație: pentru afișarea periodică, se poate trata semnalul SIGALRM, generat cu apelul alarm() ce setează o alarmă de ceas.)
+
+2. [Hi-ho v2, cu semnale] Să se rescrie programele hi.c și ho.c de la exercitiul [Hi-ho] din laboratorul 13, folosind semnale în locul canalelor fifo pentru realizarea sincronizărilor necesare.
+
+Exerciții suplimentare:
+
+Alte câteva exerciții de programare C cu semnale:
+
+3. Să se scrie un program care realizează urmatoarele: mai întâi creează două procese fii, după care generează aleator într-un fișier linii de text. După închiderea fișierului în care scrie acele linii de text aleatoare, procesul inițial va trimite fiilor creați semnalul SIGUSR2 (primului fiu) și respectiv SIGUSR1 (celui de-al doilea fiu). La recepționarea semnalului, procesul care a primit SIGUSR1 va calcula lungimea totală a liniilor de text din fișier (i.e. numarul total de caractere) și o va afișa pe ecran, iar procesul care a primit SIGUSR2 va sorta liniile de text din fișier în ordine lexicografică crescătoare și va afișa pe ecran rezultatul sortării. 
+Cerință: sortarea să se facă în paralel cu calculul lungimii, dar rezultatele să fie afișate pe ecran de cele două procese fii în așa fel încât lungimea totală să apară obligatoriu înaintea liniilor de text sortate. 
+(Indicație: pentru a realiza acest tip de sincronizare la afișarea pe ecran, procesul care face sortarea va aștepta un semnal (e.g. SIGUSR1) de la celălalt proces fiu, înainte de a afișa rezultatul sortării.)
+
+4. Să se scrie un program C utilizat pentru copierea intrării standard într-un fișier, specificat în linia de comandă a programului. Dacă în intervalul de 3N secunde nu este introdus nici un caracter de la tastatură, programul este terminat. La fiecare interval de N secunde neutilizate (i.e., fără input din partea utilizatorului), utilizatorul va fi atenționat printr-un mesaj corespunzător. Valoarea constantei N este specificată de asemenea ca și argument al programului în linia de comandă. 
+(Indicație: pentru măsurarea scurgerii intervalelor de N secunde, tratați semnalul SIGALRM, generat cu apelul alarm().)
+
+5. Dintr-un fișier fis.txt două procese, ce nu sunt înrudite (i.e. nu sunt în relația părinte-fiu), trebuie să citească alternativ câte un caracter. Pentru sincronizarea execuției lor, cele două procese folosesc semnale. Comunicarea reciprocă a PID-urilor se va face prin canale de comunicație externe. Caracterele citite de fiecare proces sunt scrise în fișierele fis1.txt și, respectiv, fis2.txt.
+
+6. Să se scrie un program C care la execuție va genera un proces fiu și va avea comportamentul descris în continuare. 
+Procesul părinte numără încontinuu, la intervale de 1 secundă, începând de la 0, până în momentul în care este întrerupt de către utilizator prin trimiterea unui semnal SIGINT. De fiecare dată când procesul părinte ajunge la un număr divizibil cu 10, trimite procesului fiu semnalul SIGUSR1. Iar când primește semnalul SIGINT, procesul părinte trimite procesului fiu semnalul SIGUSR2. La terminarea procesului fiu, procesul părinte își încheie și el execuția. 
+Procesul fiu, în momentul primirii semnalului SIGUSR1, afișează pe ecran un mesaj de genul "fiul: am primit USR1", iar la primirea semnalului SIGUSR2, își încheie execuția, afișând pe ecran un mesaj corespunzător (e.g. "fiul: sfarsit executie").
+
+7. Se dau 3 fișiere, nume.txt, prenume.txt și nota.txt, în care sunt înregistrate, câte unul pe linie, numele, prenumele și nota obținută de mai mulți studenți la o anumită disciplină. 
+Să se scrie un program C, prin execuția căruia se generează 3 procese, fiecare proces citind datele dintr-unul dintre cele 3 fișiere date. Să se sincronizeze execuția celor 3 procese astfel încât să se scrie pe câte o linie, într-un fișier tabel.txt, informațiile citite de cele 3 procese de pe liniile cu același număr de ordine, sub forma "NUME PRENUME NOTA". Sincronizarea proceselor se va realiza prin semnale.
+
+8. [Hi-ho v3, cu 4 procese] Să se scrie patru programe C, care împreună vor afișa "ini-mini-maini-mo, " în mod repetat pe ecran, fiecare proces fiind responsabil cu afișarea câte unei părți a mesajului (primul afișează "ini-", al doilea "mini-", ș.a.m.d.). Executabilele rezultate în urma compilării programelor vor fi lansate simultan, iar sincronizarea va fi realizată exclusiv prin semnale.
+
+9. ["Sleeping barber problem"] Să se scrie un program C care simulează desfășurarea activității într-un cabinet de stomatologie. Procesul inițial va genera un prim proces fiu, cu rol de asistent: acesta se va ocupa de intrarea pacienților în sala de așteptare, generându-i la intervale de timp fixe sau aleatoare. Pentru fiecare pacient intrat în sala de așteptare, procesul asistent va genera un proces fiu separat, care va reprezenta pacientul respectiv. Pacientul își va anunța cumva PID-ul procesului principal. 
+Procesul principal (ce reprezintă doctorul stomatolog) se va ocupa cu tratarea pacienților, într-o buclă repetitivă, semnalându-le pacienților intrarea în cabinet (din sala de așteptare) și apoi ieșirea din cabinet după terminarea tratamentului. Durata tratamentului poate fi aleatoare sau fixă. 
+Procesele create pentru fiecare pacient în parte vor afișa schimbarea stării pacientului, conform tranzițiilor: "intrat în sala de așteptare --> în cabinetul doctorului --> ieșire". Pentru comunicarea stomatologului cu pacienții vor fi folosite semnale.

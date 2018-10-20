@@ -1,0 +1,19 @@
+Problema 1: 
+Creati propria voastra implementare pentru o clasa vector (StrVector) care sa stocheze siruri de caractere.
+In cadrul implementarii trebuie sa aveti urmatoarele:
+Un constructor care sa foloseasca "initialization lists"
+Un iterator
+O modalitate de parcurgere a obiectului folosind for 
+Utilizati "auto" in cadrul clase.
+Codul din main ar trebui sa arate asa:
+void main()
+{
+    StrVector v = {"Test" , "for" , "C++"}
+    auto it = v.GetIterator();
+    auto count = v.GetCount();
+    for (auto index=0;index<count;index++,it++)
+        printf("%s\n",*it); // va afisa cele 3 texte
+    for (auto element: v)
+        printf("%s\n",element); // va afisa deasemenea cele 3 texte
+}
+Creati clasa StrVector astfel incat codul din main sa compileze si sa functioneze corect.

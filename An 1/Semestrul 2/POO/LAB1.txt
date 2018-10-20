@@ -1,0 +1,29 @@
+Problema 1: Sa se citeasca un sir de maxim 1000 de numere dintr-un fisier de intrare. Fiecare numar este scris pe o linie. Sirul de numere va fi stocat intr-un vector. Sortati acest vector folosind un algoritm de sortare la alegerea voastra si afisati-l pe ecran. Se vor folosi urmatoarele functii pentru citirea din fisier: fopen, fgets, fclose, Pentru conversia din string in numar folositi atoi.
+
+Problema 2: Lucru cu pointeri. Se considera o matrice care reprezinta o imagine de n x m. Sa se deseneze un cerc cu centrul dat si o anumita raza. Functia care deseneaza cercul insa va primi un pointer catre primul element al matricii.  
+Un element din matrice are valoarea 1 daca pe pozitia respectiv avem un punct vizibil, altfel are valoarea 0.
+
+#define MATRIX_HEIGHT 6
+#define MATRIX_WIDTH 5
+int Matrix[MATRIX_HEIGHT][MATRIX_WIDTH];
+void Circle(int* ptr,int cx,int cy,int ray) {
+...
+}
+void main() {
+Circle(&Matrix[0][0],2,2,2);
+}
+
+Dupa executia codului de mai sus, ar trebui sa avem urmatoare matrice rezultata:
+0	0	1	0	0
+0	1	0	1	0
+1	0	0	0	1
+0	1	0	1	0
+0	0	1	0	0
+0	0	0	0	0
+Un punct se considera ca se gaseste pe un cerc daca distanta de la acel punct la centrul cercului este egala cu raza cercului. Distanta intre doua puncte P1(x,y) si P2(x,y) se calculeaza in felul urmator: D(P1,P2) = SQRT ((P1.x - P2.x)*(P1.x - P2.x)+(P1.y - P2.y)*(P1.y - P2.y)). SQRT reprezinta functia radical. Pentru acest exercitiu o sa aproximam la integer radicalul.
+
+Problema 3: Scrieti o functie in C care sa converteasca un numar din baza 10 intr-o baza data (de la baza 2 pana la baza 16). Pentru bazele de la 10 in sus se vor folosi litere A,B,C ... in reprezentare (ex. 255 in baza 10 este FF in baza 16). Reprezentarea in alta baza va fi scrisa intr-un sir de caractere dat ca si parametru. Functia va returna true daca conversia s-a putut realiza, adica:
+baza (parametrul toBase) e in intervalul 2 - 16
+result e diferite de NULL
+resultMaxSize are suficient de multe caractere ca sa tina numarul convertit
+bool Convert(unsigned int number, unsigned int toBase, char * result, unsigned int resultMaxSize);

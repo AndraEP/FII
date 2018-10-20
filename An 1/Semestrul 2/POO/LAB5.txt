@@ -1,0 +1,9 @@
+Problema 1: 
+Cititi dintr-un fisier o lista de cuvinte intr-un template vector definit astfel: vector<const char*>. Pentru citirea datelor din fisier se for folose fopen, fgets si fclose. Definiti apoi urmatoarele functii:
+  o functie care parcurge lista de cuvinte si returneaza cel mai lung cuvant (parcurgerea se va face folosind iteratori)
+  o functie care parcurge lista de cuvinte folosindu-ne de indexi si returneaza numarul de cuvinte care au mai mult de 4 vocale in componenta lor
+  o functie care creaza un obiect de tipul deque<const char *> pornind de la obiectul vector. Obiectul rezultat va contine doar cuvintele care NU incep cu vocale
+  o functie care sterge din obiectul de tip vector cuvintele care au o dimensiune peste un numar de caractere (numarul de caractere pentru care un cuvant din vector va fi sters va fi specificat ca si parametru al functiei)
+  o functie care returneaza un priority_queue cu toate stringurile sortate alfabetic fara sa tinem cont de case.
+  o metoda prin care sa pornim de la obiectul vector existent si sa obtinem un alt vector in care elementele sunt in ordine inversa. Se va folosi un obict de tipul stack<const char*> pentru acest lucru.
+  o functie care sa afiseze toate elementele din vector.

@@ -1,0 +1,37 @@
+Exerciții de programare C cu mai multe procese :
+
+1. [Șablonul 'ping-pong'] Scrieți un program C care să creeze un proces fiu cu care să înceapă să discute conform unui dialog salvat în două fișiere, câte unul pentru fiecare vorbitor: parinte.txt și respectiv fiu.txt. Discuția se va purta ca la un dialog normal: fiecare vorbitor va spune o replică, după care va aștepta răspunsul celuilalt. Așteptarea răspunsului celuilalt se va încheia cu ajutorul unui flag, păstrat în fișierul comunicare.txt, care se va seta într-un mod adecvat, de către celălalt proces, după ce și-a spus replica. 
+(Indicație: ideea este de a implementa corect un mecanism de sincronizare de forma "e rândul tău - e rândul meu - e rândul tău - e rândul meu - ș.a.m.d.", folosind comunicații prin intermediul unui fișier. 
+Observație: mai târziu vom relua ideea acestui șablon de sincronizare, folosind canale de comunicație, respectiv semnale.)
+
+2. [Șablonul 'supervisor-workers'] Scrieți un program C care primește ca argument o valoare numerică N și creează două procese fii; primul proces fiu va scrie N perechi de numere întregi într-un fișier binar "operanzi.bin", iar al doilea fiu va genera N caractere de tipul '+', '-', '*', '/' într-un fișier text "operatori.txt". Procesul părinte va aștepta generarea celor două fișiere de către fii, apoi va citi succesiv câte o pereche de numere din fișierul "operanzi.bin" și câte o operație din fișierul "operatori.txt", va efectua calculul respectiv și va afișa pe ecran rezultatele operațiilor efectuate. 
+(Indicație: ideea este de a implementa un calcul paralel/distribuit pe modelul "supervisor-workers" (sau "master-slaves"). 
+Observație: un alt exemplu, mai elaborat, de realizare a unui calcul de această formă, din care vă puteți inspira, îl găsiți în directorul cu programele demonstrative de la lecția practică P6_fork+wait.)
+
+Exerciții suplimentare:
+
+Alte câteva exerciții de programare C cu mai multe procese:
+
+3. [N fii] Să se scrie un program C care să creeze N (unde N este o valoare citită de la tastatură) procese fii ai procesului inițial. Și anume, procesul inițial P0 va avea ca fii procesele P1, P2, ..., PN, iar acestea nu vor avea nici un fiu. Fiecare proces își va tipări, printr-un singur mesaj, numărul lui de ordine ca fiu sau proces inițial, PID-ul lui și pe cel al părintelui său. 
+Scrieți o rezolvare nerecursivă a acestei probleme (i.e. folosiți o buclă iterativă pentru crearea proceselor).
+
+4. [Lista de procese (iterativă)] Să se scrie un program C care să creeze o listă de procese de lungime N (unde N este o valoare citită de la tastatură). Și anume, procesul P1 va avea ca fiu pe procesul P2, acesta la rândul lui îl va avea ca fiu pe procesul P3, ș.a.m.d. până la procesul PN, care nu va avea nici un fiu. Fiecare proces își va tipări, printr-un singur mesaj, numărul lui de ordine în listă, PID-ul lui, pe cel al părintelui său, precum și PID-ul fiului său și codul acestuia de terminare. 
+Scrieți o rezolvare nerecursivă a acestei probleme (i.e. folosiți o buclă iterativă pentru crearea proceselor).
+
+5. [Lista de procese (recursivă)] Să se elaboreze o soluție recursivă a problemei anterioare (i.e. scrieți o funcție recursivă pentru crearea proceselor).
+
+6. [Arborele de procese (recursiv)] Să se scrie un program C care să creeze un arbore K-ar complet cu N nivele, de procese (valorile K și N vor fi citite de la tastatură). Și anume: unicul proces P1,1 de pe nivelul 1 al arborelui (i.e., rădăcina arborelui) va avea K procese fii, și anume procesele P2,1,...,P2,K de pe nivelul 2 al arborelui, fiecare dintre acestea va avea la rândul său K procese fii pe nivelul 3 al arborelui, ș.a.m.d. până la cele KN-1 procese de pe nivelul N al arborelui, care nu vor avea nici un fiu. 
+Fiecare proces își va tipări, printr-un singur mesaj, numărul lui de ordine în arbore (i.e. perechea i,j cu 1≤i≤N și 1≤j≤Ki-1), PID-ul lui, pe cel al părintelui său, precum și PID-urile celor K fii ai acestuia și codurile acestora de terminare. 
+Scrieți o rezolvare recursivă a acestei probleme (i.e. folosiți o funcție recursivă pentru crearea proceselor), astfel: 
+i) prin recursie după K si N ; sau ii) prin recursie doar după N .
+
+Recomandare: Pentru a vă testa programul, în sensul de a verifica dacă într-adevăr creează în mod corect arborele de procese conform enunțului, într-o manieră mai ușoară decât prin interpretarea mesajelor afișate pe ecran prin execuția programului, vă recomand să desenați pe o foaie de hârtie PID-urile proceselor afișate și să le conectați prin săgeți care să indice relația părinte-->fiu. Desenul care rezultă ar trebui să arate ca un arbore K-ar complet cu N nivele, în cazul în care nu ați făcut greșeli în program, iar dacă arată altfel, diferențele v-ar putea ajuta să descoperiți ce greșeli ați făcut în program. 
+Notă: evident, aceeași recomandare este valabilă și pentru problemele anterioare 1, 2 și 3 (deși în cazul acestora ierarhia de procese fiind mult mai simplă, se poate verifica mai ușor direct prin interpretarea mesajelor afișate pe ecran prin execuția programului respectiv). 
+O altă posibilitate de a verifica, fără a mai desena manual pe o foaie de hârtie, este să folosiți un script bash care "desenează" în mod automatizat pe ecran arborele de procese; mai multe detalii despre acest script puteți citi aici.
+
+7. [Arborele de procese (iterativ)] Să se elaboreze o soluție iterativă a problemei anterioare (i.e. folosiți bucle iterative pentru crearea proceselor).
+
+8. Să se implementeze algoritmul de sortare merge sort lucrând pe un fișier ce conține numere stocate în format binar, folosind lacăte pe secțiuni de fișier (ca și la exercițiile din laboratorul precedent), însă, în loc de lansări simultane în execuție ale programului de forma: 
+UNIX> ./mergesort 1 & ./mergesort 2 & ./mergesort 3 & ... , 
+să se folosească procese create cu apeluri fork (deci va fi suficientă o singură lansare în execuție a programului). 
+Practic, se va crea un arbore binar de procese, "frunzele" făcând comparațiile și inversiunile propriu-zise, iar apoi procesele părinte realizează interclasarea secțiunilor ordonate de procesele copii.

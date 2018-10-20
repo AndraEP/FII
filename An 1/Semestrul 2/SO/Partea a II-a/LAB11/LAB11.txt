@@ -1,0 +1,42 @@
+Exerciții de programare C cu canale de comunicație anonime :
+
+1. [Șablonul 'supervisor-workers'] Să se scrie un program C ce creează două procese fii și care va avea comportamentul descris în continuare: 
+- procesul părinte citește dintr-un fișier cu numele date.txt un șir de caractere, până la sfârșitul fișierului, și le trimite printr-un canal anonim primului fiu; 
+- primul proces fiu primește caracterele de la procesul părinte, le selectează doar pe acelea care sunt litere mici și le trimite printr-un alt canal anonim către cel de-al doilea fiu; 
+- al doilea proces fiu creează un fișier numit statistica.txt în care va scrie, pe câte o linie, fiecare literă distinctă și numărul de apariții ale acesteia în fluxul de date primit. În plus, la final va trimite părintelui, printr-un canal anonim suplimentar, numărul de litere distincte întâlnite în fluxul primit; 
+- procesul părinte afișează pe ecran rezultatul primit de la al doilea proces fiu.
+
+2. [Șablonul 'ping-pong'] Se presupune că în două fișiere, nume.txt și prenume.txt, sunt scrise, pe câte o linie, numele și respectiv prenumele unor persoane, existând o corespondență la nivel de linie între cele două fișiere. 
+Să se scrie un program C ce creează două procese fii: primul proces fiu va citi câte o linie din fișierul nume.txt, iar al doilea proces fiu va citi câte o linie din fișierul prenume.txt. Ambele procese fii vor scrie șirul de caractere citit în fișierul persoane.txt. Cele două procese trebuie să-și sincronizeze execuția (utilizând canale anonime de comunicație), astfel încât în fișierul persoane.txt să apară pe fiecare linie numele și prenumele corespunzătoare unei aceleiași persoane.
+
+Exerciții suplimentare:
+
+Alte câteva exerciții de programare C cu canale anonime:
+
+3. Să se scrie un program C care să determine capacitatea unui canal anonim. 
+(Indicație: setați caracterul neblocant pentru capătul de scriere în canal și apoi scrieți în el până se umple, în același timp numărând câți octeți au fost scriși.)
+
+4. [Suma distribuită supervisor/workers v2, cu canale anonime] 
+Să se modifice programul suma distribuită supervisor/workers din laboratorul #10 astfel încât comunicația să se realizeze prin canale anonime în loc de fișiere obișnuite. 
+În plus, citirea numerelor de la tastatură se va muta în cod după apelurile fork(), lucru posibil deoarece sincronizările ce erau necesare în varianta cu fișiere, se vor realiza acum în mod automat (prin faptul că citirea din canale este, în mod implicit, blocantă). 
+(Indicație: sunt suficiente 3+1 canale, în locul celor 3+3 fișiere de intrare și de ieșire.)
+
+5. [lanțuri de comenzi #1] Să se scrie un program C care "simulează" comanda înlănțuită: 
+UNIX> grep /bin/bash /etc/passwd | cut -d, -f1 
+Cerință: pentru executarea comenzilor simple din lanț se vor utiliza apeluri de sistem de tip exec() și nu apeluri system(). 
+(Indicație: folosiți două procese, unul care să apeleze cu exec() comanda grep, iar celălalt comanda cut. Înainte de apelurile exec(), va trebui să folosiți un canal anonim și modul de obținere a redirectării I/O standard folosind primitivele dup() sau dup2(), pentru a conecta ieșirea standard de la primul proces la intrarea standard a celui de-al doilea proces.)
+
+6. [lanțuri de comenzi #2] Generalizarea exercițiului 5 de mai sus: 
+a) Să se scrie un program C care "simulează", folosind apeluri exec() și nu system(), comanda înlănțuită: 
+UNIX> grep /bin/bash /etc/passwd | cut -d, -f1 | sort -t: -k 3,3 -n 
+(Indicație: rezolvare similară ca la exercițiul de antrenament amintit mai sus, doar că va fi nevoie de 3 procese, câte unul pentru fiecare comandă simplă din comanda înlănțuită de mai sus, și de 2 canale anonime pentru realizarea înlănțuirilor.) 
+b) Să se scrie un program C care "simulează", folosind apeluri exec() și nu system(), comanda înlănțuită: 
+UNIX> grep /bin/bash /etc/passwd | cut -d, -f1 | sort -t: -k 3,3 -n | cut -d: -f1,3,5 --output-delimiter=" - " 
+(Indicație: rezolvare similară ca la exercițiul de antrenament amintit mai sus, doar că va fi nevoie de 4 procese, câte unul pentru fiecare comandă simplă din comanda înlănțuită de mai sus, și de 3 canale anonime pentru realizarea înlănțuirilor.) 
+c) Similar pentru următoarea comanda înlănțuită: 
+UNIX> w -h | tr -s " " | cut -d" " -f1,8
+
+7. [micro-shell v2, cu lanțuri de comenzi] Generalizarea exercițiilor 5 și 6 de mai sus: 
+Să se scrie un program C care, într-o buclă, preia de la tastatură numele a m comenzi simple înlănțuite, de forma: 
+UNIX> com1 arg1,1 ... arg1,N1 | com2 arg2,1 ... arg2,N2 | .... | comm argm,1 ... argm,Nm 
+și le execută în manieră înlănțuită. Pentru executarea comenzilor se vor utiliza apeluri de sistem de tip exec(), nu apeluri system(). La așteptarea introducerii unei noi comenzi înlănțuite, programul va afișa prompterul "UNIX>".
