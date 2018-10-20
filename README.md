@@ -1,1 +1,1 @@
-# FII
+Facultate Laboratoare+seminarii+cursuri
