@@ -1,5 +1,5 @@
-1NF //imparte tabelul mare in mai multe mici
-2NF //apar restrictii de integritate (FK)
+2NF //imparte tabelul mare in mai multe mici
+3NF //apar restrictii de integritate (FK)
 Normalizrea imparte un tabel mare in mai multe tabele.
 PK (primary key) identifica in mod unic o linie/ este unica si PK!=NULL/ de obicei notata ID (tip integer && AUTOINCREMENT)
 FK (foreign key) //se defineste in alt tabel decat cel principal si are legatura cu cheia primara din respectivul
