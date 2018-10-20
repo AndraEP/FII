@@ -1,0 +1,116 @@
+#include <iostream>
+
+using namespace std;
+
+struct nod
+{
+    int elt;
+    nod *succ;
+};
+
+void Add (nod *&prim, nod *&ultim, int x)
+{
+    nod *p=new nod;
+    if (prim==0) prim=ultim=p;
+    ultim->succ=p;
+    ultim=p;
+    p->elt=x;
+    p->succ=0;
+}
+
+void Interclasare (nod *&prim1, nod*&ultim1, nod *&prim2, nod*&ultim2, nod *&prim3, nod*&ultim3)
+{
+    nod *p1=prim1;
+    nod *p2=prim2;
+    while (p1!=0&&p2!=0)
+    {
+        if (p1->elt<p2->elt)
+        {
+            Add (prim3, ultim3, p1->elt);
+            p1=p1->succ;
+        }
+        else
+        {
+            Add (prim3, ultim3, p2->elt);
+            p2=p2->succ;
+        }
+    }
+    while (p1!=0)
+    {
+        Add (prim3, ultim3, p1->elt);
+        p1=p1->succ;
+    }
+    while (p2!=0)
+    {
+        Add (prim3, ultim3, p2->elt);
+        p2=p2->succ;
+    }
+}
+
+void InserareDubluFactorial (nod *&prim, nod *&ultim)
+{
+    int added=0;
+    if (prim==0) return;
+    if (prim->elt%2==0)
+    {
+        int sol=1, element=prim->elt;
+        for (int i=1; i<=element; i++)
+        {
+            sol*=i;
+        }
+        sol*=2;
+        nod *q = new nod;
+        q->elt=sol;
+        q->succ=prim;
+        prim=q;
+        added=1;
+    }
+    nod *p=prim;
+    if (added) p=p->succ;
+    for (;p->succ!=0; p=p->succ)
+    {
+        if (p->succ->elt%2==0)
+        {
+            int sol=1, element=p->succ->elt;
+            for (int i=1; i<=element; i++)
+            {
+                sol*=i;
+            }
+            sol*=2;
+            nod *q = new nod;
+            q->elt=sol;
+            q->succ=p->succ;
+            p->succ=q;
+            p=p->succ;
+        }
+    }
+}
+
+int main()
+{
+    int n1, n2, x;
+    nod *prim1=0, *ultim1=0, *prim2=0, *ultim2=0, *prim3=0, *ultim3=0;
+    cin >> n1;
+    for (int i=1; i<=n1; i++)
+    {
+        cin >> x;
+        Add (prim1, ultim1, x);
+    }
+    cin >> n2;
+    for (int i=1; i<=n2; i++)
+    {
+        cin >> x;
+        Add (prim2, ultim2, x);
+    }
+    Interclasare (prim1, ultim1, prim2, ultim2, prim3, ultim3);
+    for (nod *p=prim3; p!=0; p=p->succ)
+    {
+        cout << p->elt << " ";
+    }
+    cout << "\n";
+    InserareDubluFactorial (prim1, ultim1);
+    for (nod *p=prim1; p!=0; p=p->succ)
+    {
+        cout << p->elt << " ";
+    }
+}

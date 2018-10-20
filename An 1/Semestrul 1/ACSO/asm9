@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int f (int, int)
+{
+    _asm
+    {
+        RET
+    }
+}
+
+int main()
+{
+    int m[10][10];
+    ///m[i][j]=0;
+    ///unsigned &m[0][0]+(i*c+j)*4
+    _asm
+    {
+        MOV ECX, 100
+        LEA EDI, m
+        MOV EAX, 0
+        REP STOSD
+    }
+    return 0;
+    //r = f(2, 3);
+}

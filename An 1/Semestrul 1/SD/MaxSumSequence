@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int n, i, s, start, beginning, ending, maxi, v[101];
+
+int main()
+{
+    cin >> n;
+    for (i=1; i<=n; i++) cin >> v[i];
+    for (i=1; i<=n; i++)
+    {
+        if (s<0)
+        {
+            s=v[i];
+            start=i;
+        }
+        else s+=v[i];
+        if (s>maxi)
+        {
+            maxi=s;
+            beginning=start;
+            ending=i;
+        }
+    }
+    cout << maxi << " " << beginning << " " << ending;
+}

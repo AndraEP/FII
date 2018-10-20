@@ -1,0 +1,63 @@
+#include <iostream>
+#define MAX_ELEM 100
+
+using namespace std;
+
+struct vector
+{
+    unsigned int nrElemente;
+    int elem[MAX_ELEM];
+};
+
+void citeste (vector &v, char nume)
+{
+    cout << "Citim vectorul " << nume << endl;
+    cout << "Numarul de elemente: "; cin >> v.nrElemente;
+    unsigned int i;
+    for (i=0; i<v.nrElemente; i++)
+    {
+        cout << "Dati elementul numarul " << i+1 << " din " << nume << ": ";
+        cin >> v.elem[i];
+    }
+}
+
+void afiseaza (vector v, char nume)
+{
+    cout << "Vectorul " << nume << " este: " << endl;
+    unsigned int i;
+    for (i=0; i<v.nrElemente-1; i++)
+        cout << v.elem[i] << ", ";
+    cout << v.elem[v.nrElemente-1] << ";";
+    cout << endl;
+}
+
+void uneste (vector u, vector v, vector &w)
+{
+    unsigned int i;
+    for (i=0; i<u.nrElemente; i++)
+        w.elem[i]=u.elem[i];
+    for (i=0; i<v.nrElemente; i++)
+    {
+        w.elem[u.nrElemente+i]=v.elem[i];
+    }
+    w.nrElemente=u.nrElemente+v.nrElemente;
+}
+
+vector unire (vector u, vector v)
+{
+    vector w;
+    uneste (u, v, w);
+    return w;
+}
+
+int main ()
+{
+    vector x, y, z;
+    citeste(x, 'x');
+    citeste(y, 'y');
+    uneste(x, y, z);
+    afiseaza(x, 'x');
+    afiseaza(y, 'y');
+    afiseaza(z, 'z');
+    return 0;
+}

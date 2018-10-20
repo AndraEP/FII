@@ -1,0 +1,23 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+unsigned int sv, sn;
+float x, sol;
+
+int main()
+{
+    cout << "Introduceti scara veche:\n1:";
+    cin >> sv;
+    cout << "\nIntroduceti scara noua:\n1:";
+    cin >> sn;
+    cout << "\nIntroduceti dimensiunea la scara veche: ";
+    while (cin >> x)
+    {
+        sol=x*(1.0*sv/sn);
+        cout << "Dimensiunea la scara noua este ";
+        cout << fixed << setprecision(2) << sol;
+        cout << "\n\nIntroduceti dimensiunea la scara veche: ";
+    }
+}

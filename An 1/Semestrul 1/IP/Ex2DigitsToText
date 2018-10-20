@@ -1,0 +1,69 @@
+#include <iostream>
+
+using namespace std;
+
+int v[10];
+int x, n;
+
+void NrCifre()
+{
+    while (x)
+    {
+        v[++n]=x%10;
+        x/=10;
+    }
+    //asta pune cifrele numarului intr-un vector in ordine inversa. v[1] o sa fie cifra unitatilor, v[2] cifra zecilor samd. numarul tau de la intrare e x
+}
+
+void DigitToText (int d)
+{
+    if (d==0) cout << "zero";
+    else if (d==1) cout << "unu";
+    else if (d==2) cout << "doi";
+    else if (d==3) cout << "trei";
+    else if (d==4) cout << "patru";
+    else if (d==5) cout << "cinci";
+    else if (d==6) cout << "sase";
+    else if (d==7) cout << "sapte";
+    else if (d==8) cout << "opt";
+    else if (d==9) cout << "noua";
+}
+
+void Afisare()
+{
+    if (n>=7 && v[7]!=0)
+    {
+        cout << "un milion ";
+    }
+    if (n>=6 && v[6]!=0)
+    {
+        DigitToText(v[6]); cout << " sute ";
+    }
+    if (n>=5 && v[5]!=0)
+    {
+        DigitToText(v[5]); cout << " zeci ";
+    }
+    if (n>=4 && v[4]!=0)
+    {
+        cout << "si "; DigitToText(v[4]); cout << " de mii ";
+    }
+    if (n>=3 && v[3]!=0)
+    {
+        DigitToText(v[3]); cout << " sute ";
+    }
+    if (n>=2 && v[2]!=0)
+    {
+        DigitToText(v[2]); cout << " zeci ";
+    }
+    if (n>=1 && v[1]!=0)
+    {
+        cout << "si "; DigitToText(v[1]);
+    }
+}
+
+int main()
+{
+    cin >> x;
+    NrCifre();
+    Afisare();
+}

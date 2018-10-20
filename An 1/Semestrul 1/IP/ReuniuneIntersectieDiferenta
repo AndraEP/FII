@@ -1,0 +1,106 @@
+#include <iostream>
+#define MAX_ELEM 100
+
+using namespace std;
+
+struct vector
+{
+    unsigned int nrElemente;
+    int elem[MAX_ELEM];
+};
+
+void citeste (vector &v, char nume)
+{
+    cout << "Citim vectorul " << nume << endl;
+    cout << "Numarul de elemente: "; cin >> v.nrElemente;
+    unsigned int i;
+    for (i=1; i<=v.nrElemente; i++)
+    {
+        cout << "Dati elementul numarul " << i << " din " << nume << ": ";
+        cin >> v.elem[i];
+    }
+}
+
+void afiseaza (vector v, char nume)
+{
+    unsigned int i;
+    cout << "Vectorul " << nume << " este: " << endl;
+    for (i=1; i<=v.nrElemente-1; i++)
+        cout << v.elem[i] << ", ";
+    cout << v.elem[v.nrElemente] << ";";
+    cout << endl;
+}
+
+bool apartenenta (vector v, int x)
+{
+    unsigned int i;
+    for (i=1; i<=v.nrElemente; i++)
+    {
+        if (v.elem[i]==x) return 1;
+    }
+    return 0;
+}
+
+void reuniune (vector u, vector v, vector &w)
+{
+    unsigned int i;
+    w.nrElemente=0;
+    for (i=1; i<=u.nrElemente; i++)
+    {
+        if (!apartenenta(w, u.elem[i]))
+        {
+            ++w.nrElemente;
+            w.elem[w.nrElemente]=u.elem[i];
+        }
+    }
+    for (i=1; i<=v.nrElemente; i++)
+    {
+        if (!apartenenta(w, v.elem[i]))
+        {
+            ++w.nrElemente;
+            w.elem[w.nrElemente]=v.elem[i];
+        }
+    }
+}
+
+void intersectie (vector u, vector v, vector &w)
+{
+    unsigned int i;
+    w.nrElemente=0;
+    for (i=1; i<=u.nrElemente; i++)
+    {
+        if (apartenenta(v, u.elem[i]))
+        {
+            ++w.nrElemente;
+            w.elem[w.nrElemente]=u.elem[i];
+        }
+    }
+}
+
+void diferenta (vector u, vector v, vector &w)
+{
+    unsigned int i;
+    w.nrElemente=0;
+    for (i=1; i<=u.nrElemente; i++)
+    {
+        if (!apartenenta(v, u.elem[i]))
+        {
+            ++w.nrElemente;
+            w.elem[w.nrElemente]=u.elem[i];
+        }
+    }
+}
+
+int main ()
+{
+    vector x, y, r, i, d;
+    citeste(x, 'x');
+    citeste(y, 'y');
+    reuniune (x, y, r);
+    intersectie (x, y, i);
+    diferenta (x, y, d);
+    afiseaza(r, 'R');
+    afiseaza (i, 'I');
+    afiseaza (d, 'D');
+    return 0;
+}

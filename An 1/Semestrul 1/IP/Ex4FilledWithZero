@@ -1,0 +1,68 @@
+#include <fstream>
+#include <queue>
+
+using namespace std;
+
+ifstream fin ("date.in");
+ofstream fout ("date.out");
+
+unsigned int i, j, q;
+
+struct matrix
+{
+    unsigned int nrLinii;
+    unsigned int nrColoane;
+    int celula[100][100];
+};
+
+matrix A;
+queue <int> Qx;
+queue <int> Qy;
+
+matrix FillWithZero (matrix A)
+{
+    for (i=1; i<=A.nrLinii; i++)
+    {
+        for (j=1; j<=A.nrColoane; j++)
+        {
+            if (A.celula[i][j]==0)
+            {
+                Qx.push(i); Qy.push(j);
+            }
+        }
+    }
+    while (!Qx.empty())
+    {
+        int x=Qx.front(); int y=Qy.front(); Qx.pop(); Qy.pop();
+        for (q=1; q<=A.nrLinii; q++)
+        {
+            A.celula[q][y]=-1;
+        }
+        for (q=1; q<=A.nrColoane; q++)
+        {
+            A.celula[x][q]=-1;
+        }
+    }
+    return A;
+}
+
+int main()
+{
+    fin >> A.nrLinii >> A.nrColoane;
+    for (i=1; i<=A.nrLinii; i++)
+    {
+        for (j=1; j<=A.nrColoane; j++)
+        {
+            fin >> A.celula[i][j];
+        }
+    }
+    A=FillWithZero(A);
+    for (i=1; i<=A.nrLinii; i++)
+    {
+        for (j=1; j<=A.nrColoane; j++)
+        {
+            fout << A.celula[i][j] << " ";
+        }
+        fout << "\n";
+    }
+}

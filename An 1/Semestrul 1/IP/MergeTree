@@ -1,0 +1,109 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+ifstream fin ("date.in");
+
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+TreeNode *Citire()
+{
+    int x;
+    fin >> x;
+    if (x)
+    {
+        TreeNode *p = new TreeNode(x);
+        p->left=Citire();
+        p->right=Citire();
+        return p;
+    }
+    else return NULL;
+}
+
+TreeNode *CitireBFS (int n)
+{
+    int k=0;
+    TreeNode *p, *q;
+    queue <TreeNode*> Q;
+    p = new TreeNode(0);
+    Q.push (p);
+    while (k++<n)
+    {
+        q=Q.front(); Q.pop();
+        fin >> q->val;
+        q->left = new TreeNode(0);
+        q->right = new TreeNode(0);
+        Q.push (q->left);
+        Q.push (q->right);
+    }
+    return p;
+}
+
+TreeNode *Merge (TreeNode *p, TreeNode *q)
+{
+    TreeNode *r = new TreeNode(0);
+    if (p&&q)
+    {
+        r->val=p->val+q->val;
+        r->left = Merge (p->left, q->left);
+        r->right = Merge (p->right, q->right);
+        return r;
+    }
+    else if (p&&!q)
+    {
+        r->val=p->val;
+        r->left = Merge (p->left, 0);
+        r->right = Merge (p->right, 0);
+        return r;
+    }
+    else if (!p&&q)
+    {
+        r->val=q->val;
+        r->left = Merge (0, q->left);
+        r->right = Merge (0, q->right);
+        return r;
+    }
+    else return NULL;
+}
+
+void Afisare (TreeNode *p)
+{
+    cout << p->val << " ";
+    if (p->left) Afisare (p->left);
+    if (p->right) Afisare (p->right);
+}
+
+void AfisareBFS (TreeNode *p)
+{
+    TreeNode *q = new TreeNode(0);
+    queue <TreeNode*> Q;
+    Q.push (p);
+    while (!Q.empty())
+    {
+        q=Q.front(); Q.pop();
+        if (!(!q->val&&!q->left&&!q->right))
+        {
+            if (q->val) cout << q->val << " ";
+            else cout << "# ";
+        }
+        if (q->left) Q.push (q->left);
+        if (q->right) Q.push (q->right);
+    }
+}
+
+int main()
+{
+    int n1, n2;
+    fin >> n1;
+    TreeNode *arb1=CitireBFS(n1);
+    fin >> n2;
+    TreeNode *arb2=CitireBFS(n2);
+    TreeNode *arbFinal = Merge (arb1, arb2);
+    AfisareBFS (arbFinal);
+}

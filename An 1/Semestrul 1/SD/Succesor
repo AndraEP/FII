@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+#include <stack>
+
+using namespace std;
+
+stack <int> S;
+long long x;
+int v[15], k, sol;
+
+int main()
+{
+    cin >> x;
+    while (x)
+    {
+        S.push(x%10);
+        x/=10;
+    }
+    while (!S.empty())
+    {
+        v[++k]=S.top();
+        S.pop();
+    }
+    for (int i=k; i>=1&&!sol; i--)
+    {
+        if (v[i]>v[i-1]) sol=i;
+    }
+    sort (v+sol, v+k+1);
+    for (int i=1; i<=k; i++)
+    {
+        cout << v[i];
+    }
+}

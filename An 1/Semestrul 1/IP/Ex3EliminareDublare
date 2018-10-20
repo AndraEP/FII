@@ -1,0 +1,83 @@
+#include <iostream>
+
+using namespace std;
+
+struct nod
+{
+    int info;
+    nod *urm=0;
+    nod *prec=0;
+};
+
+struct listaDubla
+{
+    nod *prim=0;
+    nod *ultim=0;
+    unsigned int lungime=0;
+}a;
+
+void Add (listaDubla &a, int x)
+{
+    nod *p = new nod;
+    p->info=x;
+    a.lungime++;
+    if (a.prim==0)
+    {
+        a.prim=a.ultim=p;
+    }
+    else
+    {
+        a.ultim->urm=p;
+        p->prec=a.ultim;
+        a.ultim=p;
+        p->urm=0;
+    }
+}
+
+void Deletee (nod *&p)
+{
+    if (p==0) return;
+    if (p->urm) p->urm->prec=p->prec;
+    if (p->prec) p->prec->urm=p->urm;
+    else a.prim=p->urm;
+    delete (p);
+    a.lungime--;
+}
+
+void eliminareDublare(listaDubla &a)
+{
+    for (nod *p=a.prim; p!=0;)
+    {
+        if (p->info<0)
+        {
+            nod *q=p->urm;
+            Deletee (p);
+            p=q;
+        }
+        else p=p->urm;
+    }
+    int i=1; int temp=a.lungime;
+    for (nod *q=a.prim; i<=temp; q=q->urm)
+    {
+        Add (a, q->info);
+        i++;
+    }
+    a.lungime*=2;
+}
+
+int main()
+{
+    int x, n;
+    cin >> n;
+    for (int i=1; i<=n; i++)
+    {
+        cin >> x;
+        Add (a, x);
+    }
+    eliminareDublare(a);
+    for (nod *p=a.prim; p!=0; p=p->urm)
+    {
+        cout << p->info << " ";
+    }
+}
+//EliminareDublare
