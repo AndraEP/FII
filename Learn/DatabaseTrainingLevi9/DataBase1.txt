@@ -1,0 +1,255 @@
+1NF //imparte tabelul mare in mai multe mici
+2NF //apar restrictii de integritate (FK)
+Normalizrea imparte un tabel mare in mai multe tabele.
+PK (primary key) identifica in mod unic o linie/ este unica si PK!=NULL/ de obicei notata ID (tip integer && AUTOINCREMENT)
+FK (foreign key) //se defineste in alt tabel decat cel principal si are legatura cu cheia primara din respectivul
+
+
+
+
+
+DDL //data definition language
+DML //data manipulation language
+DQL //data query language
+DCL //data control language
+TCC //transactional control commands
+
+
+
+
+
+Tipuri de relatii:
+
+1. one to one
+2. one to many
+3. many to many
+
+
+
+
+
+OBIECTE - DDL (lucreaza cu tabele si baze de date/obiecte)
+
+
+I. CREATE //pentru tabele, baze de date, functii, indexuri, procese de stocare, view-uri.
+	CREATE TABLE [table name] ( [column definitions] ) [table parameters]
+The column definitions are: a comma-separated list consisting of any of the following:
+1. Column definition: 
+	[column name] [data type] {NULL | NOT NULL} {column options}
+2. Primary key definition: 
+	PRIMARY KEY ( [comma separated column list] )
+3. Constraints: 
+	{CONSTRAINT} [constraint definition]
+4. RDBMS specific functionality
+Example:
+ CREATE TABLE employees 
+ (
+    id            INTEGER       PRIMARY KEY, //it can be defined at the end
+    first_name    VARCHAR(50)   not null,
+    last_name     VARCHAR(75)   not null,
+    fname         VARCHAR(50)   not null,
+    dateofbirth   DATE          not null
+ );
+//not null can be replaced with null if needed
+
+
+II. ALTER //modifica un obiect creat existent/ modifica si proprietatile unui obiect aflat in RDBMS
+	ALTER table_name object_name parameters;
+Example:
+ ALTER TABLE sink 
+ ADD bubbles INTEGER; //comanda pentru a adauga o coloana numita "bubbles" la un tabel existent numit "sink".
+
+
+III. DROP //distruge ce a fost creat, inclusiv date, tabel, indexuri, view-uri etc.
+	DROP table_name object_name;
+DROP != DELETE
+DROP != TRUNCATE
+Example:
+ DROP TABLE employees; //distruge tabelul numit "employees"
+
+ ALTER TABLE sink 
+ DROP COLUMN bubbles; //comanda care modifica coloana numita "bubbles" la un tabel existent numit "sink", distrugand-o.
+
+
+IV. TRUNCATE //sterge toate datele din tabel/ mult mai rapida decat DELETE/ se pastreaza tabelul
+	TRUNCATE table_name object_name;
+Example:
+ TRUNCATE TABLE table_name;
+
+
+
+
+
+DATE - DML (lucreaza cu datele din tabele si din bazele de date)
+
+
+I. INSERT //adauga una sau mai multe inregistrari (records) la orice tabel intr-o baza de date
+	INSERT INTO table_name (column1, column2, column3 ... ) VALUES ('value1', 'value2', 'value3' ... )
+SAU     INSERT INTO table_name VALUES ('value1', 'value2', 'value3' ... ) //fiecare valoare corespunde unei coloane/ de obicei in ordine crescatoare
+SAU	INSERT INTO table_name VALUES ('value1', 'value2', 'value3' ... ), ('value1', 'value2', 'value3' ... ),... //insereaza in tabel doua statement-uri, fara a mai scrie doua linii de cod
+!!! Numarul coloanei si numarul valorii trebuie sa fie aceleasi !!!
+Example:
+ INSERT INTO phone_book (name, number) 
+ VALUES ('John Doe', '555-1212');
+
+ INSERT INTO phone_book VALUES ('John Doe', '555-1212');
+
+ INSERT INTO phone_book VALUES ('John Doe', '555-1212'), ('Peter Doe', '555-2323');
+
+
+II. UPDATE //schimba datele unor x inregistrari
+	UPDATE table_name SET column_name1 = value1, column_name2 = value2 ... WHERE condition 
+Example:
+ UPDATE T 
+ SET C1 = 1 
+ WHERE C2 = 'a' //Set the value of column C1 in table T to 1, only in those rows where the value of column C2 is "a".
+
+ UPDATE T 
+ SET C1 = 9, C3 = 4 
+ WHERE C2 = 'a' //Set the value of column C1 to 9 and the value of C3 to 4 for all rows for which the value of column C2 is "a".
+
+ UPDATE T
+ SET C1 = C1 + 1
+ WHERE C2 = 'a' //Increase value of column C1 by 1 if the value in column C2 is "a".
+
+
+III. DELETE //sterge o parte sau toate inregistrarile dintr-un tabel, dar nu si tabelul
+	DELETE FROM table_name WHERE condition; //toate inregistrarile care indeplinesc conditia vor fi sterse din tabel/ conditia poate lipsi si atunci toate liniile vor fi sterse
+Example:
+ DELETE FROM pies 
+ WHERE flavour='Lemon Meringue'; //Delete rows from table pies where the column flavour equals Lemon Meringue
+
+ DELETE FROM trees 
+ WHERE height < 80; //Delete rows in trees, if the value of height is smaller than 80.
+
+ DELETE FROM mytable; //Delete all rows from mytable.
+
+
+IV. SELECT //selecteaza anumite informatii si returneaza un set de rezultate pentru unul sau mai multe tabele
+	SELECT x FROM table_name; //selecteaza informatiile x din tabelul table_name
+Example:
+ SELECT * FROM T; //selecteaza toate datele din tabelul T
+ SELECT C1 FROM T;  //selecteaza coloana c1 din tabelul T
+c1|c2             c1
+1 | a             1 
+2 | b             2 
+
+
+
+LUCRU - DQL (un limbaj al computerelor pentru a crea interogari in bazele de date)
+
+
+->SELECT //se refera la a selecta CEVA
+Poate avea mai multe clauze optionale:
+
+1. FROM //de undeva
+Example:
+c1|c2                                c1|c2
+1 | a       SELECT * FROM T;         1 | a
+2 | b                                2 | b
+
+c1|c2                                c1
+1 | a       SELECT C1 FROM T;        1 
+2 | b                                2 
+
+2. WHERE //conditie/ dor randurile care indeplinesc conditia vor fi modificate
+Example:
+c1|c2                                            c1|c2
+1 | a       SELECT * FROM T WHERE C1 = 1;        1 | a
+2 | b                                
+
+3. ORDER BY //criteriu de sortare DESC sau ASC
+Example:
+c1|c2                                                 c1|c2
+1 | a       SELECT * FROM T ORDER BY C1 DESC;         2 | b
+2 | b                                                 1 | a
+
+4. HAVING //filtru de date/ afiseaza doar randurile ale caror valori indeplinesc conditiile
+Example:
+ SELECT DeptID, SUM(SaleAmount)
+ FROM Sales
+ WHERE SaleDate = '01-Jan-2000'
+ GROUP BY DeptID
+ HAVING SUM(SaleAmount) > 1000 //returneaza lista cu ID-urile departamentelor ale caror vanzari totale depasesc 1000 USD la data de 1 ianuarie 2000, impreuna cu suma vanzarilor lor la acea data
+
+5. GROUP BY //preia date grupate in functie de una sau mai multe coloane
+Example:
+ SELECT dept, SUM (salary) 
+ FROM employee 
+ GROUP BY dept; //returneaza suma totală a salariului consumat de fiecare departament
+OUTPUT:     dept                 salary
+        -----------           ------------
+         Electrical               25000
+	 Electronics              55000
+	 Aeronautics              35000
+	 InfoTech                 30000 
+
+
+6. JOIN //clauza care combina coloanele din unul sau mai multe tabele intr-o baza de date relationala
+
+JOIN TYPES:
+
+1. LEFT OUTER JOIN //contine datele tabelului din stanga chiar daca nu se gaseste nimic corespunzator in dreapta/ memorate in dreapta
+Example:
+ SELECT * FROM A
+ LEFT OUTER JOIN B
+ ON A.bazaa=B.bazab; //A este stanga si B dreapta
+
+2. RIGHT OUTER JOIN //contine datele tabelului din dreapta chiar daca nu se gaseste nimic corespunzator in stanga/ memorate in stanga
+Example:
+ SELECT * FROM A
+ LEFT OUTER JOIN B
+ ON A.bazaa=B.bazab; //A este stanga si B dreapta
+
+3. FULL OUTHER JOIN //combina 1. si 2. iar daca randurile nu sunt la fel => NULL
+Example:
+ SELECT *
+ FROM employee FULL OUTER JOIN department
+ ON employee.DepartmentID = department.DepartmentID;
+
+4. INNER JOIN //este necesar ca fiecare rand din cele doua tabele sa aiba valorile din coloane la fel (intersectare)/ le imbina
+Example:
+ SELECT employee.LastName, employee.DepartmentID, department.DepartmentName 
+ FROM employee 
+ INNER JOIN department ON
+ employee.DepartmentID = department.DepartmentID
+SAU
+ SELECT *
+ FROM employee, department
+ WHERE employee.DepartmentID = department.DepartmentID;
+
+5. CROSS JOIN //returneaza produsul cartezian al randurilor precizate si va produce randuri care combina cele precizate
+Example: 
+ SELECT *
+ FROM employee 
+ CROSS JOIN department;
+
+6. OUTER APPLY
+7. CROSS APPLY
+
+
+Ordinea in care se executa:
+1. FROM                 5. HAVING
+2. JOIN                 6. SELECT
+3. GROUP BY             7. ORDER BY
+4. WHERE
+
+
+
+
+
+USERS - DCL (limbaj care controleaza accesul la datele stocate dintr-o baza de date)
+
+
+I. GRANT //ofera acces anumitor utilizatori de a efectua anumite operatii
+II. REVOKE //anuleaza accesul oferit sau interzis anterior
+
+Aceste operatii pot contine DDL sau DML (ex: SELECT, INSERT, UPDATE, DELETE, EXECUTE, USAGE)
+
+
+!!!Besides, ROLLBACK and COMMIT are also DCL commands!!!
+
+TCC (sau transaction processing; )
+begin transaction
+commit transaction
+rollback transaction
