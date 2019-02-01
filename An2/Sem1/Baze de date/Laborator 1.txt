@@ -1,0 +1,40 @@
+Tabela studenti:
+
+nr_matricol - câmp alfanumeric de 6 caractere ce nu poate fi null;
+nume - câmp alfanumeric, variabil ca dimensiune dar având maxim 10 caractere ce nu poate fi null;
+prenume - câmp alfanumeric, variabil ca dimensiune dar având maxim 10 caractere;
+an - câmp numeric ce poate reţine numere formate doar dintr-o singură cifră;
+grupa - câmp alfanumeric de 2 caractere;
+bursa - câmp numeric ce poate ţine minte valori reale formate din 4 cifre înainte de virgulă şi două cifre după;
+data_nastere - câmp de tip dată calendaristică.
+
+Tabela cursuri:
+
+id_curs - câmp alfanumeric de 4 caractere ce nu poate fi null;
+titlu_curs - câmp alfanumeric, variabil ca dimensiune dar având maxim 10 caractere ce nu poate fi null;
+an - câmp numeric ce poate reţine numere formate doar dintr-o singură cifră;
+semestru - câmp numeric ce poate reţine o cifra;
+credite - câmp numeric ce poate reţine numere formate din două cifre.
+
+Tabela note:
+
+nr_matricol - câmp alfanumeric de 6 caractere ce nu poate fi null;
+id_curs - câmp alfanumeric de 4 caractere ce nu poate fi null;
+valoare - câmp numeric ce poate reţine numere formate din două cifre;
+data_notare - câmp de tip dată calendaristică.
+
+Tabela profesori:
+
+id_prof - câmp alfanumeric de 4 caractere ce nu poate fi null;
+nume - câmp alfanumeric, fix ca dimensiune având 10 caractere ce nu poate fi null;
+prenume - câmp alfanumeric, fix ca dimensiune având 10 caractere;
+grad_didactic - câmp alfanumeric, variabil ca dimensiune dar având maxim 5 caractere.
+
+Tabela didactic
+
+id_prof - câmp alfanumeric de 4 caractere ce nu poate fi null;
+id_curs - câmp alfanumeric de 4 caractere ce nu poate fi null.
+
+1. Creaţi aceste tabele utilizând contul student.
+
+2. Inseraţi în baza de date nou creată un student Popescu Ionut, proaspat înmatriculat în anul 2 care a luat nota 10 la materia Logica pentru informatica predata de Cristian Masalagiu în primul semestru din anul 1.

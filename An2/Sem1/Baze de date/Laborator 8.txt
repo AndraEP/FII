@@ -1,0 +1,17 @@
+Afișați numărul de studenți din fiecare an.
+Afișați numărul de studenți din fiecare grupă a fiecărui an de studiu. Ordonați crescător după anul de studiu și după grupă.
+Afișați numărul de studenți din fiecare grupă a fiecărui an de studiu și specificați câți dintre aceștia sunt bursieri.
+Afișați suma totală cheltuită de facultate pentru acordarea burselor.
+Afișați valoarea bursei/cap de student (se consideră că studentii care nu sunt bursieri primesc 0 RON); altfel spus: cât se cheltuiește în medie pentru un student?
+Afișați numărul de note de fiecare fel (câte note de 10, câte de 9,etc.). Ordonați descrescător după valoarea notei.
+Afișați numărul de note pus în fiecare zi a săptămânii. Ordonați descrescător după numărul de note.
+Afișați numărul de note pus în fiecare zi a săptămânii. Ordonați crescător după ziua saptamanii: Sunday, Monday, etc.
+Afișați pentru fiecare elev care are măcar o notă, numele și media notelor sale. Ordonați descrescător după valoarea mediei.
+Modificați interogarea anterioară pentru a afișa și elevii fără nici o notă. Media acestora va fi null.
+Modificați interogarea anterioară pentru a afișa pentru elevii fără nici o notă media 0.
+Modificati interogarea de mai sus pentru a afisa doar studentii cu media mai mare ca 8.
+Afișați numele, cea mai mare notă, cea mai mică notă și media doar pentru acei studenti care au cea mai mică notă mai mare sau egală cu 7.
+Afișați numele și mediile studenților care au cel puțin un număr de 4 note puse în catalog.
+Afișați numele și mediile studenților din grupa A2 anul 3.
+Afișați cea mai mare medie obținută de vreun student.
+Pentru fiecare disciplină de studiu afișati titlul acesteia, cea mai mică și cea mai mare notă pusă.

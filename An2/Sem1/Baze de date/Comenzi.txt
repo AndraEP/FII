@@ -1,0 +1,348 @@
+Logare: SQLPLUS /NOLOG
+        CONN STUDENT/STUDENT
+        
+
+Comenzi:
+1. SELECT table_name FROM user_tables; //afiseaza toate tabelele din userul actual si numele lor
+2. SELECT * FROM nume_tabel; //afiseaza toate datele din nume_tabel
+3. SELECT nume_col1, nume_col2... FROM nume_tabel; //afiseaza coloanele nume_col1, nume_col2... din nume_tabe;
+4. SELECT nume_col AS "Alt_Nume" FROM nume_tabel; //afiseaza coloana nume_col sub denumirea "Alt_nume" din nume_tabel
+5. DESCRIBE nume_tabel; //afiseaza numele coloanelor din nume_tabel
+6. DROP nume_tabel; //sterge tabelul nume_tabel si reciclare
+7. DELETE FROM nume_tabel 
+   WHERE nume_coloana = 'xyz'; //sterge din nume_tabel linia in care xyz corespunde la nume_coloana
+8. WHERE conditie //se adauga o conditie
+9. UPDATE nume_tabel
+   SET nume_col1 = val1, nume_col2 = val2...; //face un update la o coloana, poate exista si conditie
+10. INSERT ALL 
+    INTO nume_tabel (col1, col2, col3...) VALUES (val1, val2, val3...)
+    INTO nume_tabel (col1, col2, col3...) VALUES (val11, val22, val33...)
+    ..
+    SELECT * FROM DUAL; //adauga mai multe randuri odata in nume_tabel
+11. SELECT DISTINCT nume_col1, nume_col2... FROM nume_tabel; //elimina duplicatele din nume_col1, nume_col2... si va afisa doar cate
+								un rezultat pentru fiecare
+12. SELECT 'Studentul '||nume||' '||prenume||' este inmatriculat in anul '|| an ||'.' AS info FROM studenti; //simbolul "||" 
+													concateneaza doua siruri.
+13. SELECT nume, prenume FROM studenti WHERE bursa IS NOT NULL AND an = 1; //NOT si AND sunt operatori logici
+14. SELECT nume FROM studenti WHERE nume LIKE '%pattern'; //simbolul '%' inlocuieste un sir de caractere
+15. SELECT nume FROM studenti WHERE nume LIKE '_pattern'; //simbolul '_' inlocuieste un singur caracter
+16. SELECT * FROM studenti ORDER BY nume_col ASC; //se ordoneaza dupa nume_col. ASC=ascendent, poate fi inlocuit de DESC=descendent
+17. cl scr; //clear screen
+18. JOIN (sau INNER JOIN) vs NATURAL JOIN: prima va reuni tabelele cu toate coloanele precizate, iar a doua va reuni tabelele cu toate
+    coloanele precizate in afara de cele care se repeta.
+    Ex: SELECT* FROM studenti JOIN note ON studenti.nr_matricol = note.nr_matricol WHERE prenume = 'Andrada';
+        SELECT* FROM studenti INNER JOIN note ON studenti.nr_matricol = note.nr_matricol WHERE prenume = 'Andrada';
+        VS
+        SELECT* FROM studenti NATURAL JOIN note WHERE prenume = 'Andrada';
+
+
+
+
+JOIN TYPES:
+
+
+1. LEFT OUTER JOIN //contine datele tabelului din stanga chiar daca nu se gaseste nimic corespunzator in dreapta/ memorate in dreapta
+Example:
+ SELECT * FROM A
+ LEFT OUTER JOIN B
+ ON A.bazaa=B.bazab; //A este stanga si B dreapta
+
+2. RIGHT OUTER JOIN //contine datele tabelului din dreapta chiar daca nu se gaseste nimic corespunzator in stanga/ memorate in stanga
+Example:
+ SELECT * FROM A
+ LEFT OUTER JOIN B
+ ON A.bazaa=B.bazab; //A este stanga si B dreapta
+
+3. FULL OUTHER JOIN //combina 1. si 2. iar daca randurile nu sunt la fel => NULL
+Example:
+ SELECT *
+ FROM employee FULL OUTER JOIN department
+ ON employee.DepartmentID = department.DepartmentID;
+
+4. INNER JOIN //este necesar ca fiecare rand din cele doua tabele sa aiba valorile din coloane la fel (intersectare)/ le imbina
+Example:
+ SELECT employee.LastName, employee.DepartmentID, department.DepartmentName 
+ FROM employee 
+ INNER JOIN department ON
+ employee.DepartmentID = department.DepartmentID
+SAU
+ SELECT *
+ FROM employee, department
+ WHERE employee.DepartmentID = department.DepartmentID;
+
+5. CROSS JOIN //returneaza produsul cartezian al randurilor precizate si va produce randuri care combina cele precizate
+Example: 
+ SELECT *
+ FROM employee 
+ CROSS JOIN department;
+
+
+
+
+BASIC SQL SINTAX:
+
+
+1. SQL SELECT Statement                                         2. SQL DISTINCT Clause
+        SELECT column1, column2....columnN                              SELECT DISTINCT column1, column2....columnN
+        FROM   table_name;                                              FROM   table_name;         
+        
+3. SQL WHERE Clause                                             4. SQL AND/OR Clause
+        SELECT column1, column2....columnN                              SELECT column1, column2....columnN
+        FROM   table_name                                               FROM   table_name
+        WHERE  CONDITION;                                               WHERE  CONDITION-1 {AND|OR} CONDITION-2;
+            
+5. SQL IN Clause                                                6. SQL BETWEEN Clause
+        SELECT column1, column2....columnN                              SELECT column1, column2....columnN
+        FROM   table_name                                               FROM   table_name
+        WHERE  column_name IN (val-1, val-2,...val-N);                  WHERE  column_name BETWEEN val-1 AND val-2;
+
+7. SQL LIKE Clause                                              8. SQL ORDER BY Clause
+        SELECT column1, column2....columnN                              SELECT column1, column2....columnN
+        FROM   table_name                                               FROM   table_name
+        WHERE  column_name LIKE { PATTERN };                            WHERE  CONDITION
+                                                                        ORDER BY column_name {ASC|DESC};            
+         
+9. SQL GROUP BY Clause                                          10. SQL SELECT COUNT(column_name)
+        SELECT SUM(column_name)                                         FROM   table_name
+        FROM   table_name                                               WHERE  CONDITION;
+        WHERE  CONDITION
+        GROUP BY column_name;
+       
+11. SQL HAVING Clause                                           12. SQL CREATE TABLE Statement
+        SELECT SUM(column_name)                                         CREATE TABLE table_name(column1 datatype, ..., columnN datatype,
+        FROM   table_name                                               PRIMARY KEY( one or more columns ) );
+        WHERE  CONDITION
+        GROUP BY column_name
+        HAVING (arithematic function condition);
+        
+13. SQL DROP TABLE Statement                                    14. SQL CREATE INDEX Statement
+        DROP TABLE table_name;                                          CREATE UNIQUE INDEX index_name
+                                                                        ON table_name ( column1, column2,...columnN);
+
+15. SQL DROP INDEX Statement                                    16. SQL DESC Statement
+        ALTER TABLE table_name                                          DESC table_name;
+        DROP INDEX index_name;
+
+17. SQL TRUNCATE TABLE Statement                                18. SQL ALTER TABLE Statement
+        TRUNCATE TABLE table_name;                                      ALTER TABLE table_name {ADD|DROP|MODIFY} column_name {data_ype};
+
+19. SQL ALTER TABLE Statement (Rename)                          20. SQL INSERT INTO Statement
+        ALTER TABLE table_name RENAME TO new_table_name;                INSERT INTO table_name( column1, column2....columnN)
+                                                                        VALUES ( value1, value2....valueN);
+
+21. SQL UPDATE Statement                                        22. SQL DELETE Statement
+        UPDATE table_name                                               DELETE FROM table_name
+        SET column1 = value1, column2 = value2....columnN=valueN        WHERE  {CONDITION};
+        [ WHERE  CONDITION ];
+
+23. SQL CREATE DATABASE Statement                               24. SQL DROP DATABASE Statement
+        CREATE DATABASE database_name;                                  DROP DATABASE database_name;
+
+25. SQL USE Statement                                           26. SQL COMMIT Statement
+        USE database_name;                                              COMMIT;
+
+27. SQL ROLLBACK Statement
+        ROLLBACK;
+
+
+
+
+
+Tip de date             Proprietăţi
+---------------------------------------------------------------------------------------------------------------------------------------
+CHAR(n)                 Şiruri de lungime fixă n (1 caracter e stocat pe 1 octet). Dacă valorile introduse au mai puţine caractere se
+			adaugă blanks (spaţii) la sfarşit ; dacă valorile introduse conţin mai multe caractere apare eroare .
+
+VARCHAR2(n)	        Şiruri de lungime variabilă, n este lungimea maximă. Este indicat a fi folosit cand valorile pentru un atribut
+			diferă ca lungime fiindcă se consumă un număr de octeţi egal cu numărul de caractere din şir.
+
+NUMBER	                Corespunde numerelor în virgulă fixă şi mobilă. Numere în intervalul (-10126, 10126), infinit.
+
+NUMBER(n1, n2)	        Numere ce conţin în total n1 zecimale semnificative, n2 precizând numărul de cifre de la punctual zecimal până
+			la cea mai puţin semnificativă cifră. n2 poate lua valori negative, caz în care se face rotunjirea pe numărul de
+			poziţii specificate în stânga punctului zecimal. Ex. pentru tipul NUMBER(5,-2), introducerea valorii 12345
+			generează valoarea 12300 iar pentru 12399 generează 12400.
+
+DATE	                Reprezintă un moment de timp stocând anul, luna, ziua, orele minutele şi secundele.
+
+B/C/NLOB, BFILE         Permit stocarea în format binar sau caracter a datelor nestructurate precum text, imagini, videoclipuri.
+
+
+
+
+
+FUNCTII NUMERICE                DESCRIERE
+--------------------------------------------------------------------------------------------------------------------------------------
+CEIL (n)	                Rotunjeşte superior pe n                	SELECT CEIL(51.3) FROM DUAL;
+
+FLOOR(n)	                Rotunjeşte inferior pe n                	SELECT FLOOR(51.3) FROM DUAL;
+
+ROUND(n [,m])	                Rotunjeşte pe n la m zecimale. Implicit m       SELECT ROUND(21.365,2) AS "Round-pozitiv" FROM DUAL;
+                                este 0, echivalent cu rotunjirea la cel mai     SELECT ROUND(21.665,-1) AS "Round-negativ" FROM DUAL;
+                                apropiat întreg. m  poate fi şi negativ.	
+
+TRUNC(n [,m])	                Trunchează pe n la m zecimale; implicit m e 0;  SELECT TRUNC(21.365,2) AS "Trunc-pozitiv" FROM DUAL;
+                                m poate fi şi negativ.	                        SELECT TRUNC(21.665,-1) AS "Trunc-negativ" FROM DUAL;
+
+MOD(m, n)	                Returnează restul împărţirii lui m la n.	SELECT MOD (26,11) AS "Mod" FROM DUAL;
+
+
+
+
+
+FUNCTII CARACTER->NUMERIC       DESCRIERE
+-------------------------------------------------------------------------------------------------------------------------------
+LENGTH (char)	                Returneză lungimea şirului char.	SELECT LENGTH('cuvant') AS "Lungime cuvant" FROM DUAL;
+                                                                        SELECT prenume, LENGTH(prenume) FROM profesori WHERE
+										UPPER(TRIM(prenume))='COSMIN';
+
+ASCII (char)	                Returnează codul ASCII al primului      SELECT ASCII('A') FROM DUAL;
+                                caracter din şir	
+
+INSTR(char1, char2[, n[, m]])   Caută a m-a apariţie a şirului char2    SELECT INSTR('CORPORATE FLOOR','OR',3,2) 
+                                în şirul char1 începând căutarea de la          AS "Instring" FROM DUAL;
+                                poziţia n; returnează poziţia în char1  SELECT nume, INSTR(nume,'ra') FROM profesori;
+                                a primului caracter din subşirul 
+                                identificat, relativ la n. Implicit n 
+                                şi m sunt 1. Dacă nu se identifică nici
+                                o apariţe rezultatul este 0.	 
+
+
+
+
+
+FUNCTII CARACTER->CARACTER      DESCRIERE
+-------------------------------------------------------------------------------------------------------------------------------
+INITCAP(char)	                Prima literă a fiecărui cuvânt e transformată      SELECT INITCAP('prima litera majuscula') FROM DUAL;
+                                în majusculă.
+
+UPPER(char)	                Returnează şirul char rescris cu majuscule.	   SELECT UPPER('Stefan') FROM DUAL;
+
+LOWER(char)	                Returnează şirul char rescris cu litere mici.	   SELECT LOWER('LOWER') FROM DUAL;
+
+REVERSE(char)	                Returnează şirul char rescris de la coadă la cap.  SELECT REVERSE('LIVE') FROM DUAL;
+
+CONCAT(char1, char2)	        Concatenează şirurile argument echivalent cu       SELECT CONCAT(CONCAT(nume,'este student in
+				operatorul de concatenare.				anul'),an) FROM studenti;
+
+SUBSTR(char, m [, n ])	        Extrage din şirul char n caractere începând de     SELECT SUBSTR('ABCDEFG',3,4) FROM DUAL;
+                                la poziţia m; omisiunea lui n semnifică finalul
+                                şirului; o valoare negativă pentru m semnifică
+                                numărarea de la stânga la dreapta.	
+
+RPAD(char1,n [,char2 ])         Returnează char1 cu spaţii adăugate la dreapta     SELECT RPAD(nume,12,'ab') FROM studenti
+                                până la lungimea n, dacă se omite char2; altfel         WHERE nume = 'Popescu';
+                                char2 este copiat de oricâte ori e nevoie pentru 
+                                a completa char1 până la lungimea n	 
+
+LPAD(char1,n [,char2 ])         Similar RPAD cu diferenţa că alipirea se face la   SELECT LPAD('Pagina',15,'*.') FROM DUAL;
+                                stânga.
+
+CHR(n)	                        Returnează caracterul corespunzător codului n,     SELECT CHR(68)||CHR(84)||CHR(69) FROM DUAL;
+                                ca tip VARCHAR2.	
+
+TRIM (char)	                Elimină spaţiile goale de la inceputul şi 
+                                sfârşitul textului.
+
+LTRIM(char)	                Elimină spaţiile goale de la inceputul textului.
+
+REPLACE(char, search_sir        Returnează şirul char în care subşirul search_sir  SELECT REPLACE('Andrei','i','ea') FROM DUAL;
+[, replacement_string])         este înlocuit de replacement_string; absenţa    
+                                ultimului reprezintă ştergerea tuturor apariţiilor
+                                subşirului căutat	
+
+TRANSLATE(char, from, to)	Returnează char modificat astfel: fiecare          SELECT TRANSLATE('48KLM980',
+                                aparitie a unui character din şirul from este           '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                                inlocuita de corespondentul (caracterul de pe           '9999999999XXXXXXXXXXXXXXXXXXXXXXXXXX')
+                                aceeaşi poziţie) din şirul to; dacă from este           "COD" FROM DUAL;
+                                mai lung decât to,caracterele fără corespondent 
+                                sunt şterse.	  
+
+
+
+
+
+FUNCTII DATE CALENDARISTICE      DESCRIERE
+-------------------------------------------------------------------------------------------------------------------------------
+CURRENT_DATE	                Returnează data curentă relativ la zona de timp         SELECT CURRENT_DATE FROM DUAL;
+                                (time zone) a sesiunii curente.	
+                                
+SYSDATE                         Returnează data curentă a sistemului.	                SELECT SYSDATE FROM DUAL;
+
+MONTHS_BETWEEN(d1, d2)          Numărul de luni dintre d1 şi d2.                        SELECT MONTHS_BETWEEN(TO_DATE('02-02-2015',
+                                                                                                'MM-DD-YYYY'), TO_DATE('01-01-2015',
+                                                                                                'MM-DD-YYYY') ) AS "Months" FROM DUAL;
+
+ADD_MONTHS(d, n)		Adauga n luni la data d.                                SELECT data_nastere,ADD_MONTHS(data_nastere,1)
+                                                                                                FROM studenti WHERE nume= 'Popescu';
+                                                                                                
+NEXT_DAY(d, char)	        Returnează data calendaristică corespunzătoare          SELECT NEXT_DAY('13-OCT-15','TUE') FROM DUAL;
+                                zilei lucrătoare specificate de char imediat 
+                                urmatoare datei d.	
+
+LAST_DAY(d)	                Returnează data calendaristică corespunzătoare          SELECT SYSDATE, LAST_DAY(SYSDATE) AS 
+                                ultimei zile din luna specificată de d.	                        "Last" FROM DUAL;
+
+ROUND(d [, fmt ])	        Rotunjește la cea mai apropiată dată calendaristcă      SELECT ROUND (TO_DATE ('27-OCT-16','DD-MON-YY'),
+                                conform formatului dat.	                                        'YEAR')"New Year" FROM DUAL;
+
+TRUNC(d [, fmt ])	        Dacă formatul este omis, trunchiază la cea mai          SELECT TRUNC(TO_DATE('27-OCT-16','DD-MON-YY'),
+                                apropiată zi.	                                                'YEAR')"F_day of this year" FROM DUAL; 
+                                                                                        SELECT TRUNC(TO_DATE('27-OCT-16','DD-MON-YY'),
+												'MONTH')"F_day of this month" FROM DUAL;
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+FUNCTII DE CONVERSIE            DESCRIERE
+-------------------------------------------------------------------------------------------------------------------------------
+TO_CHAR(char)	                Convertește o valoare de tip char la VARCHAR2.          SELECT TO_CHAR('01110' + 1) FROM dual;
+
+TO_CHAR(n [, fmt])	        Converteşte o valoare numerică n la VARCHAR2            SELECT TO_CHAR(bursa,'$99,999') FROM studenti;
+                                conform formatului specificat fmt.                      
+                                
+TO_CHAR({ datetime} [, fmt ])	Converteşte datetime la VARCHAR2 conform                SELECT TO_CHAR (SYSDATE, 'Day, Month, DD, YYYY')
+                                formatului specificat fmt.	                                "TO_CHAR example" FROM DUAL;
+
+TO_DATE(char [, fmt ])	        Convertește un șir de caractere în dată 
+                                calendarostică conform formatului specificat. 	        SELECT TO_DATE('January 26, 1996, 12:38 A.M.',
+												'Month dd YYYY HH:MI A.M.') FROM DUAL;
+
+TO_NUMBER(char [, fmt ])		                                                SELECT TO_NUMBER('100.52','9,999.99') FROM DUAL;
+
+CAST(expr AS type_name)		                                                        SELECT CAST(CURRENT_TIMESTAMP AS VARCHAR(30))
+												FROM DUAL;
+
+CONVERT(char, dest_char_set     Converteşte şirul char într-o nouă codificare.
+[, source_char_set ])
+
+
+
+
+
+ALTE FUNCTII                    DESCRIERE
+-------------------------------------------------------------------------------------------------------------------------------
+USER                            Returnează numele schemei curente	        SELECT USER FROM DUAL;
+
+NVL(expr1, expr2)	        Dacă expr1 este NULL returnează expr2,          SELECT nume, NVL(bursa,0) "bursa" FROM studenti;
+                                altfel returnează expr1.                	SELECT nume, NVL(TO_CHAR(bursa),'Nu are bursa')
+                                                                                        "bursa" FROM studenti;
+                                                                                
+NULLIF(expr1, expr2)	        Dacă expr1 este egală cu expr2 returnează
+                                NULL, altfel returnează expr1.
+                                
+DECODE(expr, search1,           Compară expr cu fiecare valoare search pe       SELECT DECODE(bursa, 450, 'premiul 1',
+result1 [, search2,             rând. Dacă obţine egalitate returnează                  350, 'premiul 2', 250, 'premiul 3', '?' ) FROM 
+result2]... [, default ])       valorea result corespunzătoare. Dacă nici               studenti;
+                                o potrivire nu e gasita, este returnată 
+                                valoarea DEFAULT; dacă aceasta nu e precizată
+                                returnează NULL. Dacă expr e NULL, se considera
+                                egalitate doar dacă search e NULL.   	
+
+LEAST(expr1                     Returnează cel mai mic element din listă.       SELECT LEAST('Mihai','Andrei','Anca')"LEAST" FROM DUAL;
+[, expr2 ]... )
+	 
+GREATEST (expr1                 Returnează cel mai mare element din listă.      SELECT GREATEST('Mihai','Andrei','Anca')
+[, expr2 ]... )                                                                         "GREATEST" FROM DUAL;
+

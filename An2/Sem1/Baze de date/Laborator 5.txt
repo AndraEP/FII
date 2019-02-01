@@ -1,0 +1,6 @@
+1. Afisati studentii doi cate doi impreuna cu diferenta de varsta dintre ei. Sortati in ordine crescatoare in functie de aceste diferente. Aveti grija sa nu comparati un student cu el insusi.
+2. Afisati posibilele prietenii dintre studenti si profesori. Un profesor si un student se pot imprieteni daca numele lor de familie are acelasi numar de litere.
+3. Afisati denumirile cursurilor la care s-au pus note cel mult egale cu 8 (<=8).
+4. Afisati numele studentilor care au toate notele mai mari ca 7 sau egale cu 7.
+5. Sa se afiseze studentii care au luat nota 7 sau nota 10 la OOP intr-o zi de marti.
+6. O sesiune este identificata prin luna si anul in care au fost tinute. Scrieti numele si prenumele studentilor ce au promovat examenele in fiecare sesiune impreuna cu notele luate de acestia si sesiunea in care a fost promovata materia. Formatul ce identifica sesiunea este "LUNA, AN", fara alte spatii suplimentare (De ex. "JUNE, 2015" sau "FEBRUARY, 2014"). In cazul in care luna in care s-a tinut sesiunea a avut mai putin de 30 de zile afisati simbolul "+" pe o coloana suplimentara, indicand faptul ca acea sesiune a fost mai grea (avand mai putine zile), in caz contrar (cand luna are mai mult de 29 de zile) valoarea coloanei va fi null.

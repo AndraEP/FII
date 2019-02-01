@@ -1,0 +1,50 @@
+Sa se identifice din fisierul de intrare (acest fisier) acele siruri de forma nume:nume_pilot, care fac parte
+din structuri Pilot  si care respecta urmatoarele cerinte:
+
+- fiecare nume/prenume trebuie sa contina cel putin 2 litere, in lista de prenume trebuie sa existe cel putin un
+prenume,  intre prenume poate sa apara - sau un spatiu
+
+Sa se identifice, de asemenea, listele de curse  din cadrul structurilor Pilot, 
+care respecta urmatoarele cerinte:
+- lista  contine elemente de forma nume_cursa:pozitie, elementele sunt separate de virgula, exista cel putin un element. 
+Numele de curse sunt formate din litere mari (cel putin o litera), notele sunt cuprinse intre 1 si 15. 
+	 
+Afisati elementele identificate intr-un fisier out.txt
+
+Pilot {
+   nume:Valentino Rossi;
+   curse:[JPN:5,ITL:6,NDL:4];
+}
+
+pilot cu lista de curse incorecte
+Pilot {
+ nume:Kimi Raikonnen;
+ curse:[JPN:8,];
+}
+
+
+nume: Dani Pedrosa
+
+alte informatii...
+
+Pilot cu nume gresit:
+
+Pilot { 
+  nume:Vinales;
+  curse:[NDL:4];
+ }
+ 
+
+
+
+Pilot{ nume:Marq Marquez;  curse:[JPN:10;8;2,1]}
+Pilot { nume:Andrea Dovizioso; curse:[AAS:5]; }
+
+
+Pilot{nume:Jorje Lorenzo; curse:[AGB:8];}
+
+Pilot{nume:Sebastian Vettel; curse:[BDC:9,CDC:10];}
+Pilot{nume:Lewis Hamilton; curse:[2,4];}
+
+Pilot{nume:Ionica Hamilton; curse:[2,4];}
+

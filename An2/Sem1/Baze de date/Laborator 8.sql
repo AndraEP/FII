@@ -1,0 +1,17 @@
+1) SELECT COUNT(*) AS "Numar studenti" FROM studenti;
+2) SELECT COUNT(*) AS "Numar studenti" FROM studenti GROUP BY grupa, an ORDER BY an, grupa;
+3) SELECT COUNT(*), COUNT(bursa) FROM studenti GROUP BY an, grupa;
+4) SELECT SUM(bursa) FROM studenti;
+5) SELECT SUM(bursa) / COUNT(*) FROM studenti;
+6) SELECT valoare, COUNT(valoare) FROM note GROUP BY valoare ORDER BY valoare desc;
+7) SELECT TO_CHAR(data_notare, 'day'), COUNT(valoare) FROM note GROUP BY TO_CHAR(data_notare, 'day') ORDER BY COUNT(valoare) DESC;
+8) SELECT TO_CHAR(data_notare, 'd'), COUNT(valoare) FROM note GROUP BY TO_CHAR(data_notare, 'd') ORDER BY TO_CHAR(data_notare, 'd');
+9) SELECT nume, AVG(valoare) FROM studenti NATURAL JOIN note GROUP BY nume ORDER BY AVG(valoare) DESC;
+10) SELECT nume, AVG(valoare) FROM studenti s LEFT OUTER JOIN note n on s.nr_matricol = n.nr_matricol GROUP BY nume ORDER BY AVG(valoare) DESC;
+11) SELECT nume, DECODE(AVG(valoare), NULL, 0, AVG(valoare)) FROM studenti s LEFT OUTER JOIN note n on s.nr_matricol = n.nr_matricol GROUP BY nume ORDER BY AVG(valoare) DESC;
+12) SELECT nume, DECODE(AVG(valoare), NULL, 0, AVG(valoare)) FROM studenti s LEFT OUTER JOIN note n on s.nr_matricol = n.nr_matricol GROUP BY nume HAVING AVG(valoare) > 8 ORDER BY AVG(valoare) DESC;
+13) SELECT nume, MIN(valoare), MAX(valoare), AVG(valoare) FROM studenti NATURAL JOIN note GROUP BY nume, nr_matricol HAVING MIN(valoare) >= 7;
+14) SELECT nume, ROUND(AVG(valoare), 2) FROM studenti NATURAL JOIN note GROUP BY nume, nr_matricol HAVING COUNT(valoare) >= 4;
+15) SELECT nume, ROUND(AVG(valoare), 2) FROM studenti NATURAL JOIN note WHERE TRIM(grupa) = 'A2' AND an = 3 GROUP BY nume, nr_matricol;
+16) SELECT MAX(AVG(valoare)) FROM note GROUP BY nr_matricol;
+17) SELECT titlu_curs, MIN(valoare), MAX(valoare) FROM note NATURAL JOIN cursuri GROUP BY titlu_curs;

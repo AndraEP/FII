@@ -1,0 +1,14 @@
+int a = 7;
+int c = a;
+int b = c;
+float d;
+float main()
+{
+    a = 5;
+    b += a;
+    b++;
+    b += ((a*10 + 4) * 2) - 3;
+    Print(b);
+    if (a) ;
+}
+

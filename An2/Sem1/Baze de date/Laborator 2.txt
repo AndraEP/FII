@@ -1,0 +1,14 @@
+1. Scrieți o interogare pentru a afișa numele, prenumele, anul de studiu si data nașterii pentru toți studenții. Editați în SQL*Plus și executați. Salvați apoi interogarea intr-un fișier numit p1.sql.
+2. Scrieți și executați o interogare pentru a afișa în mod unic valorile burselor.
+3. Încărcați fișierul p1.sql în buffer. Dați fiecărei coloane din clauza SELECT un alias. Executați înterogarea.
+4. Afișați numele concatenat cu prenumele urmat de virgulă și anul de studiu. Ordonați crescător după anul de studiu. Denumiți coloana “Studenți pe ani de studiu”.
+5. Afișați numele, prenumele și data de naștere a studenților născuți între 1 ianuarie 1995 si 10 iunie 1997. Ordonați descendent după anul de studiu.
+6. Afișați numele și prenumele precum și anii de studiu pentru toți studenții născuți în 1995.
+7. Afișați studenții (toate informațiile pentru aceștia) care nu iau bursă.
+8. Afișați studenții (nume și prenume) care iau bursă și sunt în anii 2 și 3 de studiu. Ordonați alfabetic ascendent după nume și descendent după prenume.
+9. Afișați studenții care iau bursă, precum și valoarea bursei dacă aceasta ar fi mărită cu 15%.
+10. Afișați studenții al căror nume începe cu litera P și sunt în anul 1 de studiu.
+11. Afișați toate informațiile despre studenții care au două apariții ale literei “a” în prenume.
+12. Afișați toate informațiile despre studenții al căror prenume este “Alexandru”, “Ioana” sau “Marius”.
+13. Afișați studenții bursieri din semianul A.
+14. Afişaţi numele şi prenumele profesorilor a căror prenume se termină cu litera "n" (întrebare capcană).

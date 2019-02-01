@@ -1,0 +1,30 @@
+c         Character
+d or i    Signed decimal integer
+e         Scientific notation (mantissa/exponent) using e character
+E         Scientific notation (mantissa/exponent) using E character
+f         Decimal floating point
+g         Uses the shorter of %e or %f
+G         Uses the shorter of %E or %f
+o         Signed octal
+s         String of characters
+u         Unsigned decimal integer
+x         Unsigned hexadecimal integer
+X         Unsigned hexadecimal integer (capital letters)
+p         Pointer address
+n         Nothing printed
+%         Character
+
+
+
+
+<stdio.h>
+<stdlib.h>
+<string.h>
+
+lex nume.l
+gcc lex.yy.c -ll -o nume_rulare
+./nume_rulare numefisier_input
+
+lex nume.l
+gcc lex.yy.c
+./a.out numefisier_input

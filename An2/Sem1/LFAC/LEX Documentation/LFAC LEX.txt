@@ -1,0 +1,159 @@
+A lex specification consists of optional sections for definitions (first section), a mandatory rules section (second section) and user subroutines (last section).
+First section, definitions, it contains #include and variable declarations:
+  1 %{
+  2 int count;
+  3 %}
+Second section, rules:
+  4 %%
+  5 fly             { count++; noise(); }
+  6 dog             { printf("Woof!\n"); }
+  7 man             { printf("Hello world!\n"); }
+  8 %%
+Third section, C functions/routines:
+  9 noise()
+ 10 {
+ 11         printf("Bzzzz!\n");
+ 12 }
+Abbreviations must appear after the '%}' delimiter that ends #include statements and variable declarations (if there are any). When abbreviations are used in rules, they must be enclosed within curly braces:
+   dig     [0-9]
+   ident   [a-zA-Z][a-zA-z0-9]*
+   %%
+   -{dig}+                printf("negative integer\n");
+   "+"?{dig}+             printf("positive integer\n");
+   -0\.{dig}+             printf("negative real number, no whole number part\n");
+   {ident}                printf("%s",yytext);
+
+
+
+
+
+To match the word ``orange'', use:
+   orange
+To match a literal string that contains spaces or tabs, surround the expression with double quotes. To match the phrase ``red apple'', use the expression:
+   "red apple"
+To match a string containing any number of ``m'''s, or the null string, use the expression:
+   m*
+To match a string containing one or more ``m'''s, but not the null string, use the expression:
+   m+
+To match one occurrence of the letter ``m'', or the null string, use the expression:
+   m?
+The period character, (.), matches any single character. To match any five-letter string starting with ``m'' and ending with ``y'', use the expression:
+   m...y
+To match either of the strings ``love'' and ``money'', use the expression:
+   love|money
+Expressions may be grouped using parentheses, '(' and ')'. To match a string that consists of any number of a's and b's, followed by a ``c'', use the expression:
+   (a|b)*c
+The following rule matches the word ``First'' at the beginning of a line:
+   ^First
+The following rule matches the word ``cow'' at the end of a line:
+   cow$
+   cow/\n   
+To match a specific number of repetitions of ``cd'', that is, ``cdcdcd'', use the expression:
+   (cd){3}
+To match a specific range repetitions of ``ab'', that is, ``ababab'', ``abababab'', or ``ababababab'', use the expression:
+   (ab){3,5}
+A sequence of characters inside square brackets, '[' and ']', matches any one character in the sequence:
+   [dgka]
+To match any character other than ``a'', ``b'', and ``c'', use the expression:
+   [^abc]
+Ranges within a standard alphabetic or numeric order are indicated with a hyphen, (-). The following expression matches any digit, uppercase letter, or lowercase letter:
+   [0-9A-Za-z]
+Regular expressions can be concatenated. The resulting expression matches whatever the first expression matches followed by whatever the second expression matches:
+   [a-zA-Z][0-9a-zA-Z]*
+Either of the following expressions could be used to match an asterisk followed by one or more digits:
+   \*[0-9]+
+   "*"[0-9]+
+Several normal C escapes with \ are recognized: \n is newline, \t is tab, and \b is backspace. To recognize a backslash itself, either of these expressions could be used:
+   \\
+   "\"
+The next expression matches the string ab, but only if followed by cd:
+   ab/cd
+Lex uses the $ symbol as an operator to mark a special trailing context -- the end of a line. An example would be a rule to ignore all blanks and tabs at the end of a line:
+   [ \t]+$ ; 
+   [ \t]+/\n ; 
+
+
+
+
+
+
+
+
+To cause lex to generate a lexical analyzer that prints everything in the input text with the exception of the word ``orange'', which is ignored, the following rules section is used:
+   orange  ;
+To recognize the expression ``Amelia Earhart'', the following rule can be used:
+   "Amelia Earhart"   printf("found Amelia's bookcase!\n");
+To replace a lengthy medical term with its acronym, a rule such as this is called for:
+   Electroencephalogram    printf("EEG");
+In order to count the lines in a text file, the analyzer must recognize end-of-lines and increment a counter. The following rule is used for this purpose:
+   %{
+   int lineno=0;
+   %}
+   %%
+   \n   lineno++;
+
+
+
+
+
+When a character string matches some pattern in the lex specification, the character string is stored in a character array called yytext (yytext[]). Lex also provides a variable yyleng, which gives the number of characters matched by the pattern.
+   %{
+   int digstringcount=0;
+   %}
+   %%
+   [-+]?[0-9]+     {
+                           digstringcount++;
+                           printf("%d %s\n",digstringcount,yytext);
+                   }
+
+
+The macro ECHO is a shorthand way of printing out the text of the token. The two rules in the next example have the same effect:
+   Jim|James       { ECHO; }
+   Jim|James       { printf("%s",yytext); }
+
+
+You might want to apply different rules to an expression depending on a prior context that is more complex than the end of a line or the start of a file. Each START condition must be introduced to lex in the definitions section with a line, such as the following one, where the conditions can be named in any order:
+   %Start name1 name2 ... 
+The conditions are referenced at the head of a rule with <> brackets. So the following is a rule that is recognized only when the scanner is in start condition name1:
+   <name1>expression 
+To enter a start condition, execute the action following statement which in this case changes the start condition to name1:
+   BEGIN name1; 
+To resume the normal state which will reset the initial condition of the scanner use the following:
+   BEGIN 0;
+A rule can be active in several start conditions. For example, the following is a legal prefix:
+   <name1,name2,name3> 
+Any rule not beginning with the <> prefix operators is always active.
+   %Start AA BB CC 
+   %% 
+   ^a			{ECHO; BEGIN AA;} 
+   ^b			{ECHO; BEGIN BB;} 
+   ^c			{ECHO; BEGIN CC;} 
+   \n			{ECHO; BEGIN 0;} 
+   <AA>magic		printf("first"); 
+   <BB>magic		printf("second"); 
+   <CC>magic		printf("third"); 
+
+
+With the REJECT function you can more easily process strings of characters even when they overlap or contain one another as parts. REJECT does this by immediately jumping to the next rule and its specification without changing the contents of yytext[]. To count the number of occurrences both of the regular expression snapdragon and of its subexpression dragon in an input text, the following works:
+   snapdragon				{countflowers++; REJECT;} 
+   dragon			     	countmonsters++;
+As an example of one pattern overlapping another, the following counts the number of occurrences of the expressions comedian and diana, even where the input text has sequences such as comediana:
+   comedian		{comiccount++; REJECT;} 
+   diana	      	princesscount++; 
+
+
+
+
+
+
+
+Changes to internal array sizes, in the form
+   %x  nnn
+where nnn is a decimal integer representing an array size and x selects the parameter as follows:
+                        Letter          Parameter
+                          p      positions
+                          n      states
+                          e      tree nodes
+                          a      transitions
+                          k      packed character classes
+                          o      output array size

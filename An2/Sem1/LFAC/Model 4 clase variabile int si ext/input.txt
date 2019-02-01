@@ -1,0 +1,51 @@
+Sa se identifice din fisierul de intrare (acest fisier):
+- secvente de forma private function id(args), care apar in afara blocurilor class (id este un identificator), unde args este o lista de numar par de argumente de lungime impara
+- secvente de forma private function id(args), care apar in interiorul blocurilor class (id este un identificator), unde args este o lista de oricate agumente de lungime impara
+    (fiecare argument, cu exceptia ultimului, este imediat urmat de o virgula, in interiorul () pot exista oricat de multe spatii)
+
+cla { 
+  public int a, b, c;
+  public function a1 (a, b, c)
+  text incorect
+  private function bba (a,b,  cdc,
+							abd) 
+  
+  protected float a1;
+}
+
+
+private function bba (a,b,  cdc,
+							abd)
+							
+class {
+  private function abf (a, b, c)
+  text incorect
+  private float a, b, c;
+  private function bba (a,  ccc,
+							ad) 
+  public float a, b, c, d;
+  
+}
+
+private function b131 (a, b, c)
+public int aa, bb,   cc;
+protected float a;
+class {
+  
+  
+  public int a;
+  protected float b;
+  
+  private private function a1 (a, b, c)
+}
+text 
+
+private private function a1 (a, b, c, d, e, f, g, h, i)
+
+nu_este_clasa
+{ private function a1 (a, b, c)}
+  public int a, b, c;
+  protected float a1;
+}
+
+altceva 

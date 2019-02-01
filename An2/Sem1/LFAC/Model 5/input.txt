@@ -1,0 +1,51 @@
+Sa se identifice din fisierul de intrare (acest fisier):
+- secvente de forma public int id*, care apar in afara blocurilor class (id este un identificator), unde id* este o lista care contine un numar de lungime 3k+2 de identificatori de lungime impara
+- secvente de forma private int id* sau protected int id*, care apar in cadrul blocurilor class (id este un identificator), unde id* este o lista care contine un numar oarecare de identificatori de lungime oarecare 
+    (fiecare identificator, cu exceptia ultimului, este imediat urmat de o virgula, in interiorul declaratiilor sunt oricate spatii si se termina cu ;)
+
+cla { 
+  private int a, b, c;
+  public function a1 (a, b, c)
+  text incorect
+  private function bba (a,b,  cdc,
+							abd) 
+  
+  protected float a1;
+}
+
+
+private function bba (a,b,  cdc,
+							abd)
+							
+class {
+  private function abf (a, b, c)
+  text incorect
+  private float a, b, c;
+  private function bba (aa,  ccdc,
+							abcd) 
+  public float a, b, c, d;
+  
+}
+
+private function b131 (a, b, c)
+protected int a, b,   c, fdg,    a;
+protected float a;
+class {
+  
+  
+  public int a;
+  protected float b;
+  
+  private private function a1 (a, b, c)
+}
+text 
+
+private private function a1 (a, b, c, d, e, f, g, h, i)
+
+nu_este_clasa
+{ private function a1 (a, b, c)}
+  protected int a, b, c;
+  protected float a1;
+}
+
+altceva 

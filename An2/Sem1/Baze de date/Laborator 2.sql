@@ -1,0 +1,18 @@
+1. select nume, prenume, an, data_nasterii from studenti;
+   save p1.sql;
+2. select distinct bursa*10 from studenti;
+3. get p1.sql;
+   edit;
+   select nume as "Nume studenti", prenume as "Prenume studenti", an as "An universitar", data_nasterii as "Data nasterii" from student;
+   run;
+4. select ''||nume||' '||prenume||', '||an||'.' as "Studenti pe ani de studiu" from studenti;
+5. select nume, prenume, data_nasterii from studenti where data_nasterii between '1-JAN-1995' and '10-JUN-1997' order by an desc;
+6. select nume, prenume, an from studenti where data_nasterii between '1-jan-1995' and '31-dec-1995';
+7. select * from studenti where bursa is null;
+8. select nume, prenume from studenti where bursa is not null and an between 2 and 3 order by nume asc, prenume desc;
+9. select nume, prenume, bursa*10+bursa*150/100 from studenti where bursa is not null;
+10. select * from studenti where nume like 'P%' and an=1;
+11. select * from studenti where nume like '%a%a%';
+12. select * from studenti where prenume=some('Alexandru', 'Ioana', 'Marius');
+13. select nume, prenume from studenti where bursa is not null and grupa like 'A%';
+14. select nume, prenume from profesori where grup_didactic='Prof' and trim(prenume) like '%n';

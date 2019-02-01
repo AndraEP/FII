@@ -1,0 +1,89 @@
+PARTEA 1
+
+
+Ex. 5
+
+r: A B C D        r': C D E
+  ---------           -----
+   0 0 1 1            1 1 0
+   0 1 1 0            1 1 1
+   1 0 0 1            0 0 0
+   1 0 1 1            0 1 1
+                      0 1 0
+
+pi (B, C)[r] = proiectia pe B C a lui r = {0 1/1 1/0 0}
+pi (C, D)[r'] - pi (C, D)[r] = {1 1/0 0/0 1} - {1 1/1 0/0 1} = {0 0}
+pi (A, C)[r] * pi (C, D)[r'] = {0 1/1 0/1 1} * {1 1/0 0/0 1} = {0 1 1 1/0 1 0 0/0 1 0 1/1 0 1 1/1 0 0 0/1 0 0 1/1 1 1 1/1 1 0 0/1 1 0 1}
+r><r' (natuarl join) = {A B C D E} = {0 0 1 1 0/0 0 1 1 1/1 0 0 1 1/1 0 0 1 0/1 0 1 1 0/1 0 1 1 1}
+pi (A, C)[r]><r' = {0 1/1 0/1 1}><r' = {0 1 1 0/1 0 0 0/1 0 1 1/1 0 1 0/1 1 1 1}
+r teta_join r', teta = (A = C)^(B < D) = {A, B r.C, r.D, r'.C, r'.D, E} = {0 0 1 1 0 1 1/0 0 1 1 0 1 0/1 0 0 1 1 1 0/1 0 0 1 1 1 1/1 0 1 1 1 1 0/1 0 1 1 1 1 1}
+
+Ex. 1
+pi (nume, prenume)((sigma de valoare = 10)(studenti><note))
+
+Ex. 2
+=>< left join
+pi (titlu_curs)((sigma de valoare = NULL)(cursuri=><note))
+
+Ex. 3
+U reunit
+pi (nume)(studenti) U pi (nume)(profesori)
+
+Ex. 4a
+=/ egal taiat
+pi (nume)((sigma de valoare =/ NULL)(studenti))
+
+Ex. 4b
+pi (nume)(sigma de titlu_curs = BD intersectat cu valoare = 10)((studenti ><(studenti.nr_matricol = mote.nr_matricol) note)><(note.id_curs = curs.id_curs)cursuri)
+
+Ex. 4c
+pi (nume)(studenti><(studenti.prenume = profesori.prenume)profesori)
+
+Ex. 4d
+(fi(studenti/s1)(studenti) teta_join fi(studenti/s2)(studenti)) teta = (s1.nr_matricol < s2.nr_matricol)^(s1.an = s2.an)^(s1.grupa = s2.grupa)
+
+Ex. 6
+r>r'
+
+
+
+
+
+PARTEA 2
+
+
+Ex. 1
+
+r: A B C D E
+  -----------
+   0 0 1 1 1    t1
+   0 1 1 0 1    t2
+   1 0 0 1 0    t3
+   1 0 1 1 0    t4
+
+(V)t1, t2 apartine lui r cu t1[x] = t2[x] => t1[y] = t2[y] (x dependenta functionala y)
+x->y: A->E, B->D, AB->DE, CDE->A
+
+
+Ex. 2
+sigma = {AB->C, AB->D, CD->E}
+AB->CD apartine lui sigma+ prin FD5f (curs 3, slide 11)
+AB->E apartine lui sigma+ prin FD3f
+ABC->B apartine lui sigma+ prin FD1f (dependenta triviala)
+ACD->AE apartine lui sigma+ prin FD2f
+
+
+
+
+PARTEA 3
+
+Ex. 1
+
+r: A B C D E
+  -----------
+   1 0 1 7 2    
+   1 0 4 3 5    
+   1 0 1 7 5    
+   1 0 4 3 2
+
+Dependente multivaluate:

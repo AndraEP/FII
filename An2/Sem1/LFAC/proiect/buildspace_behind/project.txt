@@ -1,0 +1,28 @@
+int a, b;
+int b;
+int c;
+double a;
+long long int a;
+const int x;
+class proiect 
+{
+    private: int a;
+    public: const int x;
+}
+class examen {float c; long long int y;}
+const int x=10;
+int v[20];
+float v[10][10];
+int main(int argc, char** argv)
+{
+    a = 5;
+    f (5, 6);
+    if (a < 5) {a = 6;}
+    if (a != 6) {a = 6;}
+    for (a = 1; (a < 5 && a > 6) || a > 8; a++,b++)
+    {
+      ++a;
+    }
+    5+=7;
+    Print(2*3+1);
+}
