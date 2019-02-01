@@ -1,0 +1,3 @@
+1111:/bin/ls
+2222:/bin/pwd
+3333:/bin/ps

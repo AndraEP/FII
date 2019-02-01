@@ -1,0 +1,18 @@
+1. Sa se afiseze continutul directorului curent in ordine dupa data modificarii/crearii.
+2. Afisati toate fisierele din directorul curent de forma a*.*
+3. Dati drepturi asupra unui director ales care sa asigure: user=rwx; grup=r;others=nimic, folosind notatia in octal si pe cea simbolica.
+4. Folosind stat,grep,cut afisati inodul unui fisier.
+5. Ce va afisa linia: echo `who|cut -c1-9|sort|uniq` >> y ? 
+6. Sa se afiseze toti utilizatorii care au numele conturilor terminate in a.
+7. Sa se afiseze comanda care testeaza daca sunt deschise cel putin 5 sesiuni de lucru si in caz afirmativ, sa se trimita un mail cu subiectul "Sesiuni".
+8. Sa se gaseasca toate fisierele din sistem care au extensia .c
+
+
+1. ls -t
+2. ls | grep '^a' | grep '.'
+3. chmod 740 // chmod u=rwx,g=r,o= 
+4. stat /bin/bash | grep Inode | cut -d : -f 3 | grep -d " " -f 2
+5. Toti utilizatori conectati, selecteaza primele 9 caractere din nume, le sorteaza unic si le salveaza in fisierul y.
+6. cat /etc/passwd | cut -d : -f 1 | grep -w "a$"
+7. test $(who | wc -l) -gt 5 && mail -s "Subiect" adresa@email.ro
+8. find -name "*.c"

@@ -1,0 +1,1 @@
+acelasi lucru ca la laboratorul 6 dar cu pipe-uri si fork

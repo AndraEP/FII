@@ -1,0 +1,12 @@
+Indicatii pentru rezolvarea Temei 2 (care va contine si portiuni de cod)
+
+Redactarea raportului tehnic se va face in format LNCS (https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines). Structura generala pe sectiuni a raportului va fi urmatoarea:
+
+- Introducere
+- Tehnologiile utilizate (e.g. TCP, UDP... - caracteristicile care au fost utilizate in cadrul proiectului). Justificati de ce ati ales aceste tehnologii.
+- Arhitectura aplicatiei (conceptele implicate, diagrama aplicatiei detaliata)
+- Detalii de implementare (cod relevant particular proiectului, care va fi documentat; scenarii de utilizare)
+- Concluzii (e.g. cum ar putea fi imbunatatita solutia propusa?)
+- Bibliografie
+
+Termen de predare: laboratorul din saptamana 11.

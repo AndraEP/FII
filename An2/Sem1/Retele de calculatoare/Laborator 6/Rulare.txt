@@ -1,0 +1,3 @@
+gcc client.c -o client.o && gcc server.c -o server.o
+Terminal 1: ./server.o
+Terminal 2 -> n: ./client.o
