@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{problema}[2][Problema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%If you want to title your bold things something different just make another thing exactly like this but replace "problem" with the name of the thing you want, like theorem or lemma or whatever
+ 
+\begin{document}
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+%Good resources for looking up how to do stuff:
+%Binary operators: http://www.access2science.com/latex/Binary.html
+%General help: http://en.wikibooks.org/wiki/LaTeX/Mathematics
+%Or just google stuff
+ 
+\title{\textbf{Tema 1, Algoritmica Grafurilor}}
+\author{
+  Bujoreanu Vlad, Paduraru Andra - Elena\\
+  \text{Grupa A4, Anul 2}
+}
+\date{}
+\maketitle
+ 
+\begin{problema}{1}
+\end{problema}
+
+\begin{proof}[Solutie]
+Fie \(G = (V, E)\) un digraf, unde \(V\) reprezinta multimea finita si nevida a nodurilor din \(G\), iar \(E\) reprezinta multimea muchiilor lui \(G\). \textbf{Un digraf} \(D = (V(D), E(D))\), unde \(V(D)\) este o multime de noduri si \(E(D) \subseteq V(D) * V(D)\) este o multime de arce sau muchii orientate, are cel putin un circuit, adica un drum inchis, in care muchiile sunt orientate si nodul initial si cel final coincid. \\\\
+In cazul de fata, vom avea reteaua de strazi ale orasului reprezentata de digraful \(G\), unde intersectiile vor fi de fapt nodurile din \(G\), iar sensurile strazilor orasului vor fi reprezentate prin arcele digrafului. 
+\\Asadar, momentan exista posibilitatea de a merge in cerc pe strazile orasului. Stim ca daca am elimina arcele \(\mathbf{a}_{1}, \mathbf{a}_{2} .. \mathbf{a}_{n}\), unde \(n<=p\), din \(G\), se va obtine un digraf fara circuite. Noi vom vrea de fapt sa gasim arcele \(\mathbf{a}^{c}_{1}, \mathbf{a}^{c}_{2} .. \mathbf{a}^{c}_{n}\) care prin inversare vor duce la acelasi efect - crearea unui digraf fara circuite.\\
+Stiind ca \(\mathbf{a}_{i}=(u,v)\), vom nota \(rev(\mathbf{a}_{i})=(v,u)\), unde \(G(\mathbf{a}_{i})=\{V(G), E(G)-\{\mathbf{a}_{i}\}\bigcup\{rev(\mathbf{a}_{i})\}\}\). \\\\
+Vom nota initial toate arcele ca fiind nevizitate si vom incepe parcurgerea pentru fiecare arc \(\mathbf{a}_{i}\), \(i=\overline{1, n}\). Daca nu exista \(C\subseteq G\) circuit astfel incat \(\mathbf{a}_{i}\in{E(C)}\), se alege \(\mathbf{a}^{c}_{i}=\mathbf{a}_{i}\), \(\mathbf{a}^{c}_{i}\in{E(\mathbf{C}^{'})}\). Altfel se verifica daca rev(\(\mathbf{a}_{i}\)) face parte dintr-un circuit al lui \(G(\mathbf{a}_{i})\). Daca nu face parte, alegem \(\mathbf{a}^{c}_{i}=\mathbf{a}_{i}\), marcam toate arcele din \(C\) ca fiind vizitate, iar \(G\) va deveni \(G(\mathbf{a}_{i})\). Daca \(rev(\mathbf{a}_{i})\in{E(\mathbf{C}^{'})}\) si \(\mathbf{C}^{'}\subseteq G(\mathbf{a}_{i})\) circuit, vom alege arbitrar o muchie nevizitata \(b\in{\mathbf{C}^{'}}\) si atribuim lui \(\mathbf{a}_{i}\) valoarea lui \(b\), apoi vom itera algoritmul pentru \(n\) pasi, avand \(i=\overline{1, n}\). La final vom avea n arce, \(n<=p\), care prin inversare vor genera un digraf fara circuite, deci vom indeparta posibilitatea de a merge in cerc pe strazile orasului.
+
+\end{proof}
+
+\newpage
+
+\begin{problema}{2}
+\end{problema}
+ 
+\begin{proof}[Solutie]
+Intr-un \textbf{graf conex} exista cate un drum intre orice doua noduri ale grafului, iar o componenta conexa este reprezentata de un subgraf maximal conex. Reuniunea disjuncta a componentelor conexe va rezulta graful initial. \\
+\textbf{Un circuit} este un drum inchis intre mai multe noduri distincte, unde nodul de inceput coincide cu nodul final. Acesta este \textit{impar} in functie de paritatea lungimii sale. \\\\
+"\(\Longrightarrow\)" \(\mathbf{G}_{1}\odot{\mathbf{G}_{2}}\) conex, rezulta ca oricare ar fi \((\mathbf{a}_{1}, \mathbf{a}_{2}), (\mathbf{b}_{1}, \mathbf{b}_{2})\in{V(\mathbf{G}_{1}\odot{\mathbf{G}_{2}})}\), exista drum intre \((\mathbf{a}_{1}, \mathbf{a}_{2})\) si \((\mathbf{b}_{1}, \mathbf{b}_{2})\). Fie acesta \((\mathbf{x}_{0}, \mathbf{y}_{0})\), \((\mathbf{x}_{1}, \mathbf{y}_{1})\) ... \((\mathbf{x}_{n}, \mathbf{y}_{n})\), unde \((\mathbf{x}_{0}, \mathbf{y}_{0})\) = \((\mathbf{a}_{1}, \mathbf{a}_{2})\), \((\mathbf{x}_{n+1}, \mathbf{y}_{n+1})\) = \((\mathbf{b}_{1}, \mathbf{b}_{2})\). Avem muchie intre \((\mathbf{x}_{i}, \mathbf{y}_{i})\) si \((\mathbf{x}_{i+1}, \mathbf{y}_{i+1})\), oricare ar fi \(i=\overline{0, n}\) \(\Rightarrow\) \((\mathbf{x}_{i}, \mathbf{x}_{i+1})\in{E(\mathbf{G}_{1})}\), \((\mathbf{y}_{i}, \mathbf{y}_{i+1})\in{E(\mathbf{G}_{2})}\):\\
+\(\Rightarrow\) oricare ar fi \(\mathbf{a}_{1}, \mathbf{b}_{1}\in{E(\mathbf{G}_{1})}\) avem drumul \(\mathbf{a}_{1} = \mathbf{x}_{0}, \mathbf{x}_{1}, \ldots \mathbf{x}_{n}; \mathbf{x}_{n+1} = \mathbf{b}_{1}\) si  oricare ar fi \(\mathbf{a}_{2}, \mathbf{b}_{2}\in{E(\mathbf{G}_{2})}\) avem drumul \(\mathbf{a}_{2} = \mathbf{y}_{0}, \mathbf{y}_{1}, \ldots \mathbf{y}_{n}; \mathbf{y}_{n+1} = \mathbf{b}_{2}\) ;\\
+\(\Rightarrow\) \(\mathbf{G}_{1}, \mathbf{G}_{2}\) conexe.\\
+Presupunem prin RA ca niciunul nu are circuit impar \(\Rightarrow\) in \(\mathbf{G}_{1}, \mathbf{G}_{2}\) nu exista intre doua noduri fixate un drum de lungime para si unul de lungime impara, altfel am obtine un circuit impar din reuniunea celor doua drumuri prin alegerea lui  \(\mathbf{a}_{1}, \mathbf{b}_{1}\in{V(\mathbf{G}_{1})}\) la distanta 1 si \(\mathbf{a}_{2}, \mathbf{b}_{2}\in{V(\mathbf{G}_{2})}\) la distanta 2. Astfel, nu va exista drum intre \((\mathbf{a}_{1}, \mathbf{a}_{2})\) si \((\mathbf{b}_{1}, \mathbf{b}_{2})\) \(\Rightarrow\) \(\mathbf{G}_{1}\odot{\mathbf{G}_{2}}\) nu e conex - contradictie.\\
+Deci \(\mathbf{G}_{1}\odot{\mathbf{G}_{2}}\) este conex \(\Rightarrow\) \(\mathbf{G}_{1}, \mathbf{G}_{2}\) conexe, unul are un circuit impar.\\\\
+"\(\Longleftarrow\)" Putem considera ca \(\mathbf{G}_{1}\) are circuit impar. Fie \(\mathbf{a}_{1}, \mathbf{b}_{1}\in{V(\mathbf{G}_{1})}\) si \(\mathbf{a}_{2}, \mathbf{b}_{2}\in{V(\mathbf{G}_{2})}\). \(\mathbf{G}_{1}\) este conex \(\Rightarrow\) exista drumul \(\mathbf{r}_{1} = \mathbf{a}_{1}\mathbf{x}_{1} \ldots \mathbf{x}_{n}\mathbf{b}_{1}\) de lungime \(\mathbf{P}_{1}\). \(\mathbf{G}_{2}\) este conex \(\Rightarrow\) exista drumul \(\mathbf{r}_{2} = \mathbf{a}_{2}\mathbf{y}_{1} \ldots \mathbf{y}_{n}\mathbf{b}_{2}\) de lungime \(\mathbf{P}_{2}\). Putem alege \(\mathbf{r}_{1}\) si \(\mathbf{r}_{2}\) astfel incat \(\mathbf{P}_{1} > \mathbf{P}_{2}\). Alegem daca este nevoie \(\mathbf{r}_{1} = \mathbf{a}_{1}\mathbf{x}_{1} \mathbf{a}_{1}\mathbf{x}_{1}\ldots \mathbf{a}_{1}\mathbf{x}_{1}\mathbf{x}_{2}\ldots\mathbf{x}_{n}\mathbf{b}_{1}\) cu \(\mathbf{a}_{1}\mathbf{x}_{1}\) repetandu-se de \(\alpha\) ori, si \(\alpha\) suficient de mare.\\
+
+\textbf{Cazul 1.} \(\mathbf{P}_{1}, \mathbf{P}_{2}\) pare. Putem construi \(\mathbf{r}_{2}(k)=\mathbf{a}_{2}\mathbf{y}_{1} \mathbf{a}_{2}\mathbf{y}_{1}\ldots \mathbf{a}_{2}\mathbf{y}_{1}\mathbf{y}_{2}\ldots\mathbf{y}_{n}\mathbf{b}_{2}\). \(\mathbf{P}(\mathbf{r}_{2}(k))=\mathbf{P}_{2} + 2k\) , \(k\in{\textbf{N}}\)
+\(\Rightarrow\) exista drumul \(\mathbf{r}_{2}(\frac{\mathbf{P}_{1}-\mathbf{P}_{2}}{2})\) de lungime \(\mathbf{P}_{2}+2*\frac{\mathbf{P}_{1}-\mathbf{P}_{2}}{2} = \mathbf{P}_{1}\). Avem \(\mathbf{r}_{1}\): \(\mathbf{a}_{1}\mathbf{x}_{1} \ldots \mathbf{x}_{\mathbf{P}_{1}-1}\mathbf{b}_{1}\) si \(\mathbf{r}_{2}(\frac{\mathbf{P}_{1}-\mathbf{P}_{2}}{2})\): \(\mathbf{a}_{2}\mathbf{y}_{1} \ldots \mathbf{y}_{\mathbf{P}_{1}-1}\mathbf{b}_{2}\). Deci intre \((\mathbf{a}_{1}, \mathbf{a}_{2})\) si \((\mathbf{b}_{1}, \mathbf{b}_{2})\) avem drumul \((\mathbf{a}_{1}, \mathbf{a}_{2})\) \((\mathbf{x}_{1}, \mathbf{y}_{2})\)...\((\mathbf{x}_{\mathbf{P}_{1}-1}, \mathbf{y}_{\mathbf{P}_{1}-1})\) \((\mathbf{b}_{1}, \mathbf{b}_{2})\)\\
+
+\textbf{Cazul 2.} \(\mathbf{P}_{1}, \mathbf{P}_{2}\) impare. Fie \(d\) un drum in \(\mathbf{G}_{1}\). Notam \(\mathbf{l}_{min}(d) = \textit{min}(d(A,B))\), \(A\in{\textbf{d}}\) si \(B\in{\textbf{C}}\), unde \(C\) este circuitul impar din \(\mathbf{G}_{1}\), de lungime \(2n+1\). \(\mathbf{A}_{0}, \mathbf{B}_{0}\) sunt valorile pentru care se realizeaza minimul. Exista drumul \(\mathbf{r}_{1}(k)=\mathbf{a}_{1}\ldots\mathbf{A}_{0} \ldots\mathbf{B}_{0}(\mathbf{C}_{1}\ldots \mathbf{C}_{2n+1})\ldots\\\ldots(\mathbf{C}_{1}\ldots \mathbf{C}_{2n+1})\mathbf{B}_{0}\ldots\mathbf{A}_{0}\ldots\), unde \(\mathbf{C}_{1}\ldots \mathbf{C}_{2n+1}\) se repeta de \(k\) ori, pentru orice \(k\in{\textbf{N}}\). \\
+\(\mathbf{l}(\mathbf{r}_{1}(k))=l(a\ldots\mathbf{A}_{0})+2*l( \mathbf{A}_{0}\ldots\mathbf{B}_{0})+(2n+1)*k+l(\mathbf{A}_{0}B)\)\\
+\(\mathbf{l}(\mathbf{r}_{1}(k))=\mathbf{P}_{1}+2*\mathbf{l}_{min}(\mathbf{r}_{1})+(2n+1)*k\). Drumurile \(\mathbf{r}_{1}(1)\) si \(\mathbf{r}_{1}(\frac{\mathbf{P}_{1}+2*\mathbf{l}_{min}(\mathbf{r}_{1})+2n+1-\mathbf{P}_{2}}{2})\) au aceeasi lungime si analog cu primul caz construim drumurile intre \((\mathbf{a}_{1}, \mathbf{a}_{2})\) si \((\mathbf{b}_{1}, \mathbf{b}_{2})\). Stim ca \(\mathbf{G}_{1}, \mathbf{G}_{2}\) conexe si unul contine circuit impar \(\Rightarrow\) \(\mathbf{G}_{1}\odot{\mathbf{G}_{2}}\) conex.
+
+\end{proof}
+
+\newpage
+
+\begin{problema}{3}
+\end{problema}
+ 
+\begin{proof}[Solutie]
+a) \textbf{Un arbore} este un graf conex, fara circuite, adica exista cate un drum intre orice doua noduri ale grafului, iar nodul de start este diferit de cel final. \textbf{O matrice patratica nesingulara} are determinantul acesteia nenul. Pentru ca acesta sa fie diferit de zero, toate elementele unei linii sau coloane trebuie sa fie nenule si nu trebuie sa existe doua linii sau doua coloane identice.\\
+Pentru un arbore cu \textit{n} varfuri, exista \textit{n-1} muchii. Deci transpusa matricii de adiacenta va avea \textit{n} coloane. Astfel ca, daca se elimina o coloana din matrice, aceasta va avea ordinul si rangul egale cu \textit{n-1} si va deveni o matrice patratica.\\\\
+Vom nota \(G\) un graf conex cu n noduri, unde \(rang(\mathbf{M}_{G})\leq{n-1}\) si demonstram \(rang(\mathbf{M}_{G})=n-1\). Fie \(\mathbf{M}_{G} = (\mathbf{M}_{1},\mathbf{M}_{2}\ldots\mathbf{M}_{n})\) matricea, unde \(\mathbf{M}_{i}\) este o coloana din matrice. Fie \(S(\mathbf{M}_{i})=(\sum{(elementelor-din-\mathbf{M}_{i}})) \% 2\) si \(y = random() \% 2\). Daca \(G\) este conex, atunci \(\mathbf{M}_{G}\neq{
+\begin{bmatrix}
+    M_{\mathbf{G}_{1}}       & 0 \\
+   0       & M_{\mathbf{G}_{2}} 
+\end{bmatrix}}\), unde \(\mathbf{M}_{\mathbf{G}_{1}}\) are \(y\) coloane si \(\mathbf{M}_{\mathbf{G}_{2}}\) are \(n-y\) coloane \(\Rightarrow\) nu exista submatrice pentru care suma celor \(y\) coloane sa fie egala cu 0, oricare ar fi \(y=\overline{1, n-1}\), unde \(y\) este random. Rezulta ca nu exista o combinatie liniara de coloane egale cu 0 \(\Rightarrow\) \(rang(\mathbf{M}_{G})\geq{n-1}\). Dar stim ca \(rang(\mathbf{M}_{G})\leq{n-1}\) (din notatia initiala), deci \(rang(\mathbf{M}_{G}) = n-1\). \\
+Fie \(T\) arborele convex cu \(n\) noduri si \(n-1\) coloane. Eliminand o singura coloana din \(\mathbf{M}_{T}\), stim din teoria initiala ca matricea va deveni patratica, de ordin \(n-1\). \(\Rightarrow\) rangul va fi tot \(n-1\) (din demonstratia anterioara). \(\Rightarrow\) matricea nou obtinuta este nesingulara. Stim ca este si patratica, deci va fi o matrice patratica nesingulara.\\\\
+b) \textbf{Un circuit} este un drum inchis intre mai multe noduri distincte, unde nodul de inceput coincide cu nodul final. Acesta poate fi \textit{par} sau \textit{impar} in functie de paritatea lungimii sale. Cel mai scurt circuit, numit si \textit{gratia}, se noteaza cu \(g(G)\). Cel mai lung se numeste circumferinta lui \(G\) si se noteaza cu \(c(G)\).  Din punctul anterior s-a aflat ce este aceea o matrice patratica nesingulara.\\\\
+Fie \(C\) un circuit cu \(n\) noduri. Vom avea:\\
+\(\mathbf{M}_{G} = \begin{bmatrix}
+    1       & 0 & 0 & \dots & 0&0&1 \\
+    1       & 1 & 0 & \dots & 0&0&0 \\
+    \vdots \\
+    0       & 0 & 0 & \dots & 1&1&0 \\
+    0       & 0 & 0 & \dots & 0&1&1 
+\end{bmatrix}\) \(\Rightarrow\) \(det(\mathbf{M}_{G}) = (-1)^{1+1}*1*\begin{bmatrix}
+    1       & 0 & 0 & \dots &0 \\
+    1       & 1 & 0 & \dots &0 \\
+    \vdots \\
+    0       & 0 & 0 & \dots &0 \\
+    0       & 0 & 0 & \dots &1 
+\end{bmatrix} + (-1)^{1+2}*0*\mathbf{N}_{1}+\ldots+(-1)^{1+(n-1)}*0*\mathbf{N}_{n-1}+(-1)^{1+n}*1*\begin{bmatrix}
+    1       & 1 & 0 & \dots &0 \\
+    0       & 1 & 1 & \dots &0 \\
+    \vdots \\
+    0       & 0 & 0 & \dots &1 
+\end{bmatrix}\) \\
+unde \(\mathbf{N}_{i}\),, \(i=\overline{1, n-1}\) este matricea rezultata din dezvoltarea pe linie si coloana, dar care nu ne intereseaza deoarece se inmulteste cu 0.\\ \(det(\mathbf{M}_{G})=(-1)^{1+1}*1*1(determinant-matrice-triunghiulara-inferior)+0+0+\ldots+0+\\+(-1)^{1+n}*1*1(determinant-matrice-triunghiulara-superior)\);\\
+\(det(\mathbf{M}_{G})=1+(-1)^{1+n}\);\\
+\(det(\mathbf{M}_{G})\neq{0}\) este echivalent cu \(\mathbf{M}_{G}\) nesingulara si echivalent cu \(n\) este impar. Demonstratia poate merge si in sens invers, de aceea folosim echivalenta.\\\\\\
+\end{proof}
+
+
+
+\begin{problema}{4}
+\end{problema}
+ 
+\begin{proof}[Solutie]
+\textbf{Un digraf} \(D = (V(D), E(D))\), unde \(V(D)\) este o multime de noduri si \(E(D) \subseteq V(D) * V(D)\) este o multime de arce sau muchii orientate, are cel putin un circuit, adica un drum inchis, in care muchiile sunt orientate si nodul initial si cel final coincid. \textbf{Un drum} este un parcurs al grafului intre \textit{n} noduri distincte, cu \(n>=0\). Distanta cea mai intre doua noduri se noteaza cu \(\mathbf{d}_{G}(u, v)\), unde \textit{u} si \textit{v} reprezinta nodurile grafului \textit{G} si reprezinta lungimea celui mai scurt drum (daca exista) de la \textit{u} la \textit{v}.
+
+\end{proof}
+
+\end{document}

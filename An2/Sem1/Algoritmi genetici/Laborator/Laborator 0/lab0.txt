@@ -1,0 +1,8 @@
+Implementati o metoda (euristica) pentru gasirea punctului de maxim sau de minim
+al unei functii cu un numar arbitrar de variabile. 
+
+Testati metoda pe una sau ma multe din functiile de aici. 
+
+Intocmiti un raport (format text) in care sa precizati, pentru fiecare functie 
+folosita pentru testare: timpul minim, mediu si maxim de executie cea mai buna si
+cea mai slaba solutie, precum si media solutiilor obtinute dupa un numar de rulari.

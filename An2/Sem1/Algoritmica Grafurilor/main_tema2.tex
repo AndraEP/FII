@@ -1,0 +1,252 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,listings}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{rcases}
+ {\left.\begin{aligned}}
+ 	{\end{aligned}\right\rbrace}
+ 
+\newenvironment{problema}[2][Problema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\begin{document}
+ 
+\title{\textbf{Tema 2, Algoritmica Grafurilor}}
+\author{
+  Bujoreanu Vlad, Paduraru Andra - Elena\\
+  \text{Grupa A4, Anul 2}
+}
+\date{}
+\maketitle
+ 
+\begin{problema}{1}
+\end{problema}
+
+\begin{proof}[Solutie]
+
+Fie G = (V, E), C - cuplaj perfect in G.
+\newline
+Algoritm:
+\begin{lstlisting}[mathescape]
+
+build_tree(G, C)
+{
+    // A si B vor fi multimi stabile de cardinal maxim in T
+    A = {};
+    B = {};
+    E' = {};
+    viz[] = {0};
+    queue q;
+    a = random(1, |V|);
+    q.push(a);
+    viz[a] = 1;
+    A = A $\cup$ {a};
+    b = perechea lui a din cuplajul perfect C;
+    B = B $\cup$ {b};
+    E' = E' $\cup$ {ab};
+    while (q.size() > 0)
+    {
+    	x = q.front(); q.pop();
+    	foreach t = xy, x $\in$ E(G) && viz[y] == 0
+    	{
+    		$\exists$ t' = yz a.i. t' $\in$ C
+    		viz[y] = viz[z] = 1;
+    		q.push(y); q.push(z);
+    		if (x $\in$ A)
+    		{
+    			B = B $\cup$ {y};
+    			A = A $\cup$ {z};
+    		}
+    		else
+    		{
+    			A = A $\cup$ {y};
+    			B = B $\cup$ {z};
+    		}
+    		E' = E' $\cup$ {xy, yz};
+    	}
+    	V' = A $\cup$ B;
+    }
+    return T = (V', E');
+}
+\end{lstlisting}
+
+Corectitudine:
+\newline
+Algoritmul simuleaza o parcurgere in adancime (BFS) de complexitate $\mathcal{O}$($\vert$V$\vert$+$\vert$E$\vert$).
+\newline
+Fiecare nod este evaluat o singura data datorita vectorului boolean viz.
+\newline
+Pentru fiecare nod putem gasi o pereche in cuplaj, deoarece cuplajul este perfect.
+\newline
+Fiecare muchie are un capat in A si altul in B, astfel ca multimile A si B formeaza bipartitia arborelui T rezultat.
+\newline
+G admite arbore partial $\rightarrow$ este conex $\rightarrow$ fiecare nod este parcurs cel putin o data $\rightarrow$ A si B au cardinal maxim.
+
+\end{proof}
+
+\newpage
+
+\begin{problema}{2}
+\end{problema}
+ 
+\begin{proof}[Solutie]: \newline
+
+"$\implies$":
+\newline
+Graful G admite un cuplaj de ordin p $\implies$ $\vert$G$\vert$-2p noduri nu fac parte din cuplaj. Graful G-S poate contine maxim $\vert$G$\vert$-2p care nu fac parte din cuplajul de ordin p, deci $\forall$ q(G-S), cate un nod cu exceptia a $\vert$G$\vert$-2p vor avea o extremitate a muchiei in S. Intrucat extremitatile sunt diferite, $\implies$ q(G-S) - ($\vert$G$\vert$-2p) $\leq$ $\vert$S$\vert$ $\implies$ q(G-S) $\leq$ $\vert$S$\vert$ + $\vert$G$\vert$ - 2p, $\forall$ S $\subseteq$ G.
+\newline\newline
+"$\impliedby$":
+\newline
+Presupunem $\forall$G' cu $\vert$G'$\vert$$\leq$$\vert$G$\vert$, daca $\exists$p' a.i. q(G'-S') $\leq$ $\vert$S'$\vert$ + $\vert$G'$\vert$ - 2p', $\forall$ S' $\subseteq$ G' $\implies$ cardinalul maxim al unui cuplaj e p'
+\newline
+Demonstratie prin inductie:
+\newline
+P(1), P(2): adevarat
+\newline
+P(G): q(G-S) $\leq$ $\vert$S$\vert$ + $\vert$G$\vert$ - 2p, $\forall$ S $\subseteq$ G
+\newline
+Consideram $S_0$ a.i. q(G-$S_0$) = $\vert$$S_0$$\vert$ + $\vert$G$\vert$ - 2p
+\newline
+Ipoteza inductiva este respectata $\forall$ componenta conexa impara din G-$S_0$.
+\newline
+q(G-$S_0$) = $\vert$$S_0$$\vert$ + $\vert$G$\vert$ - 2p $\implies$ $\vert$$S_0$$\vert$ = q(G-$S_0$) - $\vert$G$\vert$ + 2p. Avem $\vert$G$\vert$ + 2p noduri ramase neacoperite de cuplaj, deoarece fiecare componenta conexa impara are exact un nod neacoperit, iar acesta poate fi imperecheat cu un nod din $S_0$ $\implies$ avem cuplaj de ordin p.
+\newline
+p este maximal cu aceasta proprietate din implicatia directa $\implies$ cuplajul gasit (de ordin p) este maximal.
+
+\end{proof}
+
+\newpage
+
+\begin{problema}{3}
+\end{problema}
+ 
+\begin{proof}[Solutie]:\newline
+
+a. \newline
+"$\implies$" \newline
+Prin eliminarea unei muchii de pe fiecare drum de la u la v, obtinem cel putin doua componente conexe, dintre care intr-una se gaseste u, iar in cealalta se gaseste v.
+\newline
+e $\in$ E(G) - muchie aleasa arbitrar.
+\newline
+Daca $\exists$$T^*$ APM pentru G a.i. e $\in$ E($T^*$) $\implies$ c($T^*$) = $min_{T\in T_0 }$(c(T))
+\newline
+Printr-o taietura S, se genereaza in graf doua componente conexe $G_u$ si $G_v$, cu $T_u^*$ si $T_v^*$, APM ai celor doua componente conexe.
+\newline
+\[
+\begin{rcases}
+\begin{gathered}
+c(T^*) = c(T_u^*) + c(T_v^*) + min(S)\\
+e \in E(T^*)
+\end{gathered} \end{rcases} \Rightarrow \begin{gathered}
+e = min(S)
+\end{gathered}
+\]
+
+$\exists T^* APM, e \in E(T^*) \implies e = min(S), S\ taietura\ in\ G$
+\newline\newline
+"$\impliedby$"
+\newline
+S - taietura arbitrara in G, e - muchie de cost minim in S, $T^*$ APM a.i. e $\notin$ E($T^*$). $T^*$ conex $\implies$ $\exists$ $e^*$ $\in$ E($T^*$) a.i. $e^* \in E(S)$.
+\newline
+Arborele T' = (V, E'), E' = E($T^*$) \textbackslash \{$e^*$\} $\cup$ \{e\}.
+\newline
+\[
+\begin{rcases}
+\begin{gathered}
+c(T') = c(T^*) - c(e^*) + c(e)\\
+c(e) = min(S) \leq c(e^*)
+\end{gathered} \end{rcases} \Rightarrow \begin{gathered}
+c(T') \leq c(T^*)
+\end{gathered}
+\]
+$T^*$ este APM $\implies$ c(T') = c($T^*$), deci T' este un alt APM care il contine pe $\implies$ e = min(S), S taietura in G $\implies$ $\exists T^*$ APM, a.i. e $\in$ E($T^*$) $\Longleftrightarrow \exists S$ taietura in G, a.i. e are cost minim in S.
+\newline\newline
+b.
+\newline
+"$\implies$"
+\newline
+$\exists$ S taietura in G, e = uv muchie de cost minim in S. Daca $\nexists$ C circuit in G a.i. e $\in$ C $\implies$ e nu are cost maxim intr-un circuit. 
+\newline
+Daca $\exists$ $C_0, ..., C_k$ a.i. e $\in$ C (oricare circuit de la u la v), atunci $\exists e_1 \in C_1, ..., e_k \in C_k$ a.i. \{$e_1, ..., e_k$\} $\subset$ S.
+\newline
+e = min(S) $\implies$ c(e) \textless c($e_1$), ..., c(e) \textless c($e_k$) $\implies$ $\exists$ cel putin o muchie cu cost mai mare decat e $\implies$ e nu este muchie de cost maxim pe niciun circuit.
+\newline\newline
+"$\impliedby$"
+\newline
+Consideram e = uv, daca e nu este muchie de cost minim pe nicio taietura $\implies$ $\exists$ cel putin inca un drum de la u la v.
+Fie $D_1, D_2, ..., D_k$ toate drumurile de la u la v. Multimea tuturor muchiilor din aceste drumuri genereaza o taietura in G. Intrucat e nu este de cost minim, c(e) este mai mare decat costurile tuturor celorlalte muchii din $D_1, D_2, ..., D_k$. Fiecare din aceste drumuri reunesc toate circuitele care il includ pe e, iar c(e) fiind mai mare decat a tuturor celorlalte muchii de pe circuite $\implies$ c(e) are cost maxim in cel putin un circuit. Daca e nu este de cost maxim pe vreun circuit $\implies$ e este de cost minim intr-o taietura.
+\newline\newline
+$\nexists T^*$ APM a.i. e $\in$ E($T^*$) $\Longleftrightarrow$ e este de cost maxim intr-un circuit
+\newline\newline
+c.
+\newline
+$\forall$ e - muchie aleasa arbitrar, aceasta este fie de cost minim intr-o taietura, fie de cost maxim intr-un circuit, iar asta presupune o colorare  in verde sau albastru, dar e este ales arbitrar $\implies$ nu se opreste cata vreme mai exista muchii rosii in graf care pot fi colorate fie in albastru, fie in verde.
+\newline\newline
+d.
+\newline
+La inceput toate muchiile vor fi colorate cu rosu. Alegand mereu o muchie colorata cu rosu, aceasta fie va fi colorata in albastru, fie in verde (rezulta din punctul anterior), deci numarul muchiilor colorate cu rosu va scadea la fiecare iteratie a buclei while. Cum multimea muchiilor este finita, algoritmul se va opri.
+\newline\newline
+La fiecare iteratie a buclei while exista o unica muchie e care sa indeplineasca conditia de cost minim in taietura si cost maxim in circuit, deci vom avea o unica succesiune de muchii care va constitui in final APM-ul H.
+
+\end{proof}
+
+\newpage
+
+\begin{problema}{4}
+\end{problema}
+ 
+\begin{proof}[Solutie]:\newline\newline
+a.
+\newline
+$T_i = T \setminus \{k_1, k_2, ..., k_{i-1}\}$
+\newline
+Eliminand oricare frunza din arbore, acesta ramane in continuare conex si aciclic $\forall$ i $\in$ \{1, 2, ..., p-1\}
+\newline
+$T_{p-1} = T \setminus \{k_1, k_2, ..., k_{p-2}\}$ = \{u,p\}, $T_{p-1}$ arbore $\implies$ up $\in$ E($T_{p-1}$), u, p, frunze. \newline
+$k_{p-1}$ = min (u, p) = u $\implies$ $x_{p-1}$ = p $\forall$ T - construit arbitrar.
+\newline\newline
+b1.
+\newline
+$T_k$ = (V, E)
+\newline
+V($T_k$) = \{$i_k, ..., i_{p-1}\} \cup \{x_k, ..., x_{p-1}\}$
+\newline
+E($T_k$) = \{$i_k x_k, i_{k+1} x_{k+1}, ..., i_{p-1} x_{p-1}\}$
+\newline
+$\forall k_1, k_2, k_1 \leq k_2$
+\newline
+$i_{k_2}$ = min(V \textbackslash \{$i_1, ..., i_{k_1}, ..., i_{k_2 - 1}, x_{k_2}, ..., x_{p-1}$\} $\implies$ $i_{k_2}$ $\neq$ $i_{k_1}$ $\implies$ $i_k \notin$ \{$i_{k_1}, ..., i_{p-1}$\}
+\newline
+$i_{k}$ = min(V \textbackslash \{$i_1, ..., i_{k-1}, x_{k}, ..., x_{p-1}$\} $\implies$ $i_k \notin$ \{$x_{k}, ..., x_{p-1}$\}
+\newline
+$\implies$ $i_k$ face parte doar din muchia $i_k x_k$ $\implies$ $i_k$ este frunza in $T_k$
+\newline\newline
+b2.
+\newline
+V($T_k$) = \{$i_k, i_{k+1}, ..., i_{p-1}$\} $\cup$ \{$x_k, x_{k+1}, ..., x_{p-1}$\}
+\newline
+$i_k$ = min(V \textbackslash \{$i_1, ..., i_{k-1}, x_k, ..., x_{p-1}$\}) $\implies$ $i_k$ \textless\ u, $\forall$ u $\in$ \{$i_k, ..., i_{p-1}$\} $\setminus$ \{$x_k, ..., x_{p-1}$\} \textcircled{1}
+\newline\newline
+$x_i$ - arbitrar, i \textgreater\ k, daca $x_i$ = $x_j$, i $\neq$ j, j \textgreater\ k $\implies$ $x_i$ incident in $i_i x_i$ si in $i_j x_j$, $\implies$ $x_i$ nu este frunza.
+\newline
+$x_i$ $\neq$ $x_j$, $\forall$ j $\neq$ i, j \textgreater\ k $\implies$ $\exists$ j \textgreater\ i a.i. $x_i$ = min (V \textbackslash \{$i_1, ..., i_{j-1}, x_j, ..., x_{p-1}$\}) $\implies$ $x_i$ incident in $i_i x_i$ si in $i_j x_j$, deci $x_i$ nu este frunza.
+\newline
+$x_i$ - arbitrar $\implies$ $\nexists$ u frunza, a.i. u $\in$ \{$x_k, ..., x_{p-1}$\} \textcircled{2}
+\newline\newline
+\textcircled{1}, \textcircled{2} $\implies$ $i_k$ este cea mai mica frunza din $T_k$
+\newline\newline
+b3.
+\newline
+$T_k$ = T $\setminus$ \{$i_1, ..., i_{k-1}$\}
+\newline
+pct. b2 $\implies$ $i_k$ cea mai mica frunza din $T_k$
+\newline
+$i_k x_k \in$ E($T_k$)
+\newline
+Daca $x_k$ se afla pe pozitia k in emblema lui T $\forall$ k $\in$ \{1, ..., p-1\} $\implies$ x este emblema lui T.
+\end{proof}
+
+\end{document}
