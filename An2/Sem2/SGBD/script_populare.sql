@@ -348,3 +348,20 @@ select count(*)|| ' relatii de prietenie' from prieteni;
 
 --select count(*) from (select studenti.nume, studenti.prenume, studenti.an, note.valoare, cursuri.titlu_curs, profesori.nume, profesori.prenume, profesori.GRAD_DIDACTIC from studenti join note on note.id_student=studenti.id join cursuri on note.id_curs=cursuri.id join didactic on cursuri.id=didactic.id_curs join profesori on profesori.id=didactic.id_profesor order by titlu_curs, valoare desc); 
 --select count(*) from prieteni p1, prieteni p2 where p1.ID_STUDENT1=p2.ID_STUDENT2 and p1.ID_STUDENT2=p2.ID_STUDENT1;
+
+SELECT grupa, an FROM 
+    (SELECT grupa, an, tot, pri, pri/tot FROM
+        (SELECT count(*) tot, grupa, an FROM studenti s GROUP BY an, grupa)
+    NATURAL JOIN 
+        (SELECT count(*) pri, s1.grupa, s1.an FROM studenti s1 JOIN
+            prieteni p ON s1.id=p.id_student1 JOIN
+                studenti s2 ON s2.id = p.id_student2 
+                AND s1.grupa = s2.grupa AND s2.an=s1.an 
+                GROUP BY s1.grupa, s1.an) 
+    ORDER BY pri/tot DESC) 
+WHERE rownum = 1;
+
+--drop view bursieri_fruntasi
+
+create view bursieri_fruntasi as SELECT * FROM studenti WHERE bursa > 1350;
+select * from bursieri_fruntasi;
