@@ -1,0 +1,167 @@
+<html>
+<head> <title> Lab 12</title> </head>
+<body>
+
+<a name="lab12"></a>
+
+
+<h1> Lab 12</h1>
+<b>[valid 2018-2019]</b>
+
+<p>
+<b>Internationalization and Localization</b> </br>
+Create an application to explore the available <b>locales</b> included in the standard Java Development Kit.
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li> Create a package with the name <i>res</i>. Inside this package create the files: <i>Messages.properties</i>, <i>Messages_ro.properties</i>.
+<table>
+<tr>
+<td>
+<font color="blue">
+<pre>
+#Messages.properties file
+prompt = Input command:
+locales = The available locales are:
+locale.set = The current locale is {0}
+info = Information about {0}:
+invalid = Unknown command
+</pre>
+</font>
+</td>
+
+<td>
+<font color="blue">
+<pre>
+#Messages_ro.properties file
+prompt = Comanda ta:
+locales = Localizarile disponibile sunt:
+locale.set = Localizarea curenta este {0}
+info = Informatii despre localizarea {0}:
+invalid = Comanda necunoascuta
+</pre>
+</font>
+</td>
+
+</tr>
+</table>
+<br/>
+
+<li> Create the package <i>app</i> and the class <i>LocaleExplore</i>. 
+<pre>
+public class LocaleExplorer {
+    private final String baseName = "res.Messages";
+    private Locale locale;
+    private ResourceBundle resourceBundle;
+
+    public void run() {
+        setLocale("en-US");
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print(message("prompt"));
+            String command = scanner.nextLine();
+            if (command.equals("exit")) break;            
+            String[] params = command.trim().split("\\s+");
+            switch (params[0]) {
+                case "locales" : displayLocales(); break;
+                case "set"     : setLocale(params[1]); break;
+                case "info"    : localeInfo(); break;
+                default        : System.out.println(message("invalid"));
+            }
+        }
+    }
+    private String message(String key, String ... arguments) {
+        String pattern = resourceBundle.getString(key);
+        String message = new MessageFormat(pattern).format(arguments);        
+        return message;
+    }
+    private void setLocale(String languageTag) {
+        this.locale = Locale.forLanguageTag(languageTag);
+        this.resourceBundle = ResourceBundle.getBundle(baseName, locale);
+        message("locale.set", languageTag);
+    }    
+    private void displayLocales() {
+        message("locales");
+        ..//Implement this method
+    }
+    private void localeInfo() {
+        message("locale.set");
+        ...//Implement this method (see below)
+    }
+    public static void main(String args[]) {
+        new LocaleExplorer().run();
+    }
+}
+</pre>
+
+
+<li> When the user sets a specific language tag, various information obtained using standard Java classes such as <i>Currency</i> or <i>DateFormatSymbols</i> 
+should be displayed in a text area, as in the following example:
+	<ul>
+	<li> <font color="blue">Country</font>: Romania	(Rom&#226;nia)
+	<li> <font color="blue">Language</font>: Romanian (rom&#226;n&#259;)
+	<li> <font color="blue">Currency</font>: RON (Romanian Leu)
+	<li> <font color="blue">Week Days</font>: luni, mar&#355;i, miercuri, joi, vineri, s&#226;mb&#259;t&#259;, duminic&#259;
+	<li> <font color="blue">Months</font>: ianuarie, februarie, martie, aprilie, mai, iunie, iulie, august, septembrie, octombrie, noiembrie, decembrie
+	<li> <font color="blue">Today</font>: May 8, 2016	(8 mai 2016)
+	</ul>
+
+<li> All the <b>locale-sensitive</b> information should be <b>translated</b> in at least two languages (english-default and romanian). 
+<br/>
+</ul>
+
+
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+<li> Implement the commands using an object-oriented approach and map command names to corresponding classes using an external file <i>Commands.properties</i>. 
+<li> The names of the commands should also be configurable.
+<pre>
+#Commands.properties
+set-locale.command = set
+set-locale.impl = commands.SetLocaleCommand</code>
+...
+</pre>
+</ul>
+
+<hr>
+<p><b>Bonus</b>
+<ul>
+<li>Invoke a REST Web Service to obtain additional information about a country (capital, continent, etc.), 
+<!-- for example <a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso">DataFlex Web Service for Country information</a>. -->
+for example <a href="https://restcountries.eu/#rest-countries">REST Countries</a>.
+</ul>
+
+
+<p>
+<b>Resources</b>
+<ul>
+<li> <a href="https://docs.oracle.com/javase/tutorial/i18n/"> Internationalization </a>
+<!--
+<li> <a href="https://docs.oracle.com/javase/tutorial/deployment/"> Deployment </a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/deployment/webstart/"> Java Web Start</a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/deployment/applet/"> Java Applets</a>
+<li> <a href="http://www.oracle.com/technetwork/java/javase/migratingfromapplets-2872444.pdf"> Migrating from Java Applets to plugin-free Java technologies </a>
+-->
+</ul>
+
+<p> 
+<b>Objectives</b>
+<ul>
+<li> Understand the concepts of <i>internationalization</i> and <i>localization</i>
+<li> Identify a localization by using the <i>Locale</i> object
+<li> Use properties files  and resource bundles
+<li> Parse and format locale-sensitive data, such as dates, number, currencies.
+<!--
+<li> Use Java Web Start to deploy an application.
+<li> Understand the reason why applets are now deprecated.
+-->
+</ul>
+
+
+</body>
+</html>

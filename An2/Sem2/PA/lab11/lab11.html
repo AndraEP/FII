@@ -1,0 +1,143 @@
+<html>
+<head> <title> Lab 11</title> </head>
+<body>
+
+<a name="lab11"></a>
+
+
+<h1> Lab 11</h1>
+<b>[valid 2018-2019]</b>
+
+<p>
+<b>Dynamic Swing Designer</b> </br>
+Create an application to assist the user in building a Swing graphical user interface. <br/>
+The purpose is to visually design a <i>JPanel</i> container using absolute positioning of its components.
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li> Create the class <i>MainFrame</i> of type <i>JFrame</i>, that will also represent the main class of the application. 
+The frame will contain a <i>ControlPanel</i>  in the north and a <i>DesignPanel</i> in the center.
+<pre>
+public class MainFrame extends JFrame {
+    ControlPanel controlPanel;
+    DesignPanel designPanel;
+    public MainFrame() {
+        super("Swing Designer");
+        init();
+    }
+    private void init() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        ...//create and add to the frame the controlPanel and designPanel objects		
+        pack();
+    }
+    ...//create the main method
+}
+</pre>
+
+<li> The <i>ControlPanel</i> will allow the user to specify <b>any class name of a Swing component</b> (such as <tt>javax.swing.JButton, javax.swing.JLabel, etc.</tt>), a default text for that component (if applicable)
+ and a button for <b>creating and adding an instance</b> of the specified component to the <i>DesignPanel</i>.
+<pre>
+public class ControlPanel extends JPanel {
+    private final MainFrame frame;
+    private final JLabel classNameLabel = new JLabel("Class name");
+    private final JTextField classNameField = new JTextField(30);
+    private final JLabel textLabel = new JLabel("Default text");
+    private final JTextField textField = new JTextField(10);
+    private final JButton createButton = new JButton("Add component");
+    public ControlPanel(MainFrame frame) {
+        this.frame = frame;
+        init();
+    }
+    private void init() {
+        add(classNameLabel); add(classNameField); add(textLabel); add(textField); add(createButton);
+        createButton.addActionListener(e -> {
+            JComponent comp = createDynamicComponent(classNameField.getText());
+            setComponentText(comp, textField.getText());
+            frame.designPanel.addAtRandomLocation(comp);
+        });
+    }
+    private JComponent createDynamicComponent(String className) {
+	   ...//implement this method
+    }
+    private void setComponentText(JComponent comp, String text) {
+	   ...//implement this method
+    }
+}
+</pre>
+
+<li> The <i>DesignPanel</i> represents a simple JPanel, using <i>absolute positioning</i> of its components and containing Swing components added by our application.
+<pre>
+public class DesignPanel extends JPanel {
+    public static final int W = 800, H = 600;
+    private final MainFrame frame;
+    public DesignPanel(MainFrame frame) {
+        this.frame = frame;
+        setPreferredSize(new Dimension(W, H));
+        setLayout(null);
+    }
+    public void addAtRandomLocation(JComponent comp) {
+        int x = ...//create a random integer between 0 and W-1
+        int y = ...//create a random integer between 0 and H-1
+        int w = comp.getPreferredSize().width;
+        int h = comp.getPreferredSize().height;
+        comp.setBounds(x, y, w, h);
+        comp.setToolTipText(comp.getClass().getName());
+        this.add(comp);
+        frame.repaint();
+    }
+}
+</pre>
+ </ul>
+ 
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+<ul>
+<li> The <i>DesignPanel</i> container must be <i>saved / restored</i> in XML format, 
+using <a href="https://docs.oracle.com/javase/8/docs/api/index.html?java/beans/Introspector.html">JavaBeans</a> serialization. 
+Add the buttons <i>Save</i> and <i>Load</i> to the <i>ControlPanel</i>.
+<li> Whenever the user sets the focus on an added component, its <i>properties</i> should be displayed in a <i>JTable</i> componenet. 
+Use the <a href="https://docs.oracle.com/javase/8/docs/api/java/beans/Introspector.html">java.beans.Introspector</a> class to get the properties of a Swing component.
+<li> The properties of type <i>String</i> and <i>int</i> should be updateable. The user may change the text on a button, the position or size of the components, etc.
+</ul>
+
+<hr>
+<p><b>Bonus</b>
+<ul>
+<li>Consider the case when the components used in creating the design are not standard Swing classes. <br/>
+These custom components may be in external directories or jar archives that should be added dynamically to the project. A class reloading mechanism should be implemented in this case. <br/>
+<li>Create an external library containing a custom button (for example, a button with a regular polygon shape). Use this button in the design, dynamically loading its class from the external jar.
+The file name containing the jar must be specified at runtime.
+<li>Custom components (such as the polygon shaped button) may be annotated in order to specify default values for their properties, for example <tt>@Width(10), @Height(20), @Text("Hello World"), etc.</tt>.
+Inspect and use these annotations when creating such a component.
+</ul>
+
+<p>
+<b>Resources</b>
+<ul>
+<li> <a href="https://docs.oracle.com/javase/tutorial/java/package/usepkgs.html"> Packages </a>
+<li> <a href="http://www.developer.com/java/other/article.php/2248831/Java-Class-Loading-The-Basics.htm"> Java Class Loading: The Basics</a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/ext/basics/load.html"> Understanding Extension Class Loading </a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/reflect/">The Reflection API</a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/java/annotations/">Annotations</a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/javabeans/">JavaBeans</a>
+</ul>
+
+<p> 
+<b>Objectives</b>
+<ul>
+<li> Understand Java class loading mechanism.
+<li> Learn how to set the CLASSPATH and how to use the system class loader.
+<li> Load classes dynamically.
+<li> Instantiate objects of a class whose name is known only at runtime.
+<li> Use <i>Reflection API</i> to inspect or use types at runtime.
+<li> Understand the role of <i>annotations</i> in the context of modern programming techniques.
+</ul>
+
+
+</body>
+</html>

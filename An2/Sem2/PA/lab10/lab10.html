@@ -1,0 +1,136 @@
+<html>
+<head> <title> Lab 10</title> </head>
+<body>
+
+<a name="lab10"></a>
+
+
+<h1> Lab 10</h1>
+<b>[valid 2018-2019]</b>
+
+<p>
+<b>Persistence</b> </br>
+Continue the application from <a href="lab_09.html"> lab 9</a>, creating an object-oriented model and using JPA (Java Persistence API) in order to comunicate with the relational database.
+
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li> Create a persistence unit with the name "MoviesPU" (use EclipseLink or Hibernate or other JPA implementation). <br/>
+Verify the presence of the <i>persistence.xml</i> file in your project.
+Make sure that the driver for EclipseLink or Hibernate was added to to your project classpath (or add it yourself).
+
+<li> Create the package <i>entity</i> in your project and define the entity classes <i>Person</i> and <i>Movie</i>. You may use the Netbeans support: "Persistence -> Entity Classes from Database".
+
+<li> Create the package <i>controller</i> in your project and define the classes <i>PersonController</i> and <i>MovieController</i>. 
+Implement the class <i>MovieController</i> in the same manner as the class <i>PersonController</i> given below:
+<pre>
+public class PersonController {
+    private EntityManagerFactory emf;
+    public PersonController(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
+    public void create(Person person) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(person);
+        em.getTransaction().commit();
+        em.close();
+    }
+    public Person findByName(String personName) {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("select t from Person t where t.name like :name");
+        List<Person> persons = query.setParameter("name", personName).getResultList();
+		em.close();
+        return persons.isEmpty() ? null : persons.get(0);
+    }
+}
+</pre>
+You may use the Netbeans support: "Persistence -> JPA Controller Classes from Entity Classes". Inspect these classes and modify them if necessary.
+
+<li> Create the package <i>app</i> and the class <i>MovieManager</i>
+<pre>
+public class MovieManager {
+    static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("MoviesPU");
+
+    public void run() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("Input command:");
+            String command = scanner.nextLine();
+            if (command.equals("exit")) break;
+            String[] params = command.trim().split("\\s+");
+            switch (params[0]) {
+                case "create-person":
+                    createPerson(params[1]); //the person name
+                    break;
+                case "create-movie":
+                    createMovies(params[1], params[2]); //the album name and the director
+                    break;
+                case "list-movies":
+                    listMovies(params[1]); //the director name
+                    break;				
+            }
+        }
+    }
+    private void createPerson(String personName) {
+		...//Implement this method
+    }
+    private void createMovie(String movieName, String directorName) {
+		...//Implement this method
+    }
+    private void listMovies(String directorName) {
+		...//Implement this method
+    }
+    public static void main(String args[]) {
+        new MovieManager().run();
+    }
+}
+</pre>
+</ul>
+
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+<ul>
+<li> Extend the model in order to include support for <i>actors</i>. 
+Implement the support for adding actors to the movie and the methods for retrieving the actors of a movie, the movies an actor plays in and the movies having a specific director.
+
+<li> Use <a href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/NamedQuery.html">NamedQuerys</a> in order to define the queries.
+
+<li> Create a generic <i>AbstractController</i> using <i>generics</i> in order to simplify the creation of the <i>controller</i> classes. 
+You may take a look at the <a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html">CrudRepository</a> interface from Spring Framework.
+<!-- <li> Implement the commands using an object-oriented approach and map command names to corresponding classes using an external file <i>commands.properties</i> (<code>create-person = commands.CreatePerson</code>, etc.).  -->
+<!-- <li> Replace the <i>switch</i> from the <i>AlbumManager</i> class with a dynamic approach based on <i>Reflection API</i>. -->
+
+<li> Generate a large set of random data and insert it into the database. You may consider using a <a href="https://github.com/DiUS/java-faker">fake data generator</a>.
+
+</ul>
+
+<hr>
+<p><b>Bonus</b>
+<ul>
+<li> (0.5p) Include in your project both JDBC and JPA implementations and use an <i>AbstractFactory</i> in order to create the DAO objects (the controllers). 
+The application will use JDBC or JPA depending on a parameter given in an initialization file.
+
+<li> (0.5p) Create a maximal ordered list of movies such that any two consecutive movies (including the last one and the first one) either have the same director or at least one common actor.
+Can you write an efficent algorithm that finds the longest such  list?
+
+</ul>
+
+
+<p>
+<b>Resources</b>
+<ul>
+<li><a href="https://www.tutorialspoint.com/jpa/">JPA Tutorial</a>
+<li><a href="https://docs.oracle.com/javaee/7/tutorial/partpersist.htm#BNBPY">Java EE Tutorial: Persistence</a>
+<li><a href="http://java-persistence-performance.blogspot.ro/2011/06/how-to-improve-jpa-performance-by-1825.html">Java Persistence Performance</a>
+</ul>
+
+
+
+</body>
+</html>

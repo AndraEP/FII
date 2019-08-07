@@ -1,0 +1,166 @@
+<html>
+<head> <title> Lab 9</title> </head>
+<body>
+
+<a name="lab9"></a>
+
+
+<h1> Lab 9</h1>
+<b>[valid 2018-2019]</b>
+
+<p>
+<b>JDBC</b> <br/>
+Write an application that allows to <b>connect</b> to a relational database by using JDBC, <b>submit</b> SQL statements and display the results.
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li>Create a database having the name <i>Movies</i> using any RDBMS (Oracle, Postgres, MySql, Java DB, etc.)
+<li>Create a user with the name <i>dba</i> and the password <i>sql</i> (or whatever you prefer).
+<li>Create the following tables (this example uses Java DB SQL Dialect):
+<pre>
+create table persons(
+    id integer not null generated always as identity (start with 1, increment by 1),
+    name varchar(100) not null,
+    primary key (id)
+);
+create table movies(
+    id integer not null generated always as identity (start with 1, increment by 1),
+    name varchar(100) not null,
+    director_id integer not null references persons on delete restrict,
+    primary key (id)
+);
+create table movie_actors(
+    movie_id integer not null references movies on delete restrict,
+    actor_id integer not null references persons on delete restrict,
+    primary key (movie_id, actor_id)
+);
+</pre>
+<li>Add the <i>database driver</i> to the project libraries.
+<li>Create the class <i>Database</i> that creates a <i>single</i> connection to the database.
+<pre>
+public class Database {
+    private static final String URL = "jdbc:derby://localhost:1527/Movies";
+    private static final String USER = "dba";
+    private static final String PASSWORD = "sql";
+    private static Connection connection = null;
+    private Database() { }
+    public static Connection getConnection() {
+        if (connection == null) {
+            createConnection();
+        }
+        return connection;
+    }
+    ...//Implement the method createConnection()
+    ...//Implement the method closeConnection()
+    ...//Implement the method commit()
+    ...//Implement the method rollback()    
+}
+</pre>
+
+<li>Create the <i>DAO</i> classes <i>PersonController</i>, <i>MovieController</i> using the following model:
+<pre>
+public class PersonController {
+    public void create(String name) throws SQLException {
+        Connection con = Database.getConnection();
+        try (PreparedStatement pstmt = con.prepareStatement("insert into countries (name) values (?)")) {
+            pstmt.setString(1, name);
+            pstmt.executeUpdate();
+        }
+    }
+    public Integer findByName(String name) throws SQLException {
+        Connection con = Database.getConnection();
+        try (Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("select id from countries where name like '" + name + "'")) {
+            return rs.next() ? rs.getInt(1) : null;
+        }
+    }
+    public String findById(int id) throws SQLException { ... }	
+}
+</pre>
+
+<li>Create a simple test in the <i>main</i> method:
+<pre>
+        try {
+            PersonController persons = new PersonController();
+            MovieController movies = new MovieController();
+            
+            persons.create("Francis Ford Coppola");
+            persons.create("Marlon Brando");
+            persons.create("Al Pacino");
+            Database.commit();
+							
+            movies.create("The Godfather", persons.findByName("Coppola"));					
+            ...//Add other movies to the database			
+            Database.commit();            
+            
+            Database.closeConnection();
+        } catch (SQLException e) {
+            System.err.println(e);
+            Database.rollback();
+        }
+</pre>
+</ul>
+
+
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+
+<ul>
+<li> Create an object-oriented model of the data managed by the Java application. You should have the classes <i>Person</i> ,<i>Director</i>, <i>Actor</i> and <i>Movie</i>.
+Modify the table <i>persons</i> in order to adapt to this model.
+<li> Implement the method <i>findAll</i> in <i>PersonController</i> and <i>MovieController</i>. The method will return, as objects, all the data in the correponding tables.
+<li> Implement the support for adding actors to the movie and the methods for retrieving the actors of a movie, the movies an actor plays in and the movies having a specific director.
+<li> Generate random data and insert it into the database. You may consider using a <a href="https://github.com/DiUS/java-faker">fake data generator</a>.
+(Or you may import real data ...)
+<!-- <li> Consider creating an abstract <i>EntityController</i> that will handle generic CRUD operations. -->
+</ul>
+
+<!-- <li> Display the ranking of the artists, considering their positions in the charts. -->
+</ul>
+
+
+<hr>
+<p><b>Bonus</b>
+<ul>
+<li> (0.5p) Add support for creating <i>movie lists</i>. A movie list has a <i>title</i> and contains an ordered sequence of movies.
+<li> (0.5p) Write an algorithm that generates maximal lists containing movies that have no common actors. Can you write an efficient algorithm that generates a list of maximum length?
+<li> (0.5p) Generate suggestive HTML or PDF reports, using <a href="http://www.dynamicreports.org/"> DynamicReports</a>
+       or another <a href="http://java-source.net/open-source/charting-and-reporting">reporting tool</a> .
+<!--	   
+<li> ... or ...
+<li> Create a SOAP or REST service that will offer informations about the data stored in the database.
+The request may be a generic query and the service will respond with the result of that query. <br/>
+You may want to take a look at <a href="https://www.soapui.org/downloads/soapui.html">SoapUI</a> or 
+<a href="http://stackoverflow.com/questions/11204688/can-a-java-web-service-hosted-without-deploying-it-on-a-server-like-tomcat-jboss">"How to deploy a Java Web Service without a server like Tomcat/JBoss?"</a>
+-->
+
+</ul>
+
+
+<p>
+<b>Resources</b>
+<ul>
+<li> <a href="https://docs.oracle.com/javase/tutorial/jdbc/basics/">JDBC</a>
+<li> <a href="https://docs.oracle.com/cd/B19306_01/java.102/b14355.pdf">Oracle Database JDBC Developer's Guide and Reference </a>
+<li> <a href="https://www.javacodegeeks.com/2015/02/jdbc-tutorial.html">JDBC Tutorial - The ULTIMATE Guide </a> 
+
+</ul>
+
+<p> 
+<b>Objectives</b>
+<ul>
+<li> Understand terms and concepts related to relational databases: DBMS, SQL, table, query, stored procedure, cursor, etc.
+<li> Connect to a relational database by using a JDBC driver
+<li> Submit queries and get results from the database
+<li> Specify JDBC driver information externally
+<li> Perform CRUD operations by using the JDBC API
+</ul>
+
+
+</body>
+</html>

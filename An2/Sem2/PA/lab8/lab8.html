@@ -1,0 +1,153 @@
+<html>
+<head> <title> Lab 8</title> </head>
+<body>
+
+<a name="lab8"></a>
+
+
+<h1> Lab 8</h1>
+<b>[valid 2017-2018]</b>
+
+<p>
+<b>Networking</b> <br>
+
+Create an application where clients connect to a server in order to form a <i>social network</i>.
+The application will contain two modules (create a project for each one):
+<ul>
+<li>The <b>server</b> is responsible with the management of the clients and the implementation of the services.
+<li>The <b>client</b> will communicate with the server, sending it <i>commands</i> containing the name of the service and the required parameters. The commands are:
+	<ul>
+	<li> register <i>name</i>: adds a new person to the social network;
+	<li> login <i>name</i>: establishes a connection between the server and the client;
+	<li> friend <i>name<sub>1</sub> name<sub>2</sub> ... name<sub>k</sub></i>: adds friendship relations between the person that sends the command and other persons;
+	<li> send <i>message</i>: sends a message to all friends.
+	<li> read: reads the messages from the server.
+	</ul> 
+</ul>
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li> <b>Create the project ServerApplication</b>. This will contain (at least) the classes: <i>SocialNetworkServer</i> and <i>ClientThread</i>.
+<li> Create the class <i>SocialNetworkServer</i>. An instance of this class will create a <i>ServerSocket</i> running at a specified port.
+The server will receive requests (commands) from clients and it will execute them. 
+<pre>
+public class SocialNetworkServer {
+    private static final int PORT = 8100;
+    private ServerSocket serverSocket;
+    private boolean running = false;
+
+    public static void main(String[] args)  {
+        SocialNetworkServer server = new SocialNetworkServer();
+        server.init();
+        server.waitForClients(); //... handle the exceptions!
+    }
+    ... // Implement the init() method: create the serverSocket and set running to true
+    ... // Implement the waitForClients() method: while running is true, create a new socket for every incoming client and start a ClientThread to execute its request.
+	
+    public void stop() throws IOException {
+        this.running = false;
+        serverSocket.close();
+    }	
+</pre>
+
+<li> Create the class <i>ClientThread</i>. An instance of this class will be responsible with communicating with a client <i>Socket</i>.
+<pre>
+public class ClientThread extends Thread {
+    private Socket socket = null;
+    private final GameServer server;
+    ... // Create the constructor that receives a reference to the server and to the client socket
+    public void run() {
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); //client -> server stream
+        String request = in.readLine();
+        String response = execute(request);
+        PrintWriter out = new PrintWriter(socket.getOutputStream()); //server -> client stream
+        out.println(response);
+        out.flush();
+        socket.close(); //... usse try-catch-finally to handle the exceptions!
+    }    
+    private String execute(String request) {
+        ... // display the message: "Server received the request ... "
+    }
+}
+</pre>
+<li> <b>Create the project ClientApplication</b>. This will contain (at least) the class: <i>SocialNetworkClient</i>.
+
+<li> Create the class <i>SocialNetworkClient</i>. An instance of this class will read commands from the keyboard and it will send them to the server. The client stops when it reads from the keyboard the string "exit".
+<pre>
+public class SocialNetworkClient {
+    private final static String SERVER_ADDRESS = "127.0.0.1";
+    private final static int PORT = 8100;
+    public static void main(String[] args) throws IOException {
+        SocialNetworkClient client = new SocialNetworkClient();
+        while (true) {
+            String request = client.readFromKeyboard();
+            if (request.equalsIgnoreCase("exit")) {
+                break;
+            } else {
+                client.sendRequestToServer(request);
+            }
+        }
+    }
+    ... //Implement the sendRequestToServer method
+	
+    private String readFromKeyboard() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
+    }
+}
+</pre>
+</ul>
+
+
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+
+<ul>
+<li> Create the classes <i>Person</i> and <i>SocialNetwork</i> in order to represent the model of the application.
+<li> Implement all the commands.
+<li> Implement a timeout for a connection (a number of minutes). If the server does not receive any command from a logged in client in the specified period of time, it will terminate the connection.
+<li> Implement the command <b>stop</b> in order to "gracefully" stop the server. When the server receives the "stop" command it will not accept new games but it will finish those in progress.
+When there are no more games, it will shutdown.
+</ul>
+
+
+<hr>
+<p><b>Bonus</b>
+<ul>
+<li> (1p) Implement an algorithm to determine the <a href="https://en.wikipedia.org/wiki/Structural_cohesion">structural cohesion</a> of the network. <br/>
+<!-- Implementing other non-trivial <a href="https://en.wikipedia.org/wiki/Social_network_analysis">metrics</a> in order to analyze the social network could bring you additional points. -->
+
+<li> (0.5) Create an HTML file, containing all the persons and their relationships and upload it directly from the application to a Web server. 
+You may use <a href="http://www.jcraft.com/jsch/"> JCraft </a> for connecting to a server using SFTP and transferring a file (or a similar solution). <br/>
+Including a SVG representation of the social network could bring additonal points.
+ </ul>
+
+
+<br/>
+
+<p>
+<b>Resources</b>
+<ul>
+<li> <a href="https://docs.oracle.com/javase/tutorial/networking/">Custom Networking</a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/rmi/"> Remote Method Invocation (RMI) </a>
+<li> <a href="http://tutorials.jenkov.com/java-networking/index.html"> Java Networking </a>
+</ul>
+
+
+<p> 
+<b>Objectives</b>
+<ul>
+<li> Understand terms and concepts related to networking: protocol, IP, port, URL, socket, and datagram.
+<li> Get familiar with the client-server programming model.
+<li> Write programs that communicate with other programs on the network, using TCP or UDP.
+<li> Get acquainted with RMI technology.
+</ul>
+
+
+</body>
+</html>

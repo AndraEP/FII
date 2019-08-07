@@ -1,0 +1,1 @@
+Metoda generica cu (key, Class[], Object ...)

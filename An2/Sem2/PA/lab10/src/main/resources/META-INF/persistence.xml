@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="MoviesPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>entity.Movie</class>
+        <class>entity.Person</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.connection.username" value="student"/>
+            <property name="hibernate.connection.password" value="STUDENT"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
