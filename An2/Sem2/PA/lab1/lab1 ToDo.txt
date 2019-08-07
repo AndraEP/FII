@@ -1,0 +1,56 @@
+Lab 1
+[valid 2018-2019]
+Introduction to Java Programming 
+Compulsory (1p) 
+Write a Java application that implements the following operations: 
+Display on the screen the message "Hello World!". Run the application. If it works, go to step 2 :)
+Define an array of strings languages, containing {"C", "C++", "C#", "Go", "JavaScript", "Perl", "PHP", "Python", "Swift", "Java"}
+Generate a random integer n: int n = (int) (Math.random() * 1_000_000);
+Compute the result obtained after performing the following calculations:
+  multiply n by 3;
+  add the binary number 10101 to the result;
+  add the hexadecimal number FF to the result;
+  multiply the result by 6;
+Compute the sum of the digits in the result obtained in the previous step. This is the new result. While the new result has more than one digit, continue to sum the digits of the result.
+Display on the screen the message: "Willy-nilly, this semester I will learn " + languages[result].
+Optional (1p)
+
+Let n be an odd integer given as a command line argument. Validate the argument!
+Create a n x n matrix, representing the adjacency matrix of graph G, for the following cases:
+G is the complete graph
+G is a cycle
+G is a random graph
+Display on the screen the generated matrix, in each of the three cases. You might want to use the geometric shapes from the Unicode chart to create a "pretty" representation of the matrix.
+Display the number of edges m.
+Display the maximum and the minimum degree of a vertex, Δ(G) and δ(G) (use the greek letters), and check if the graph is regular
+Verify that the sum of the degrees equals the value 2 * m .
+For larger n display the running time of the application (and do not display the matrix!). Try n > 30_000. You might want to adjust the JVM Heap Space using the VM options -Xms4G -Xmx4G.
+Launch the application from the command line, for example: java GraphGenerator 10 random.
+Bonus 
+Verify if the random generated graph is connected. Display the number of its connected components.
+Implement an efficient algorithm that generates a random tree.
+Notes
+Create a new project for each laboratory. In a project, create at least one package. Create classes as necessary, do not use the same class for unrelated tasks. Each class must contain the name(s) of the author(s) as a comment.
+Please consult the API documentation to learn more information about the classes and methods used!
+Write code faster using keyboard shortcuts.
+Resources
+
+Download JDK
+Download Netbeans or other Java IDE.
+Language Basics
+Numbers and Strings
+NetBeans IDE Java Quick Start Tutorial
+Objectives
+
+Get used with an integrated development environment (IDE): Netbeans.
+Get used with the Java language syntax.
+Create and run a simple application.
+Understand the following concepts: compiler, interpreter, byte-code, Java Virtual Machine (JVM), portability.
+Use the Unicode alphabet and Java special characters.
+Work with primitive data types and strings (String, StringBuilder).
+Work with one- and multi-dimensional arrays.
+Parse command line arguments.
+Perform conversions between strings and numbers.
+Split a string into tokens.
+Generate random numbers.
+Create multiple methods in the main class of the application.

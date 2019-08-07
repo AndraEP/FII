@@ -1,0 +1,82 @@
+Lab 4
+[valid 2018-2019]
+Starting from this week...:
+
+Pay attention to exception handling (otherwise: -0.5 points)
+Create your own types of exceptions to report abnormal events related to application execution.
+Document Management System
+Write an application that can manage a catalog of graphs. An entry in this catalog might be a simple graph, a digraph, multigraph, etc. 
+
+All items will have some common properties, such as name, description, definition, image, etc. 
+The definition of a graph will be stored in a text file, using standard formats, such as trivial graph format (TGF) , GraphML or others. 
+Optional, a graph may have an image stored in a binary file, using standard formats, such as JPEG, PNG, SVG, PDF or others.
+
+The main specifications of the application are:
+
+Compulsory (1p)
+
+Create TGF files for some well known graphs, for example k3.tgf:
+# Nodes
+1 
+2 
+3
+# Edges
+1 2 Edge between the two
+1 3
+2 3
+Create image or PDF files for the graphs you have defined.
+Create an object-oriented model of the problem. You should have at least the following classes: Graph, Catalog, CatalogIO.
+Implement the following methods representing commands that will manage the content of the catalog:
+add: adds a new entry into the catalog;
+list: prints the content of the catalog on the screen;
+open: opens the image (or the definition) file using the native operating system application (see the Desktop class);
+save: saves the catalog to an external file (either as a text or binary, using object serialization);
+load: loads the catalog from an external file.
+  Catalog catalog = new Catalog("d:/graphs");  
+  catalog.add (new Graph("K4", "complete/k4.tgf", "complete/view/k4.png"));  
+  catalog.add (new Graph("Petersen", "special/petersen.tgf", "d:/ag/agr1.pdf"));  
+  catalog.open("Petersen");
+  ...
+  catalog.save("catalog.dat");
+  //...
+  catalog.load("catalog.dat");
+  catalog.list();
+The application will signal invalid data (file format, path, etc.) using a custom exception.
+The final form of the application will be an executable JAR archive. Identify the generated archive and launch the application from the console, using the JAR.
+Optional (1p) 
+Create a shell that allows reading commands from the keyboard, together with their arguments.
+Represent the commands using classes instead of methods. Use an interface or an abstract class in order to desribe a generic command.
+Implement the commands add, list, save, load, play (create the classes AddCommand, ListCommand, etc.).
+  //at the keyboard
+  add "K4", "The complete graph with 4 vertices", "complete/k4.tgf", "complete/view/k4.png"
+  save d:/catalog.dat
+  ...  
+Implement the command report html: create an HTML report representing the content of the catalog.
+The application will signal the commands that are not valid using a custom exception.
+Bonus 
+(0.5p) Implement the command: svg [filename]: create a SVG file containing a representation of the graph, using a circular layout.
+Implement the command: report [format]: create a report in various formats (html, pdf, xls) representing the content of the catalog, using a reporting tool:
+(0.25p) A template engine such as FreeMarker or Velocity, in order to create an HTML report.
+(0.25p) A report designer such as Dynamic Reports, in order to create PDF reports.
+(0.25p) Apache POI in order to create Microsoft Documents (Word, Excel, etc).
+(0.5p) Implement the input/output operations for the GraphML format, using a DOM Parser or Java API for XML Binding (JAXB) .
+Resources
+
+Basic I/O
+Exceptions
+Regular Expressions
+Setting the class path
+Creating, Importing, and Configuring Java Projects in Netbeans
+Packaging Programs in JAR Files
+Objectives
+
+Use basic I/O streams.
+Understand the difference between byte and character streams, primitive and decorator streams.
+Use File I/O to works with files and directories.
+Handle exceptions using try-catch-finally blocks.
+Handle resources using try-with-resources statements.
+Create custom exceptions and chained exceptions.
+Use regular expressions and glob patterns
+Understand the notion of CLASSPATH.
+Use external JAR libraries.
+Package all project classes as an executable JAR file.

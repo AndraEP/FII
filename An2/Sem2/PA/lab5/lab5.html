@@ -1,0 +1,214 @@
+<html>
+<head> 
+<title> Lab 5</title> 
+<style>
+table {
+    border-spacing: 20px;
+}
+</style>
+</head>
+<body>
+
+<a name="lab5"></a>
+
+<h1> Lab 5 </h1>
+<b>[valid 2018-2019]</b>
+
+<p>
+<b><font color="red">Starting from this week...</font></b>:
+
+<ul>
+<li>Create multiple packages in your projects for organizing classes and interfaces (otherwise: -0.5 points).
+<li>Pay attention to the <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">acces level modifiers</a> specified for class members (otherwise...).
+<li>Pay attention to the <a href="http://wiki.netbeans.org/Java_Hints">warnings/hints</a> issued by the IDE.
+</ul>
+
+<br><br>
+
+<b>Visual Graph Manager</b> <br/>
+Rewrite the application from <a href="lab_04.html">the previous lab</a> so that its functionality is available also via a <b>graphical user interface</b>.
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li>Create a simple graphical user interface (using Swing) containing:
+  <ul>
+  <li> A <i>form</i> for adding new graphs to the catalog. This form will contain <i>input fields</i> for name, type, path of the definition file, path of the image file, number of vertices and number of nodes.
+  The <i>type</i> can be one of the values: <i>simple</i> or <i>directed</i>.
+  The form will also contain a button for adding a new graph in the catalog.
+  This panel must be placed at the <i>top (north)</i> part of the frame.
+  <li> A <i>list</i> for displaying the content of the catalog. This component must be placed in the <i>center</i> part of the frame.
+  <li> A <i>control panel</i> for managing items of the catalog (load, save, etc.). 
+  This panel will contains buttons for: load, save, etc. and it will be placed at the <i>bottom (south)</i> part of the frame.
+  </ul>
+
+<li> The application will contain (at least) the following classes: 
+	<ul>
+	  <li> <i>CatalogFrame</i>: the main frame of the application (<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html">JFrame</a>)
+	  <li> <i>GraphForm</i>: the form for adding new graphs (<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/panel.html">JPanel</a> 
+	    containing components of the following types: <a href="https://docs.oracle.com/javase/tutorial/uiswing/components/label.html">JLabel</a>, 
+		<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/textfield.html">JTextField</a>,
+		<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/combobox.html">JComboBox</a> and 
+		<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/spinner.html">JSpinner</a>)
+	  <li> <i>CatalogList</i>: the list of graphs (<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/list.html">JList</a>)
+	  <li> <i>ControlPanel</i>: the command buttons (JPanel)
+	</ul>
+<li>Implement (at least) the functionality of the <i>Add</i> button: when pressing this button the values in the <i>graph form</i> will be concatenated and added to the list.
+<li>The main method will only contain the invocation: <code> new CatalogFrame().setVisible(true);</code>
+<li>For the compulsory part, it is not necessary to use the classes <i>Catalog, Graph, etc.</i> created in the previous lab.
+</ul>
+
+<table>
+<tr>
+<td>
+<pre>
+public class CatalogFrame extends JFrame {
+    GraphForm form;
+    CatalogList list;
+    ControlPanel control;       
+   	
+    public CatalogFrame() {
+        super("Visual Graph Manager");
+        init();
+    }
+    private void init() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        ...
+    }		
+    ...
+}
+</pre>	  
+
+<pre>
+public class CatalogList extends JList {
+    DefaultListModel<String> model = new DefaultListModel<>();
+	
+    public CatalogList() {
+        String title = "&lt;html&gt;&lt;i&gt;&lt;font color='blue'&gt;" + 
+		    "Catalog Graphs" + "&lt;/font&gt;&lt;/i&gt;&lt;/hmtl&gt;";
+        this.setBorder(BorderFactory.createTitledBorder(title));
+        this.setModel(model);        
+    }    
+    public void addGraph(String item) {
+        model.addElement(item);
+    }
+}	
+</pre>
+</td>
+
+<td>
+<pre>
+public class GraphForm extends JPanel {
+    private final CatalogFrame frame;
+    JLabel titleLabel = new JLabel("Name of the graph");
+    ...
+    JSpinner verticesField = new JSpinner(
+	    new SpinnerNumberModel(0, 1000));
+    ...
+    private void init() {               
+        ...
+        addButton.addActionListener(...);
+    }
+    private void addGraph() {
+        frame.list.addGraph(...);
+    }
+}
+</pre>
+
+<pre>
+public class ControlPanel extends JPanel {
+    private final CatalogFrame frame;
+    JButton loadBtn = new JButton("Load");
+	...
+    public ControlPanel(CatalogFrame frame) {
+        this.frame = frame;
+        init();
+    }
+    private void init() {
+        add(loadBtn);
+        ...
+    }
+}
+</pre>
+</td>
+
+<td>
+  <img src="visual_catalog.png" />
+</td>
+
+
+</tr>
+</table>
+
+
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+<ul>
+<li> Integrate the model and the "businnes logic" code of the commands defined in <a href="lab_04.html">the previous lab</a> with the graphical user interface so that all the functionalities are implemented:
+save, load, open, report.
+<li> Use a <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/table.html"><i>table</i></a> in order to display the content of the catalog.
+<li> Use a <a href="https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html">JFileChooser</a> in order to select the definition and the image files. 
+<li> <b>Warning</b>: It is important to separate the GUI code of the application logic code!
+<li> <b>Warning</b>: Create appropriate packages to organize your project!
+</ul>
+
+
+<hr>
+<p><b>Bonus</b>
+<br/>
+<ul>
+<li> Implement a <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html#popup"><i>contextual menu</i></a> offering various other actions such as:
+  <ul> 
+  <li>display (in a separate dialog) aditional properties of the selected graph: <a href="https://en.wikipedia.org/wiki/Distance_(graph_theory)">the radius and the diameter</a>,  
+  check if the graph is <a href="https://en.wikipedia.org/wiki/Bipartite_graph">bipartite</a>, etc.
+  <li><a href="https://www.google.com/support/enterprise/static/gsa/docs/admin/72/gsa_doc_set/xml_reference/request_format.html">search the Web</a> for information about it, etc.  
+  </ul>
+</ul>
+
+<!-- Use a <i>tree-like</i> representation of the catalog, using a <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/tree.html">JTree</a> component. -->
+  <!-- (you may also take a look at the <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/filechooser/FileSystemView.html"> FileSystemView</a> class). -->
+<!--
+<ul>
+<li> When selecting a node in the tree, detailed information about the current selection should be displayed.
+<li> A <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html#popup"><i>contextual menu</i></a> should offer various actions such as:
+  add a new item, open,
+  <a href="https://www.google.com/support/enterprise/static/gsa/docs/admin/72/gsa_doc_set/xml_reference/request_format.html">search the Web</a> for information about a graph, etc.  
+</ul>
+-->
+<!-- An additional bonus may be given for storing the list in an external <b>XML</b> file (use either an XML parser or XML serialization). -->
+
+
+<p>
+<b>Resources</b>
+<ul>
+<li> <a href="http://docs.oracle.com/javase/tutorial/uiswing/">Creating a GUI With JFC/Swing</a>
+<li> <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Download Java Demos </a> and check <i>\demo\jfc\SwingSet2</i> example.
+<li> <a href="https://www.eclipse.org/swt/">SWT: The Standard Widget Toolkit</a>
+<li> <a href="http://java-source.net/open-source/xml-user-interface-toolkits">Open Source XML UI Toolkits in Java</a>
+<li> <a href="http://docs.oracle.com/javase/tutorial/jaxp/">Java API for XML Processing (JAXP)</a>
+<li> <a href="https://docs.oracle.com/javase/tutorial/jaxb/intro/">Java Architecture for XML Binding (JAXB) </a>
+
+<li> <a href="http://www.javaworld.com/article/2073591/seven-indispensable-netbeans-java-hints.html">JavaWorld: Seven Indispensable NetBeans Java Hints </a>
+</ul>
+
+<p> 
+<b>Objectives</b>
+<ul>
+<li> Understand the concept of Human-Machine Interface.
+<li> Get familiar with the basic elements of design involved in creating a GUI.
+<li> Understand the concepts of <i>component</i>, <i>container</i>, <i>layout manager</i>.
+<li> Get acquainted with various libraries for creating a GUI application, such as AWT, Swing, SWT, (Java FX...later on)
+<li> Understand the differences between AWT and Swing.
+<li> Use basic and advanced Swing components such as <i>JTable</i>, <i>JTree</i>, etc.
+<li> Understand the <i>Separable Model-and-View</i> architecture of Swing components.
+<li> Write <i>event listeners</i> to handle events.
+<li> Use XML in a Java application.
+</ul>
+
+
+</body>
+</html>

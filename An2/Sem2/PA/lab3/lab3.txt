@@ -1,0 +1,61 @@
+Lab 3
+[valid 2018-2019]
+The Shortest Path Problem
+A travel map includes various locations (nodes) such as tourism sites, bussinesses, hotels and restaurants, airports, train stations, parks, etc. Locations have names and may have other common properties (such longitude and latitude, etc). Depending on its type, each location has various specific properties. However, if the location is a visitable, it must have opening hours. If the location is payable, it must have the entry fee (the price of the ticket). If the location is classifiable, it must have a classification (a rank). 
+Along the map, there are edges, connections between two nodes, and each edge has a specific cost. This cost may represent an actual distance (in kilometers) or the time required to go from one location to the other (in minutes). Some edges are bi-directional (↔) (having the same cost both ways), while others are uni-directional (→).
+Example: nodes are: v1 (Hotel) v2 (Museum A) v3 (Museum B) v4 (Church A) v5 (Church B) v6 (Restaurant).
+Edge	Cost
+v1↔v2	15
+v1↔v3	10
+v3→v2	1
+v3↔v4	1
+v4↔v5	1
+v5↔v5	1
+v2↔v6	10
+The main specifications of the application are:
+
+Compulsory (1p)
+
+Create an object-oriented model of the problem. You should have at least the following classes TravelMap, Node, Edge, Hotel, Museum, Church, Restaurant.
+Create the interfaces Visitable, Payable, Classifiable. The classes above must implement these interfaces accordingly.
+  public class Hotel extends Node implements Classifiable { ... }
+Create all the objects given in the example.
+  Hotel v1 = new Hotel("California");
+  Museum v2 = ...
+  ...
+Create a TravelMap object that will contain the list of nodes and the list of edges. Display all the locations sorted by their names.
+  TravelMap map = new TravelMap();
+  map.addNode(v1);
+  map.addNode(v2); //maybe put the nodes in an array?
+  ...
+  map.addEdge(v1, v2, 15); //two way street by default
+  map.addEdge(v3, v2, 1, false); //one-way street
+  ...
+  System.out.println("The map is: \n" + map.getNodes());
+
+Optional (1p) 
+Implement the toString method for the TravelMap class.
+Using streams, display the locations that are visitable and are not payable, sorted by their opening hour.
+Using streams, display the average price ticket of the locations that are payable.
+Create default methods in the interface Visitable, with the opening hour 09:30 and the closing hour 20:00.
+Create a static method getVisitingDuration,in the interface Visitable, that returns a Duration object, representing how long a location is opened during a day. 
+Write a greedy algorithm that determines a "greedy shortest path" between two given nodes.
+Bonus 
+Implement an efficient algorithm that determines:
+the shortest path between two given nodes.
+the shortest paths between every two distinct nodes.
+Resources
+
+The Java Tutorials: Interfaces
+The Java Tutorials: Collections ( Know Thy Complexities! )
+The Java Tutorials: Generics
+The Date-Time package
+Objectives
+
+Create interfaces to describe specifications.
+Create multiple implementations of an interface.
+Understand the differences between abstract classes and interfaces.
+Use packages to organize the classes and intefaces of the application.
+Use collections and generics.
+Use lambda-expressions and streams.
+Understand the space-time tradeoff of various types of collections.
