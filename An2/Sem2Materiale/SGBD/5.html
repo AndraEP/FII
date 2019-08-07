@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 5 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_5" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_5","wgTitle":"PLSQL 5","wgCurRevisionId":848,"wgRevisionId":848,"wgArticleId":18,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_5","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_5 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 5</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Cuprins</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Exceptii"><span class="tocnumber">1</span> <span class="toctext">Exceptii</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#De_ce_folosim_excep.C8.9Bii"><span class="tocnumber">1.1</span> <span class="toctext">De ce folosim excepții</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#C.C3.A2nd_folosim_excep.C8.9Bii"><span class="tocnumber">1.2</span> <span class="toctext">Când folosim excepții</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Tipuri_de_excep.C8.9Bii"><span class="tocnumber">1.3</span> <span class="toctext">Tipuri de excepții</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Cum_folosim_o_excep.C8.9Bie"><span class="tocnumber">1.4</span> <span class="toctext">Cum folosim o excepție</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Exercitii"><span class="tocnumber">1.5</span> <span class="toctext">Exercitii</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Exceptii">Exceptii</span></h1>
+<p>Mai multe detalii despre excepții găsiți în documentația oficială Oracle: 
+<a rel="nofollow" class="external free" href="http://docs.oracle.com/cd/B28359_01/appdev.111/b28370/errors.htm">http://docs.oracle.com/cd/B28359_01/appdev.111/b28370/errors.htm</a>
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="De_ce_folosim_excep.C8.9Bii">De ce folosim excepții</span></h3>
+<p>Multi programatori aleg sa gândească superficial și să scrie cod care să respecte specificațiile inițiale și atât. Ei speră că userii vor folosi codul doar conform acelor specificații și că nu vor aparea buguri. Oh, well... Pe lângă ei mai sunt programatorii buni care conștientizează că oricând userii sau chiar colegii lor programatori care lucrează la alte module ale aplicației pot face ceva în afara acelor specificații și își scriu codul în consecință. De exemplu userul poate apela o procedură cu niște parametri invalizi iar colegul programator poate sa omită să scrie o validare împotriva acelor valori. În final pentru noi totul se reduce la o alegere: faci suficient și nu-ți pasă ce se întâmplă în viitor sau proiectezi și scrii aplicația în așa fel încât să protejezi userii și în cazul nostru baza de date de posibile erori. Aș vrea să cred că noi facem parte din a doua categorie.
+</p><p>Din fericire, limbajul PL/SQL ne oferă un mod suficient de puternic și de flexibil ca să tratăm excepțiile și să oferim userilor mesaje cât mai utile în diverse scenarii. Și cât timp folosim în mod corect excepțiile nici nu este nevoie de foarte mult cod în plus ca să prevedem și să tratăm posibilele erori. În secțiunile următoare vom vedea ce este o excepție în PL/SQL, cum se definește ea și mai ales cum se prinde și se trimite mai departe la apelant.
+</p>
+<h3><span class="mw-headline" id="C.C3.A2nd_folosim_excep.C8.9Bii">Când folosim excepții</span></h3>
+<p>Vom porni de la un exemplu și anume o funcție care primește ca și argument un număr matricol al unui student și trebuie să returneze cea mai recentă notă a acelui student. 
+</p><p>Iată o primă variantă de cod pentru această procedură:
+</p>
+<pre>
+CREATE OR REPLACE FUNCTION nota_recenta_student(
+    pi_matricol IN CHAR)
+  RETURN VARCHAR2
+AS
+  nota_recenta INTEGER;
+  mesaj        VARCHAR2(32767);
+BEGIN
+  SELECT valoare
+  INTO nota_recenta
+  FROM
+    (SELECT valoare
+    FROM note
+    WHERE nr_matricol = pi_matricol
+    ORDER BY data_notare DESC
+    )
+  WHERE rownum &lt;= 1;
+  mesaj        := 'Cea mai recenta nota a studentului cu matricolul ' || pi_matricol || ' este ' || nota_recenta || '.';
+  RETURN mesaj;
+END nota_recenta_student;
+</pre>
+<p>Acesta este un cod din prima categorie de care vorbeam anterior. Respectă specificațiile inițiale și anume să returneze cea mai recentă notă a studentului, puteți să îl prezentați la un laborator și eventual un profesor îngăduitor vă va da punctajul maxim indiferent că poate va spune că mai puteați adăuga ceva.
+Acum să vedem ce s-ar putea adăuga la acest cod și pentru asta pornim de la posibile erori sau posibile valori irelevante întoarse de această funcție. Vom rula următoarele două selecturi și iată rezultatele lor:
+</p>
+<pre>select nota_recenta_student(-1) from dual;
+</pre>
+<pre>select nota_recenta_student(120) from dual;
+</pre>
+<p><br />
+Pentru a trata într-un mod mai util pentru user aceste cazuri vom face următoarele modificări în procedură:
+</p>
+<pre>
+   
+  CREATE OR REPLACE FUNCTION nota_recenta_student(
+    pi_matricol IN CHAR)
+  RETURN VARCHAR2
+AS
+  nota_recenta INTEGER;
+  mesaj        VARCHAR2(32767);
+  counter      INTEGER;
+BEGIN
+  SELECT valoare
+  INTO nota_recenta
+  FROM
+    (SELECT valoare
+    FROM note
+    WHERE nr_matricol = pi_matricol
+    ORDER BY data_notare DESC
+    )
+  WHERE rownum &lt;= 1;
+  mesaj        := 'Cea mai recenta nota a studentului cu matricolul ' || pi_matricol || ' este ' || nota_recenta || '.';
+  RETURN mesaj;
+EXCEPTION
+WHEN no_data_found THEN
+  SELECT COUNT(*) INTO counter FROM studenti WHERE nr_matricol = pi_matricol;
+  IF counter = 0 THEN
+    mesaj   := 'Studentul cu matricolul ' || pi_matricol || ' nu exista in baza de date.';
+  ELSE
+    SELECT COUNT(*) INTO counter FROM note WHERE nr_matricol = pi_matricol;
+    IF counter = 0 THEN
+      mesaj   := 'Studentul cu matricolul ' || pi_matricol || ' nu are nici o nota.';
+    END IF;
+  END IF;
+RETURN mesaj;
+END nota_recenta_student;
+</pre>
+<p>Așa cum ațti văzut, în funcție/procedură/bloc anonim a apărut o nouă secțiune, și anume exception:
+</p>
+<pre>declare
+begin
+exception
+end;
+</pre>
+<p>Să rulăm din nou cele două apeluri de funcție:
+</p>
+<pre>select nota_recenta_student(-1) from dual;
+</pre>
+<pre>select nota_recenta_student(120) from dual;
+</pre>
+<p>Care variantă vi se pare mai ok pentru utilizatorul aplicației? Ce mesaj preferați să îi 
+afisați? "No data found" sau "Studentul cu matricolul -1 nu există în baza de date."?
+</p>
+<h3><span class="mw-headline" id="Tipuri_de_excep.C8.9Bii">Tipuri de excepții</span></h3>
+<p>Sunt trei tipuri de excepții (tehnic vorbind două, plus o a treia atât de generică încât merită o categorie separata):
+</p>
+<ul><li> excepții definite de catre user - declarate ca și obiect de tip exception și inițializate cu ajutorul funcției PRAGMA EXCEPTION_INIT cu un cod de eroare între -20001 și -20999.</li></ul>
+<pre>declare
+  student_inexistent exception;
+  PRAGMA EXCEPTION_INIT(student_inexistent, -20001);
+begin
+  if...then
+     raise student_inexistent;
+  end if;
+  exception
+    when student_inexistent then
+      [do something]
+end;
+</pre>
+<ul><li> excepții predefinite existente in baza de date - țineți minte că excepțiile predefinite au coduri de eroare intre -1 (unique constraint violated) și -20000. Atunci când ne definim excepțiile noastre este recomandat să folosim coduri de eroare începând cu -20001 pentru a nu ne intersecta cu acele coduri deja folosite sau rezervate de Oracle. Capătul intervalului este -20999, deci putem defini maxim o mie de excepții custom.</li></ul>
+<p>Cateva exemple de excepții predefinite:
+DUP_VAL_ON_INDEX - A program attempts to store duplicate values in a column that is constrained by a unique index.
+NO_DATA_FOUND - A SELECT INTO statement returns no rows, or your program references a deleted element in a nested table or an uninitialized element in an index-by table.
+ZERO_DIVIDE - A program attempts to divide a number by zero.
+</p>
+<pre>begin
+   [code]
+   exception
+     when NO_DATA_FOUND then
+       [do something]
+end;
+</pre>
+<ul><li> excepția predefinită OTHERS pe care baza de date o aruncă în cazul oricărei excepții din afara celor predefinite și definite de către user. </li></ul>
+<pre>begin
+   [code]
+   exception
+     when NO_DATA_FOUND then
+        [do something]
+     when OTHERS then
+        [do something]
+end;
+</pre>
+<p>Putem folosi WHEN OTHERS pentru a afișa mesaje generice gen "Eroare neașteptată. Vă rugăm contactați administratorul aplicației". 
+</p><p>Un alt mod de a folosi WHEN OTHERS este sintaxa EXCEPTION WHEN OTHERS THEN NULL care ignoră orice excepție aruncată de codul nostru. Sper că este inutil să precizez să nu folosiți niciodată într-o aplicație această construcție&#160;:) Singura folosire acceptabilă a ei este îintr-un cod de test, de exemplu dacă vrem să afișăm ceva și ignorăm deliberat orice excepție. Repet, doar pentru teste.
+</p>
+<h3><span class="mw-headline" id="Cum_folosim_o_excep.C8.9Bie">Cum folosim o excepție</span></h3>
+<p>Sunt două moduri în care putem folosi o exceptie:
+</p>
+<ul><li> aruncăm excepția într-un anumit scenariu (varianta mai simpla). În acest caz nu definim explicit exceptia și doar trimitem apelantului un cod de eroare si un mesaj:</li></ul>
+<pre>
+
+CREATE OR REPLACE FUNCTION nota_recenta_student(
+    pi_matricol IN CHAR)
+  RETURN VARCHAR2
+AS
+  nota_recenta INTEGER;
+  mesaj        VARCHAR2(32767);
+  counter      INTEGER;
+BEGIN
+  SELECT valoare
+  INTO nota_recenta
+  FROM
+    (SELECT valoare
+    FROM note
+    WHERE nr_matricol = pi_matricol
+    ORDER BY data_notare DESC
+    )
+  WHERE rownum &lt;= 1;
+  mesaj        := 'Cea mai recenta nota a studentului cu matricolul ' || pi_matricol || ' este ' || nota_recenta || '.';
+  RETURN mesaj;
+EXCEPTION
+WHEN no_data_found THEN
+  SELECT COUNT(*) INTO counter FROM studenti WHERE nr_matricol = pi_matricol;
+  IF counter = 0 THEN
+    raise_application_error (-20001,'Studentul cu matricolul ' || pi_matricol || ' nu exista in baza de date.');
+  ELSE
+    SELECT COUNT(*) INTO counter FROM note WHERE nr_matricol = pi_matricol;
+    IF counter = 0 THEN
+      raise_application_error (-20002,'Studentul cu matricolul ' || pi_matricol || ' nu are nici o nota.');
+    END IF;
+  END IF;
+END nota_recenta_student; 
+</pre>
+<p>În caz că studentul nu există în baza de date returnăm apelantului codul de eroare -20001 și un mesaj personalizat iar în caz că studentul există dar nu are note returnăm codul de eroare -20002 si alt mesaj.
+</p>
+<ul><li> definim excepția, o apelăm și apoi o aruncăm în exterior (varianta mai complicată dar cu avantajul că putem refolosi excepțiile declarate).</li></ul>
+<pre>
+CREATE OR REPLACE FUNCTION nota_recenta_student(
+    pi_matricol IN CHAR)
+  RETURN VARCHAR2
+AS
+  nota_recenta       INTEGER;
+  mesaj              VARCHAR2(32767);
+  counter            INTEGER;
+  student_inexistent EXCEPTION;
+  PRAGMA EXCEPTION_INIT(student_inexistent, -20001);
+  student_fara_note EXCEPTION;
+  PRAGMA EXCEPTION_INIT(student_fara_note, -20002);
+BEGIN
+  SELECT COUNT(*) INTO counter FROM studenti WHERE nr_matricol = pi_matricol;
+  IF counter = 0 THEN
+    raise student_inexistent;
+  ELSE
+    SELECT COUNT(*) INTO counter FROM note WHERE nr_matricol = pi_matricol;
+    IF counter = 0 THEN
+      raise student_fara_note;
+    END IF;
+  END IF;
+SELECT valoare
+INTO nota_recenta
+FROM
+  (SELECT valoare
+  FROM note
+  WHERE nr_matricol = pi_matricol
+  ORDER BY data_notare DESC
+  )
+WHERE rownum &lt;= 1;
+mesaj        := 'Cea mai recenta nota a studentului cu matricolul ' || pi_matricol || ' este ' || nota_recenta || '.';
+RETURN mesaj;
+EXCEPTION
+WHEN student_inexistent THEN
+  raise_application_error (-20001,'Studentul cu matricolul ' || pi_matricol || ' nu exista in baza de date.');
+WHEN student_fara_note THEN
+  raise_application_error (-20002,'Studentul cu matricolul ' || pi_matricol || ' nu are nici o nota.');
+END nota_recenta_student; 
+</pre>
+<p>Rezultatul este același, doar că am definit noi excepția. Acest stil are avantajul că am putea, într-un pachet separat de excepții (să-i spunem chiar excepții), să definim o listă de excepții, fiecare având codul și mesajul său. Este mai elegant să definim într-un singur loc excepțiile și doar să le apelăm în diverse locuri. În acest fel evităm duplicarea codului și hardcodările.
+</p>
+<pre>exception
+when excepții.student_inexistent then
+[cod]
+end;
+</pre>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Exercitii">Exercitii</span></h2>
+<p>Exercitii inspirate dintr-un laborator propus intr-unul din anii anteriori de dl. Lucian Lazar
+</p><p>Exercitiul 1 (5 pt). 
+Creati o tabela ce va contine studentii ce au fost plecati cu o bursa erasmus care sa contina numarul matricol, numele si prenumele studentilor care au plecat in Erasmus impreuna cu un camp nou care sa indice tara in care au plecat (de exemplul printr-un ID numeric).
+</p>
+<ul><li> (1pt). Creati un index unic peste coloana reprezentand numarul matricol din noua tabela. </li>
+<li> (2pt). Copiati in tabela nou creata 100 de studenti din tabela studenti alesi in mod aleatoriu si respectand conditia de unicitate de la punctul 1 (tratati exceptia DUP_VAL_ON_INDEX). Dintre cei 100 de studenti numai cativa vor putea fi copiati, unii vor fi deja existenti in tabela cea noua si vor genera exceptii.</li>
+<li> (2pt). Afisati studentii care au fost copiati cu succes si pe cei care nu au putut fi copiati.</li></ul>
+<p><br />
+Exercitiul 2 (5pt).
+</p>
+<ul><li> (2pt) Creati o procedura care sa majoreze bursa unui student (dat prin ID) cu o valoare hardcodata. Daca valoarea bursei dupa modificare este mai mare de 3000, ea va fi truncheata la 3000 si se va notifica printr-o exceptie custom blocul ce a apelat functia/procedura.</li>
+<li> (2pt) Apelati functia sau procedura dintr-un bloc anonim pentru primii 100 de studenti (in ordinea IDurilor). Apelul trebuie sa functioneze si atunci cand aveti burse peste 3000 dar si cand un student nu exista (de exemplu stergeti studentul cu ID-ul 10). <span style="color:red">In blocul anonim veti trata exceptia definita de voi si care a fost aruncata de catre procedura.</span> </li>
+<li> (1pt) Tratati in cadrul procedurii cazul in care ID-ul trimis ca parametru nu apare in BD (in tabela studenti).</li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 141/1000000
+Preprocessor generated node count: 290/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:18-0!*!*!!ro!*!* and timestamp 20190417054439 and revision id 848
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_5&amp;oldid=848">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_5&amp;oldid=848</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+5" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_5"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_5&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_5" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_5&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_5&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_5" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_5" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_5&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_5&amp;oldid=848" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_5&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 05:44, 17 aprilie 2019.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 28.452 de ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":213});
+}</script>
+	</body>
+</html>
+	

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 2 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_2" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_2","wgTitle":"PLSQL 2","wgCurRevisionId":813,"wgRevisionId":813,"wgArticleId":15,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_2","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_2 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 2</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Cuprins</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Structuri_de_control"><span class="tocnumber">1</span> <span class="toctext">Structuri de control</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Structuri_de_control_conditionale"><span class="tocnumber">1.1</span> <span class="toctext">Structuri de control conditionale</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Bucle_.C3.AEn_PLSQL"><span class="tocnumber">1.2</span> <span class="toctext">Bucle în PLSQL</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Utilizarea_cursoarelor"><span class="tocnumber">2</span> <span class="toctext">Utilizarea cursoarelor</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Cursoare_implicite"><span class="tocnumber">2.1</span> <span class="toctext">Cursoare implicite</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Cursoare_explicite"><span class="tocnumber">2.2</span> <span class="toctext">Cursoare explicite</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Declararea_cursoarelor_explicite_cu_clauza_FOR_UPDATE"><span class="tocnumber">2.3</span> <span class="toctext">Declararea cursoarelor explicite cu clauza FOR UPDATE</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Structuri_de_control">Structuri de control</span></h1>
+<p>Pentru ca un limbaj să fie considerat limbaj de programare, pe lângă operaţia de atribuire trebuie să permită evaluarea de condiţii (şi executarea unui cod diferit în funcţie de rezultat) şi crearea de bucle. 
+</p>
+<h2><span class="mw-headline" id="Structuri_de_control_conditionale">Structuri de control conditionale</span></h2>
+<p>În PL/SQL verificarea condiţiilor (pot fi utilizate şi funcţii care intorc o valoarea booleană - ca de exemplu between, like, etc.) este realizată de comanda IF - THEN - ELSE având următoarea structură:
+</p>
+<pre>
+IF condiţie THEN 
+         secvenţă de instrucţiuni ce vor fi rulate în cazul în care condiţia este îndeplinită;
+   ELSE
+         secvenţă de instrucţiuni ce vor fi executate în cazul în care condiţia nu este îndeplinită;
+END IF; 
+
+</pre>
+<p>La fel ca şi în alte limbaje de programare, secţiunea ELSE împreună cu blocul de instrucţiuni arondat ei pot să lipsească.
+Iata un exemplu al utilizării instrucţiunii IF-THEN-ELSE&#160;:
+</p><p><br />
+</p>
+<pre>
+set serveroutput on;
+accept x prompt &quot;Please enter your name: &quot;; -- permite introducerea unei valori
+DECLARE
+   numar NUMBER(5);
+   x NUMBER(5);
+BEGIN   
+   numar := &amp;x;
+   IF (numar MOD 2 = 0)
+      THEN 
+        DBMS_OUTPUT.PUT_LINE('Numarul este par.');
+      ELSE
+        DBMS_OUTPUT.PUT_LINE('Numarul este impar.');
+   END IF;
+END; 
+
+</pre>
+<p>Dacă în secţiunea ELSE se doreşte testarea unei noi condiţii se poate utiliza comanda ELSIF (care la rândul ei va fi urmată de o secţiune THEN şi apoi de una ELSE/ELSIF). Atunci când sunt utilizate mai multe secţiuni de tipul ELSIF (atenţie, nu ELSEIF), în final se va pune o singură dată comanda ce identifică încheierea ultimului bloc (END IF). Spre exemplu, dacă dorim să testăm apartenenţa unui număr la un anumit interval de numere putem recurge la codul:
+</p>
+<pre>
+DECLARE
+   numar NUMBER(5) := 50;
+BEGIN
+   IF (numar &lt; 10)
+       THEN
+           DBMS_OUTPUT.PUT_LINE('Numarul este mai mic decat 10');
+       ELSIF (numar &gt; 80) THEN
+           DBMS_OUTPUT.PUT_LINE('Numarul este mai mare decat 80');
+       ELSE
+           DBMS_OUTPUT.PUT_LINE('Numarul este in intervalul [10,80]');  
+   END IF;
+END;
+</pre>
+<p>În cazul în care valoarea unei variabile este comparată cu mai multe valori posibile, se poate utiliza instrucţiunea CASE. Pe lângă compararea variabilei cu valorile predefinite, instrucţiunea de control CASE permite şi executarea unui cod default în cazul în care variabila nu are nici una dintre valorile aşteptate:
+</p>
+<pre>
+DECLARE
+   numar NUMBER := 5;
+BEGIN
+   CASE (numar)
+       WHEN 1 THEN DBMS_OUTPUT.PUT_LINE('Primul numar natural nenul.');
+       WHEN 2 THEN DBMS_OUTPUT.PUT_LINE('Primul numar natural par.');
+       ELSE
+           DBMS_OUTPUT.PUT_LINE('Un numar mai mare sau egal cu 3');
+   END CASE;
+END;
+</pre>
+<p>Vă aminitiţi ce facea funcţia DECODE în SQL&#160;? Această funcţie poate fi simulată cu o instrucţiune de tip CASE. Executaţi următoarea comandă SELECT:
+</p>
+<pre>
+SELECT nume, prenume,
+CASE bursa
+   WHEN 450 THEN 'Patru sute si cinci zeci'
+   WHEN 350 THEN 'Trei sute si cinci zeci'
+   WHEN 250 THEN 'Doua sute si cinci zeci'
+   ELSE 'Fara bursa'
+END
+FROM studenti;
+</pre>
+<p>Comanda CASE poate să nu aibă un operand iniţial caz în care valorile ce urmează după WHEN trebuie să fie de tip boolean:
+</p>
+<pre>
+SELECT nume, prenume,
+CASE 
+   WHEN bursa&gt;300 THEN 'Bogat'      
+   ELSE 'Sarac'
+END
+FROM studenti;
+</pre>
+<h2><span class="mw-headline" id="Bucle_.C3.AEn_PLSQL">Bucle în PLSQL</span></h2>
+<p>Buclele în PLSQL pot fi cu condiţie iniţială, cu condiţie finală şi care se vor repeta de un anumit număr de paşi (de tip for). Bucla cu condiţie iniţială este realizată prin utilizarea WHILE(condiţie) ... END LOOP, cea cu condiţie finală poate fi obţinută prin LOOP ... END LOOP (de fapt va produce o buclă infinită din care se poate ieşi cu o instrucţiune te tip EXIT iar bucla ce se va repeta de un anumit număr de paşi se realizează cu instrucţiunea FOR contor IN initia..final LOOP ... END LOOP;. Iată câteva exemple:
+</p><p>Primul exemplu va fi pentru bucla de tip WHILE:
+</p><p><br />
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   v_contor INTEGER := 0;
+BEGIN
+   WHILE (v_contor &lt; 10) LOOP       
+       v_contor := v_contor + 1;
+       DBMS_OUTPUT.PUT_LINE(v_contor);  
+   END LOOP;
+END;
+</pre>
+<p>Exemplul adaptat pentru structura LOOP împreună cu comanda de ieşire din buclă (comanda EXIT poate fi aplicată pentru orice structură repetitivă şi are forma EXIT WHEN (condiţie)  sau EXIT etichetă WHEN (condiţie) atunci când sunt utilizate mai multe cicluri impricate şi se doreşte ieşirea dintr-un anumit ciclu - de exemplu cel exterior.):
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   v_contor INTEGER := 0;
+BEGIN
+   LOOP
+       v_contor := v_contor + 1;
+       DBMS_OUTPUT.PUT_LINE(v_contor);  
+       EXIT WHEN v_contor = 10;
+   END LOOP;
+END;
+</pre>
+<p>Ultima metodă de a realiza o structură repetitivă în PLSQL este utilizând comanda FOR. Un exemplu în acest sens:
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   v_contor INTEGER := 0;
+BEGIN
+   FOR v_contor IN 1..10 LOOP
+       DBMS_OUTPUT.PUT_LINE(v_contor);  
+   END LOOP;
+END;
+</pre>
+<p>În cazul în care se doreşte parcurgerea în sens invers a valorilor din intervalul precizat, de va utiliza cuvântul REVERSE imediat după utilizarea lui IN (e.g. FOR v_contor IN REVERSE 1..10 LOOP ).
+</p><p>Comanda EXIT poate fi invocată oricând în interiorul unei structuri repetitive pentru a forţa ieşirea din aceasta. În cazul în care doua structuri repetitive sunt imbricate şi se doreşte ieşirea din ambele structuri, prima structură repetitivă va fi etichetată:
+</p><p><br />
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   v_contor1 INTEGER;
+   v_contor2 INTEGER;
+BEGIN
+   &lt;&lt;eticheta&gt;&gt;
+   FOR v_contor1 IN 1..5 LOOP
+       FOR v_contor2 IN 10..20 LOOP
+           DBMS_OUTPUT.PUT_LINE(v_contor1||'-'||v_contor2);  
+           EXIT eticheta WHEN ((v_contor1=3) AND (v_contor2=17));
+       END LOOP;
+   END LOOP;
+END;
+</pre>
+<p>Comanda CONTINUE are rolul de a sări peste restul codului rămas în buclă şi de a îcepe o nouă iteraţie. De exemplu, în codul de mai sus, dacă dorim să nu fie afişată linia în care apare combinaţia 3-13, putem să introducem înaintea liniei de afişare următoarea linie:
+</p>
+<pre>
+CONTINUE WHEN ((v_contor1=3) AND (v_contor2=13));
+</pre>
+<p>Puteţi face în aşa fel încât să nu fie afişată ultima linie&#160;? Cea cu combinaţia 3-17&#160;?
+</p><p>O ultimă comandă ce poate afecta o buclă este GOTO. Aceasta face saltul la o anumită etichetă. Se poate iesi forţat din buclă utilizând GOTO, urmatorul exemplu este doar un simplu salt
+</p>
+<pre>
+set serveroutput on;
+BEGIN
+   GOTO eticheta;
+   DBMS_OUTPUT.PUT_LINE('Nu se va afisa.');
+   &lt;&lt;eticheta&gt;&gt;         
+   DBMS_OUTPUT.PUT_LINE('Se va afisa.');
+END;
+</pre>
+<p>Puteţi utiliza două instrucţiuni GOTO pentru a emula o structură repetitivă&#160;?
+</p>
+<h1><span class="mw-headline" id="Utilizarea_cursoarelor">Utilizarea cursoarelor</span></h1>
+<p>Memoria în care este păstrată o interogare împreună cu datele pe care le utilizează se numeşte cursor. Cursorul poate fi implicit (utilizatorul nu are acces la el - de exemplu nu ştiţi ce se petrece în memoria serverului atunci când executaţi o comanda SQL) sau explicit (care este definit şi utilizat de către un programator PL/SQL special pentru a parcurge datele selectate una câte una sau pentru a le manipula).
+</p>
+<h2><span class="mw-headline" id="Cursoare_implicite">Cursoare implicite</span></h2>
+<p>Deşi programatorul nu are acces direct la zona de memorie în care se află un cursor implicit, acesta poate obţine anumite informaţii despre execuţia interogării (relative la numărul de rânduri procesate) prin intermediul a trei atribute specifice. Cele trei atribute ale unui cursor implicit ce pot fi utilizate de programator sunt SQL%FOUND, SQL%NOTFOUND, SQL%ROWCOUNT.
+</p><p>Să considerăm următorul cod PL/SQL care modifică bursa tutror studenţilor cu o bursa având valoarea mai mare decât 300 (şi îi adaugă 10 Ron):
+</p>
+<pre>
+DECLARE
+   v_randuri INTEGER;
+BEGIN  
+   UPDATE studenti set bursa = bursa + 10 WHERE bursa&gt;300;
+   IF(SQL%FOUND) 
+      THEN
+         DBMS_OUTPUT.PUT_LINE('Am marit bursa la ' || SQL%ROWCOUNT || ' studenti.');
+      ELSE
+         DBMS_OUTPUT.PUT_LINE('Nimanui nu i s-a marit bursa.');
+    END IF;
+END;
+</pre>
+<h2><span class="mw-headline" id="Cursoare_explicite">Cursoare explicite</span></h2>
+<p>Cursoarele explicite sunt declarate şi utilizate în scripturile PL/SQL. Ele sunt utilizate atunci când interogările pe care le efectuăm asupra bazei de date vor returna mai mult de un singur rând (altfel valorile ar putea fi reţinute în variabile şi utilizate în acest mod) şi permit procesarea informaţiilor din rezultat linie cu linie.
+</p><p>Paşii pe care trebuie să îi urmăm când utilizăm un cursor sunt: declararea, deschiderea, preluarea de linii, închiderea cursorului.
+</p><p>Un cursor explicit se declară în zona de declaraţii a scriptului PL/SQL (deşi cursoare explicite pot fi utilizate şi direct în FOR). Pentru declarare se va utiliza următorul format:
+</p><p><br />
+</p>
+<pre>
+DECLARE
+   CURSOR   nume_cursor  IS  comanda_select;
+   ....
+</pre>
+<p>În această construcţie, comanda_select este orice comandă de tip SELECT (poate conţine JOIN, GROUP BY, ORDER BY etc.). In cazul in care comanda select contine variabile PL/SQL acestea vor fi declarate înaintea utilizării lor în definiţia cursorului.
+</p><p>Deschiderea cursorului se realizează in secţiunea de cod aflată între comenzile BEGIN şi END. Acest lucru se face cu comanda OPEN urmată de numele cursorului şi are ca efect alocarea de memorie pentru datele ce vor fi selectate de comanda select, executarea comenzii select şi introducerea datelor în memorie, poziţionarea pointerului pe primul rând returnat.
+</p><p><br />
+</p>
+<pre>OPEN nume_cursor
+</pre>
+<p>În continuare, într-o secţiune LOOP (pentru că avem mai multe linii şi vrem ca fiecare să fie prelucrată individual), se apelează comanda FETCH urmată de numele cursorului, de cuvântul cheie INTO şi apoi de variabilele ce vor reţine valorile. Executarea comenzii FETCH va avea ca efect (pe lângă atribuirea variabilelor cu valorile din cursor) trecerea la următoarea linie returnată de comanda select. Din categoria "Bune practici",înainte de a intra în LOOP sau de a face primul fetch, aţi putea testa dacă selectul a returnat măcar o linie.
+</p>
+<pre>FECTH nume_cursor INTO v_var1, v_var2, v_var3;
+</pre>
+<p>Pentru a testa daca s-a ajuns la ultimul rând (util pentru a ieşi din buclă) se va utiliza atributul NOTFOUND specific cursoarelor explicite. Valoarea atributului nume_cursor%NOTFOUND este aşadar true atunci când operaţia FETCH nu a mai fost capabilă să returneze informaţii din cursor. Acesta este, probabil,  momentul  în care se doreşte părăsirea buclei:
+</p>
+<pre>EXIT WHEN nume_cursor%NOTFOUND; --probabil va fi pus imediat după comanda FETCH
+</pre>
+<p>În final, după ce s-a ieşit din buclă, cursorul va fi închis prin executarea comenzii CLOSE urmată de numele cursorului. Dacă se va utiliza din nou comanda OPEN, cursorul va fi redeschis, comanda select va fi re-executată şi va fi iarăşi poziţionat pe prima linie returnată de comanda select utilizată în declararea cursorului.
+</p><p>În afara atributului&#160;%NOTFOUND, în cazul cursoarelor explicite puteţi utiliza&#160;%ISOPEN,&#160;%FOUND,&#160;%ROWCOUNT. Vă lăsăm dvs. plăcerea de a descoperi rolul fiecăruia (tip: afişaţi ROWCOUNT în interiorul buclei).
+</p><p>Un exemplu în acest sens (care afişează lista studenţilor bursieri) este următorul:
+</p><p><br />
+</p>
+<pre>
+DECLARE
+   CURSOR lista_studenti_bursieri  IS
+       SELECT nume, prenume FROM studenti WHERE bursa IS NOT NULL;
+   v_nume studenti.nume%type;       
+   v_prenume studenti.prenume%type;
+BEGIN
+    OPEN lista_studenti_bursieri;
+    LOOP
+        FETCH lista_studenti_bursieri INTO v_nume, v_prenume;
+        EXIT WHEN lista_studenti_bursieri%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(v_nume||' '|| v_prenume);
+    END LOOP;
+    CLOSE lista_studenti_bursieri;  
+END;
+</pre>
+<p>Evident că lista studenţilor bursieri putea fi afişată cu un simplu SELECT; daca doriti sa folositi datele in interiorul scriptului atunci trebuie sa folositi, totusi, un cursor. 
+</p><p>Atunci când puteţi să evitaţi cursoarele explicite faceţi acest lucru. De exemplu, nu este nevoie să utilizaţi un cursor dacă doriţi să preluaţi fiecare linie dintr-un tabel (studenti) şi apoi să introduceţi anumite informaţii în alt tabel. Următorul cod populează o tabelă denumită indivizi cu toate persoanele existente în facultate fără a utiliza cursoare sau variabile.
+</p>
+<pre>
+DROP TABLE indivizi;
+CREATE TABLE indivizi(nume Varchar2(10), prenume varchar2(10));
+BEGIN
+   INSERT INTO indivizi SELECT upper(nume), prenume FROM studenti;
+   INSERT INTO Indivizi SELECT upper(nume), prenume FROM profesori;
+END;
+</pre>
+<p>Dacă selectul pe care l-am utilizat pentru a defini cursorul returnează foarte multe coloane, este anevoios să construim variabile pentru fiecare câmp ca apoi să le procesăm. În aceste cazuri se poate utiliza o variabilă în care se va încărca o întreagă linie. Variabila trebuie să fie declarată având ca tip nume_cursor%ROWTYPE şi pentru a accesa un anumit câmp returnat în această variabilă de va utiliza ".câmp". De exemplu, deşi în următorul cursor conţine toate informaţiile din tabela studenţi, putem să preluăm rând cu rând şi să afişăm doar numele studentului şi data sa de naştere:
+</p>
+<pre>
+DECLARE
+   CURSOR lista_studenti  IS
+       SELECT * FROM studenti;
+   v_std_linie lista_studenti%ROWTYPE;       
+BEGIN
+    OPEN lista_studenti;
+    LOOP
+        FETCH lista_studenti INTO v_std_linie;
+        EXIT WHEN lista_studenti%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(v_std_linie.nume||' '|| v_std_linie.data_nastere);
+    END LOOP;
+    CLOSE lista_studenti;  
+END;
+</pre>
+<p>Cursoarele explicite sunt foarte uşor de utilizat în bucle de tip FOR. Acestea vor deschide automat cursorul şi la fiecare iteraţie vor sări la următoarea linie şi vor face şi operaţia de FETCH într-o variabilă ce apare în comanda FOR. Câmpurile din această linie pot fi utilizate în aceeaşi manieră. Iată un exemplu (codul anterior rescris cu FOR):
+</p>
+<pre>
+DECLARE
+   CURSOR lista_studenti  IS
+       SELECT * FROM studenti;
+BEGIN
+    FOR v_std_linie IN lista_studenti LOOP     
+        DBMS_OUTPUT.PUT_LINE(v_std_linie.nume||' '|| v_std_linie.data_nastere);
+    END LOOP;  
+END;
+</pre>
+<p>Observaţi că: Nu mai avem nici una dintre operaţiile OPEN, FETCH, CLOSE. Nu am declarat (în zona de declaraţii) variabila&#160;%ROWTYPE v_std_linie ci aceasta este utilizată direct din structura FOR (declarare implicită). Nu a fost nevoie să scriem o instrucţiune de tip EXIT din buclă, ieşirea se face automat după ce au fost procesate toate rândurile.
+</p><p>Se poate chiar şi mai mult de atât: puteţi să nu declaraţi deloc cursorul ci să treceţi direct comanda de tip SELECT în FOR. Aceasta va fi pusă totuşi între paranteze rotunde:
+</p>
+<pre>
+BEGIN
+    FOR v_std_linie IN  (SELECT * FROM studenti) LOOP     
+        DBMS_OUTPUT.PUT_LINE(v_std_linie.nume||' '|| v_std_linie.data_nastere);
+    END LOOP;  
+END;
+</pre>
+<p>Un cursor explicit poate fi declarat utilizând parametri (de exemplu din cauză ca am dori ca să deschidem cursorul după ce am calculat o anumită valoare şi această valoare să fie utilizată de către comanda select). Pentru aceasta vom utiliza un Cursor explicit cu parametru. Diferenţa este că după numele cursorului vor fi trecuţi între paranteze rotunde parametri şi tipul lor despărţiţi prin caracterul virgulă, aceşti parametri vor fi utilizaţi efectiv în comanda SELECT iar la deschiderea cursorului se vor da tot între paranteze rotunde valorile ce vor fi asociate fiecărui parametru (în ordinea în care aceştia apar). Iată un exemplu care afişează studenţii cu o bursă mai mare de 300 şăi care sunt în anul 2:
+</p>
+<pre>
+DECLARE
+   CURSOR lista_studenti_bursieri (p_bursa studenti.bursa%type, p_an studenti.an%type) IS
+       SELECT nume, prenume FROM studenti WHERE bursa &gt; p_bursa AND an &gt; p_an;
+   v_std_linie lista_studenti_bursieri%ROWTYPE;       
+BEGIN
+    OPEN lista_studenti_bursieri (300,2); -- aceste valori pot fi calculate de codul PLSQL
+    LOOP
+        FETCH lista_studenti_bursieri INTO v_std_linie;
+        EXIT WHEN lista_studenti_bursieri%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(v_std_linie.nume||' '|| v_std_linie.prenume);
+    END LOOP;
+    CLOSE lista_studenti_bursieri;  
+END;
+</pre>
+<h2><span class="mw-headline" id="Declararea_cursoarelor_explicite_cu_clauza_FOR_UPDATE">Declararea cursoarelor explicite cu clauza FOR UPDATE</span></h2>
+<p>Dacă în timpul procesării cursorului dorim să modificăm o linie (sau chiar să o ştergem), după declararea cursorului se vor adăuga cuvintele "FOR UPDATE". Acest lucru va bloca accesul altor utilizatori ce doresc să scrie în tabela (sau tabelele) selectată de cursor dar va permite totuşi citirea acestor informaţii. După cuvintele cheie FOR UPDATE poate fi specificat un anumit câmp ce va poate fi modificat prin adăugarea cuvnântului cheie OF urmat de numele coloanei ce va ar putea fi modificată (în acest caz doar acea coloană va fi blocată).
+</p><p>În cazul în care se doreşte modificarea prin intermediul unui cursor a bazei de date şi altcineva deja are un cursor pentru modificare deschis pe aceeaşi tabelă, se poate specifica (în definiţia cursorului) un număr de secunde ce vor fi aşteptate după care se va reîncerca deschiderea cursorului. Dacă şi a doua oară eşuează, va fi returnată o eroare. Pentru a specifica numărul de secunde se adaugă la sfârşit cuvântul cheie WAIT urmat de numărul de secunde ce poate fi aşteptat. În cazul în care nu se doreşte aşteptarea, acest lucru va fi specificat prin prezenţa cuvântului cheie NOWAIT (în loc de "WAIT n").
+</p><p>Pentru a afecta rândul curent, după comanda ce indică modifcarea coloanei (sau ştergerea întregului rând) se vor adăuga cuvintele cheie "WHERE CURRENT OF" urmate de numele cursorului în care se face updateul.
+</p><p>Iată, în continuare, un script pe care toţi studenţii care au avut vreodată "probleme" la vreo materie şi-ar dori să îl execute pe serverul în care le sunt reţinute notele:
+</p>
+<pre>
+DECLARE 
+   CURSOR update_note IS
+      SELECT * FROM note FOR UPDATE OF valoare NOWAIT;
+BEGIN
+   FOR v_linie IN update_note LOOP
+       IF (v_linie.valoare &lt; 5) 
+            THEN 
+                 UPDATE note SET valoare=5 WHERE CURRENT OF update_note;
+       END IF;
+   END LOOP;
+END;
+</pre>
+<p>Observaţie: când facem updateul, acesta se realizează în tabela note şi nu în cursorul update_note.
+</p><p><br />
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.026 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 236/1000000
+Preprocessor generated node count: 516/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:15-0!*!*!!ro!*!* and timestamp 20190305165947 and revision id 813
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_2&amp;oldid=813">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_2&amp;oldid=813</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+2" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_2"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_2&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_2" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_2&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_2&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_2" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_2" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_2&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_2&amp;oldid=813" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_2&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 11:33, 19 februarie 2019.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 40.041 de ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":210});
+}</script>
+	</body>
+</html>
+	

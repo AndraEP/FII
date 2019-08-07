@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 1 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_1" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_1","wgTitle":"PLSQL 1","wgCurRevisionId":832,"wgRevisionId":832,"wgArticleId":14,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_1","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_1 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 1</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><p>Linkuri utile:
+</p>
+<ul><li> <a rel="nofollow" class="external free" href="http://www.tutorialspoint.com/plsql/">http://www.tutorialspoint.com/plsql/</a></li></ul>
+<p><br />
+</p><p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Cuprins</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Proiecte"><span class="tocnumber">1</span> <span class="toctext">Proiecte</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Intro_-_de_ce_PL.2FSQL"><span class="tocnumber">2</span> <span class="toctext">Intro - de ce PL/SQL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Blocuri_anonime"><span class="tocnumber">2.1</span> <span class="toctext">Blocuri anonime</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Declararea_variabilelor"><span class="tocnumber">2.2</span> <span class="toctext">Declararea variabilelor</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Domeniul_de_vizibilitate_a_unei_variabile_.28Scope.29"><span class="tocnumber">2.3</span> <span class="toctext">Domeniul de vizibilitate a unei variabile (Scope)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Operatori"><span class="tocnumber">2.4</span> <span class="toctext">Operatori</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Comentarii"><span class="tocnumber">2.5</span> <span class="toctext">Comentarii</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Preluarea_unei_singure_valori_dintr-un_tabel"><span class="tocnumber">2.6</span> <span class="toctext">Preluarea unei singure valori dintr-un tabel</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Declararea_variabilelor_utilizand_.25TYPE"><span class="tocnumber">2.7</span> <span class="toctext">Declararea variabilelor utilizand&#160;%TYPE</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Func.C5.A3ii_predefinite"><span class="tocnumber">2.8</span> <span class="toctext">Funcţii predefinite</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Conversii_de_date"><span class="tocnumber">2.9</span> <span class="toctext">Conversii de date</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Proiecte">Proiecte</span></h1>
+<p><span style="color:red">Inscrieti-va grupa si proiectul aici:</span> <a rel="nofollow" class="external free" href="https://drive.google.com/open?id=1raAviOQPPMJLqTA5W6gWC9EsTw806PykepXWXmACWZk">https://drive.google.com/open?id=1raAviOQPPMJLqTA5W6gWC9EsTw806PykepXWXmACWZk</a>
+</p><p>Proiectul trebuie ales in saptamana 1 sau 2 si acest formular trebuie sa fie completat pana la data de 3.03.2019. Grupele de studenti care nu au completat acest formular pana la aceasta data vor avea o penalizare de 5 puncte (din cele 100 puncte posibile).
+</p>
+<h1><span class="mw-headline" id="Intro_-_de_ce_PL.2FSQL">Intro - de ce PL/SQL</span></h1>
+<p>Limbajul SQL este util pentru a face interogări asupra unei baze de date. 
+</p><p>De obicei, o aplicaţie (PHP, Java, C# etc.) are nevoie să facă mai multe astfel de interogări ale bazei de date pentru a funcţiona corect. Să presupunem că aceste date preluate de către aplicaţia PHP necesită o anumită prelucrare (fără ca utilizatorul să intervină) după care trebuie să fie scrise înapoi în baza de date. În cazul în care interogările ce trebuie făcute depind una de cealaltă, timpul de transfer a datelor între aplicaţia PHP şi serverul SQL poate deveni prea mare. Fiind un limbaj de scripting ce poate fi executat direct de către serverul Oracle SQL, limbajul PL/SQL vine în soluţionarea acestei probleme (şi nu numai a acesteia: executarea scriptului în locul unde sunt datele va elimina necesitatea transferului pe reţea şi odată cu timpul mai mic de aflare a rezultatelor putem beneficia şi de siguranţa că un posibil atacator nu are acces la datele utilizate).
+</p><p>Un alt exemplu ar fi preluarea datelor (deja) procesate într-un anumit fel din baza de date. Spre exemplu, am putea avea la un moment dat un select de forma:
+</p><p><code>SELECT CMMDC(val1, val2) FROM cupluri_numere; -- presupunand ca există două câmpuri val1 şi val2 în tabelul cupluri_numere.</code>
+</p><p>Funcţia CMMDC, evident, nu este predefinită în limbajul SQL. Totuşi, construind această funcţie în PL/SQL veţi putea construi interogări de tipul celei de mai sus.
+</p><p>Limbajul PL/SQL a fost dezvoltat de către Oracle la sfârşitul anilor '80 special pentru a ajuta limbajul SQL să devină mai complex fără a forţa totuşi prin crearea unor funcţii care nu ar fi naturale acestui limbaj (spre exemplu, nu are sens implementarea în SQL a unei funcţii CMMDC care ar putea fi folosită doar local de câteva aplicaţii). 
+</p><p>O secvenţă de cod PL/SQL poate defini: 
+</p>
+<ul><li> un bloc anonim, </li>
+<li> o funcţie, </li>
+<li> o procedură, </li>
+<li> un pachet, </li>
+<li> conţinutul unui pachet (body), </li>
+<li> un trigger, </li>
+<li> un tip (type), </li>
+<li> corpul unui tip (type body).</li></ul>
+<h2><span class="mw-headline" id="Blocuri_anonime">Blocuri anonime</span></h2>
+<p>O funcţie are un nume pentru a putea fi apelată.  Acestea sunt salvate în baza de date şi sunt utilizate ori de câte ori sunt apelate. Blocurile anonime sunt secvenţe de cod PL/SQL ce nu au un nume. Blocurile anonime pot fi executate din fişierele în care au fost scrise fără a fi reţinute de SGBD.
+</p><p>Un cod anonim este format din trei secţiuni:
+</p>
+<ul><li> Secţiunea declarativă - în care sunt declarate variabilele împreună cu tipul lor de date şi eventual o iniţializare. Tot aici pot fi declarate constante, cursoare (despre care se va studia într-un laborator viitor) sau excepţiile. Secţiunea declarativă începe prin cuvântul-cheie DECLARE</li>
+<li> Secţiunea executabilă - conţine instrucţiuni SQL sau PL/SQL necesare pentru manipularea informaţiilor din baza de date. Secţiunea executabilă începe prin cuvântul BEGIN şi se termină cu END; (END urmat de caracterul punct şi virgulă).</li>
+<li> Secţiunea de excepţii - atunci când codul din secţiunea executabilă produce erori, în această secţiune pot fi scrise secvenţe de cod ce tratează aceste execepţii. Secţiunea de excepţii face parte din secţiunea de cod executabil, este scrisă în partea finală a acestuia şi începe prin utilizarea cuvnâtului cheie EXCEPTION</li></ul>
+<p><br />
+Dintre cele trei blocuri, singurul care este obligatoriu este cel din secţiunea executabilă.
+</p><p>Cateva exemple:
+</p>
+<pre>
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Maine:' || (SYSDATE+1));
+END;
+
+
+</pre>
+<pre>
+set serveroutput on;
+DECLARE
+      v_mesaj VARCHAR2(50) := 'Salutare, lume !';
+BEGIN
+      DBMS_OUTPUT.PUT_LINE('Mesaj: ' || v_mesaj);
+END;
+</pre>
+<p>La începutul blocului anonim de mai sus a fost pusă comanda <code>set serveroutput on;</code> fără de care serverul SGBD va ignora comenzile de afişare - în fond, un server de baze de date trebuie să ofere informaţii unui client şi nu să afişeze mesaje în consolă. 
+Blocul anonim începe aşadar cu o secţiune DECLARE în care este trecută singura variabilă utilizată împreună cu tipul ei, urmează secţiunea executabilă în care această valoare este utilizată (afişată). 
+Pachetul de comenzi DBMS_OUTPUT este special creat pentru a vă ajuta în operaţiile de debug (<a rel="nofollow" class="external free" href="https://docs.oracle.com/cd/B19306_01/appdev.102/b14258/d_output.htm#BABJCAJA">https://docs.oracle.com/cd/B19306_01/appdev.102/b14258/d_output.htm#BABJCAJA</a>).  Deocamdată, din acest pachet am utilizat doar comanda PUT_LINE care are rolul de a afişa informaţia primită ca parametru.
+</p>
+<h2><span class="mw-headline" id="Declararea_variabilelor">Declararea variabilelor</span></h2>
+<p>Sintaxa de declarare a variabilelor este
+</p>
+<pre>
+Identificator [CONSTANT] tipdedate [NOT NULL]
+     [:= expr | DEFAULT expresie]
+</pre>
+<p><b>Identificatorul</b> - numele variabilei. Identificatorul trebuie neapărat să înceapă cu un caracter după care pot urma alte litere, cifre, semnul dolar($), diez(#) sau semnul underscore(_) şi nu trebuie să depăşească 30 de caractere. Dacă numele variabilei este format din mai multe cuvinte, acestea vor fi despărţite prin underscore(underline, liniuta de subliniere, talpă - caracterul "_").  Standardul precizează că variabilele vor începe cu "v_", constantele vor începe cu "c_" şi parametri ce au fost primiţi într-o funcţie sau procedură vor începe cu "p_". Predefinit, numele variabilelor nu este case-sensitive dar nu puteţi utiliza cuvinte cheie ale limbajului drept variabile (ALL, CREATE, FROM, MODIFY, SELECT, ALTER, DATE, GROUP, NOT, SYNONYM, AND, DEFAULT, HAVING, NULL, SYSDATE, ANY, DELETE, IN, NUMBER, TABLE, AS, DESC, INDEX, OR, THEN, ASC, DISTINCT, INSERT, ORDER, UPDATE, BETWEEN, DROP, INTEGER, RENAME, VALUES, CHAR, ELSE, INTO, ROW, VARCHAR2, COLUMN, EXISTS, IS, ROWID, VIEW, COMMENT, FOR, LIKE, ROWNUM, WHERE). 
+</p><p><span style="color:red">Atenţie: denumiţi variabilele cât mai sugestiv, altfel nu ne vom uita pe codul vostru&#160;!</span>
+</p><p><br />
+<b>CONSTANT</b> - este cuvântul cheie utilizat atunci când variabila declarată este o constantă. Aceasta va fi iniţializată în blocul de declarare şi nu va putea fi modificată niciodată.
+</p><p><br />
+<b>Tipul de date</b> - Tipurile de date utilizate în limbajul PL/SQL pot fi scalare, compuse, referinţe, obiecte, LOB (Large object).  
+</p>
+<ul><li> Tipurile de date scalare sunt cele ce sunt utilizate şi de către limbajul SQL (vezi <a rel="nofollow" class="external free" href="http://profs.info.uaic.ro/~bd/wiki/index.php/Laboratorul_1">http://profs.info.uaic.ro/~bd/wiki/index.php/Laboratorul_1</a>,  <a rel="nofollow" class="external free" href="http://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements001.htm">http://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements001.htm</a> sau <a rel="nofollow" class="external free" href="http://cursuri.cs.pub.ro/~radulescu/bd/plsql/2.html">http://cursuri.cs.pub.ro/~radulescu/bd/plsql/2.html</a> pentru detalii). </li>
+<li> Tipurile de date compuse pot avea o structură internă şi conţine mai multe date de tip scalar (spre exemplu şiruri de caractere sau un rand dintr-o tabelă: TABLE, RECORD, NESTED TABLE, VARRAY - despre acestea vom discuta într-un laborator viitor). </li>
+<li> Tipurile de date de tip referinţă conţin pointeri către zone în care sunt stocate valori. </li>
+<li> Tipul obiect este asemănătoar cu cel din OOP. </li>
+<li> Tipurile de date de tip LOB (pot fi Character Large Object - CLOB, Binary large object - BLOB, Binary file - BFILE, National language character large object  -NCLOB). Datele de tip LOB pot reţine blocuri de date nestructurate de până la 4GB. </li></ul>
+<p>În cadrul tipului de date este inclusă şi constrângerea asupra tipului de date. De exemplu, pentru a declara o variabilă de tip VARCHAR2 ce poate conţine maxim 25 de caractere, se va utiliza VARCHAR2(25) ca şi tip de variabilă.
+</p><p><br />
+<b>NOT NULL</b> - pentru a face o constrângere asupra variabilelor care nu au voie să fie nule. Aceste variabile trebuie să fie iniţializate (pentru că altfel ar avea valoarea NULL).
+</p><p><br />
+<b>:=</b> - atribuie o valoare variabilei respective. Valoarea poate fi şi rezultatul evaluării unei expresii. Valoarea predefinită a unei variabile care nu este iniţializată este NULL.  Dacă se doreşte iniţializarea cu altceva decât cu NULL, se va utiliza cuvântul cheie DEFAULT. 
+</p><p>Este recomandat (good programming practices) ca variabilele pe care le declaraţi să fie iniţializate. 
+</p><p><br />
+Exemple declaraţii de variabile:
+</p><p><code>v_#cartofi NUMBER&#160;:= 2E4;    --20000 de cartofi</code>
+</p><p><code>v_varsta int&#160;:= &amp;i_varsta;    --preluarea varstei de la tastatura in momentul rularii codului</code>
+</p><p><code>v_nume_student varchar2(20)&#160;:= &amp;i_nume;    --preluarea numelui de la tastatura in momentul rularii codului - se va introduce spre exemplul 'Popescu' (cu tot cu apostroafe);</code>
+</p><p><code>v_nume_film VARCHAR2(30)&#160;:= 'The Matrix';</code>
+</p><p><code>c_pi CONSTANT double precision&#160;:= 3.141592653;</code>
+</p><p><code>v_salut VARCHAR2(40) DEFAULT 'Bine ati venit!';</code>
+</p><p><code>v_data_de_nastere DATE;</code>
+</p><p><code>v_numar_studenti NUMBER(3) NOT NULL&#160;:= 1;</code>
+</p><p><code>v_promovam_la_PSGBD BOOLEAN DEFAULT TRUE;</code>
+</p><p><b>Recomandari:</b> Pentru a fi mai uşor de citit, se recomanda declararea fiecărei variabile pe câte o linie diferită (good practices). Evitaţi să folosiţi nume de coloane ca şi variabile.
+</p>
+<h2><span class="mw-headline" id="Domeniul_de_vizibilitate_a_unei_variabile_.28Scope.29">Domeniul de vizibilitate a unei variabile (Scope)</span></h2>
+<p>Variabilele declarate la începutul codului PL/SQL sunt considerate variabile globale. În interiorul secţiunii executabile, pot exista secţiuni de tip declare, de această dată, însă, variabilele declarate vor putea fi accesate doar în următorul cod BEGIN-END. 
+</p><p><br />
+Spre exemplu, executaţi următorul cod PL/SQL:
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   v_nume VARCHAR2(20):='Cristi';
+   v_varsta INTEGER:= 21;  -- INTEGER este un alias pentru NUMBER(38,0).
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Valoarea variabilei v_nume este: ' || v_nume);  -- va afisa 'Cristi'
+   DECLARE
+      v_nume NUMBER(3) := 5;
+   BEGIN
+         DBMS_OUTPUT.PUT_LINE('Valoarea variabilei v_nume este: ' || v_nume); -- va afisa 5
+         DBMS_OUTPUT.PUT_LINE('Varsta este: ' || v_varsta); -- va afisa 21
+   END;
+   DBMS_OUTPUT.PUT_LINE('Valoarea variabilei v_nume este: ' || v_nume); -- va afisa 'Cristi'
+END;
+</pre>
+<p><br />
+Variabilele globale pot fi accesate şi în blocurile interioare. 
+</p><p>Pentru a putea accesa variabilele globale şi în interiorul zonelor în care sunt variabile locale cu acelaşi nume, zona globală va fi etichetată utilizând metoda de marcare "&lt;&lt; marcator &gt;&gt;". 
+</p><p>Spre exemplu, pentru a accesa valoarea variabilei globale din codul de mai sus, putem reface blocul anonim în modul următor:
+</p>
+<pre>
+&lt;&lt;global&gt;&gt;
+DECLARE
+   v_nume VARCHAR2(20):='Cristi';
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Valoarea variabilei v_nume este: ' || v_nume);  -- va afisa 'Cristi'
+   DECLARE
+      v_nume NUMBER(3) := 5;
+   BEGIN
+         DBMS_OUTPUT.PUT_LINE('Valoarea variabilei v_nume este: ' || v_nume); -- va afisa 5
+         DBMS_OUTPUT.PUT_LINE('Valoarea variabilei v_nume este: ' || global.v_nume); -- va afisa 'Cristi'
+   END;
+   DBMS_OUTPUT.PUT_LINE('Valoarea variabilei v_nume este: ' || v_nume); -- va afisa 'Cristi'
+END;
+</pre>
+<p>Pentru a diferentia intre variabilele globale si cele locale, putem prefixa cu "g_" respectiv cu "l_"
+</p>
+<h2><span class="mw-headline" id="Operatori">Operatori</span></h2>
+<p>Pentru a atribui o nouă valoare unei variabile, se va utiliza operatorul <b>:=</b> (simbolul două puncte urmat de simbolul egal).
+</p><p>În cazul şirilor de caractere, acestea pot fi scrise pe mai multe rânduri:
+</p>
+<pre>
+DECLARE
+   v_text VARCHAR2(200);
+BEGIN   
+   v_text := 'La steaua care a rasarit 
+E-o cale atit de lunga,
+Ca mii de ani i-au trebuit,
+Luminii, sa ne-ajunga';
+   DBMS_OUTPUT.PUT_LINE(v_text);   
+END;
+</pre>
+<p>Operatorii sunt de mai multe tipuri: 
+</p>
+<ul><li> operatori aritmetici, </li>
+<li> operatori relaţionali, </li>
+<li> operatori de comparaţie, </li>
+<li> operatori logici,</li>
+<li> operatori pe şiruri de caractere. </li></ul>
+<p>Aceşti operatori sunt deja cunoscuţi din studierea limbajului SQL, pentru a vi-i reaminiti, încercaţi să executaţi fiecare dintre blocurile anonime următoare:
+</p><p><br />
+Pentru operatorii aritmetici (+, -, *, /, **):
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   a NUMBER := 10;
+   b NUMBER := 4;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Suma: ' || (a+b));
+   DBMS_OUTPUT.PUT_LINE('Diferenta: ' || (a-b));
+   DBMS_OUTPUT.PUT_LINE('Produsul: ' || (a*b));
+   DBMS_OUTPUT.PUT_LINE('Impartirea: ' || (a/b));
+   DBMS_OUTPUT.PUT_LINE('Exponentierea: ' || (a ** b)); -- nu exista in SQL
+END;
+  
+</pre>
+<p>Pentru operatorii relationali (!=, &lt;&gt;, ~=, &lt;, &gt;, &lt;=, &gt;=, =)&#160;:
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   a NUMBER := 10;
+   b NUMBER := 4;
+BEGIN
+   IF (a&gt;b) 
+      THEN DBMS_OUTPUT.PUT_LINE(a || '&gt;' || b);
+      ELSE DBMS_OUTPUT.PUT_LINE(b || '&gt;=' || a);
+   END IF;
+   IF (a != b) -- se poate utiliza si &lt;&gt; sau ~=
+      THEN DBMS_OUTPUT.PUT_LINE('Cele doua valori sunt diferite.');
+      ELSE DBMS_OUTPUT.PUT_LINE('Cele doua valori sunt egale');
+   END IF;   
+END;
+</pre>
+<p>Pentru operatorii de comparaţie (LIKE, BETWEEN, IN, IS NULL): 
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   a NUMBER := TRUNC(DBMS_RANDOM.VALUE(0,100)); -- eliminati atribuirea pentru a fi NULL;
+BEGIN
+   IF (a IS NOT NULL) 
+      THEN 
+         IF (a BETWEEN 20 AND 80)
+              THEN DBMS_OUTPUT.PUT_LINE(a || ' este intre 20 si 80');
+              ELSE DBMS_OUTPUT.PUT_LINE(a || ' NU este intre 20 si 80');
+         END IF;     
+      ELSE DBMS_OUTPUT.PUT_LINE('Valoare nula');
+   END IF;
+END;
+</pre>
+<p>Pentru operatorii logici (AND, OR, NOT): Inlocuiti conditia cu BETWEEN, utilizând operatorii de comparaţie şi pe cei logici, pentru ca blocul anonim sa aibă acelaşi efect.
+</p><p>Precedenţa operatorilor este cea cunoscută din alte limbaje de programare.
+</p>
+<h2><span class="mw-headline" id="Comentarii">Comentarii</span></h2>
+<p>În toate limbajele de programare comentariile sunt binevenite: pentru a explica ce face o anumita sectiune de cod, pentru a va aminti dupa un timp ce aţi vrut să faceţi într-o anumită zonă a programului, sau pentru a explica unui programator ce va programa plecând de la codul vostru ce aţi vrut să faceţi acolo. Este recomandat (good practices) să comentaţi codul pe care îl scrieţi.
+</p><p>Comentariile sunt ignorate de către interpretorul codului PL/SQL.
+</p><p>În PL/SQL comentariile pe o singură linie încep cu -- (de două ori simbolul minus), iar comentariile pe mai multe linii sunt delimitate de /* ... */.
+</p>
+<h2><span class="mw-headline" id="Preluarea_unei_singure_valori_dintr-un_tabel">Preluarea unei singure valori dintr-un tabel</span></h2>
+<p>Pentru a prelua informaţii dintr-un tabel se foloseste comanda SELECT (specifică limbajului SQL). Există câteva posibiltăţi de răspuns (înafara cazului in care vă dă o eroare pentru că aţi scris greşit comanda sau nu există tabelul). 
+</p>
+<ul><li> Sunt returnate mai multe rânduri: pentru a le prelua unul câte unul şi pentru a le procesa, se vor folosi cursoare despre care veţi învăţa în laboratorul următor.</li>
+<li> Nu este returnată nici o înregistrare: caz acoperit de asemenea de laboratorul următor.</li>
+<li> Este returnat un singur rând - acest caz îl vom discuta în continuare.</li></ul>
+<p>Dacă este întors un singur rând, valorile acestuia pot fi stocate în variabilele existente în blocul anonim, suprascriindu-se valorile deja existente. 
+Pentru a face această operaţie, comanda SELECT trebuie modificată pentru a include şi numele variabilelor în care se face stocarea. Se va utiliza aşadar cuvântul cheie INTO pentru a face o asociere dintre valorile returnate şi variabilele în care acestea vor fi stocate.
+</p><p>Exemplu:
+</p><p><code>SELECT nume INTO v_nume FROM studenti WHERE ROWNUM=1</code>
+</p><p>În exemplul de mai sus s-a stocat numele primului student în variabila v_nume. Pentru a ne asigura că nu sunt pot fi returnate mai multe rânduri, s-a folosit clauza ROWNUM=1.
+</p><p>Dacă se foloseşte o funcţie de agregare peste întreaga tabelă, puteţi fi siguri că aceasta va returna doar o singură valoare. De exemplu, următoarea instrucţiune este corectă:
+</p><p><code>SELECT AVG(valoare) INTO v_medie FROM note</code>
+</p><p>Dacă doriţi să preluaţi simultan mai multe valori din rândul returnat, câmpurile vor fi delimitate cu virgulă şi la fel vor fi delimitate si numele variabilelor în care vor fi introduse valorile:
+</p><p><code>SELECT nume, prenume INTO v_nume, v_prenume FROM studenti WHERE ROWNUM=1 --se preiau valorile a doua câmpuri in doua variabile diferite</code>
+</p><p><br />
+<span style="color:red; font-weight:bold"> Dacă răspunsul este format dintr-o singură înregistrare, folositi mereu SELECT... INTO...</span>
+</p><p>Puteţi selecta şi toate coloanele ale unui rând în acest mod, dar despre cum se face acest lucru vom discuta într-un laborator viitor.
+</p>
+<h2><span class="mw-headline" id="Declararea_variabilelor_utilizand_.25TYPE">Declararea variabilelor utilizand&#160;%TYPE</span></h2>
+<p>Asa cum am vazut, pentru a prelua o valoare dintr-un tabel, va fi utilizată o comandă de tip SELECT puţin modificată pentru a specifica şi variabila în care se doreşte preluarea acelei informaţii. 
+</p><p>Spre exemplu, pentru a prelua nota maximă avută de un student în variabila v_valoare_nota_maxima, vom utiliza următorul select:
+</p><p><code>SELECT MAX(valoare) INTO v_valoare_nota_maxima FROM note;</code>
+</p><p>Problema pe care o avem totuşi este tipul datei returnate de comanda SELECT. Este ea de acelaşi tip cu cea a variabilei v_valoare_nota_maxima&#160;? (de exemplu, daca variabila a fost declarata ca fiind una de tip intreg si valoarea returnată de interogare este una reală atunci putem avea pierderi de informatii). Pentru a ne asigura că tipul variabilei este acelaşi cu cel al câmpului valoare din tabela note putem utiliza o construcţie de tipul&#160;%TYPE. Într-o astfel de declaraţie tipul variabilei nu este cunoscut a-priori ci va avea acelasi tip cu tipul declarat pentru coloana referită. 
+</p><p>Declaraţia este aşadar:
+</p><p><code>v_valoare_nota_maxima note.valoare%TYPE;</code>
+</p><p><br />
+iar codul anonim scris în întregime:
+</p>
+<pre>
+DECLARE
+   v_valoare_nota_maxima note.valoare%TYPE;
+BEGIN   
+   SELECT MAX(valoare) INTO v_valoare_nota_maxima FROM note; 
+   DBMS_OUTPUT.PUT_LINE('Nota maxima: ' || v_valoare_nota_maxima);
+END;
+</pre>
+<p>Utilizarea lui&#160;%TYPE mai are un avantaj: dacă la un moment dat modificaţi tipul datelor din tabelă (pentru că, spre exemplu, aţi ajuns la un număr de 999 de utilizatori şi iniţial aţi declarat câmpul user_id ca având maxim 3 cifre) atunci codurile PL/SQL vor fi în continuare funcţionale. În cazul în care codul PL/SQL nu mai este valid după modificarea in tabelă (de exemplu pentru că se aştepta ca toate IDurile să fie mai mici decât 999), acesta va semnala o eroare. 
+</p><p>Atunci când utilizaţi&#160;%TYPE este bine ca variabila să fie prefixată cu numele tabelei şi a coloanei (vă va fi mai uşor să o urmăriţi in cod).
+</p><p>Puteţi declara o variabilă pentru a avea acelaşi tip cu cel avut de altă variabilă. 
+</p><p>De exemplu, pentru a prelua valoarea minimă a notei se poate declara o variabila v_valoare_minima_nota în felul următor:
+</p><p><code>v_valoare_nota_minima v_valoare_nota_maxima%TYPE;</code>
+</p><p>Rescrieţi codul pentru a fi afişate atât nota minimă cât şi cea maximă.
+</p><p><span style="color:red; font-weight:bold"> Utilizarea lui&#160;%TYPE este probabil cea mai importanta recomandare din acest laborator.... Declarati variabilele in acest mod ori de cate ori aveti de gand sa selectati o valoare dintr-o coloana&#160;!</span>
+</p>
+<h2><span class="mw-headline" id="Func.C5.A3ii_predefinite">Funcţii predefinite</span></h2>
+<p>Funcţiile predefinite pentru anumite tipuri de date le-aţi învăţat deja în timpul laboratorului de SQL. 
+</p><p>Un mic review (care nu conţine toate funcţiile):
+</p><p>Funcţii pentru şiruri de caractere: ASCII, LENGTH, RPAD,CHR, LOWER, RTRIM,CONCAT, LPAD, SUBSTR, INITCAP, LTRIM, TRIM,INSTR, REPLACE, UPPER.
+</p><p>Funcţii pentru numere: ABS, EXP, ROUND, ACOS, LN, SIGN, ASIN, LOG, SIN, ATAN, MOD, TAN, COS, POWER, TRUNC.
+</p><p>Funcţii pentru variabile de tip DATE: ADD_MONTHS, MONTHS_BETWEEN, CURRENT_DATE, ROUND, CURRENT_TIMESTAMP, SYSDATE, LAST_DAY, TRUNC.
+</p>
+<h2><span class="mw-headline" id="Conversii_de_date">Conversii de date</span></h2>
+<p>Se face automat conversia intre varchar2 şi toate celelalte tipuri de date, de la o variabila de tip DATE, NUMBER sau PLS_INTEGER la LONG (dar nu si invers: LONG este mai mare, poate tine minte numere mai mari care s-ar pierde dacă ar fi convertite în NUMBER spre exemplu). De la NUMBER la PLS_INTEGER şi invers. Date nu poate fi convertit automat în NUMBER sau PLS_INTEGER.
+</p><p><b>Atenţie:</b> conversiile implicite pot fi mai încete şi pot depinde de sistemul de operare (de exemplu date poate fi convertit in varchar2 în feluri diferite daca este aleasă conversia implicită). Codul ce utilizează conversiile implicite este mai greu de înţeles.
+</p><p>Conversiile explicite de date se realizează cu următoarele funcţii: TO_NUMBER(), ROWIDTONCHAR(), TO_CHAR(), HEXTORAW(), TO_CLOB(), RAWTOHEX(), CHARTOROWID(), RAWTONHEX(), ROWIDTOCHAR(), TO_DATE().
+</p><p>De exemplu:
+</p>
+<pre>
+BEGIN
+     DBMS_OUTPUT.PUT_LINE(TO_CHAR(SYSDATE,'Month DD, YYYY'));
+END;
+
+</pre>
+<p><br />
+</p><p><br />
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.032 seconds
+Real time usage: 0.034 seconds
+Preprocessor visited node count: 140/1000000
+Preprocessor generated node count: 280/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:14-0!*!*!!ro!*!* and timestamp 20190306082215 and revision id 832
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_1&amp;oldid=832">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_1&amp;oldid=832</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+1" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_1"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_1&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_1" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_1&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_1&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_1" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_1" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_1&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_1&amp;oldid=832" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_1&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 07:17, 27 februarie 2019.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 116.739 de ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":227});
+}</script>
+	</body>
+</html>
+	

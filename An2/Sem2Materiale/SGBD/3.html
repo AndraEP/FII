@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 3 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_3" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_3","wgTitle":"PLSQL 3","wgCurRevisionId":465,"wgRevisionId":465,"wgArticleId":16,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_3","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_3 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 3</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Cuprins</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Subprograme_.C3.AEn_PLSQL"><span class="tocnumber">1</span> <span class="toctext">Subprograme în PLSQL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Stocarea_subprogramelor"><span class="tocnumber">1.1</span> <span class="toctext">Stocarea subprogramelor</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Proceduri"><span class="tocnumber">1.2</span> <span class="toctext">Proceduri</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Func.C5.A3ii"><span class="tocnumber">1.3</span> <span class="toctext">Funcţii</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Pachete"><span class="tocnumber">2</span> <span class="toctext">Pachete</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Antetul"><span class="tocnumber">2.1</span> <span class="toctext">Antetul</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Body"><span class="tocnumber">2.2</span> <span class="toctext">Body</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Exercitii"><span class="tocnumber">2.2.1</span> <span class="toctext">Exercitii</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Subprograme_.C3.AEn_PLSQL">Subprograme în PLSQL</span></h1>
+<h2><span class="mw-headline" id="Stocarea_subprogramelor">Stocarea subprogramelor</span></h2>
+<p>În primul rând (şi ca un failsafe - să nu ziceţi că nu vi s-a zis), subprogramele pe care le scrieţi în PLSQL, spre deosebire de codurile anonime, sunt stocate în baza de date - din acest motiv se mai numesc şi "proceduri stocate". Dacă lucraţi temele ce implică proceduri stocate pe calculatoare publice (cum sunt cele din laborator) nu uitaţi să le ştergeţi (şi din baza de date) după ce aţi terminat.
+</p><p>Spre exemplu, scrieţi în SQL developer următoarea procedură stocată:
+</p>
+<pre>
+CREATE OR REPLACE PROCEDURE afiseaza AS
+   my_name varchar2(20):='Gigel';
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Ma cheama ' || my_name);
+END afiseaza;
+</pre>
+<p>Selectaţi codul şi "rulaţi" procedura. De fapt aceasta va fi verificată sintactic după care codul ei va fi memorat în baza de date în cazul în care verificarea nu identifică nici o problemă  (codul nu va mai fi recompilat şi atunci când se doreşte executarea procedurii). Tot în SQL Developer, în coloana din partea stângă, unde aveţi şi lista tabelelor, aveţi o secţiune denumită "Procedures". Procedura pe care tocmai aţi compilat-o va putea fi regăsită în acea secţiune (chiar şi codul sursă este vizibil). 
+</p><p>Procedurile pot fi apelate numai din cadrul unui cod PL/SQL (funcţiile vor putea fi apelate şi dintr-o comandă de tip select spre exemplu):
+</p>
+<pre>
+set serveroutput on;
+BEGIN
+   afiseaza();
+END;
+</pre>
+<p>Pentru a şterge procedura creată anterior, executaţi următoarea comandă:
+</p>
+<pre>
+DROP PROCEDURE afiseaza;
+</pre>
+<p>Codul sursă al procedurilor pe care le-aţi scris este introdus în tabela "USER_SOURCE". Aflaţi structura acestei tabele şi încercaţi să vă găsiţi procedura pe care aţi compilat-o. Pentru a vedea procedura  în SQL Plus puteţi executa comanda:  
+</p>
+<pre>
+SELECT text FROM user_source WHERE LOWER(name) LIKE 'afiseaza';
+</pre>
+<p>Pe lângă tabela USER_SOURCE, alte două tabele interesante sunt USER_OBJECTS şi USER_PROCEDURES. Deocamdată vă lăsăm pe voi să descoperiţi ce informaţii sunt stocate în acestea (vom reveni ulterior asupra subiectului).
+</p><p>Deci: <span style="color:red; font-weight:bold">NU UITATI SA STERGETI CE ATI LUCRAT DE PE CALCULATOARELE DIN LABORATOARE.</span>
+</p><p>Există două tipuri de subprograme pe care le puteţi construi: proceduri şi funcţii. 
+</p>
+<h2><span class="mw-headline" id="Proceduri">Proceduri</span></h2>
+<p>Blocurile pe care le-aţi executat până acum au fost denumite blocuri anonime - tocmai pentru că nu au un nume cu care să poată fi apelate. Blocurile anonime nu sunt stocate în tabela USER_SOURCE pentru că nu au un nume şi nimeni nu ar putea sa le refolosească. 
+</p><p>În procedurile anonime exista o secţiune "DECLARE" în care erau precizate variabilele ce sunt utilizate în blocul anonim. Această secţiune era opţională, în cazul în care nu era nevoie de variabile, şi cuvântul DECLARE putea fi omis (vezi exemplul de mai sus în care am apelat procedura "afiseaza"). 
+</p><p>Pentru a declara o procedură se va utiliza următoarea sintaxă:
+</p>
+<pre>
+CREATE [OR REPLACE] PROCEDURE nume_procedura [(parametru 1 [mod] tip_de data1, parametru 2 [mod] tip_de data2,... parametru N [mod] tip_de dataN)] AS|IS
+[var1 tip1;
+etc.]
+BEGIN
+    ..... -- cod ce se va executa la apelul procedurii
+END [nume_procedura];
+</pre>
+<p>După CREATE urmează, opţional cuvintele "OR REPLACE". Aceste cuvinte au rolul de a înlocui procedura în cazul în care aceasta există deja în baza de date. Aţi putea face de fiecare data DROP la procedură după care să o construiţi din nou cu CREATE dar acest lucru ar fi mai anevoios. 
+</p><p>Cuvântul PROCEDURE indică tipul de subprogram ce este construit (vom construi şi funcţii care vor avea cuvântul FUNCTION ca şi tip al subprogramului). Numele prin care va fi apelată procedura este dat în continuare în locul parametrului "nume_procedura" din sintaxa de mai sus. 
+</p><p>O procedură poate avea mai mulţi parametri de intrare, mai multe valori de ieşire sau parametri care pot fi modificaţi în interiorul procedurii (care sunt în acelaşi timp şi de intrare şi de ieşire). Aceştia sunt daţi între paranteze rotunde, despărţiţi prin virgulă. Secţiunea opţionala "mod" din definiţia sintactică de mai sus poate avea oricare din valorile "IN", "OUT", "IN OUT" (dacă modul lipseşte, varianta predefinită este "IN"). Atunci când se  apelează procedura, trebuie ca pe poziţiile în care se află valori de ieşire (identificate prin OUT) să fie neapărat variabile de acelaşi tip cu cele declarate în definiţia procedurii). Aceste variabile vor primi după apel valorile variabilelor respective din procedură.  Tipul variabilelor poate fi definit şi cu&#160;%TYPE. Recomandare: prefixaţi parametrii (de intrare sau de ieşire cu "p_").
+</p><p>La sfârşitul declaraţiei procedurii se poate afla oricare dintre cuvintele AS sau IS. După acestea urmează variabilele (fără a mai fi nevoie de cuvântul DECLARE) şi, obligatoriu, codul executabil al procedurii (ce poate conţine şi o secţiune de tratare a excepţiilor). 
+</p><p>O procedură poate fi apelată dintr-un bloc anonim, din altă procedură sau dintr-o aplicaţie ce poate interacţiona cu severul (de exemplu dintr-o aplicaţie PHP sau JAVA). O procedură nu poate fi apelată dintr-o comandă de tip SELECT.
+</p><p><br />
+</p><p>Parametrii care sunt definiţi în antetul procedurii se numesc parametri formali (vor fi utilizaţi în subprogram şi de este recomandat să îi prefixaţi cu "p_") iar parametrii cu care este apelată procedura (valori sau variabile) se numesc parametrii actuali. Când procedura este apelată, fiecarui parametru formal îi va fi atribuită valoarea parametrului actual din apel, în ordine: primului parametru formal îi va fi atribuită valoarea primului parametru actual etc.
+</p><p>În continuare iată un exemplu de procedură care incrementează valoarea primită ca parametru. Variabila care a fost trimisă ca şi parametru către procedură va fi incrementată, acest lucru putând fi vizibil în blocul anonim ce apelează procedura:
+</p><p><br />
+</p>
+<pre>
+CREATE OR REPLACE PROCEDURE inc (p_val IN OUT NUMBER) AS
+BEGIN
+   p_val := p_val + 1;
+END;
+</pre>
+<pre>
+set serveroutput on;
+DECLARE
+   v_numar NUMBER := 7;
+BEGIN
+   inc(v_numar);
+   DBMS_OUTPUT.PUT_LINE( v_numar );
+END;
+</pre>
+<p>Încercaţi să rulaţi următorul bloc anonim şi explicaţi eroarea întâlnită:
+</p>
+<pre>BEGIN
+   inc(7);   
+END;
+</pre>
+<p>Testaţi şi următorul cod... ce credeţi, va funcţiona&#160;?
+</p>
+<pre>
+set serveroutput on;
+DECLARE
+   v_numar varchar2(10) := '7';
+BEGIN
+   inc(v_numar);
+   DBMS_OUTPUT.PUT_LINE( v_numar );
+END;
+</pre>
+<p>Încercaţi să construiţi un cod asemănător pentru o dată calendaristică.
+</p><p>Puteţi construi o procedură care să aibă ca parametri de intrare două valori numerice şi care să returneze suma acestora în o a treia variabilă&#160;? Apelaţi această procedură punând direct valori numerice în locul parametrilor de intrare; o variabilă trebuie să fie furnizată pentru rezultat.
+</p><p>După cum aţi observat, puteţi trimite un şir de caractere către procedura ce incrementează valoarea şi ea va funcţiona corect. Acest lucru se întâmplă din cauză că PLSQL ştie să facă anumite conversii în mod automat. Din punct de vedere al eficienţei, este mai bine ca parametrii actuali (valorile trimise către procedură) să fie de acelaşi tip cu parametrii formali (cum au fost declaraţi în antetul procedurii). În cazul în care nu ştiţi cum au fost declaraţi parametrii (nu ştiţi tipul parametrilor formali), puteţi executa comanda DESCRIBE nume_procedură pentru a obţine aceste informaţii.
+</p><p>Unele limbaje de programare permit iniţializarea variabilelor formale în mod automat în cazul în care acestea nu primesc valori. Acest lucru este posibil şi în PLSQL:
+</p>
+<pre>
+CREATE OR REPLACE PROCEDURE pow (p_baza IN Integer := 3, p_exponent IN INTEGER DEFAULT 5) AS
+   v_rezultat INTEGER;
+BEGIN
+    v_rezultat := p_baza ** p_exponent;
+    DBMS_OUTPUT.PUT_LINE(v_rezultat);
+END;
+</pre>
+<p>În acest cod parametrii de intrare sunt iniţializaţi. În cazul în care aceştia nu sunt transmişi din blocul anonim, valorile predefinite (din definiţia funcţiei) le sunt automat asociate. Pentru a preciza doar un anumit parametru (sau daca doriţi să daţi parametrii în altă ordine decât cea din definiţia procedurii), puteţi să îi asociaţi în apel sub forma  cheie=&gt;valoare. De exemplu, următoarele trei scripturi vor avea acelaşi efect:
+</p>
+<pre>
+set serveroutput on;
+BEGIN
+   pow(2, 3);
+END;
+</pre>
+<pre>
+set serveroutput on;
+BEGIN
+   pow(p_baza=&gt;2, p_exponent=&gt;3);
+END;
+</pre>
+<pre>
+set serveroutput on;
+BEGIN
+   pow(p_exponent=&gt;3, p_baza=&gt;2);
+END;
+</pre>
+<p>Puteţi să vă daţi seama înainte de a încerca efectiv următoarele scripturi care vor fi valorile afişate de procedura stocată (atenţie şi la valorile declarate în definiţia procedurii stocate)&#160;?
+</p>
+<pre>
+set serveroutput on;
+BEGIN
+   pow(2, p_exponent=&gt;3);
+END;
+</pre>
+<pre>
+set serveroutput on;
+BEGIN
+   pow(p_baza=&gt;2);
+END;
+</pre>
+<pre>
+set serveroutput on;
+BEGIN
+   pow(p_exponent=&gt;3);
+END;
+</pre>
+<p>Iată un exemplu în care doar baza şi variabila în care trebuie să fie întors rezultatul sunt precizate (este nevoie de refacerea procedurii pentru a întoarce o valoare):
+</p>
+<pre>
+CREATE OR REPLACE PROCEDURE pow (p_baza IN Integer := 3, p_exponent IN INTEGER DEFAULT 5, p_out OUT Integer) AS   
+BEGIN
+    p_out := p_baza ** p_exponent;    
+END;
+</pre>
+<pre>
+set serveroutput on;
+DECLARE 
+   v_out INTEGER;
+BEGIN
+   pow(p_baza=&gt;3, p_out =&gt; v_out);
+   DBMS_OUTPUT.PUT_LINE(v_out);
+END;
+</pre>
+<p>Observaţie: o procedură poate conţine o comandă de tip RETURN pentru a forţa ieşirea din acea procedură.
+</p>
+<h2><span class="mw-headline" id="Func.C5.A3ii">Funcţii</span></h2>
+<p>Procedurile sunt utile atunci când codul PLSQL va intoarce mai mult decât o singură valoare. Atunci când este nevoie de o singură valoare returnată, se pot folosi funcţii. 
+</p><p>Avantajul funcţiilor este că pot fi folosite şi în cadrul unei interogări (aşa cum aţi folosit de exemplu funcţia UPPER din SQL). Există câteva tipuri de date care previn utilizarea funcţiilor în comenzi de tip select (de exemplu boolean). 
+</p><p>În funcţii încercaţi să evitaţi orice operaţie de tip DML (data manipulation language) sau DDL (data definition language). Adică, încercaţi să nu creaţi inseraţi/ştergeţi/modificaţi datele din tabele, să nu creaţi tabele, să le modificaţi structura sau să le ştergeţi. De asemenea, este bine de evitat COMMIT sau ROLLBACK sau modificarea variabilelor globale ale unui program PLSQL. În principiu funcţiile trebuie să calcuneze ceva şi să returneze o informaţie. Puteţi spre exemplu să faceţi select într-o tabelă pentru că această operaţie nu modifică datele existente.
+</p><p>Sintaxa de creare a unei funcţii este asemănătoare cu cea a procedurii. În locul cuvântului PROCEDURE se va utiliza FUNCTION şi înainte de IS (sau AS) se adaugă tipul returnat de funcţie (RETURN tip_de_date). Obligatoriu trebuie ca în funcţie să se ajungă la o comandă de tip RETURN expresie, această valoare fiind de acelaşi tip cu cel declarat în antetul funcţiei. De obicei, toate modurile de transmitere a parametrilor vor fi setate pe IN (atunci când se utilizează OUT, funcţia nu mai poate fi folosită în SELECT-uri). Deoarece atunci când aceste moduri sunt omise valoarea lor predefinita este IN, puteţi să "le uitaţi". 
+</p><p>În continuare este dat un exemplu de funcţie care are ca parametru de intrare un şir de caractere şi întoarce o prelucrare a şirului:
+</p><p><br />
+</p>
+<pre>
+CREATE OR REPLACE FUNCTION make_waves(p_sir_caractere varchar2)
+RETURN varchar2 AS
+   v_index INTEGER;
+   v_rezultat varchar2(1000) := '';
+BEGIN
+    FOR v_index IN 1..length(p_sir_caractere) LOOP
+        IF(v_index MOD 2 = 1)
+        THEN
+           v_rezultat := v_rezultat || UPPER(SUBSTR(p_sir_caractere,v_index,1));
+        ELSE
+           v_rezultat := v_rezultat || LOWER(SUBSTR(p_sir_caractere,v_index,1));
+        END IF;
+    END LOOP;
+    return v_rezultat;
+END;
+</pre>
+<p>Funcţia poate fi apleată într-un select:
+</p>
+<pre>
+select make_waves('Facultatea de informatica') from dual;
+</pre>
+<p>Dar şi într-un bloc anonim:
+</p>
+<pre>
+DECLARE
+   v_sir VARCHAR2(1000) :='Facultatea de informatica';
+BEGIN
+   v_sir := make_waves(v_sir);
+   DBMS_OUTPUT.PUT_LINE(v_sir);
+END;
+</pre>
+<p>Nu toate funcţiile trebuie să aibă parametri (SYSDATE).
+</p><p>Nu puteţi trimite parametri cheie=&gt;valoare ca în proceduri.
+</p><p>Funcţiile apelate din SELECT nu au voie să conţină instrucţiuni DML.
+</p><p>Funcţiile apelate din UPDATE sau DELETE nu au voie să facă SELECT sau DML.
+</p><p>Funcţiile apelate din comenzi SQL nu au voie sa facă COMMIT sau ROLLBACK.
+</p><p>Funcţiile apelate din comenzi SQL nu pot contine instrucţiuni DDL (e.g. CREATE TABLE) sau DCL(e.g. ALTER SESSION) pentru ca ar face un COMMIT implicit.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Pachete">Pachete</span></h1>
+<p>La fel ca şi în Java (şi probabil şi alte limbaje de programare), pachetele sunt utilizate pentru a organiza mai multe proceduri, funcţii (sau clase) care fie sunt interdependente fie sunt utilizate în acelaşi scop (de exemplu pentru a face managementul studenţilor dintr-o facultate) la un loc. Pachetele din PLSQL sunt containere care au scopul de a grupa subprograme(proceduri sau funcţii), variabile, cursoare şi excepţii.
+</p><p><br />
+Un pachet este construit din două entităţi: 
+</p>
+<ul><li> specificaţia sau antetul -  oferă o interfaţă pe care programatorul paote sa o utilizeze. Aceasta trebuie să fie declarată la început (nu puteţi compila cea de-a doua entitate fără a o avea pe prima compilată). Aici sunt specificate toate elementele vizibile din exterior: proceduri, funcţii, variabile etc.</li>
+<li> body - conţine efectiv codul procedurilor declarate în specificaţie. După compilare, body-ul nu va mai fi vizibil, interfaţa descrisă în antet fiind singura la care programatorul are acces. Secţiunea de body poate fi recompilată fără a fi necesară recompilarea antetului.</li></ul>
+<h3><span class="mw-headline" id="Antetul">Antetul</span></h3>
+<p>Pentru a  crea un antetul unui pachet se utilizează sintaxa:
+</p>
+<pre>
+CREATE [OR REPLACE] PACKAGE nume_pachet IS|AS
+        tipuri publice 
+        declaraţii de variabile publice (vor fi iniţializate cu NULL daca nu se specifica altceva)
+        specificaţii publice pentru subprograme
+END [nume_pachet]
+
+</pre>
+<p>Tot ce apare este vizibil utilizatorilor care au drept de EXECUTE pe acel pachet.
+</p><p>Cuvântul public indică faptul că elementele descrise în antet sunt accesibile din exterior (şi nu sunt private - remember Java encapsulation).
+</p><p>Exemplu:
+</p>
+<pre>
+CREATE OR REPLACE PACKAGE manager_facultate IS
+      g_today_date   DATE:= SYSDATE;
+      CURSOR lista_studenti IS SELECT nr_matricol, nume, prenume, grupa, an FROM studenti ORDER BY nume;
+     PROCEDURE adauga_student (nume studenti.nume%type, prenume studenti.prenume%type);
+     PROCEDURE sterge_student (nr_matr studenti.nr_matricol%type);
+END manager_facultate;
+</pre>
+<h3><span class="mw-headline" id="Body">Body</span></h3>
+<p>Pentru a construi şi body-ul, se utilizează următoarea sintaxă:
+</p>
+<pre>
+CREATE [OR REPLACE] PACKAGE BODY nume_pachet IS|AS
+      variabile şi tipuri de date private 
+      conţinutul subprogramelor (fie publice fie private);
+[BEGIN  zona de initializare]
+END nume_pachet;
+</pre>
+<p>Trebuie să declaraţi o procedură înaintea utilizării ei în altă procedură. Fiecare procedură sau funcţie declarată în antet trebuie neapărat să aibă şi un cod în secţiunea de body. Iată un exemplu care ar putea constitui un body pentru pachetul de mai sus:
+</p>
+<pre>
+CREATE OR REPLACE PACKAGE BODY manager_facultate IS
+
+    nume_facultate VARCHAR2(100) := 'Facultatea de Informatica din IASI';
+
+    FUNCTION calculeaza_varsta (data_nastere DATE) RETURN INT AS
+    BEGIN
+       RETURN FLOOR((g_today_date - data_nastere)/365);
+    END calculeaza_varsta;   
+
+    PROCEDURE adauga_student (nume studenti.nume%type, prenume studenti.prenume%type) 
+       IS BEGIN
+           DBMS_OUTPUT.PUT_LINE('Exemplu apel functie privata: '|| calculeaza_varsta(to_date('01/01/1990','DD/MM/YYYY')));
+           DBMS_OUTPUT.PUT_LINE('Aici ar trebui sa scrieti cod pentru adaugarea unui student');
+    END adauga_student;
+    
+    PROCEDURE sterge_student (nr_matr studenti.nr_matricol%type) IS
+    BEGIN
+       null; -- nu face nimic
+    END sterge_student;
+    
+END manager_facultate;    
+</pre>
+<p>În acest exemplu, funcţia calculeaza_varsta nu a fost expusă publicului şi din acest motiv putem să o considerăm privată. Dacă veţi încerca să compilaţi secţiunea de body fără a introduce şi procedura de ştergere a unui student, va fi semnalată o eroare conform căreia toate metodele declarate în partea de antet a pachetului trebuie să fie implementate. 
+</p><p>În cadrul pachetului puteţi utiliza variabilele sau cursoarele care au fost declarate public în antetul pachetului dar puteţi declara şi variabile care sa nu fie expuse.
+Dacă aţi uitat ce proceduri aveţi expuse într-un pachet, puteţi executa comanda DESCRIBE următă de numele pachetului (e.g.  DESCRIBE manager_facultate;).
+</p><p>Pentru a apela un subprogram din cadrul unui aceluiaşi pachet este suficient să scrieţi numele  subprogramului (procedură sau funcţie) - în exemplul de mai sus, funcţia privată (care nu a fost expusă în antet) a fost apelată în procedura de adăugare a studentului (doar pentru exemplificare). Puteţi să daţi calea completă utilizând formatul nume_pachet.nume_metodă pentru a apela metoda dinafara pachetului (deşi este posibil un astfel de apel şi din cadrul pachetului). Iată un exemplu de apel a unei metode expuse (publice) dinafara pachetului:
+</p><p><br />
+</p>
+<pre>
+set serveroutput on;
+BEGIN
+   manager_facultate.adauga_student('Becali', 'Gigi');
+END;
+</pre>
+<p>Pentru a şterge un întreg pachet puteţi executa comanda:
+</p>
+<pre>DROP PACKAGE nume_pachet;
+</pre>
+<p>Pentru a şterge numai BODY-ul pachetului:
+</p>
+<pre>DROP PACKAGE BODY nume_pachet
+</pre>
+<p>Nu se poate şterge doar antetul (specificaţia) fără a şterge şi body.
+</p><p>Observatie: puteti scrie antetul si body-ul in acelasi fisier dar trebuie ca intre ele sa faceti un commit ( scrieti pe un rand nou caracterul '/').
+</p>
+<h6><span class="mw-headline" id="Exercitii">Exercitii</span></h6>
+<p>Problema 1 (maxim 8 puncte):
+</p><p>Sa se construiasca un pachet PLSQL prin intermediul caruia sa se faca managementul unei facultati. 
+</p><p>In pachet va trebui sa aveti:
+</p>
+<ul><li> (2pt) - o procedura (privata) ce returneaza varsta unui student (in ani, luni si zile - vezi tema nr.1) a acelui student;</li>
+<li> (2pt) - o procedura care sa adauge un student in baza de date (cu generare de ID, matricol si simulare de note la materiile din anii precedenti - de exemplu daca este in anul 3 va avea note la materiile din anii 1 si 2). <span style="color:red">[Inspirarea din codul meu care genereaza tabele se considera plagiat si va fi pedepsit ca atare]</span></li>
+<li> (2pt) - o procedura care sa elimine un student din baza de date (se vor elimina si constrangerile).</li>
+<li> (2pt) - o procedura care sa afiseze informatii despre un student: numar matricol, foaia matricola, media, varsta (apel la procedura de la punctul 1), al catelea este in grupa, care ii sunt prietenii si alte informatii despre care credeti ca ar fi interesante.</li></ul>
+<p><br />
+Problema 2 (5 puncte - totul sau nimic):
+</p>
+<ul><li> (5pt) Construiti o procedura care sa ruleze intr-un <span style="color:red">timp de sub 2 secunde</span> si care sa indice (prin intermediul ID-urilor) care sunt prietenii care au valorile mediilor truncheate egale (de exemplu daca studentul cu ID-ul 1 are media 7.25 si are ca si prieteni pe studentii cu ID-urile 2 (cu 8.33), 3 (cu 7.99) respectiv 4 (cu 7.25), se vor afisa cuplurile 1-3 si 1-4). Pregatiti si o interogare prin intermediul careia sa afisati media unui student avand un anumit ID.</li></ul>
+<p><span style="color:green">Concurs: cine are timpul cel mai mic din toata facultatea (timpul va fi calculat pe un acelasi calculator si va fi considerat timpul de la a treia rulare), va primi un bonus de 10 puncte&#160;!!! <span style="color:yellow; background-color:red"> Minimul curent: 0.03 secunde </span>(in plus, aspirantii vor face si un script care sa curete dupa scriptul initial (drop la indecsi, la eventuale functii sau ce mai aveti acolo)</span>
+</p><p>Pont1: indexati;
+</p><p>Pont2: Daca aveti laptopul bagat in priza, aveti sanse sa fie mai rapid&#160;:D
+Observatie: In cazul in care aveti nevoie sa construiti indecsi, nu se va tine cont de timpul necesar construirii acestora ci doar de executia efectiva.
+</p><p>Castigatori sunt 4 (pentru ca nu am putut selecta doar unul):
+</p>
+<ul><li> Urmatorii trei au avut aceeasi idee si aproximativ aceeasi implementare): Bogdan Seniuc, Andrici Cezar, Victor Pescaru. </li>
+<li> O solutie interesanta o am de la Ninicu Cristian care nu a folosit nici un index si a obtinut timpi asemanatori doar prin incarcarea in memorie a tabelelor (in structuri de tip varray) si preluarea datelor de acolo.</li></ul>
+<p>In continuare va dau codul meu (care seamana cu ideea primilor 3 - nu am vrut sa pun toate cele trei codurile si ca sa nu supar pe vreunu, am ales sa dau varianta mea):
+</p>
+<pre>
+-- Creare de functii, index si procedura stocata din cerinta:
+create or replace function try(idx1 IN number, idx2 IN number) return number deterministic is
+   v1 int;
+   v2 int;
+begin
+   select trunc(avg(valoare)) into v1 from note where id_student=idx1;
+   select trunc(avg(valoare)) into v2 from note where id_student=idx2;
+   
+   if (v1=v2) then return 1;
+   else return 2;
+   end if;
+end;
+/
+
+create index idx1 on prieteni(try(id_student1,id_student2),id_student1, id_student2);
+/
+
+create or replace procedure toExecute is
+BEGIN
+    FOR v_std_linie IN  (select id_student1 as id1, id_student2 as id2 from prieteni where try(id_student1,id_student2)=1) LOOP     
+        DBMS_OUTPUT.PUT_LINE(v_std_linie.id1||' - '|| v_std_linie.id2);
+    END LOOP;  
+END;
+/
+
+
+-- a se executa de mai multe ori:
+set serveroutput on;
+begin
+   toExecute();
+end;
+
+
+-- puteti sa stergeti ce ati definit mai sus ruland codul:
+drop index idx1;
+/
+drop function try;
+/
+drop procedure toExecute;
+/
+ 
+</pre>
+<p><br />
+</p><p><br />
+Obligatoriu: Nu luati codul si nu oferiti codul colegilor&#160;! Temele sunt individuale&#160;!
+</p><p><span style="color:red">Observatie:</span> Aceasta este tema numarul 3. Pentru a face upload creati un director in formatul Nume_Prenume_Grupa_3 si puneti in el doua fisiere: Nume_Prenume_Grupa_3_1.sql (ce va contine rezolvarea exercitiului 1) respectiv Nume_Prenume_Grupa_3_2.sql (ce va contine rezolvarea exercitiului 2). Arhivati cu ZIP directorul si asigurati-va ca arhiva are numele Nume_Prenume_Grupa_3.zip Dupa care folositi scriptul de upload pentru a o uploada. Scriptul de upload il gasiti aici: <a rel="nofollow" class="external free" href="https://profs.info.uaic.ro/~vcosmin/pagini/upload_psgbd">https://profs.info.uaic.ro/~vcosmin/pagini/upload_psgbd</a>
+</p><p><span style="color:red">Observatie 2:</span> Daca ati gresit formatul (pentru ca nu ati stiut sa cititi mai sus sau in regulament), tema poate fi re-uploadata cu o penalizare de doua puncte. Pentru aceasta urmati pasii de mai sus dar adaugati sufixul "_v1", (sau "_v2" daca iar ati gresit, etc)... (e.g. Nume_Prenume_Grupa_3_v1.zip) fisierului zip obtinut in final.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.026 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 292/1000000
+Preprocessor generated node count: 630/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:16-0!*!*!!ro!*!* and timestamp 20190306030400 and revision id 465
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_3&amp;oldid=465">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_3&amp;oldid=465</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+3" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_3"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_3&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_3" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_3&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_3&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_3" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_3" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_3&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_3&amp;oldid=465" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_3&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 15:59, 23 martie 2018.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 43.052 de ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":218});
+}</script>
+	</body>
+</html>
+	

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 4 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_4" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_4","wgTitle":"PLSQL 4","wgCurRevisionId":818,"wgRevisionId":818,"wgArticleId":17,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_4","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_4 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 4</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Cuprins</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Colec.C5.A3ii_.C5.9Fi_.C3.AEnregistr.C4.83ri"><span class="tocnumber">1</span> <span class="toctext">Colecţii şi înregistrări</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Tablourile_asociative_.28associative_arrays.29"><span class="tocnumber">1.1</span> <span class="toctext">Tablourile asociative (associative arrays)</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Tabel.2F.28.C4.83.29_.28Nested_tables.29"><span class="tocnumber">1.2</span> <span class="toctext">Tabel/(ă) (Nested tables)</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Tablouri_cu_dimensiune_variabil.C4.83_.28Varrays.29"><span class="tocnumber">1.3</span> <span class="toctext">Tablouri cu dimensiune variabilă (Varrays)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Func.C5.A3ii_ce_pot_fi_utilizate_pentru_colec.C5.A3ii"><span class="tocnumber">1.4</span> <span class="toctext">Funcţii ce pot fi utilizate pentru colecţii</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Tipul_.C3.AEnregistrare_.28record.29"><span class="tocnumber">1.5</span> <span class="toctext">Tipul înregistrare (record)</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Colec.C5.A3ii_.C5.9Fi_.C3.AEnregistr.C4.83ri">Colecţii şi înregistrări</span></h1>
+<p>Linkuri utile:
+</p>
+<ul><li> <a rel="nofollow" class="external free" href="http://docs.oracle.com/cd/B28359_01/appdev.111/b28370/collections.htm">http://docs.oracle.com/cd/B28359_01/appdev.111/b28370/collections.htm</a></li>
+<li> <a rel="nofollow" class="external free" href="http://www.orafaq.com/wiki/NESTED_TABLE">http://www.orafaq.com/wiki/NESTED_TABLE</a></li>
+<li> <a rel="nofollow" class="external free" href="http://cursuri.cs.pub.ro/~radulescu/bd/plsql/8.html">http://cursuri.cs.pub.ro/~radulescu/bd/plsql/8.html</a></li>
+<li> <a rel="nofollow" class="external free" href="http://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#1059">http://docs.oracle.com/cd/A97630_01/appdev.920/a96624/05_colls.htm#1059</a></li></ul>
+<p>Pentru a permite lucrul cu şiruri de elemente, în SQL se vor folosi doua tipuri de date: TABLE şi VARRAY. 
+</p><p>Colecţii - fiecare element al unei colecţii are un index ce îl identifică în mod unic în cadrul colecţiei. În PLSQL se pot face trei tipuri de colecţii:
+</p>
+<ul><li> tablouri asociative (associative arrays)</li>
+<li> tabel/(ă)  (nested tables)</li>
+<li> tablouri de dimensiune variabilă (varrays)</li></ul>
+<p>Pentru a lucra cu aceste tipuri de colecţii trebuie ca în prealabil să definiţi un tip după care să declaraţi variabile care să aibă tipul definit de voi. Declaraţia unui tip poate fi făcută, de exemplu, în secţiunea de declaraţii (fie a unui cod anonim, fie a unei funcţii/proceduri). 
+</p><p>O colecţie poate fi trimisă ca parametru (pentru a transmite către o funcţie mai multe informaţii în acelaşi timp).
+</p>
+<h2><span class="mw-headline" id="Tablourile_asociative_.28associative_arrays.29">Tablourile asociative (associative arrays)</span></h2>
+<p>Tablourile asociative sunt mulţimi de cupluri de tipul cheie-valoare (cunoscute în alte limbaje de programare sub numele de tabele hash), fiecare cheie fiind unică (din cauză că pe baza ei se face accesul la valoare). Scopul acestui tip de date este de stocare temporară a informaţiilor, acestea fiind disponibile numai în cadrul aplicaţiei PL/SQL care le utilizează (deci nu sunt stocate pe disc pentru a fi regăsite ulterior, pentru aceasta trebuie să construiţi un cod special prin care să le salvaţi într-o bază de date).
+</p><p>Dacă se face o atribuire în tabloul asociativ pentru o cheie care nu există, aceasta este automat creată după care i se dă valoarea asignată de operaţia de atribuire.
+</p><p>Pentru a defini tipul ce va fi utilizat în declararea unui tablou asociativ se va utiliza comanda:
+</p><p><br />
+TYPE nume_tip IS TABLE OF tip_element [NOT NULL] INDEX BY [BINARY_INTEGER | PLS_INTEGER | VARCHAR2(dimendiune)];
+</p><p>După definirea tipului trebuie să declaraţi o variabilă de acel tip. Valoarea "nume_tip" este un identificator pentru noul tip de dată (deci veţi putea declara o variabilă tablou de tipul nume_tip), tip_element indică ce fel de elemente sunt stocate în fiecare poziţie a tabloului (se poate preciza ca această valoare trebuie să fie nenulă) iar în final este specificat tipul cheii (acesta poate fi un tip numeric sau şir de caractere).
+</p><p>Un exemplu de utilizare a unui tablou asociativ în care variabilele stocate sunt numere întregi iar cheile sunt şiruri de caractere:
+</p><p><br />
+</p>
+<pre>DECLARE 
+    TYPE MyTab IS TABLE OF NUMBER INDEX BY VARCHAR2(10);
+    varsta MyTab;
+BEGIN
+   varsta('Gigel') := 3;
+   varsta('Ionel') := 4;
+   DBMS_OUTPUT.PUT_LINE('Varsta lui Gigel este ' || varsta('Gigel'));
+   DBMS_OUTPUT.PUT_LINE('Varsta lui Ionel este ' || varsta('Ionel'));
+END;
+
+</pre>
+<p>În exemplul de mai sus se pot observa atât operaţia de asociere a unei chei cu o valoare cât şi modalitatea de extragere a unei valori atunci când cunoaştem cheia (în operaţia de afişare).
+</p><p>Dacă se doreşte adăugarea unui nou copil pe care îl cheamă (din întâmplare) tot Ionel şi care are vârsta de 7 ani, acest lucru nu va putea fi făcut deoarece cheia trebuie să fie unică (identificatorul Ionel în acest caz s-ar repeta). Încercarea de a face o atribuire de tipul   varsta('Ionel')&#160;:= 7; va duce la modificarea înregistrării deja existente în tablou.
+</p><p>Puteţi să construiţi un tablou asociativ în care cheile să nu mai fie de tip şir de caractere (ci un tip de date numeric) şi care să aibă ca şi valori posibile tipul liniei dintr-o tabelă:
+</p><p><br />
+</p>
+<pre>DECLARE 
+    TYPE MyTab IS TABLE OF studenti%ROWTYPE INDEX BY PLS_INTEGER;
+    linii MyTab;
+BEGIN
+    SELECT * INTO linii(0) FROM studenti WHERE ROWNUM = 1;
+    DBMS_OUTPUT.PUT_LINE(linii(0).prenume);
+END;
+
+</pre>
+<p>Dacă în poziţia cheii este utlizată o valoarea care nu este compatibilă (convertibilă în mod automat) de către SGBD se va semnala o eroare. În cazul în care conversia este posibilă, utilizarea valorii (de exemplu o data calendaristică ca şi cheie deşi cheile au fost declarate ca fiind de tip varchar2) nu va semnala nici o eroare şi codul va funcţiona corect:
+</p>
+<pre>DECLARE 
+    TYPE MyTab IS TABLE OF number INDEX BY varchar2(20);
+    linii MyTab;  
+BEGIN
+    linii(sysdate) := 123;
+    DBMS_OUTPUT.PUT_LINE(linii(sysdate));
+END;
+
+</pre>
+<p>Atenţie: în exemplul de mai sus, pentru valoarea de tip DATE ce a fost folosită ca şi cheie s-a aplicat funcţia TO_CHAR. În cazul în care un astfel de tabel asociativ ar fi salvat şi datele apoi mutate pe alt calculator, s-ar putea ca, din cauza modului în care sunt convertite datele (setările locale ale calculatorului), datele iniţiale să nu mai poată fi accesate.
+</p><p>Funcţiile ce pot fi utilizate pentru o colecţie de tipul tablou asociativ sunt exemplificate în următorul cod pe care vă invităm să îl rulaţi pentru a observa efectul fiecăreia. Explicaţii asupra acestor funcţii găsiţi în secţiunea "Funcţii ce pot fi utilizate pentru colecţii" din această pagină.
+</p><p><br />
+</p>
+<pre>DECLARE 
+    TYPE MyTab IS TABLE OF NUMBER INDEX BY VARCHAR2(10);
+    varsta MyTab;
+BEGIN
+   varsta('Gigel') := 3;
+   varsta('Ionel') := 4;
+   varsta('Maria') := 6;
+   
+   DBMS_OUTPUT.PUT_LINE('Numar de elemente in lista: ' || varsta.COUNT);
+   
+   DBMS_OUTPUT.PUT_LINE('Prima cheie din lista: ' || varsta.FIRST);
+   DBMS_OUTPUT.PUT_LINE('Ultima cheie din lista: ' || varsta.LAST);
+
+   DBMS_OUTPUT.PUT_LINE('Inaintea lui Ionel in lista: ' || varsta.PRIOR('Ionel'));
+   DBMS_OUTPUT.PUT_LINE('Dupa Ionel in lista: ' || varsta.NEXT('Ionel'));
+      
+   varsta.DELETE('Maria');   
+   DBMS_OUTPUT.PUT_LINE('Dupa Ionel in lista: ' || varsta.NEXT('Ionel'));   
+END;
+
+</pre>
+<h2><span class="mw-headline" id="Tabel.2F.28.C4.83.29_.28Nested_tables.29">Tabel/(ă) (Nested tables)</span></h2>
+<p>Tipul tabel (sau tabelă - în www.dex.ro ambii termeni descriu acelaşi concept, indicând chiar unul spre celălalt) este un tip de date asemănător unei tabele dintr-o bază de date. Acest tip de date este utilizat, de obicei,  pentru a stoca mai multe date asociate unei singure linii. La fel ca şi conceptul de tabelă din baza de date, informaţiile nu sunt organizate ci sunt mai degrabă văzute ca o mulţime: la un moment dat nu se ştie care este primul element, al doilea etc. Totuşi, la fel ca şi în baza de date, în momentul în care se doreşte iterarea elementelor, un număr provizoriu poate fi asociat fiecărei înregistrări (asemenei rownum). 
+</p><p>La fel ca în cazul tablourilor asociative, se pot crea tabele a căror elemente să fie tot tabele (având aşadar o formă de matrice). 
+</p><p>Pentru a accesa elementele dintr-un tabel se utilizează aceşi metodă ca şi la tablourile asociative. Există totuşi diferenţe în modul în care acestea sunt menţinute de către SGBD şi în uşurinţa cu care sunt transmise ca parametri unor funcţii sau proceduri stocate. 
+</p><p>Spre deosebire de datele de tip tablou asociativ, datele de tip tabel pot fi stocate ca şi câmp în interiorul unui tabel din baza de date - deci se pot crea tabele (CREATE TABLE... care să aibă ca şi tip de data asociat unui câmp o variabilă de tip tabel).
+</p><p>Pentru a defini un nou tip ca şi tabel se va utiliza următoarea sintaxă:
+</p><p><br />
+</p>
+<pre>TYPE nume_tip IS TABLE OF tip_element [NOT NULL];
+</pre>
+<p>În continuare se va declara o variabilă având ca şi tip "nume_tip" în care pot fi introduse elemente de având tipul "tip_element".
+</p><p>Iată un exemplu:
+</p><p><br />
+</p>
+<pre>DECLARE
+    TYPE prenume IS TABLE OF varchar2(10);
+    student prenume;
+BEGIN
+    student := prenume('Gigel', 'Ionel');
+    for i in student.first..student.last loop
+       DBMS_OUTPUT.PUT_LINE(i||' - '||student(i));    
+    end loop;
+END;
+
+</pre>
+<p>Să construim în continuare un tabel cu trei elemente, să îi adăugăm încă patru elemente copiind elementul din mijloc de încă două ori după care să ştergem elementul al doilea şi să afişăm toate poziţiile ocupate şi elementele de pe aceste poziţii:
+</p><p><br />
+</p>
+<pre>DECLARE
+    TYPE prenume IS TABLE OF varchar2(10);
+    student prenume;
+BEGIN
+    student := prenume('Gigel', 'Ionel', 'Maria');  
+    student.EXTEND(4,2); -- copii elementul al doilea de 4 ori
+    student.delete(2); -- sterg elementul al doilea
+    for i in student.first..student.last loop
+        if student.exists(i) then -- daca incerc sa afisez ceva ce nu exista se va produce o eroare
+           DBMS_OUTPUT.PUT_LINE(i||' - '||student(i));  -- afisam pozitia si valoarea
+        end if;
+    end loop;
+END;
+
+</pre>
+<p>Mai multe funcţii ce pot fi utilizate în cadrul tablourilor găsiţi în secţiunea "Funcţii ce pot fi utilizate pentru colecţii" din această pagină. 
+</p><p>După cum se observă în exemplul anterior, ştergerea elementului al doilea din tabel nu a dus la shiftarea automată a informaţiilor de pe poziţiile 3..7 spre stânga. Atenţie: după ştergere, pe poziţia a doua nu a rămas nici un element. Încercarea de a afişa elementul de pe poziţia a doua va genera o eroare.
+</p><p>Valoarea lui tip_element poate fi şi altceva decât varchar2(10). Puteţi încerca să puneţi acelaşi tip cu al unei coloane existente într-un tabel (studenti.prenume%type), a unui rând dintr-o tabelă (studenti%ROWTYPE) sau a unui rând dintr-un cursor (cursor%ROWTYPE). 
+</p><p>Nu puteti extinde siruri care sunt nule (sau neintializate):
+</p><p><br />
+</p>
+<pre>set serveroutput on;
+DECLARE
+    TYPE prenume IS TABLE OF varchar2(10);
+    student prenume := prenume();
+    student_err prenume;
+BEGIN  
+    student.EXTEND; -- merge ok
+    student_err.EXTEND; -- da eroare pentru ca este null (sau nu a fost initializat)
+END;
+
+</pre>
+<p><br />
+Iată un exemplu care încarcă într-o variabilă de tip tabel toate elementului tabelului studenti:
+</p><p><br />
+</p>
+<pre>DECLARE 
+   CURSOR curs IS SELECT * FROM studenti;
+   TYPE linie_student IS TABLE OF curs%ROWTYPE;
+   lista_studenti linie_student;
+BEGIN
+   open curs;
+   SELECT * BULK COLLECT INTO lista_studenti FROM studenti;
+   close curs;
+    for i in lista_studenti.first..lista_studenti.last loop
+        if lista_studenti.exists(i) then -- daca incerc sa afisez ceva ce nu exista se va produce o eroare
+           DBMS_OUTPUT.PUT_LINE(i||' - '||lista_studenti(i).nume);  -- afisam pozitia si valoarea
+        end if;
+    end loop;   
+    DBMS_OUTPUT.PUT_LINE('Numar studenti: '||lista_studenti.COUNT);
+END;
+
+</pre>
+<p>Exemplul anterior poate fi refăcut utilizând funcţia NEXT pentru a obţine cheia următorului element. În acest caz nu mai este nevoie de testarea existenţei elementului (se poate elimina condiţia if).
+</p><p>Puteţi crea tabele (cu CREATE TABLE) care să aibă un anumit câmp de tipul tabel. Iată un exemplu în acest sens:
+</p><p><br />
+</p>
+<pre>
+
+GRANT CREATE TYPE TO STUDENT; -- aceasta linie se executa din &quot;SYS as SYSDBA&quot;
+
+CREATE OR REPLACE TYPE lista_prenume AS TABLE OF VARCHAR2(10);
+/
+CREATE TABLE persoane (nume varchar2(10), 
+       prenume lista_prenume)
+       NESTED TABLE prenume STORE AS lista;
+/       
+
+INSERT INTO persoane VALUES('Popescu', lista_prenume('Ionut', 'Razvan'));
+INSERT INTO persoane VALUES('Ionescu', lista_prenume('Elena', 'Madalina'));
+INSERT INTO persoane VALUES('Rizea', lista_prenume('Mircea', 'Catalin'));
+/
+SELECT * FROM persoane;
+
+-- mai multe operatii direct cu tabelele interne dintr-un tabel gasiti in linkurile de la inceputul acestei pagini.
+
+</pre>
+<p>Şi în continuare o funcţie PL/SQL care să insereze în această nouă tabelă o persoană:
+</p>
+<pre>DECLARE    
+    sir_prenume persoane.prenume%type;
+BEGIN
+    sir_prenume := lista_prenume('Cristi', 'Tudor', 'Virgil');
+    INSERT INTO persoane VALUES ('Gurau', sir_prenume);
+    DBMS_OUTPUT.PUT_LINE('Gata');
+END;
+
+</pre>
+<p>Nu uitaţi să testaţi funcţiile specifice tabelelor (date într-o secţiune următoare a acestei pagini).
+</p>
+<h2><span class="mw-headline" id="Tablouri_cu_dimensiune_variabil.C4.83_.28Varrays.29">Tablouri cu dimensiune variabilă (Varrays)</span></h2>
+<p>Al doilea tip de colecţie precizat este cel al tablourilor cu dimensiune variabilă. Pentru a declara un varray se foloseşte următoarea sintaxă
+</p>
+<pre>TYPE nume_tip IS {VARRAY | VARYING ARRAY} (numar_elemente) OF tip_element [NOT NULL];
+</pre>
+<p>Iată un exemplu de utilizare a unui tablou cu dimensiune variabilă (din care se şterge un element după care se adaugă încă două elemente):
+</p>
+<pre>DECLARE
+  TYPE varr IS VARRAY(5) OF varchar2(10);
+  orase varr;
+BEGIN
+  orase := varr('Iasi', 'Bacau', 'Suceava', 'Botosani');
+  DBMS_OUTPUT.PUT_LINE('Numar orase: '||orase.COUNT);
+  orase.TRIM;
+  FOR i IN orase.FIRST..orase.LAST LOOP
+     DBMS_OUTPUT.PUT_LINE(orase(i));
+  END LOOP;
+  
+  orase.EXTEND(2);
+  orase(4):='Sibiu';
+  orase(5):='Brasov';
+  DBMS_OUTPUT.PUT_LINE('Dupa adaugare:');
+  FOR i IN orase.FIRST..orase.LAST LOOP
+     DBMS_OUTPUT.PUT_LINE(orase(i));
+  END LOOP;  
+END;
+
+</pre>
+<p>Nu uitaţi să testaţi şi celelalte funcţii care pot fi aplicate variabilelor de tip varray (din lista cu funcţii aplicabile colecţiilor din această pagină).
+</p>
+<h2><span class="mw-headline" id="Func.C5.A3ii_ce_pot_fi_utilizate_pentru_colec.C5.A3ii">Funcţii ce pot fi utilizate pentru colecţii</span></h2>
+<ul><li> FIRST - returnează valoarea cheii (sau indicele) primului element;</li>
+<li> LAST - returnează valoarea cheii (sau indicele) ultimului element;</li>
+<li> PRIOR(cheie) - returnează cheia elementului dinaintea celui dat ca parametru (cheie poate fi şi o valoare numerică dacă este vorba despre altceva decât tablouri asociative);</li>
+<li> NEXT(cheie) - returnează cheia elementului următor celui dat ca parametru (cheie poate fi şi o valoare numerică dacă este vorba despre altceva decât tablouri asociative);</li>
+<li> EXISTS(cheie) - returnează valoarea true dacă există o valoarea atribuită cheii (cheia poate fi şi poziţia într-o colecţie în cazul în care nu este vorba de tablouri asociative);</li>
+<li> COUNT - returnează numărul de elemente din colecţie;</li>
+<li> varray.LIMIT - câte elemente pot fi adăugatre în variabila de tip varray;</li>
+<li> EXTEND [(n[,i])] - pentru tipul tabel şi varray: pentru a adăuga n poziţii în structură (eventual toate având valoarea elementului de pe poziţia i ). În cazul în care nu există nici un parametru, se extinde cu un singur element. Nu se aplică tabelelor asociative;</li>
+<li> TRIM [(n)] - şterge n elemente de la sfârştiul unei variabile de tip tabel sau dintr-un varray (nu este şi pentru tablouri asociative). În cazul în care n nu este dat, se ştergte ultumul element;</li>
+<li> DELETE [(n,[m])]- şterge fie toate elementele (când nu are parametru), fie elementul de pe poziţia n, fie elementele de pe poziţiile n, n+1, ... m. Nu se aplică variabilelor de tip varray.</li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Tipul_.C3.AEnregistrare_.28record.29">Tipul înregistrare (record)</span></h2>
+<p>Tipul înregistrare permite cumularea mai multor valori (nu neapărat de acelaşi tip) într-un singur tip - tipul înregistrării. Fiecare câmp al unei înregistrări are un nume (prin care poate fi identificat) şi un tip. 
+</p><p>V-aţi mai întâlnit deja cu variabile de tip RECORD, atunci când le-aţi declarat ca şi ROWTYPE (în cadrul unui cursor sau pentru a prelua o linie din tabel). Să vedem care este sintaxa pentru definirea unei înregistrări în PL/SQL:
+</p><p><br />
+</p>
+<pre>TYPE nume_tip IS RECORD (nume_camp tip_camp[,nume_camp tip_camp]...);
+</pre>
+<p>Exemplu:
+</p>
+<pre>CREATE TABLE minions (culoare varchar2(20), numar_ochi number(3), nume varchar2(20));
+ /
+DECLARE
+   TYPE minion IS RECORD(
+      culoare varchar2(20) := 'Galben', 
+      numar_ochi number(3), 
+      nume varchar2(20)
+      );
+   v_minion minion;   
+BEGIN      
+   v_minion.culoare:='Galben';
+   v_minion.numar_ochi := 2;
+   v_minion.nume:='Kevin';
+   INSERT INTO MINIONS VALUES V_MINION;
+   DBMS_OUTPUT.PUT_LINE(v_minion.culoare);
+END;
+
+</pre>
+<p><br />
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.023 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 154/1000000
+Preprocessor generated node count: 352/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:17-0!*!*!!ro!*!* and timestamp 20190305214241 and revision id 818
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_4&amp;oldid=818">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_4&amp;oldid=818</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+4" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_4"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_4&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_4" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_4&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_4&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_4" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_4" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_4&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_4&amp;oldid=818" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_4&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 11:40, 19 februarie 2019.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 21.281 de ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":219});
+}</script>
+	</body>
+</html>
+	

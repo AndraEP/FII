@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 0 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_0" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_0","wgTitle":"PLSQL 0","wgCurRevisionId":824,"wgRevisionId":824,"wgArticleId":36,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_0","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_0 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 0</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><h2><span class="mw-headline" id="Instalarea_SQL_developer.2C_testare_si_cateva_exercitii">Instalarea SQL developer, testare si cateva exercitii</span></h2>
+<p>In cel de-al doilea semestru vom lucra intr-un limbaj numit PLSQL (Procedural Language/Structured Query Language). Detalii despre acesta vor fi date in laboratorul urmator (PLSQL_1). Scripturile PLSQL pot fi scrise si intr-un fisier text cu extensia SQL pe care sa il rulati din SQLPlus*. Aceasta metoda s-ar putea sa fie putin anevoioasa si din acest motiv vom instala un IDE specializat pentru PLSQL: SQL Developer. Instructiuni despre instalarea acetui IDE si modul de conectare la baza de date Oracle gasiti aici: <a rel="nofollow" class="external free" href="https://profs.info.uaic.ro/~vcosmin/pagini/resurse_bd/SQLdeveloper/sql_developer.html">https://profs.info.uaic.ro/~vcosmin/pagini/resurse_bd/SQLdeveloper/sql_developer.html</a>
+</p><p>Dupa ce ati instalat SQL Developer, asigurati-va ca in contul student nu aveti nici o tabela (stergeti / drop tabelele din semestrul 1).
+</p><p>Descarcati de la adresa <a rel="nofollow" class="external free" href="https://profs.info.uaic.ro/~vcosmin/pagini/resurse_bd/script_populare_student.sql">https://profs.info.uaic.ro/~vcosmin/pagini/resurse_bd/script_populare_student.sql</a> scriptul de populare al contului student. Deschideti acest script in SQL Developer si rulati-l. Acesta va generea o serie de tabele si le va popula cu diverse date generate random.
+</p><p>Exercitii: 
+</p>
+<ul><li> Observati cheile primare si pe cele straine din tabele;</li>
+<li> Construiti (la tabla) schema bazei de date ce tocmai a fost construita de script (entitate/asociere);</li>
+<li> Adaugati in script o constrangere care sa nu permita unui aceluiasi student sa aiba doua note la aceeasi materie. Incercati sa adaugati un duplicat; stergeti constrangerea; incercati sa adaugati din nou duplicatul; incercati sa puneti din nou constrangerea.</li>
+<li> Aflati grupa din facultate care are coeziunea cea mai mare (are raportul dintre prietenii interioare grupei / numar de studenti din grupa maxim).</li>
+<li> Adaugati o studenta "Popescu Crina-Nicoleta" si puneti-i nota 10 la materia Baze de date.</li>
+<li> Adaugati doua relatii de prietenie intre Crina si doua colege din grupa sa.</li>
+<li> Steregeti din baza de date pe una din colegele Crinei care era prietena cu ea (pentru ca s-a transferat la alta facultate).</li>
+<li> Afisati studentii care au bursa mai mare de 1350;</li></ul>
+<p>Pentru verificare, din SQL Developer, selectati View-&gt;DataModeler-&gt;Browser. In freastra Browser (probabil in stanga jos) gasiti un nod denumit "Relational Models". Dati click dreapta pe acesta si selectati (singura optiune) New Relational Model. Va apare un canvas fara nimic desenat pe el. Selectati File-&gt;DataModeler-&gt;Import-&gt;DataDictionary. Selectati conexiunea pe care ati creat-o catre contul student (pe care l-ati folosit ca sa rulati scriptul) dupa care selectati schema student (este acolo un checkbox). Apasati Next si apoi toate tabelele pe care vreti sa le includeti in diagrama apoi Next, Finish. Ar trebui sa obtineti ceva de genul <a rel="nofollow" class="external text" href="https://profs.info.uaic.ro/~vcosmin/pagini/resurse_bd/script_populare_student_schema.png">asta</a>.
+</p><p>Pentru cei care doriti sa lucrati sub Linux/MacOS: <a rel="nofollow" class="external free" href="https://profs.info.uaic.ro/~bd/wiki/index.php/Instalare_in_Linux">https://profs.info.uaic.ro/~bd/wiki/index.php/Instalare_in_Linux</a>
+</p>
+<h2><span class="mw-headline" id="Views">Views</span></h2>
+<p>Un view este o tabela fictiva care este obtinuta dintr-o operatie asupra tabelelor existente. View-ul nu exista fizic ci va fi recreat (prin executia selectului prin care a fost definit) de fiecare data cand se va face apel la el. 
+</p><p>Pentru crearea unui view se va executa comanda
+</p>
+<pre>
+CREATE VIEW nume AS SELECT coloane FROM tabela [WHERE conditii...]
+</pre>
+<p>Asadar, ati putea ca pentru ultima interogare din setul de exercitii sa creati un view:
+</p>
+<pre>
+CREATE VIEW bursieri_fruntasi AS SELECT * FROM studenti WHERE BURSA&gt;1350;
+</pre>
+<p>Dupa crearea viewului, puteti selecta toate informatiile din "bursieri_fruntasi" si de fapt veti rula acel SQL care a fost folosit cand a fost creat view-ul.
+</p><p>Executati:
+</p>
+<pre>
+SELECT * FROM bursieri_fruntasi;
+</pre>
+<p>Daca veti modifica informatiile din tabel, view-ul se va modifica si el:
+</p>
+<pre>
+UPDATE studenti SET bursa=1400 WHERE id=1;
+
+SELECT * FROM bursieri_fruntasi;
+</pre>
+<p>Acum in bursieri_fruntasi se afla si studentul avand ID-ul 1. Daca ii vom schimba bursa cu 1200 de exemplu (in tabel, el va fi eliminat din view). Ce se intampla daca facem acest update direct pe view&#160;? Putem sa ii modificam bursa la 1400 incercand sa updatam viewul cand el nu se afla in view (pentru a intra in view)&#160;?
+</p><p>Un View se comporta ca si o tabela fizica (chiar daca este virtuala). Putem face operatii de inserr in ea. Executati pe rand urmatoarele doua comenzi de inserare de date:
+</p>
+<pre>
+insert into bursieri_fruntasi values(1998,'123AB1','NUME1','PRENUME1',3,'B1',200,sysdate, 'aaa@gmail.com', sysdate, sysdate);
+insert into bursieri_fruntasi values(1999,'123AB2','NUME2','PRENUME2',2,'B2',1400,sysdate, 'abc@gmail.com', sysdate, sysdate);
+</pre>
+<p>Ambele operatii sunt urmate de succes. Datele inserate, insa, nu sunt in totalitate disponibile in view: doar studentul cu IDul 1999 este vizibil in view pentru ca este singurul care are bursa mai mare decat 1350. 
+</p><p>Sunt cele doua randuri in tabelul studenti&#160;? (verificati existenta lor).
+</p><p>Daca vom sterge cele doua randuri din view (pentru ca acolo au fost inserate), vom reusi sau trebuie sa le stergem din tabela studenti&#160;?
+</p><p>Stergeti cele doua randuri inserate anterior.
+</p><p>Pont: daca doriti sa interziceti inserarea de date ce nu ar fi vizibile ulterior in view, la crearea viewului adaugati (la sfarsitul comenzii) "with check option;";
+</p><p>Informatiile despre view-uri sunt stocate in tabelele din sistem. Pentru a putea vedea care sunt view-urile userului curent, puteti sa interogati tabela user_views. Aflati structura acestei tabele si afisati numele viewurilor pentru utilizatorul curent si comenzile ce sunt executate atunci cand se selecteaza din acel view.
+</p><p><br />
+Pentru a renunta la un view (BTW, puteti vedea view-urile create si ce contin in SQL Developer, in partea stanga, unde sunt afisate si tabelele) executand comanda DROP VIEW nume_view. 
+</p><p>De exemplu:
+</p>
+<pre>
+DROP VIEW bursieri_fruntasi;
+</pre>
+<p>De cele mai multe ori VIEW-urile sunt utilizate pentru a face JOIN-uri complexe. Construiti un view prin intermediul caruia sa fie afisat catalogul pentru materia Logica la grupa B3 din anul 2 (se vor afisa doar numele, prenumele si valoarea notei). Modificati nota primului student din catalog (in ordine alfabetica dupa nume apoi dupa prenume) in 10.
+</p><p>Puteti insera in acest nou view o valoare&#160;? DA / NU /  Explicati in cuvintele voastre de ce (nu cititi ce vedeti pe ecran). Care ar fi solutia&#160;?
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.015 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 27/1000000
+Preprocessor generated node count: 152/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:36-0!*!*!!*!*!* and timestamp 20190305093936 and revision id 824
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_0&amp;oldid=824">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_0&amp;oldid=824</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+0" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_0"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_0&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_0" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_0&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_0&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_0" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_0" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_0&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_0&amp;oldid=824" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_0&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 07:10, 22 februarie 2019.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 18.174 de ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":212});
+}</script>
+	</body>
+</html>
+	

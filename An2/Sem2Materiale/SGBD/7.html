@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 7 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_7" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_7","wgTitle":"PLSQL 7","wgCurRevisionId":608,"wgRevisionId":608,"wgArticleId":20,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_7","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_7 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 7</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><p><a rel="nofollow" class="external free" href="http://docs.oracle.com/cd/E11882_01/appdev.112/e25519/triggers.htm#LNPLS759">http://docs.oracle.com/cd/E11882_01/appdev.112/e25519/triggers.htm#LNPLS759</a>
+</p><p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Cuprins</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Triggere_.28declansatoare.29"><span class="tocnumber">1</span> <span class="toctext">Triggere (declansatoare)</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Triggere_de_tip_DML_.28cu_BEFORE_.2F_AFTER.29"><span class="tocnumber">2</span> <span class="toctext">Triggere de tip DML (cu BEFORE / AFTER)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Aparitia_erorilor_de_tip_Mutating_Table"><span class="tocnumber">2.1</span> <span class="toctext">Aparitia erorilor de tip Mutating Table</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Triggere_de_tipul_instead_of"><span class="tocnumber">2.2</span> <span class="toctext">Triggere de tipul instead of</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Triggere_DDL"><span class="tocnumber">3</span> <span class="toctext">Triggere DDL</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Triggere_Sistem"><span class="tocnumber">4</span> <span class="toctext">Triggere Sistem</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Exercitii"><span class="tocnumber">5</span> <span class="toctext">Exercitii</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Triggere_.28declansatoare.29">Triggere (declansatoare)</span></h2>
+<p>Triggerele sunt blocuri de cod care se executa automat, de obicei cand o operatie de tip DML este executata in baza de date. Acestea au un nume (identificator) si pot fi activate sau dezactivate utilizand acest nume.
+</p><p>Atunci cand un trigger este creat se specifica si cand acesta va fi executat in mod automat. Aceasta executie este asociata cu o anumita operatie care se efectueaza asupra unei tabele, asupra unui view (triggerele peste tabele/view sunt de tip DML) a unei scheme de baze de date (de tip DDL) sau chiar asupra intregii bazei de date (de tip system). Impreuna cu tipul operatiei ce va lansa in executie trigerul, se specifica si cand se doreste executarea acestuia: de exemplu, daca vrem sa facem o operatie de stergere dintr-o tabela si dorim ca valoarea ce este stearsa sa fie copiata intr-o alta tabela de bkup, este firesc ca sa dorim executarea triggerului inainte ca stergerea efectiva sa fie efectuata - in acest fel aveam acces la valoarea ce va fi stearsa si putem sa o copiem in tabela de bkup. 
+</p><p>Iata care ar fi motivele pentru care am dori sa utilizam un trigger:
+</p>
+<ul><li> generarea automata de valori intr-o coloana</li>
+<li> realizarea de LOG-uri</li>
+<li> realizarea de statistici</li>
+<li> modificarea datelor dintr-o tabela atunci cand este executata o operatie intr-un view</li>
+<li> asigurarea integritatii dintre chei primare/straine atunci cand tabelele nu sunt in acelasi tablespace (de exemplu tabela studenti este pe un calculator si tabela note este pe alt calculator si vrem ca atunci cand inseram o nota sa verificam daca exista cheia in tabela stocata pe celalalt calculator)</li>
+<li> publicarea de evenimente cand sunt facute anumite opreatii in baza de date (de exemplu afisarea automata in consola ca cineva incearca sa stearga anumite date dintr-o tabela).</li>
+<li> interzicearea operatiilor de tip DML intr-un anumit interval orar (de exemplu pentru a nu se putea pune note decat in ziua examenului)</li>
+<li> interzicerea tranzactiilor incorecte sau restrictionarea pe baza unor reguli complexe ce nu pot fi obtinute doar prin chei primare/straine, unicitate sau alte constrangeri la nivel de tabela (de exemplu am putea sa permitem sa avem mai multe inregistrari cu un acelasi identificator dar care sa aiba suma unui anumit camp mai mica decat o anumita valoare).</li></ul>
+<h2><span class="mw-headline" id="Triggere_de_tip_DML_.28cu_BEFORE_.2F_AFTER.29">Triggere de tip DML (cu BEFORE / AFTER)</span></h2>
+<p>Pot fi construite pentru operatii de tip delete, insert, update. Tinand cont de momentul in care este executat triggerul relativ la momentul in care se face operatia asupra tabelei, triggerele pot fi BEFORE sau AFTER.
+</p><p>Cand zicem BEFORE ne putem referi la momentul executiei comenzii de tip DML sau putem sa specificam o granularitate mai mare si sa executam triggereul inainte de modificarea fiecarui rand ce va fi transformat de operatia DML. De asemenea, un trigger care se executa pentru un anumit rand poate avea acces la informtaiile care existau in acel rand (sau care vor exista).
+</p><p><br />
+Sa vedem un trigger care se executa inainte ca o operatie de tip insert, delete sau update sa fie executata:
+</p>
+<pre>
+set serveroutput on;
+
+CREATE OR REPLACE TRIGGER dml_stud
+   BEFORE INSERT OR UPDATE OR DELETE ON studenti
+BEGIN
+  dbms_output.put_line('Operatie DML in tabela studenti !');
+  -- puteti sa vedeti cine a declansat triggerul:
+  CASE
+     WHEN INSERTING THEN DBMS_OUTPUT.PUT_LINE('INSERT');
+     WHEN DELETING THEN DBMS_OUTPUT.PUT_LINE('DELETE');
+     WHEN UPDATING THEN DBMS_OUTPUT.PUT_LINE('UPDATE');
+     -- WHEN UPDATING('NUME') THEN .... // vedeti mai jos trigere ce se executa doar la modificarea unui anumit camp
+  END CASE;
+END;
+/
+
+delete from studenti where id=10000;
+
+</pre>
+<p><br />
+Puteti sa vedeti efectul BEFORE/AFTER compiland urmatoarele doua triggere:
+</p>
+<pre>
+set serveroutput on;
+
+CREATE OR REPLACE TRIGGER dml_stud1
+   BEFORE INSERT OR UPDATE OR DELETE ON studenti
+declare   
+   v_nume studenti.nume%type;
+BEGIN  
+  select nume into v_nume from studenti where id=200;
+  dbms_output.put_line('Before DML TRIGGER: ' || v_nume);
+END;
+/
+
+CREATE OR REPLACE TRIGGER dml_stud2
+   AFTER INSERT OR UPDATE OR DELETE ON studenti
+declare   
+   v_nume studenti.nume%type;
+BEGIN  
+  select nume into v_nume from studenti where id=200;
+  dbms_output.put_line('After DML TRIGGER: ' || v_nume);
+END;
+/
+
+
+</pre>
+<p>si executand apoi:  
+</p>
+<pre>
+
+update studenti set nume='NumeNou' where id=200;
+</pre>
+<p>Aceste triggere se vor executa totusi chiar si atunci cand se face update la un alt camp sau la un alt ID (si va afisa mereu informatiile privitoare la studentul cu IDul 200).
+</p><p>Pentru a face referinta la valorile din randul curent va face un trigger care se executa la operatia pe un rand. Iata un astfel de exemplu care va afisa notele vechi si pe cele noi de fiecare data cand se va face un update (chiar si pe mai multe randuri):
+</p>
+<pre>
+set serveroutput on;
+CREATE OR REPLACE TRIGGER marire_nota
+  before UPDATE OF valoare ON note   -- aici se executa numai cand modificam valoarea !
+  FOR EACH ROW
+BEGIN
+  dbms_output.put_line('ID nota: ' || :OLD.id); -- observati ca aveti acces si la alte campuri, nu numai la cele modificate...
+  dbms_output.put_line('Vechea nota: ' || :OLD.valoare);  
+  dbms_output.put_line('Noua nota: ' || :NEW.valoare);    
+
+  -- totusi nu permitem sa facem update daca valoarea este mai mica (conform regulamentului universitatii):
+  IF (:OLD.valoare&gt;:NEW.valoare) THEN :NEW.valoare := :OLD.valoare;
+  end if;  
+END;
+/
+
+update note set valoare =8 where id in (1,2,3,4);
+
+</pre>
+<p>In cazul in care modificarea se face intr-un nested table dintr-unul din campuri, puteti avea acces la randul ce contine acel nested table prin&#160;:PARENT. Atunci cand faceti o operatie de tip insert valoarea&#160;:OLD este NULL (pentru ca nu exista) si la fel pentru&#160;:NEW intr-o operatie de tip delete.
+</p><p>Dupa cum ati vazut, ca sa evitam sa punem o nota mai mica peste o nota mai mare, am putut modifica valoarea din&#160;:NEW cu altceva in locul valorii adevarate. Nu puteti face acest lucru pentru valoarea&#160;:OLD (ea fiind deja existenta in tabela). Evident, daca operatia este delete, nu este posibil sa modificati nici valoarea&#160;:NEW (deoarece ea trebuie sa fie NULL).
+</p><p>De asemenea, puteti vedea ca triggerul este construit cu BEFORE. Nu puteti modifica valoarea&#160;:NEW intr-un trigger de tip AFTER (pentru ca deja valoarea a fost scrisa in tabela cand ajunge sa fie executat triggerul).
+</p><p>Daca o modificare lanseaza in executie doua triggere, unul de tip BEFORE si unul de tip AFTER si cel de tip BEFORE modifica valoarea din&#160;:NEW, triggerul after va vedea valoarea modificata (tot in&#160;:NEW). (va vedea si valoarea&#160;:OLD - aceeasi care este si in triggerul before).
+</p>
+<h3><span class="mw-headline" id="Aparitia_erorilor_de_tip_Mutating_Table">Aparitia erorilor de tip Mutating Table</span></h3>
+<p>Atunci cand facem o operatie DML si din cauza acesteia se executa un trigger, acest trigger nu are voie sa citeasca datele din tabela care este in curs de modificare. Incercarea de a face un select asupra acestei tabele va genera o eroare de tipul Mutating table. Iata un exemplu:
+</p>
+<pre>
+create or replace trigger mutate_example
+after delete on note for each row
+declare 
+   v_ramase int;
+begin
+   dbms_output.put_line('Stergere nota cu ID: '|| :OLD.id);
+   select count(*) into v_ramase from note;
+   dbms_output.put_line('Au ramas '|| v_ramase || ' note.');
+end;
+/
+delete from note where id between 101 and 110;
+/
+
+</pre>
+<p>Evident, in momentul in care o exceptie este aruncata, nici modificarea din DML nu va avea loc (puteti verifica dupa aceea ca de fapt nu s-a modificat nimic in tabela si nota cu id-ul 101 este inca acolo).
+</p><p>Pentru a evita erorile de tip mutating table exista doua metode:
+</p>
+<ul><li> Utilizarea triggerilor compusi</li>
+<li> Utilizarea unei tabele temporare</li></ul>
+<p>Un trigger compus este de fapt o compunere a celor 4 tipuri de trigere disponibile: BEFORE, BEFORE EACH ROW, AFTER EACH ROW, AFTER (aceasta este si ordinea in care se exacuta triggerele in cazul in care sunt mai multe). Solutia pentru problema anterioara este sa construim un trigger care sa afiseze doar la sfarsit numarul de linii ramase (numai triggerele de tipul "for each row" vor crea mutating table). Iata cum arata un astfel de trigger compus:
+</p>
+<pre>
+set serveroutput on;
+
+CREATE OR REPLACE TRIGGER stergere_note 
+FOR DELETE ON NOTE
+COMPOUND TRIGGER
+  v_ramase INT;
+  
+  AFTER EACH ROW IS 
+  BEGIN
+     dbms_output.put_line('Stergere nota cu ID: '|| :OLD.id);
+  END AFTER EACH ROW;
+  
+  AFTER STATEMENT IS BEGIN
+     select count(*) into v_ramase from note;
+     dbms_output.put_line('Au ramas '|| v_ramase || ' note.');  
+  END AFTER STATEMENT ;
+END stergere_note;
+
+delete from note where id between 241 and 250;
+
+
+</pre>
+<p>Daca aveti doua triggere care au acelasi tip de declansare (de exemplu ambele sunt de tip for each row), puteti sa controlati ordinea in care acestea se eecuta cu FOLLOWS respectiv PRECEDES.
+</p><p>Pentru a activa/dezactiva un trigger puteti sa il modificati astfel:
+</p>
+<pre>
+ALTER TRIGGER STERGERE_NOTE DISABLE; -- SAU ENABLE
+
+</pre>
+<h3><span class="mw-headline" id="Triggere_de_tipul_instead_of">Triggere de tipul instead of</span></h3>
+<p>Acest tip de triggere nu poate fi construit pentru operatii DML ce sunt efectuate asupra tabelelor ci doar daca aceste operatii afecteaza un view. Sa construim asadar un view:
+</p>
+<pre>
+create view std as select * from studenti;
+
+</pre>
+<p>Este destul de complicat sa stergem din tabela studenti... nu si daca avem trigere. Acest triger poate fi facut si direct peste tabel (cu before sau after) dar de aceasta data il vom realiza peste view-ul creat anterior. Triggerul are rolul de a sterge toate informatiile din tabelele aditionale atunci cand dorim sa stergem un student:
+</p>
+<pre>
+CREATE OR REPLACE TRIGGER delete_student
+  INSTEAD OF delete ON std
+BEGIN
+  dbms_output.put_line('Stergem pe:' || :OLD.nume);
+  delete from note where id_student=:OLD.id;
+  delete from prieteni where id_student1=:OLD.id;
+  delete from prieteni where id_student2=:OLD.id;
+  delete from studenti where id=:OLD.id;
+END;
+
+</pre>
+<p>Si sa testam triggerul prin stergerea unui student:
+</p>
+<pre>
+delete from std where id=75;
+
+</pre>
+<h2><span class="mw-headline" id="Triggere_DDL">Triggere DDL</span></h2>
+<p>Din punctul de vedere al momentului cand sunt executate, triggerele de sistem pot fi de tipul before, after sau instead. 
+</p><p>Din punctul de vedere al evenimentului ce poate fi tratat, pot fi triggere ce au loc cand este modificata schema, de baze de date sau de tipul instead of create.
+</p><p><br />
+De exemplu:
+</p>
+<pre>
+CREATE OR REPLACE TRIGGER drop_trigger
+  BEFORE DROP ON student.SCHEMA
+  BEGIN
+    RAISE_APPLICATION_ERROR (
+      num =&gt; -20000,
+      msg =&gt; 'can''t touch this');
+  END;
+/
+
+DROP TABLE NOTE;
+
+</pre>
+<p>In Oracle se pot face triggere care sa fie activate in momentul in care se executa o operatie de create:
+</p>
+<pre>
+CREATE OR REPLACE TRIGGER t
+  INSTEAD OF CREATE ON SCHEMA
+  BEGIN
+    EXECUTE IMMEDIATE 'CREATE TABLE T (n NUMBER, m NUMBER)';
+  END;
+/
+create table a(x number); -- de fapt va crea tabelul T.
+
+</pre>
+<p>Lista tuturor trigerelor de tip DDL poate fi consultata aici: <a rel="nofollow" class="external free" href="https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/triggers.htm#CHDGIJDB">https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/triggers.htm#CHDGIJDB</a>
+</p>
+<h2><span class="mw-headline" id="Triggere_Sistem">Triggere Sistem</span></h2>
+<p>Inafara triggerelor pentru operatii de tip DDL exista doua tipuri de triggere prin intermediul carora puteti obtine diverse informatii atunci cand anumite evenimente se intampla in sistem. De exemplu ati putea sa creati o tabela de log in care sa scrieti adresa IP a clientului care s-a conectat la baza de date sau numele acestuia. Sa cream un astfel de tabel in care sa stocam lista utilizatorilor ce se autentifica in sistem si orele la care aceste autentificari au fost facute (evident, acestea trebuie sa fie facute din contul de sys.... nimeni altcineva nu ar trebui sa aiba controlul utilizatorilor care se autentifica in sistemul de gestuine de baze de date).
+</p>
+<pre>
+create table autentificari(nume varchar2(30), ora timestamp);
+/
+CREATE OR REPLACE TRIGGER check_user
+  AFTER LOGON ON DATABASE
+DECLARE
+  v_nume VARCHAR2(30);
+BEGIN
+  v_nume := ora_login_user;
+  INSERT INTO autentificari VALUES(v_nume, CURRENT_TIMESTAMP);
+END;
+/
+
+</pre>
+<p>dupa care incercati sa va autentificati ca student, inapoi ca sys as sysdba si apoi vedeti continutul tabelei autentificari. 
+</p><p>Puteti vedea mai multe informatii intr-un trigger de tip system. O lista completa a variabilelor ce le puteti interoga o veti gasi in tabelul de la pagina aceasta: <a rel="nofollow" class="external free" href="https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/triggers.htm#CHDCFDJG">https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/triggers.htm#CHDCFDJG</a>
+</p><p>Atunci cand nu mai aveti nevoie de triggere, puteti sa le eliminati cu drop trigger urmata de numele triggerului pe care doriti sa il eliminati.
+</p>
+<h2><span class="mw-headline" id="Exercitii">Exercitii</span></h2>
+<p>Problema 1. (4pt) 
+</p><p>Creati doua tabele la alegere care sa fie legate printr-o cheie primara/straina si un 
+view care sa fie peste full outer joinul dintre cele doua tabele. Construiti triggere care sa permita 
+realizarea de operatii de tipul INSERT, UPDATE, DELETE pe view. Cand veti prezenta problema
+veti avea in view macar 10 randuri (ca sa avem ce sterge de exemplu).
+</p><p><br />
+Problema 2. (2pt) 
+</p><p>Creati un trigger care sa scrie intr-o tabela de tip LOG cate note au fost modificate
+de o comanda de tip update. Nu se va permite decat modificarea in plus a notelor.
+</p><p><br />
+Problema 3. (4pt)
+</p><p>Creati un trigger prin intermediul caruia sa preveniti orice modificare destructiva asupra bazei de date:
+</p>
+<ul><li> Eliminarea unei coloane dintr-o tabela</li>
+<li> Stergerea unui tabel</li>
+<li> Truncherea tabelului</li></ul>
+<p>Se va scrie intr-o tabela aditionala timpul la care s-a incercat actiunea si numele utilizatorului ce a incercat sa o faca (<a rel="nofollow" class="external free" href="http://www.java2s.com/Code/Oracle/User-Previliege/Getcurrentusername.htm">http://www.java2s.com/Code/Oracle/User-Previliege/Getcurrentusername.htm</a>).
+</p><p>PS. veti avea nevoie de doi utilizatori care sa aiba acces in aceeasi schema de baze de date (check this: <a rel="nofollow" class="external free" href="https://profs.info.uaic.ro/~bd/wiki/index.php/Doi_utilizatori_cu_aceeasi_schema">https://profs.info.uaic.ro/~bd/wiki/index.php/Doi_utilizatori_cu_aceeasi_schema</a>). 
+</p><p>PS2. Daca doar unul din utilizatori declanseaza triggerul pe care l-ati facut, veti pierde doua puncte.
+</p><p>Observatii: 3 fisiere in directorul ....
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.023 seconds
+Real time usage: 0.024 seconds
+Preprocessor visited node count: 144/1000000
+Preprocessor generated node count: 292/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:20-0!*!*!!ro!*!* and timestamp 20190416191910 and revision id 608
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_7&amp;oldid=608">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_7&amp;oldid=608</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+7" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_7"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_7&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_7" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_7&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_7&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_7" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_7" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_7&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_7&amp;oldid=608" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_7&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 07:51, 16 mai 2018.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 18.716 ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":213});
+}</script>
+	</body>
+</html>
+	

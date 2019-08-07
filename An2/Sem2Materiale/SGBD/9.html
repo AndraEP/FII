@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PLSQL 9 - BD</title>
+<meta name="generator" content="MediaWiki 1.24.3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/~bd/wiki/opensearch_desc.php" title="BD (ro)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://profs.info.uaic.ro/~bd/wiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/~bd/wiki/index.php/PLSQL_9" />
+<link rel="alternate" type="application/atom+xml" title="BD Abonare Atom" href="/~bd/wiki/index.php?title=Special:Schimb%C4%83ri_recente&amp;feed=atom" />
+<link rel="stylesheet" href="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-css:7:4df88359e8a55d2a1f91cd845ecbc51d */</style>
+<script src="https://profs.info.uaic.ro/~bd/wiki/load.php?debug=false&amp;lang=ro&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PLSQL_9","wgTitle":"PLSQL 9","wgCurRevisionId":613,"wgRevisionId":613,"wgArticleId":22,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"ro","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],"wgMonthNamesShort":["","ian","feb","mar","apr","mai","iun","iul","aug","sept","oct","nov","dec"],"wgRelevantPageName":"PLSQL_9","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"ro","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"ro"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: bdwiki-bdwiki:resourceloader:filter:minify-js:7:2a32e5717ea1d009b03fd0794ab8a12b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/~bd/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PLSQL_9 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="ro"><span dir="auto">PLSQL 9</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">De la BD</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Salt la:					<a href="#mw-navigation">navigare</a>, 					<a href="#p-search">căutare</a>
+				</div>
+				<div id="mw-content-text" lang="ro" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Cuprins</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#DBMS_SQL"><span class="tocnumber">1</span> <span class="toctext">DBMS_SQL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Executia_unei_comenzi_DDL"><span class="tocnumber">1.1</span> <span class="toctext">Executia unei comenzi DDL</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Executia_unui_SELECT"><span class="tocnumber">1.2</span> <span class="toctext">Executia unui SELECT</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Linkuri_utile"><span class="tocnumber">1.3</span> <span class="toctext">Linkuri utile</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Exercitii"><span class="tocnumber">2</span> <span class="toctext">Exercitii</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="DBMS_SQL">DBMS_SQL</span></h2>
+<p>Atunci cand un bloc PLSQL este rulat, pe langa verificarea sintactica a sa, este verificata si existenta entitatilor
+ce apar in cadrul blocului, intr-o tentativa de a lega variabilele existente in cod de entitatile efective pe care
+acestea le reprezinta: de exemplu este verificata existenta tabelelor sau a coloanelor ce sunt interogate in
+cadrul unui cursor pentru a putea asocia cursorul cu tabelul sau cu anumite coloane din acel tabel. Din cauza aceasta, 
+daca am dori sa construim o tabela din interiorul unui script acest lucru ar fi imposibil pentru ca la faza de 
+verificare s-ar testa existenta acelei tabele si blocul PLSQL ar genera o eroare.
+</p><p>Cursoarele sau interogarile pe care le-ati intalnit pana acum in cadrul scripturilor PLSQL sunt statice din cauza ca
+ele nu se schimba de la o executie la alta a scriptului. 
+</p><p>Pachetul DBMS_SQL este utilizat pentru generarea de interogari SQL in mod dinamic - adica interogari a caror text nu 
+este cunoscut inainte de executia efectiva a codului (fie din cauza ca nu stiu spre exemplu din ce tabela voi face
+selectia sau care este coloana care va fi utilizata pentru filtrarea datelor - evident, daca ar fi vorba de valoarea
+unei coloane ati putea face acest lucru prin intermediul cursoarelor cu parametri care sunt tot statice). 
+</p><p>O executie statica ar putea fi executata si in mod dinamic (ca si cum nu ar fi cunoscuta dinainte). Totusi, atunci cand 
+interogarile sunt executate in mod static, serverului ii este permis sa verifice dinainte daca entitatile utilizate in
+script chiar exista, daca utilizatorul are drepturi asupra acestor entitati, si din acet motiv, executia statica este
+in general mai eficienta decat cea dinamica - nu utilizati executii dinamice decat daca chiar este nevoie de ele.
+</p><p>De exemplu, pentru a exporta toate tabelele dintr-o baza de date, aveti nevoie intai sa aflati care sunt acele tabele
+(acest lucru este destul de simplu - prin interogarea tabelei "user_tables"; totusi, dupa acest pas, trebuie sa luati
+datele din fiecare tabela si sa le exportati rand cu rand intr-un fisier - si trebuie sa faceti acest lucru fara sa 
+stiti dinainte care sunt tabelele - pentru ca numele lor le aflati tot in cadrul scriptului). Un alt exemplu ar fi sa
+sortati o tabela dupa un camp ales de utilizator (nu puteti face acest lucru din static SQL pentru ca implica o coloana
+ce nu este cunoscuta dinainte).
+</p><p>Inafara de toate comenzile DML pe care le puteti executa in mod dinamic, din dynamic SQL puteti sa executati comenzi 
+DDL (CREATE, DROP, ALTER, GRANT, REVOKE) sau comenzi SCL - session control language (ALTER SESSION sau SET ROLE).
+</p>
+<h3><span class="mw-headline" id="Executia_unei_comenzi_DDL">Executia unei comenzi DDL</span></h3>
+<p>In mod clasic, la executia unei comenzi SQL dintr-un script PLSQL se deschide un cursor, se executa, etc. De cele mai
+multe ori aceste lucruri se fac implicit (de exemplu atunci cand faceti un insert intr-o tabela doar scrieti insert...).
+</p><p>Atunci cand doriti sa executati o comanda o comanda prin intermediul DBMS_SQL sunt cativa pasi pe care trebuie sa ii 
+executati, tocmai din cauza ca acestia nu se mai executa in mod implicit. Iata un minim necesar:
+</p>
+<ul><li> deschiderea unui cursor (intoarce un ID cu ajutorul caruia cursorul va fi utilizat in continuare);</li>
+<li> parsarea comenzii pentru a-i verifica corectitudinea;</li>
+<li> asocierea variabilelor cu anumite valori (daca este cazul);</li>
+<li> executatea comenzii (intoarce un cod de succes/eroare);</li>
+<li> inchiderea cursorului.</li></ul>
+<p>Sa creem spre exemplu un tabel dintr-un bloc PLSQL urmarind pasii precizati mai sus:
+</p>
+<pre>
+declare
+   v_cursor_id INTEGER;
+   v_ok INTEGER;
+begin
+  v_cursor_id := DBMS_SQL.OPEN_CURSOR;
+  DBMS_SQL.PARSE(v_cursor_id, 'CREATE TABLE TEST(id NUMBER(2,2), val VARCHAR2(30))', DBMS_SQL.NATIVE);
+  v_ok := DBMS_SQL.EXECUTE(v_cursor_id);
+  DBMS_SQL.CLOSE_CURSOR(v_cursor_id);
+end; 
+</pre>
+<p>Acesti pasi sunt utili atunci cand se doreste executarea unei comenzi de tipul create, drop, insert, update, delete etc.
+</p>
+<h3><span class="mw-headline" id="Executia_unui_SELECT">Executia unui SELECT</span></h3>
+<p>Atunci cand doriti sa executati o interogare de tipul select, trebuie sa aveti cativa alti pasi intermediari care
+o sa va permita sa prealuati datele returnate de comanda. 
+</p><p>Pasii pe care trebuie sa ii urmam in acest caz sunt:
+</p>
+<ul><li> deschiderea unui cursor (intoarce un ID cu ajutorul caruia cursorul va fi utilizat in continuare);</li>
+<li> parsarea comenzii pentru a-i verifica corectitudinea;</li>
+<li> asocierea variabilelor cu anumite valori (daca este cazul);</li>
+<li> definirea coloanelor ce trebuie sa fie returnate (prin utilizarea comenzii DEFINE_COLUMN;</li>
+<li> executatea comenzii (intoarce un cod de succes/eroare);</li>
+<li> utilizarea comenzii FETCH_ROWS pentru a prelua randurile din cursor;</li>
+<li> utilizarea VARIABLE_VALUE pentru a prelua valoarea returnata - daca se intoarce o singura valoare sau in cazul in care se preiau mai multe coloane (intregul rand) se va folosi COLUMN_VALUE pentru a prelua valoarile coloanelor din cursor si a le stoca in variabile locale;</li>
+<li> inchiderea cursorului.</li></ul>
+<p>Sa vedem, ca si exemplu o sortare a tabelei profesori
+dupa un camp trimis ca parametru.
+</p><p>Deocamdata sa consideram urmatoare procedura (in care sunt implementati doar pasii initiali), pentru a vedea utilitatea functiei
+de parsare a comenzii:
+</p>
+<pre>
+create or replace procedure afiseaza_profesori(camp IN varchar2) as
+   v_cursor_id INTEGER;
+   v_ok INTEGER;
+begin
+  v_cursor_id := DBMS_SQL.OPEN_CURSOR;
+  DBMS_SQL.PARSE(v_cursor_id, 'SELECT id, nume, prenume FROM profesori ORDER BY '||camp, DBMS_SQL.NATIVE);
+  v_ok := DBMS_SQL.EXECUTE(v_cursor_id);
+  DBMS_SQL.CLOSE_CURSOR(v_cursor_id);
+end;
+/
+</pre>
+<p>Considerand urmatoarele doua blocuri anonime, unul dintre ele va genera o eroare (respectiv cand va veni vremea parsarii comenzii). Puteti spune care dintre ele&#160;?
+</p>
+<pre>
+begin
+  afiseaza_profesori('nume2');
+end;
+</pre>
+<pre>
+begin
+  afiseaza_profesori('nume');
+end;
+</pre>
+<p>Sa redefinim procedura de afisare astfel incat chiar sa preluam valorile din coloanele selectate (id, nume, prenume) si sa le afisam.
+Pentru aceasta avem nevoie sa declaram variabile care sa fie de acelasi tip ca si cele din tabelul profesori si dupa ce am parsat comanda
+sa asociem fiecarei variabile coloana pe care o reprezinta. Dupa ce executam comanda (cu EXECUTE) trebuie sa luam rand cu rand informatiile
+pe care le-am obtinut si sa le afisam:
+</p>
+<pre>
+create or replace procedure afiseaza_profesori(camp IN varchar2) as
+   v_cursor_id INTEGER;
+   v_ok INTEGER;
+   
+   v_id_prof int;
+   v_nume_prof varchar2(15);
+   v_prenume_prof varchar2(30);
+begin
+  v_cursor_id := DBMS_SQL.OPEN_CURSOR;
+  DBMS_SQL.PARSE(v_cursor_id, 'SELECT id, nume, prenume FROM profesori ORDER BY '||camp, DBMS_SQL.NATIVE);
+  DBMS_SQL.DEFINE_COLUMN(v_cursor_id, 1, v_id_prof); 
+  DBMS_SQL.DEFINE_COLUMN(v_cursor_id, 2, v_nume_prof,15); 
+  DBMS_SQL.DEFINE_COLUMN(v_cursor_id, 3, v_prenume_prof,30);   
+  v_ok := DBMS_SQL.EXECUTE(v_cursor_id);
+  
+  LOOP 
+     IF DBMS_SQL.FETCH_ROWS(v_cursor_id)&gt;0 THEN 
+         DBMS_SQL.COLUMN_VALUE(v_cursor_id, 1, v_id_prof); 
+         DBMS_SQL.COLUMN_VALUE(v_cursor_id, 2, v_nume_prof); 
+         DBMS_SQL.COLUMN_VALUE(v_cursor_id, 3, v_prenume_prof); 
+ 
+         DBMS_OUTPUT.PUT_LINE(v_id_prof || '   ' || v_nume_prof || '    ' || v_prenume_prof);
+      ELSE 
+        EXIT; 
+      END IF; 
+  END LOOP;   
+  DBMS_SQL.CLOSE_CURSOR(v_cursor_id);
+end;
+/
+</pre>
+<p>Executati din nou blocul anonim care nu genera o eroare (dintre cele doua de mai sus) pentru a vedea o sortare dupa campul nume al tabelului profesori.
+</p><p>Iata cum se afla din cadrul cursorului care sunt proprietatile fiecarei coloane. Cu ajutorul urmatorului bloc anonim vom lista doar numele coloanelor:
+</p>
+<pre>
+DECLARE
+  v_cursor_id NUMBER;
+  v_ok        NUMBER;
+  v_rec_tab     DBMS_SQL.DESC_TAB;
+  v_nr_col     NUMBER;
+  v_total_coloane     NUMBER; 
+BEGIN
+  v_cursor_id  := DBMS_SQL.OPEN_CURSOR;
+  DBMS_SQL.PARSE(v_cursor_id , 'SELECT * FROM studenti', DBMS_SQL.NATIVE);
+  v_ok := DBMS_SQL.EXECUTE(v_cursor_id );
+  DBMS_SQL.DESCRIBE_COLUMNS(v_cursor_id, v_total_coloane, v_rec_tab);
+
+  v_nr_col := v_rec_tab.first;
+  IF (v_nr_col IS NOT NULL) THEN
+    LOOP
+      DBMS_OUTPUT.PUT_LINE(v_rec_tab(v_nr_col).col_name);
+      v_nr_col := v_rec_tab.next(v_nr_col);
+      EXIT WHEN (v_nr_col IS NULL);
+    END LOOP;
+  END IF;
+  DBMS_SQL.CLOSE_CURSOR(v_cursor_id);
+END;
+/
+</pre>
+<p>Asa cum am aflat numele folosind proprietatea col_name, putem afla si alte informatii despre coloane. Incercati singuri urmatoarele atribute: col_type, col_max_len, col_name_len, col_schema_name, col_schema_name_len, col_precision, col_scale, col_null_ok (ultima poate fi true sau false si nu poate fi afisata ci doar interogata).
+</p><p>Puteti afla mai multe informatii in sectiunile DESC_REC de la pagina <a rel="nofollow" class="external free" href="https://docs.oracle.com/cd/B28359_01/appdev.111/b28419/d_sql.htm#CHDCIIBF">https://docs.oracle.com/cd/B28359_01/appdev.111/b28419/d_sql.htm#CHDCIIBF</a> .
+</p>
+<h3><span class="mw-headline" id="Linkuri_utile">Linkuri utile</span></h3>
+<p><a rel="nofollow" class="external free" href="http://profs.info.uaic.ro/~pmihaela/SGBD/lab4/0395-0398.html">http://profs.info.uaic.ro/~pmihaela/SGBD/lab4/0395-0398.html</a>
+</p><p><a rel="nofollow" class="external free" href="https://docs.oracle.com/cd/B10501_01/appdev.920/a96590/adg09dyn.htm#15124">https://docs.oracle.com/cd/B10501_01/appdev.920/a96590/adg09dyn.htm#15124</a>
+</p><p><a rel="nofollow" class="external free" href="https://docs.oracle.com/cd/B28359_01/appdev.111/b28419/d_sql.htm#BABEDAHF">https://docs.oracle.com/cd/B28359_01/appdev.111/b28419/d_sql.htm#BABEDAHF</a>
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Exercitii">Exercitii</span></h2>
+<p>1. (5pt) Sa se construiasca o procedura PLSQL avand ca parametru numele unei tabele si care sa exporte intr-un fisier aflat in format SQL toate liniile tabelei respective. 
+</p>
+<ul><li> La inceputul fisierului va fi scrisa si o comanda de drop table respectiv una de creare a tabelei. Tipurile datelor vor fi aceleasi ca cele din tabelul initial;</li>
+<li> Se vor adauga si constrangerile initiale (unicitate, chei primare, not null; nu neaparat cheile straine);</li>
+<li> Se vor scrie comenzile de tip insert care vor popula tabela creata.</li></ul>
+<p>(2 puncte createul, 1 punct constrangerile, 2 puncte inserturile)
+</p><p><span style="color:red">NU SE ACCEPTA UTILIZAREA PACHETULUI DBMS_METADATA&#160;!</span>
+</p><p><span style="color:red">SCRIPTURILE PE CARE LE EXPORTATI TREBUIE SA POATA FI RULATE DE SERVERUL ORACLE&#160;!!! - daca nu sunt rulate corect, nici nu ne uitam la ce ati facut acolo (adica daca aveti eroare la inserturi, mai bine lasati doar createurile).</span>
+</p><p>Bonus (2pt): exportati si tabelele care depind de tabela exportata (de exemplu, daca export note, se va exporta si studenti+cursuri). Exportul va fi facut in acelasi fisier, si pentru aceste tabele trebuie sa generati comenzi de tip drop si create si in fisier comenzile de populare a acestor tabele se for situa inaintea exportului tabelei data ca parametru procedurii (de mai sus). In acest fel, daca fac export spre exemplu tabelei note se vor exporta in prealabil si tabelele cursuri si studenti in acelasi fisier (cum gasiti legaturile dintre tabele reprezinta munca de cercetare individuala - a voastra&#160;:D). De aceasta data trebuie sa exportati si cheile straine&#160;!
+</p><p>2. (3pt) Construiti catalogul fiecarei materii in parte: pentru fiecare materie se va crea o tabela cu numele (sau IDul materiei).  Catalogul va contine nota, data notarii, numele, prenumele si numarul matricol al studentului ce a luat nota respectiva. Scriptul trebuie sa ruleze corect chiar dupa adaugarea unei noi materii sau eliminarea uneia deja existenta.
+</p><p>3. (2pt) Reparati problema de data trecuta din PHP: creati un formular web impreuna cu un cod PHP care sa NU permita SQL injection.
+</p><p>Atentie: <span style="color:red">Utilizarea comenzii EXECUTE IMMEDIATE in oricare dintre probleme aduce o penalizare de 3 puncte.</span>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.012 seconds
+Real time usage: 0.013 seconds
+Preprocessor visited node count: 75/1000000
+Preprocessor generated node count: 150/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key bdwiki-bdwiki:pcache:idhash:22-0!*!*!!ro!*!* and timestamp 20190416185036 and revision id 613
+ -->
+</div>									<div class="printfooter">
+						Adus de la „<a dir="ltr" href="https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_9&amp;oldid=613">https://profs.info.uaic.ro/~bd/wiki/index.php?title=PLSQL_9&amp;oldid=613</a>”					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Meniu de navigare</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Unelte personale</h3>
+						<ul>
+							<li id="pt-login"><a href="/~bd/wiki/index.php?title=Special:Autentificare&amp;returnto=PLSQL+9" title="Sunteți încurajat să vă autentificați, deși acest lucru nu este obligatoriu. [o]" accesskey="o">Autentificare</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Spații de nume</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_9"  title="Vedeți conținutul paginii [c]" accesskey="c">Pagină</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/~bd/wiki/index.php?title=Discu%C8%9Bie:PLSQL_9&amp;action=edit&amp;redlink=1"  title="Discuții despre această pagină [t]" accesskey="t">Discuție</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variante</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vizualizări</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/~bd/wiki/index.php/PLSQL_9" >Lectură</a></span></li>
+															<li id="ca-viewsource"><span><a href="/~bd/wiki/index.php?title=PLSQL_9&amp;action=edit"  title="Această pagină este protejată. Puteți vizualiza doar codul sursă [e]" accesskey="e">Sursă pagină</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/~bd/wiki/index.php?title=PLSQL_9&amp;action=history"  title="Versiunile anterioare ale paginii și autorii lor. [h]" accesskey="h">Istoric</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Mai mult</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Căutare</label>
+						</h3>
+
+						<form action="/~bd/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Căutare" title="Căutare în BD [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Căutare" name="title" /><input type="submit" name="fulltext" value="Căutare" title="Caută în pagini pentru acest text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Salt" title="Deschide pagina cu acest nume, dacă există" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/~bd/wiki/images/database.png);" href="/~bd/wiki/index.php/Pagina_principal%C4%83"  title="Pagina principală"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigare</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/~bd/wiki/index.php/Pagina_principal%C4%83" title="Vizitați pagina principală [z]" accesskey="z">Pagina principală</a></li>
+													<li id="n-Pregatirea-mediului-de-lucru"><a href="/~bd/wiki/index.php/Pregatirea_mediului_de_lucru">Pregatirea mediului de lucru</a></li>
+													<li id="n-Ghid-SQLPlus"><a href="/~bd/wiki/index.php/Ghid_SQLPlus">Ghid SQLPlus</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Baze_de_date' aria-labelledby='p-Baze_de_date-label'>
+			<h3 id='p-Baze_de_date-label'>Baze de date</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Materiale-curs"><a href="http://profs.info.uaic.ro/~pmihaela/BD/curs" rel="nofollow">Materiale curs</a></li>
+													<li id="n-Laborator-1"><a href="/~bd/wiki/index.php/Laborator_1">Laborator 1</a></li>
+													<li id="n-Laborator-2"><a href="/~bd/wiki/index.php/Laboratorul_2">Laborator 2</a></li>
+													<li id="n-Laborator-3"><a href="/~bd/wiki/index.php/Laboratorul_3">Laborator 3</a></li>
+													<li id="n-Laborator-4"><a href="/~bd/wiki/index.php/Laboratorul_4">Laborator 4</a></li>
+													<li id="n-Laborator-5"><a href="/~bd/wiki/index.php/Laboratorul_5">Laborator 5</a></li>
+													<li id="n-Laborator-6"><a href="/~bd/wiki/index.php/Laboratorul_6">Laborator 6</a></li>
+													<li id="n-Laborator-7"><a href="/~bd/wiki/index.php/Laboratorul_7">Laborator 7</a></li>
+													<li id="n-Laborator-8"><a href="/~bd/wiki/index.php/Laboratorul_8">Laborator 8</a></li>
+													<li id="n-Laborator-9"><a href="/~bd/wiki/index.php/Laboratorul_9">Laborator 9</a></li>
+													<li id="n-Laborator-10"><a href="/~bd/wiki/index.php/Laboratorul_10">Laborator 10</a></li>
+													<li id="n-Laborator-11"><a href="/~bd/wiki/index.php/Laboratorul_11">Laborator 11</a></li>
+													<li id="n-Laborator-12"><a href="/~bd/wiki/index.php/Laboratorul_12">Laborator 12</a></li>
+													<li id="n-Laborator-13"><a href="/~bd/wiki/index.php/Laboratorul_13">Laborator 13</a></li>
+													<li id="n-Laborator-14"><a href="/~bd/wiki/index.php/Laboratorul_14">Laborator 14</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Practica_SGBD' aria-labelledby='p-Practica_SGBD-label'>
+			<h3 id='p-Practica_SGBD-label'>Practica SGBD</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Developer.2FViews"><a href="/~bd/wiki/index.php/PLSQL_0">Developer/Views</a></li>
+													<li id="n-PLSQL-1"><a href="/~bd/wiki/index.php/PLSQL_1">PLSQL 1</a></li>
+													<li id="n-PLSQL-2"><a href="/~bd/wiki/index.php/PLSQL_2">PLSQL 2</a></li>
+													<li id="n-PLSQL-3"><a href="/~bd/wiki/index.php/PLSQL_3">PLSQL 3</a></li>
+													<li id="n-PLSQL-4"><a href="/~bd/wiki/index.php/PLSQL_4">PLSQL 4</a></li>
+													<li id="n-PLSQL-5"><a href="/~bd/wiki/index.php/PLSQL_5">PLSQL 5</a></li>
+													<li id="n-PLSQL-6"><a href="/~bd/wiki/index.php/PLSQL_6">PLSQL 6</a></li>
+													<li id="n-PLSQL-7"><a href="/~bd/wiki/index.php/PLSQL_7">PLSQL 7</a></li>
+													<li id="n-PLSQL-8"><a href="/~bd/wiki/index.php/PLSQL_8">PLSQL 8</a></li>
+													<li id="n-PLSQL-9"><a href="/~bd/wiki/index.php/PLSQL_9">PLSQL 9</a></li>
+													<li id="n-PLSQL-10"><a href="/~bd/wiki/index.php/PLSQL_10">PLSQL 10</a></li>
+													<li id="n-PLSQL-11"><a href="/~bd/wiki/index.php/PLSQL_11">PLSQL 11</a></li>
+													<li id="n-PLSQL-12"><a href="/~bd/wiki/index.php/PLSQL_12">PLSQL 12</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Unelte</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/~bd/wiki/index.php/Special:Ce_se_leag%C4%83_aici/PLSQL_9" title="Lista tuturor paginilor wiki care conduc spre această pagină [j]" accesskey="j">Ce trimite aici</a></li>
+													<li id="t-recentchangeslinked"><a href="/~bd/wiki/index.php/Special:Modific%C4%83ri_corelate/PLSQL_9" title="Schimbări recente în legătură cu această pagină [k]" accesskey="k">Modificări corelate</a></li>
+													<li id="t-specialpages"><a href="/~bd/wiki/index.php/Special:Pagini_speciale" title="Lista tuturor paginilor speciale [q]" accesskey="q">Pagini speciale</a></li>
+													<li id="t-print"><a href="/~bd/wiki/index.php?title=PLSQL_9&amp;printable=yes" rel="alternate" title="Versiunea de tipărit a acestei pagini [p]" accesskey="p">Versiune de tipărit</a></li>
+													<li id="t-permalink"><a href="/~bd/wiki/index.php?title=PLSQL_9&amp;oldid=613" title="Legătura permanentă către această versiune a paginii">Legătură permanentă</a></li>
+													<li id="t-info"><a href="/~bd/wiki/index.php?title=PLSQL_9&amp;action=info">Informații despre pagină</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Ultima modificare efectuată la 10:09, 16 mai 2018.</li>
+											<li id="footer-info-viewcount">Pagina a fost vizitată de 15.988 de ori.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/~bd/wiki/index.php/BD:Politica_de_confiden%C8%9Bialitate" title="BD:Politica de confidențialitate">Politica de confidențialitate</a></li>
+											<li id="footer-places-about"><a href="/~bd/wiki/index.php/BD:Despre" title="BD:Despre">Despre BD</a></li>
+											<li id="footer-places-disclaimer"><a href="/~bd/wiki/index.php/BD:Termeni" title="BD:Termeni">Termeni</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/~bd/wiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":227});
+}</script>
+	</body>
+</html>
+	
