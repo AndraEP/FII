@@ -1,0 +1,5 @@
+toate de la algoritmul de recomandari (mainly bazate pe alții si bazate pe istoric) 
+triggere cu functia de callback
+hashuri
+
+5 + 8 = 13p

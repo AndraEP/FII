@@ -1,0 +1,2 @@
+In studenti inseram o coloana noua, nested table. o lista de id-uri, id-urile cursurilor la care studentul a luat nota 9 sau 10.
+O functie care sa returneze pentru un id de student, cate note de 9 sau 10 are, preluat din tabela studenti.

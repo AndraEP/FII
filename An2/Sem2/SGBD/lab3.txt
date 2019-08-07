@@ -1,0 +1,3 @@
+Inserare student dupa (nume, prenume).
+Stergere student dupa numar matricol.
+Afisare medie dupa ID student.

@@ -1,0 +1,1 @@
+Pentru un id dat la tastatura, sa se afiseze toti prietenii si notele pe care le-au luat la aceleasi materii ca si el, modificand nota sa cu nota maxima a prietenilor.

@@ -1,0 +1,1 @@
+Pentru doua id-uri date la tastatura, sa se afiseze pentru fiecare dintre ei media si cel care are media mai mare.
