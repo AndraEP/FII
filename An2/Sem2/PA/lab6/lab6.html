@@ -1,0 +1,126 @@
+<html>
+<head> <title> Lab 6</title> </head>
+<body>
+
+<a name="lab6"></a>
+
+
+<h1> Lab 6</h1>
+<b>[valid 2018-2019]</b>
+
+<p>
+<b>Drawing</b> <br/>
+Create an application for creating images containing visual representations of graphs.
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li>Create a simple graphical user interface (using Swing) containing:
+  <ul>
+  <li> A <i>canvas</i> for drawing <i>nodes</i>. The nodes will be represented as color-filled circles.
+  This panel must be placed in the <i>center</i> part of the frame.
+  <li> A <i>drawing panel</i> for introducing parameters regarding the shapes that will be drawn: the size of the nodes, the stroke, etc.
+  The panel must be placed at the <i>top</i> part of the frame.  
+  <!-- It will also contain the <i>Draw</i> button. -->
+  <li> A <i>control panel</i> for managing the image being created.
+  This panel will contains the buttons: <i>Load</i>, <i>Save</i>, <i>Reset</i> and it will be placed at the <i>bottom (south)</i> part of the frame.
+  </ul>
+
+<li> The application will contain (at least) the following classes: 
+	<ul>
+	  <li> <i>DrawingFrame</i>: the main frame of the application (<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html">JFrame</a>)
+	  <li> <i>Canvas</i>: the component representing our drawing (<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/panel.html">JPanel</a>)
+	  <li> <i>Toolbar</i>: the panel for specifying parameters regarding the shapes that will be drawn.
+	  <li> <i>ControlPanel</i>: the load, save and reset buttons (JPanel).
+	</ul>
+
+<!-- <li> When the user presses the button <i>Draw</i> the shapes should be drawn at random locations, having random sizes and random colors. Consider using transparent colors. -->
+
+<li>The <i>Canvas</i> class will contain a method responsible with drawing a shape at a given location:
+<pre>
+    public void drawNode(int x, int y) {
+        Random rand = new Random();		
+        graphics.setColor(new Color(rand.nextInt(0xFFFFFF))); //you may use a random color or the one specified in the toolbar
+		...
+        graphics.fill(new NodeShape(x, y, radius));
+    }
+</pre>
+
+<li> When the user <i>clicks</i> on the canvas, a single shape should be drawn at the coordinates given by the <i>MouseEvent</i>.
+<pre>
+    this.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {                
+            drawNode(e.getX(), e.getY());                
+        }
+    });
+</pre>	
+<li> Use a <a href="https://docs.oracle.com/javase/tutorial/2d/images/">BufferedImage</a> object in order to represent the content of the drawing.
+<pre>
+    BufferedImage image = new BufferedImage(800, 600, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
+    graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); //for "smooth" drawing
+</pre>
+
+<li> Use the following class in order to define the shape of a node:
+<pre>
+public class NodeShape extends Ellipse2D.Double {
+    public NodeShape(double x0, double y0, double radius) {
+        super(x0 - radius / 2, y0 - radius / 2, radius, radius);
+    }
+}
+</pre>
+</ul>
+
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+<ul>
+
+<li> Add support for the drawing of the <i>edges</i> as simple lines between the nodes.
+<li> Define the class <i>Graph</i> and create an object of this type corresponding to the drawing being created.
+<li> Rewrite the <i>paintComponent</i> method to use the <i>Graph</i> object instead of the <i>BufferedImage</i> object as its model.
+<li> Add support for deleting nodes and edges.
+</ul>
+
+
+<hr>
+<p><b>Bonus</b>
+<br/>
+<ul>
+<li>Implement a layout algorithm for "pretty" drawing of a graph. The algorithm will take as input the graph you have defined in the interface and will redraw it in a "pretty" format.
+ <ul> 
+ <li> (0.25) complete graph
+ <li> (0.5) tree
+ <li> (1p) general case, using a <a href="https://arxiv.org/abs/1201.3011"> force directed graph drawing algorithm</a> or 
+ <a href="http://cs.brown.edu/people/rtamassi/papers/gd-tutorial/gd-constraints.pdf">other approaches</a>. You may also take a look at <a href="http://graphdrawing.org/index.html">graphdrawing.org</a>.
+ </ul>
+</ul>
+
+
+<p>
+<b>Resources</b>
+<ul>
+<li> <a href="http://docs.oracle.com/javase/tutorial/2d/"> The Java Tutorials: 2D Graphics</a>
+<li> <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Download Java Demos </a> and check <i>Java2D</i> application.
+<li> <a href="http://docs.oracle.com/javase/8/javase-clienttechnologies.htm">Java SE Client Technologies - JavaFX</a>
+<li> <a href="http://www.oracle.com/technetwork/java/javase/overview/javafx-samples-2158687.html">Download JavaFX Demos </a> and check <i>Ensemble</i> application.
+<li> <a href="http://www.oracle.com/technetwork/java/javafxscenebuilder-1x-archive-2199384.html">Download JavaFX Scene Builder 2.0 </a>
+<li> <a href="https://docs.oracle.com/javase/8/scene-builder-2/work-with-java-ides/sb-with-nb.htm">Using Scene Builder with NetBeans IDE</a>
+</ul>
+
+<p> 
+<b>Objectives</b>
+<ul>
+<li> Understand how Swing components are <i>painted</i>.
+<li> Create custom components using Java2D that coexist with standard Swing components.
+<li> Understand the concept of <i>graphic context</i>.
+<li> Get familiar with Java2D basic <i>geometric</i> primitives, use <i>colours</i>, <i>fonts</i>, <i>images</i>
+<li> Get acquainted with JavaFX technology and understand the differences between Swing and JavaFX.
+</ul>
+
+
+</body>
+</html>

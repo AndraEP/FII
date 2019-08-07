@@ -1,0 +1,162 @@
+<html>
+<head> <title> Lab 7</title> </head>
+<body>
+
+<a name="lab7"></a>
+
+
+<h1> Lab 7</h1>
+<b>[valid 2018-2019]</b>
+
+<p>
+<b>Concurrency</b> <br>
+Write a program that simulates a <a href="https://en.wikipedia.org/wiki/Positional_game">positional game</a>, such as the <i>connectivity game</i>, between a given number of players.
+
+<p>
+At the beginning of the game the <i>board</i> contains all the edges of a complete graph with <i>n</i> vertices (all the pairs formed with distinct numbers from 1 to <i>n</i>). <br/>
+Each player extracts edges successively from the board and must create with them a <i>spanning tree</i> of the initial complete graph.
+<br/>
+The game ends when either a player makes a spanning tree (in this case the winner receives <i>n</i> points and the others 0) or 
+when all edges have been removed from the graph (in this case each player receives a number of points equal to the number of vertices of their largest partial tree).
+<br/>
+The players might take turns (or not...) and a time limit might be imposed (or not...).
+
+<p>
+The main specifications of the application are:
+<hr>
+<p><b>Compulsory</b> (1p)
+
+<ul>
+<li> Create the class <i>Edge</i>. An instance of this class will hold a pair of distinct numbers from 1 to <i>n</i>.
+<li> Create the class <i>Graph</i>. A graph will contain a list of edges. 
+<li> Create the class <i>Board</i>. An instance of this class will contain at the beginning the complete graph <i>K<sub>n</sub></i>. 
+<pre>
+public class Board {
+    private final Graph complete;
+    public Board() { 
+        // create the complete graph 
+        // shuffle its edges
+    }
+    public ........... Edge extract() {
+        // replace the dots so that the board is thread-safe
+        Edge edge = complete.pollFirst();
+        return edge;
+    }
+    public boolean isEmpty() { ... }
+}
+</pre>
+
+
+<li> Create the class <i>Player</i>. Each player will have a name and their own instance of a graph object.	
+This class will implement the <i>Runnable</i> interface. In the <i>run</i> method the player will repeatedly extract one edge from the board.
+<pre>
+public class Player implements Runnable {
+    ....
+    private String name;
+    private Game game;
+    private Graph graph;	
+    ...
+    private boolean play() throws InterruptedException {
+        Board board = game.getBoard();
+        if (board.isEmpty()) { return false; }
+        graph.add( board.extract() );
+        Thread.sleep(THINKING_TIME); //declare this constant
+        if (graph.isSpanningTree()) {
+	        game.setWinner(this);
+        }
+        ...
+        return true;
+	}
+    // implement the run() method, that will repeatedly extract edges
+    // implement the toString() method
+}
+</pre>
+
+<li> Create the <i>Game</i> class. <b>Simulate the game using a thread for each player</b>. <br/>
+Pay attention to the <i>synchronization</i> of the threads when extracting edges from the board.
+
+<pre>
+public class Game {
+    private Board board;
+    private final List&lt;Player&gt; players = new ArrayList&lt;&gt;();
+    public void addPlayer(Player player) {
+        players.add(player);
+        player.setGame(this);
+    }
+    //Create getters and setters
+    //Create the method that will start the game: start one thread for each player
+}
+</pre>
+
+<li>Test the game using a sequence similar with:
+<pre>
+    public static void main(String args[]) {
+        Game game = new Game();
+        game.setBoard(new Board(10));
+        game.addPlayer(new Player("Player 1"));
+        game.addPlayer(new Player("Player 2"));
+        game.addPlayer(new Player("Player 3"));
+        game.start();
+    }
+</pre>
+</ul>
+
+<hr>
+<p><b>Optional</b> (1p)
+<br/>
+<ul>
+<li> Make sure that players wait their turns, using a <i>wait-notify</i> approach.
+
+<li> Implement a <i>timekeeper</i> thread that runs concurrently with the player threads, as a <i>daemon</i>.
+This thread will display the running time of the game and it will stop the game if it exceeds a certain time limit. Try it using larger values for <i>n</i>.
+
+<li> Consider the situation when each player might have a different strategy for extracting a word: automated (random or <b>smart</b>) or manual. <br/>
+<i>Player</i> should be an abstract class having as subclasses: <i>RandomPlayer</i>, <i>SmartPlayer</i>, <i>ManualPlayer</i>. <br/>
+A "smart" player should try to extend its maximal tree while not allowing others to create a spanning tree. A manual player will use the keyboard.
+Implement all three strategies.
+<!-- You may also implement the <a href="https://en.wikipedia.org/wiki/Maker-Breaker_game">Maker-Breaker</a> strategies, for an additional bonus. -->
+</ul>
+
+
+<hr>
+<p><b>Bonus</b>
+<br/>
+
+<ul>
+<li> Consider the situation when other types of positional games should be allowed. <i>Game</i> should be an abstract class.
+Implement also the <a href="https://en.wikipedia.org/wiki/Clique_game">clique game</a>.
+<pre>
+    public static void main(String args[]) {
+        //Game game = new ConnectivityGame();
+        Game game = new CliqueGame();
+        ...
+        game.start();
+    }
+</pre>	
+<b>OR</b>
+<li> Create a simple graphical user interface for the game, using Java FX. <br/>	
+</ul>
+
+<p>
+<b>References</b>
+<ul>
+<li> <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/"> The Java Tutorials: Concurrency</a>
+<li> <a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html"> Java Language Specification: Threads and Locks</a>
+<li> <a href="http://tutorials.jenkov.com/java-concurrency/index.html"> Java Concurrency / Multithreading Tutorial</a>
+</ul>
+
+
+<p> 
+<b>Objectives</b>
+<ul>
+<li> Understand the basic principles of <i>concurrent programming</i>.
+<li> Create and run threads using the <i>Thread</i> class and the <i>Runnable</i> interface.
+<li> Understand <i>resource contention</i> and <i>thread interference</i>.
+<li> Create <i>synchronized</i> methods or statements.
+<li> Implement the <i>wait-notify</i> mechanism.
+<li> Understand the <i>thread pool</i> and <i>fork/join</i> concepts.
+</ul>
+
+
+</body>
+</html>
