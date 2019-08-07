@@ -1,0 +1,43 @@
+Scopul proiectului este realizarea unei aplicatii care sa furnizeze utilizatorului informatii privind structurarea
+orelor din activitatea didactica, precum: intervale orare, sali disponibile, sali ocupate, orarul materiilor,
+orarul profesorilor, orarul studentilor. Aplicatia va permite personalului administrativ sa modifice structura orarului
+din baza de date a aplicatiei.
+
+Studentul doreste consultarea orarului.
+Profesorul doreste adaugarea orelor de consultatii.
+Administratorul doreste generarea orarului.
+Aplicatia ofera functionalitatile de consultare, adaugare si generare userilor corespunzatori.
+Baza de date stocheaza informatiile utilizate de orar.
+
+1. Student:
+    1.1. Studentul vrea sa consulte orarul.
+    1.2. Studentul va accesa interfata aplicatiei.
+    1.3. Studentul trimite o cerere catre aplicatie.
+        1.3.1. Aplicatia trimite catre browser datele cerute.
+        1.3.2. Aplicatia intoarce un mesaj de eroare daca nu poate consulta baza de date.
+    1.4. Studentului ii sunt oferite datele de catre aplicatie.
+
+2. Profesor:
+    2.1. Profesorul vrea sa completeze orele de consultatii.
+    2.2. Profesorul va accesa interfata de login a aplicatiei.
+    2.3. Profesorul va completa datele de autentificare (user si parola).
+        2.3.1. Aplicatia nu gaseste in baza de date credentialele profesorului.
+	2.3.2. Aplicatia ofera drepturi de modificare profesorului.
+	2.3.3. Profesorul selecteaza un interval orar din cele disponibile.
+	2.3.4. Profesorul trimite cererea de modificare catre aplicatie.
+	    2.3.4.1. Aplicatia intoarce un mesaj de confirmare.
+	2.3.5. Profesorul primeste mesajul de confirmare.
+
+3. Administrator:
+    3.1. Administratorul vrea sa genereze orarul.
+    3.2. Administratorul va accesa interfata de login a aplicatiei.
+    3.3. Administratorul va completa datele de autentificare (user si parola).
+        3.3.1. Aplicatia nu gaseste in baza de date credentialele administratorului.
+	3.3.2. Aplicatia ofera drepturi de generare administratorului.
+        3.3.3. Administratorul trimite o cerere de generare a orarului.
+	3.3.4. Administratorul primeste o varianta viabila a orarului.
+	3.3.5. Administratorul accepta varianta, publicand modificarile.
+
+4. Aplicatie orar: furnizeaza datele orarului catre utilizatori.
+
+5. Baza de date: furnizeaza aplicatiei gestionarea datelor.

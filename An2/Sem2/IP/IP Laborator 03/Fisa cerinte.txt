@@ -1,0 +1,47 @@
+Scopul proiectului este realizarea unei aplicatii care sa furnizeze utilizatorului informatii privind studentii 
+unei facultati precum: note, ore, numar matricol, date despre grupa studentului. Aplicatia va permite personalului
+administrativ sa modifice datele din baza de date prin intermediul aplicatiei.
+
+Studentul doreste consultarea datelor sale.
+Administratorul doreste modificarea datelor.
+Aplicatia ofera functionalitatile de consultare, adaugare si generare a userilor corespunzatori.
+Baza de date stocheaza informatiile utilizate de orar.
+
+1. Student:
+	1.1 Studentul vrea sa acceseze platforma
+	1.2 Studentul acceseaza interfata aplicatiei
+	1.3 Studentul se autentifica pe aplicatie
+		1.3.1 Autentificarea esueaza
+		1.3.2 Studentul primeste un mesaj de eroare
+	1.4 Studentul se logheaza si are acces la facilitatile aplicatiei
+	1.5 Studentul vrea sa consulte orarul
+		1.5.1 Studentul trimite o cerere de consultare a orarului
+		1.5.2 Aplicatia consulta baza de date si trimite inapoi informatiile cerute
+		1.5.3 Studentul acceseaza informatii detaliate despre disciplinele la care este inscris
+		1.5.4 Studentul vrea sa consulte informatii despre salile in care se desfasoara cursurile si laboratoarele.
+	1.6 Studentul vrea sa acceseze datele legate de profilul sau (note, numar matricol, grupa sa)
+	1.7 Studentul doreste accesarea spatiul dedicat grupei lui
+		1.7.1 Studentul trimite o cerere catre aplicatie cu date de validare a apartenentei la grupa
+			1.7.1.1 Cererea este invalidata
+		1.7.2 Aplicatia valideaza datele
+		1.7.3 Studentul acceseaza datele din spatiul dedicat grupei lui
+		1.7.4 Studentul se connecteaza la chat-ul dedicat grupei lui
+
+2. Administrator:
+	2.1 Administratorul doreste sa altereze informatiile prezente in aplicatie
+	2.2 Administratorul trimite o cerere de autentificare pe aplicatie
+		2.2.1 Autentificarea esueaza
+		2.2.2 Administratorul primeste un mesaj de eroare
+	2.3 Aplicatia ofera administratorului drepturi de alterare a datelor prezente in baza de date
+
+3. Aplicatie:
+	3.1 Valideaza procedura de logare
+		3.1.1 In caz de eroare ofera utilizatorului un mesaj de eroare corespunzator
+	3.2 Preia cerintele utilizatorului
+	3.3 Consulta baza de date
+	3.4 Ofera un raspuns pentru cerinta utilizatorului
+
+4. Baza de date:
+	4.1 Furnizeaza aplicatiei datele
+	4.2 Gestioneaza modificarile produse de catre aplicatie
+	

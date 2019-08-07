@@ -1,0 +1,172 @@
+ABSTRACT
+
+
+An abstract method is a method that is declared without an implementation 
+(without braces, and followed by a semicolon), like this:
+            abstract void moveTo(double deltaX, double deltaY);
+An abstract class is a class that is declared abstract—it may or may not 
+include abstract methods. Abstract classes cannot be instantiated, but they can be subclassed.
+If a class includes abstract methods, then the class itself must be declared abstract, as in:
+  public abstract class GraphicObject {
+      // declare fields
+      // declare nonabstract methods
+      abstract void draw();
+   }
+   
+However, with abstract classes, you can declare fields that are not static and final, and define
+public, protected, and private concrete methods. With interfaces, all fields are automatically 
+public, static, and final, and all methods that you declare or define (as default methods) are
+public. In addition, you can extend only one class, whether or not it is abstract, whereas you 
+can implement any number of interfaces.
+
+abstract class GraphicObject {
+    int x, y;
+    ...
+    void moveTo(int newX, int newY) {
+        ...
+    }
+    abstract void draw();
+    abstract void resize();
+}
+Each nonabstract subclass of GraphicObject, such as Circle and Rectangle, must provide
+implementations for the draw and resize methods:
+class Circle extends GraphicObject {
+    void draw() {
+        ...
+    }
+    void resize() {
+        ...
+    }
+}
+class Rectangle extends GraphicObject {
+    void draw() {
+        ...
+    }
+    void resize() {
+        ...
+    }
+}
+
+It is possible, however, to define a class that does not implement all of the interface's
+methods, provided that the class is declared to be abstract. For example,
+abstract class X implements Y {
+  // implements all but one method of Y
+}
+class XX extends X {
+  // implements the remaining method in Y
+}
+In this case, class X must be abstract because it does not fully implement Y, but class XX 
+does, in fact, implement Y.
+
+https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+
+
+
+INTERFACES
+
+
+In the Java programming language, an interface is a reference type, similar to a class, that
+can contain only constants, method signatures, default methods, static methods, and nested 
+types. Method bodies exist only for default methods and static methods. Interfaces cannot be 
+instantiated—they can only be implemented by classes or extended by other interfaces. 
+Defining an interface is similar to creating a new class, the method signatures have no
+braces and are terminated with a semicolon:
+public interface OperateCar {
+   // constant declarations, if any
+   // method signatures
+   // An enum with values RIGHT, LEFT
+   int turn(Direction direction,
+            double radius,
+            double startSpeed,
+            double endSpeed);
+   int changeLanes(Direction direction,
+                   double startSpeed,
+                   double endSpeed);
+   int signalTurn(Direction direction,
+                  boolean signalOn);
+   int getRadarFront(double distanceToCar,
+                     double speedOfCar);
+   int getRadarRear(double distanceToCar,
+                    double speedOfCar);
+         ......
+   // more method signatures
+}
+
+To use an interface, you write a class that implements the interface. When an instantiable
+class implements an interface, it provides a method body for each of the methods declared
+in the interface. For example,
+public class OperateBMW760i implements OperateCar {
+    // the OperateCar method signatures, with implementation --
+    // for example:
+    int signalTurn(Direction direction, boolean signalOn) {
+       // code to turn BMW's LEFT turn indicator lights on
+       // code to turn BMW's LEFT turn indicator lights off
+       // code to turn BMW's RIGHT turn indicator lights on
+       // code to turn BMW's RIGHT turn indicator lights off
+    }
+    // other members, as needed -- for example, helper classes not 
+    // visible to clients of the interface
+}
+
+
+
+INHERITANCE (MOSTENIRE)
+
+
+In the Java language, classes can be derived from other classes, thereby inheriting fields 
+and methods from those classes. A class that is derived from another class is called a 
+subclass (also a derived class, extended class, or child class). The class from which the 
+subclass is derived is called a superclass (also a base class or a parent class).
+Excepting Object, which has no superclass, every class has one and only one direct superclass 
+(single inheritance). In the absence of any other explicit superclass, every class is implicitly
+a subclass of Object.
+
+Here is the sample code for a possible implementation of a Bicycle class that was presented 
+in the Classes and Objects lesson:
+public class Bicycle {
+    // the Bicycle class has three fields
+    public int cadence;
+    public int gear;
+    public int speed;
+    // the Bicycle class has one constructor
+    public Bicycle(int startCadence, int startSpeed, int startGear) {
+        gear = startGear;
+        cadence = startCadence;
+        speed = startSpeed;
+    }
+    // the Bicycle class has four methods
+    public void setCadence(int newValue) {
+        cadence = newValue;
+    }
+    public void setGear(int newValue) {
+        gear = newValue;
+    }
+    public void applyBrake(int decrement) {
+        speed -= decrement;
+    }
+    public void speedUp(int increment) {
+        speed += increment;
+    } 
+}
+A class declaration for a MountainBike class that is a subclass of Bicycle might look like this:
+public class MountainBike extends Bicycle {
+    // the MountainBike subclass adds one field
+    public int seatHeight;
+    // the MountainBike subclass has one constructor
+    public MountainBike(int startHeight,
+                        int startCadence,
+                        int startSpeed,
+                        int startGear) {
+        super(startCadence, startSpeed, startGear);
+        seatHeight = startHeight;
+    }   
+    // the MountainBike subclass adds one method
+    public void setHeight(int newValue) {
+        seatHeight = newValue;
+    }   
+}
+
+MountainBike inherits all the fields and methods of Bicycle and adds the field seatHeight
+and a method to set it. Except for the constructor, it is as if you had written a new MountainBike 
+class entirely from scratch, with four fields and five methods. However, you didn't have to do 
+all the work.
