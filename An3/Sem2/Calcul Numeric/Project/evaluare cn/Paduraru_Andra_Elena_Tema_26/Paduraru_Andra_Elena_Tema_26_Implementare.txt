@@ -1,0 +1,144 @@
+Cod - implementare
+
+//Funcția de pornire:
+int main()
+{
+	Sturm sturm;
+	sturm.set_parameters();
+	sturm.show_sturm_sequence(sturm.get_sturm_sequence());
+	sturm.show_roots(sturm.get_real_roots());
+}
+
+//Clasa Sturm + funcții:
+constexpr int max_order = 12;
+
+class Sturm 
+{
+	// reprezentarea unui polinom
+	typedef struct Polynomial 
+	{
+	       public:
+		int ord;
+		double coef[max_order];
+	} Poly;
+
+	Poly sturm_seq[max_order]; //definire secvența de polinom cu ordin maxim = max_order
+	int order, num_poly, nroots, nchanges, atmin, atmax;
+	double min = -1.0, max = 1.0, roots[max_order];
+    
+	int build_sturm(); //creare secventa
+	int modp(); //calcul rest
+	int num_roots(); obtinere numar de radacini distincte
+	int num_changes(); //obtinere numar de schimbari de semn
+	double eval_poly(int, double *, double); //obtinere valoare polinom
+	
+      public:
+	void set_parameters(); //setare parametri, coefiscienti și ordin
+	std::vector<std::vector<double>> get_sturm_sequence(); //obtinere secvența strum
+	void show_sturm_sequence(const std::vector<std::vector<double>> &); //vizualizare secventa
+	std::vector<double> get_real_roots(); //obtinere radacini reale
+	void show_roots(const std::vector<double> &); //vizualizare radacini
+};
+
+
+void Sturm::set_parameters()
+{
+	//ordinul polinomului
+	cin >> order; 
+
+	for (auto i = order; i >= 0; --i) 
+		//citire coeficienți pentru primul polinom de start
+		cin >> sturm_seq[0].coef[i];
+}
+
+
+//afișare secventa
+void Sturm::show_sturm_sequence(const std::vector<std::vector<double>> &seq)
+{
+	auto first = true;
+
+	//pentru fiecare polinom din secvența se afișează coeficienții
+	for (const auto &poly : seq) 
+	{
+		for(const auto &coef : poly)
+			cout << coef << ' ';
+		if (first) 
+			first = false;
+	}
+}
+
+
+//afișare rădăcini
+void Sturm::show_roots(const std::vector<double> &roots)
+{
+	if (roots.size() == 1) 
+		cout << "\n1 distinct real root at x ";
+	else {
+		cout << "\n" << roots.size() << " distinct real roots for x: ";
+		for (const auto& root : roots) 
+			cout << root << ' ';
+	}
+}
+
+
+//creare secventa
+std::vector<std::vector<double>> Sturm::get_sturm_sequence()
+{
+	std::vector<std::vector<double>> seq;
+	std::vector<double> coefs;
+    
+	//creare secvența sturm pentru polinom și inițializarea cu numărul de polinoame din secvență
+	num_poly = build_sturm();
+
+	//creare vector coeficienți
+	for (auto i = order; i >= 0; --i)
+		coefs.push_back(sturm_seq[0].coef[i]);
+
+	//creare secvență
+	seq.push_back(coefs);
+	for (auto i = 0; i <= num_poly; ++i) 
+	{
+		coefs.clear();
+		for (auto j = sturm_seq[i].ord; j >= 0; --j)
+			coefs.push_back(sturm_seq[i].coef[j]);
+		seq.push_back(coefs);
+    	}
+	return seq;
+}
+
+//obținere număr rădăcini reale
+std::vector<double> Sturm::get_real_roots()
+{
+	nroots = num_roots();
+	if (nroots == 0) 
+		cout << "solve: no real roots\n";
+	
+    
+	// calcul interval a, b pentru rădăcini
+	// împărțirea intervalului a, b
+	//calcul vector radacini
+}
+
+//creare secvența sturm pentru polinom și returnare numărul de polinoame din secventa
+int Sturm::build_sturm()
+{
+ 	//calcul derivata și normalizare coeficienți
+	//calcul rest euclidian
+	//calcul semn
+}
+//obtinere numar de radaciini reale distincte
+int Sturm::num_roots() {}
+
+//obtinere numărul de schimbari a semnului
+int Sturm::num_changes() {}
+
+//calcul polinom
+double Sturm::eval_poly(int ord, double *coef, double x)
+{
+	double *fp, f;
+	fp = &coef[ord];
+	f = *fp;
+	for (fp--; fp >= coef; fp--)
+		f = x * f + *fp;
+	return f;
+}

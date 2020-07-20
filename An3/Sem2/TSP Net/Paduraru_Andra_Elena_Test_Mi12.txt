@@ -1,0 +1,46 @@
+Paduraru Andra - Elena A4 Mi12
+
+R1: Controalele Windows Forms:
+CommonControls: pointer, button
+Containers: pointer, GroupBox
+Menu & Toolbars: MenuStrip, StatusStrip
+Data: pointer, chart
+Printing: pointer, PrintDocument
+Dialogs: ColorDialog, FontDialog
+
+R2: Control ListView -> Largelcon, Details, Smalllcon, List, Tile.
+
+R3: Checked, Unchecked, Indeterminate (echivalent cu null din baza de date).
+
+R4: Enable: indica daca campul este valabil pentru interactiune cu utilizatorul.
+    ReadOnly: specifica daca un user poate edita continutul controlului.
+
+R5: Connected: Connection, Transaction, Command, DataAdapter, DataReader, Parameter
+    Disconnected: DataTable, DataSet, DataColumn, DataView, DataRow, Constraint, DataRelation
+
+R6: DataReader: necesita o conexiune pentru a executa comenzile sql, citeste datele.
+    DataAdapter: utilizat pentru a executa comenzile sql, preia toate liniile si populeaza DataSet sau Datatable.
+
+R12: Cererile: sincrone (basicHttpBinding, netTcpBinding), asincrone (metode de tip Begin, End).
+
+R13: Valori: 
+Single: O instanta a clasei serviciului serveste toate cererile ce vin de la clienti. Acest mod
+implementeaza un singleton.
+PerCall: O instanta a clasei serviciului este creata pentru fiecare cerere
+PerSession: O instanta a clasei serviciului este creata pentru fiecare sesiune a clientului. 
+Cand folosim canale fara sesiune, toate serviciile se comporta ca PerCall chiar daca am specificat
+PerSession.
+
+R14: Suporta un standard pentru schimbul de metadata, este un contract la care se adauga un 
+endpoint care e expus si e folosit pentru ca serviciul sa isi publice metadata.
+
+R15: Suporta comunicarea bidirectionala. Scenariu: servicii web traditionale (ASMX) care trebuie inlocuite cu wcf.
+
+R17: Endpoint: adresa, binding, contracte, set de comportament.
+
+R18: a) Clientul este sters din baza de date.
+     b) Se modifica starea entitatii pentru client.
+
+R19: Contracte: pentru servicii, de date, pentru erori, pentru mesaj ([ServiceContract], [DataContract], [FaultContract], [MessageContract]).
+
+R20: Transporturi: HTTP, HTTPS, TCP, pipe-uri.

@@ -1,0 +1,44 @@
+Buna ziua!
+
+Ma numesc Paduraru Andra - Elena, grupa A4 cu tema 26 si v-am atasat arhiva finala cu
+referatul si implementarea mea precum si referatele primite de la colegi. Mai jos am precizat
+temele evaluate pentru Todireanu Valentin George(tema 26), Pascal Ioana Cristina(tema 26)
+si Stoica Dana Ioana(tema 23) si o scurta descriere despre ele, plus nota finala acordata. 
+Laboratorul il fac cu Victor Talif.
+
+Tema 26: 
+Todireanu Valentin George: analizand referatul mi-a placut faptul ca a enumerat si 
+explicat pe scurt cateva din metodele de gasire si izolare a radacinilor reale a 
+unui polinom si ca a explicat ulterior cum se obtine secventa Sturm (formula). Din 
+ce am observat a facut o descriere a tuturor metodelor din punctul de vedere al
+modului de rezolvare a problemei. Cu toate acestea nu am vazut exemple si mi s-a parut
+ foarte pe scurt descris totul. Mi-ar fi placut de asemena sa vad unde poate fi 
+folosita secventa in practica si de ce. La final a precizat faptul ca secventa este 
+folosita mai rar decat metoda lui Descartes, dar asta a fost singura precizare si nu 
+a explicat motivul. Analizand bibliografia, consider ca ar fi putut oferi
+mult mai multe detalii, informatiile sunt suficiente pentru acest lucru din punctul meu
+de vedere. In concluzie, este un plus descrierea diverselor metode si faptul ca a 
+explicat formula dar au existat minusuri ca si consistenta in detalii si 
+explicatii plus exemple. Nota: 6.5
+
+
+Pascal Ioana Cristina 3B6: Mi-a placut referatul deoarece are parte de teorie, explicatii
+si exemple. Este bine structurat si consider ca a atins fiecare punct important precum
+partea de explicare a algoritmului, a utilizarii, a explicarii definitiilor. Un punct 
+in plus a fost faptul ca a explicat unii termeni si unele notiuni, exista calcule. Mi-ar
+fi placut sa vad de ce este utila secventa Sturm in practica (la algoritmii de gasire 
+a radacinilor reale exista posibilitatea sa nu fie gasite toate radacinile reale, iar 
+majoritatea timpului de executie este pierdut pe calculul celor complexe). Nota: 9.5
+
+
+Tema 23:
+Stoica Dana Ioana 3A1: Primul lucru observat a fost ca a expus foarte clar problema si solutia
+A explicat de ce este mai buna varianta lui Steffensen de gasire a radacinilor si a comparat
+metoda lui Newton cu cea a acestuia. Exista teorie, demonstratii, explicatii 
+si formule matematice pentru a demonstra solutia. Am apreciat ca a prezentat
+dezavantajele si avantajele. Mi-ar fi placut sa vad un exemplu cu diverse valori
+pe un polinom si sa fie prezentat rezultatul. Nota: 9
+
+O zi frumoasa si multa sanatate!
+Cu respect, 
+Andra Paduraru.
